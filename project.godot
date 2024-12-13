@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Godot XR Tools Demo"
+config/name="Thank You VR"
 run/main_scene="res://demo_staging.tscn"
 config/features=PackedStringArray("4.3")
 config/icon="res://icon.png"
@@ -23,6 +23,10 @@ XRToolsRumbleManager="*res://addons/godot-xr-tools/rumble/rumble_manager.gd"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
+
+[filesystem]
+
+import/blender/enabled=false
 
 [gdnative]
 
