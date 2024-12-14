@@ -21,5 +21,6 @@ autowrap_mode = 2
 
 [node name="UserSettingsUI" parent="." instance=ExtResource("1")]
 layout_mode = 2
+current_tab = 0
 
 [connection signal="player_height_changed" from="UserSettingsUI" to="." method="_on_user_settings_ui_player_height_changed"]
