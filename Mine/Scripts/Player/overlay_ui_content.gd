@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends Control
 
 var refresh_time_timer = 0.0;
 
@@ -20,7 +20,9 @@ func RefreshTime(delta: float):
 		if hour >= 12:  #More than 12 PM
 			hour -= 12;
 		var is_pm = today.hour > 12;
-		var minuteStr = str("%10" % today.minute);
+		var minuteStr = str(today.minute);
+		if today.minute < 10:
+			minuteStr = "0" + minuteStr;
 		
 		if hour == 0:  #12 PM or 12 AM
 			if is_pm:
