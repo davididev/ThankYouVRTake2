@@ -108,8 +108,8 @@ offset_right = 598.0
 offset_bottom = 338.0
 theme = ExtResource("4_viqiq")
 bbcode_enabled = true
-text = "[font_size=28]Thanks for the CPU and solid state drive[/font_size]
-The idea of building a computer was my brother's idea to begin with, but he also bought the CPU, solid state drive, and one of the regular hard drives."
+text = "[font_size=28]Thanks for the many things[/font_size]
+The idea of building a computer was my brother's idea to begin with, but he also bought the Motherboard, solid state drive, and one of the regular hard drives, and 32 GB of the RAM."
 
 [node name="Panel 3" type="Control" parent="."]
 visible = false
@@ -137,8 +137,8 @@ offset_right = 598.0
 offset_bottom = 338.0
 theme = ExtResource("4_viqiq")
 bbcode_enabled = true
-text = "[font_size=28]Thanks for the power supply[/font_size]
-I paid for half of the power supply, but Mutti paid for half of the power supply."
+text = "[font_size=28]Thanks for the power supply and CPU[/font_size]
+Mutti paid for half of the power supply (it was a high quality one that was designed to be power efficient) and the CPU."
 
 [node name="Panel 4" type="Control" parent="."]
 visible = false
@@ -167,7 +167,7 @@ offset_bottom = 338.0
 theme = ExtResource("4_viqiq")
 bbcode_enabled = true
 text = "[font_size=28]Thanks for the RAM [/font_size]
-My sister covered the maximum number of RAM the CPU could tolerate (64 GB), which came in handy with the Magic Light Probes plugin.  That thing is a memory hog."
+My sister covered half the maximum number of RAM the CPU could tolerate (32 GB in addition to my brother’s 32 GB), which came in handy with the Magic Light Probes plugin.  That plugin is a memory hog."
 
 [node name="Panel 5" type="Control" parent="."]
 visible = false
