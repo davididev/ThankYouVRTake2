@@ -1,6 +1,7 @@
-[gd_scene load_steps=42 format=4 uid="uid://faihq7rfufmq"]
+[gd_scene load_steps=43 format=4 uid="uid://faihq7rfufmq"]
 
 [ext_resource type="Material" uid="uid://dp2nipwd54i7y" path="res://Mine/Models/Modular/Castle/M_Modular_Castle.tres" id="1_xxs0d"]
+[ext_resource type="Material" uid="uid://bt6f1yvatq0cf" path="res://Mine/Models/Modular/Castle/M_Modular_Red.tres" id="2_qr0id"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xf8of"]
 _surfaces = [{
@@ -504,4 +505,134 @@ shape = SubResource("ConvexPolygonShape3D_3qkem")
 shape = SubResource("ConvexPolygonShape3D_031cr")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Wall Bot 4/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_fhhqn")
+
+[node name="Wall Bottom 3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6903, 0, 2.15631)
+mesh = SubResource("ArrayMesh_72855")
+surface_material_override/0 = ExtResource("2_qr0id")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall Bottom 3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall Bottom 3/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_nvlob")
+
+[node name="Wall Corner Bot2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0032, 0, -1.6488)
+mesh = SubResource("ArrayMesh_ftwmc")
+surface_material_override/0 = ExtResource("2_qr0id")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall Corner Bot2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall Corner Bot2/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_ligd6")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Wall Corner Bot2/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_olebi")
+
+[node name="Wall Mid 5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2915, 0, 6.11723)
+mesh = SubResource("ArrayMesh_qbt8v")
+surface_material_override/0 = ExtResource("2_qr0id")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall Mid 5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall Mid 5/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_mtqcp")
+
+[node name="Wall Corner Mid2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2954, 0, 5.90948)
+mesh = SubResource("ArrayMesh_58e5g")
+surface_material_override/0 = ExtResource("2_qr0id")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall Corner Mid2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall Corner Mid2/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_hly84")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Wall Corner Mid2/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_y650t")
+
+[node name="Wall Bottom 4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3, 0, 2.8534)
+mesh = SubResource("ArrayMesh_ulghe")
+surface_material_override/0 = ExtResource("2_qr0id")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall Bottom 4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall Bottom 4/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_2musb")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Wall Bottom 4/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_mmjqg")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Wall Bottom 4/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_0xiwa")
+
+[node name="Wall Mid 6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9722, 0, -0.178868)
+mesh = SubResource("ArrayMesh_p0h3f")
+surface_material_override/0 = ExtResource("2_qr0id")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall Mid 6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall Mid 6/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_pcdf8")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Wall Mid 6/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_6olyp")
+
+[node name="Wall Bot 5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.3384, 0, -4.25946)
+mesh = SubResource("ArrayMesh_wq88n")
+surface_material_override/0 = ExtResource("2_qr0id")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall Bot 5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall Bot 5/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_1hm0e")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Wall Bot 5/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_aarwq")
+
+[node name="Wall Mid 7" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.461, 0, 1.25209)
+mesh = SubResource("ArrayMesh_rqbdt")
+surface_material_override/0 = ExtResource("2_qr0id")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall Mid 7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall Mid 7/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_q3g58")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Wall Mid 7/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_0im1b")
+
+[node name="Wall Mid 8" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3726, 0, -4.53633)
+mesh = SubResource("ArrayMesh_eavgk")
+surface_material_override/0 = ExtResource("2_qr0id")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall Mid 8"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall Mid 8/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_wu4ku")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Wall Mid 8/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_6oa3f")
+
+[node name="Wall Bot 6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -7.31128)
+mesh = SubResource("ArrayMesh_k02b6")
+surface_material_override/0 = ExtResource("2_qr0id")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall Bot 6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall Bot 6/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_3qkem")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Wall Bot 6/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_031cr")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Wall Bot 6/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_fhhqn")

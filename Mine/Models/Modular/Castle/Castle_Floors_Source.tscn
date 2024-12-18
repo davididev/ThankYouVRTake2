@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=4 uid="uid://bl2j7i1la7v1h"]
+[gd_scene load_steps=18 format=4 uid="uid://bl2j7i1la7v1h"]
 
 [ext_resource type="Material" uid="uid://dp2nipwd54i7y" path="res://Mine/Models/Modular/Castle/M_Modular_Castle.tres" id="1_dtio5"]
+[ext_resource type="Material" uid="uid://nufy1f4m6h6e" path="res://Mine/Models/Modular/Castle/M_Modular_Brown.tres" id="2_f430v"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_qx2bp"]
 _surfaces = [{
@@ -222,4 +223,54 @@ mesh = SubResource("ArrayMesh_jkxli")
 [node name="StaticBody3D" type="StaticBody3D" parent="CastleModularCube004"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CastleModularCube004/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_5l5wq")
+
+[node name="CastleModularCube2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.7051, 0, 5.57377)
+mesh = SubResource("ArrayMesh_yp124")
+surface_material_override/0 = ExtResource("2_f430v")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CastleModularCube2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CastleModularCube2/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_e0udn")
+
+[node name="CastleModularCube005" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8043, 0, 8.63703)
+mesh = SubResource("ArrayMesh_qturw")
+surface_material_override/0 = ExtResource("2_f430v")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CastleModularCube005"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CastleModularCube005/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_diwjh")
+
+[node name="CastleModularCube006" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3018, 0, 2.2925)
+mesh = SubResource("ArrayMesh_a0huq")
+surface_material_override/0 = ExtResource("2_f430v")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CastleModularCube006"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CastleModularCube006/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_fx3w5")
+
+[node name="CastleModularCube007" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0867, 0, 5.2965)
+mesh = SubResource("ArrayMesh_lebe4")
+surface_material_override/0 = ExtResource("2_f430v")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CastleModularCube007"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CastleModularCube007/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_53gne")
+
+[node name="CastleModularCube008" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.57843, 4.76837e-07, 10.1723)
+mesh = SubResource("ArrayMesh_jkxli")
+surface_material_override/0 = ExtResource("2_f430v")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CastleModularCube008"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CastleModularCube008/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_5l5wq")
