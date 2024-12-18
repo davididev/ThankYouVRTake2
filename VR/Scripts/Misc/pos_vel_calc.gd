@@ -26,9 +26,9 @@ func _process(delta: float) -> void:
 	LeftHandPos = get_node(LeftHandRef).global_position;
 	RightHandPos  = get_node(RightHandRef).global_position;
 	HeadPos = get_node(HeadRef).global_position;
-	LeftHandVel = (_last_left_hand_position - get_node(LeftHandRef).position) / delta;
-	RightHandVel = (_last_right_hand_position - get_node(RightHandRef).position) / delta;
-	HeadVel = (_last_head_position - get_node(HeadRef).position) / delta;
+	LeftHandVel = abs((_last_left_hand_position - get_node(LeftHandRef).position)) / delta;
+	RightHandVel = abs((_last_right_hand_position - get_node(RightHandRef).position)) / delta;
+	HeadVel = abs((_last_head_position - get_node(HeadRef).position)) / delta;
 	
 	
 	_last_left_hand_position = get_node(LeftHandRef).position;
