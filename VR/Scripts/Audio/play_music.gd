@@ -25,3 +25,5 @@ func _process(delta: float) -> void:
 	var aud = get_node("AudioStreamPlayer3D");
 	if aud.playing == false:  #It ended, repeat it
 		aud.play(); 
+	
+	global_position = PosVelCalc.HeadPos;
