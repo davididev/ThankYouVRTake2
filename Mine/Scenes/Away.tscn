@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://b5ux6xn13bytm"]
+[gd_scene load_steps=26 format=4 uid="uid://b5ux6xn13bytm"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_6l7pm"]
 [ext_resource type="PackedScene" uid="uid://ddyo2jv7628sa" path="res://VR/Prefabs/player_boilerplate.tscn" id="2_3dhx2"]
@@ -8,6 +8,8 @@
 [ext_resource type="Material" uid="uid://b4hg6sv283uoh" path="res://Mine/Models/Eric/M_ElevatorFloor.tres" id="6_2bgdg"]
 [ext_resource type="PackedScene" uid="uid://5kk1l8m6t64w" path="res://Mine/Prefabs/Light/FlourscentLight.tscn" id="7_ghh1m"]
 [ext_resource type="AudioStream" uid="uid://b3hss8hhahalc" path="res://Audio/Sound/Getoutofliftloop.mp3" id="7_m6t5q"]
+[ext_resource type="MeshLibrary" uid="uid://bcpja6lljhxye" path="res://Mine/Models/Modular/Castle/Castle Modular Floor Library.tres" id="9_s600y"]
+[ext_resource type="MeshLibrary" uid="uid://dkba8n3pu3enh" path="res://Mine/Models/Modular/Castle/Castle Modular Wall Library.tres" id="10_y1oxp"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_v0fim"]
 _surfaces = [{
@@ -216,7 +218,7 @@ script = ExtResource("1_6l7pm")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="ElevatorInner" parent="." instance=ExtResource("3_34jyd")]
-transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, -1, 0)
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, -1.6, 0)
 
 [node name="Cylinder" parent="ElevatorInner" index="0"]
 mesh = SubResource("ArrayMesh_rdobk")
@@ -276,5 +278,36 @@ environment_custom_energy = 1.0
 
 [node name="FlourscentLight" parent="." instance=ExtResource("7_ghh1m")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.129089, 7.33109, 0.0671179)
+
+[node name="GridMap_Floor" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+mesh_library = ExtResource("9_s600y")
+cell_size = Vector3(2, 1, 2)
+data = {
+"cells": PackedInt32Array(1, 65535, 5, 1, 65534, 5, 1, 0, 5, 2, 65535, 5, 2, 65534, 5, 3, 65534, 5, 3, 65535, 5, 4, 0, 5, 4, 65535, 7, 5, 65535, 5, 4, 65534, 5, 5, 0, 5, 5, 65534, 5, 3, 1, 5, 2, 2, 5, 3, 2, 5, 3, 3, 5, 2, 3, 5, 4, 2, 5, 4, 3, 8, 2, 4, 5, 3, 4, 5, 3, 5, 5, 2, 5, 5, 2, 6, 5, 3, 6, 5, 4, 6, 5, 5, 6, 5, 5, 5, 5, 4, 5, 5, 5, 4, 5, 5, 1, 9, 5, 2, 5, 5, 3, 5, 4, 4, 5, 2, 1, 5, 4, 1, 5, 1, 4, 1048578, 1, 3, 1048576, 0, 3, 1048576, 0, 4, 1048576, 0, 5, 1048576, 1, 5, 1048576, 1, 6, 1048576, 0, 6, 1048576, 65535, 3, 1048576, 65535, 4, 1048576, 65535, 5, 1048576, 65535, 6, 1048576, 2, 0, 5, 1, 1, 5, 3, 0, 5)
+}
+
+[node name="GridMap_Floor2" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+mesh_library = ExtResource("9_s600y")
+cell_size = Vector3(2, 1, 2)
+data = {
+"cells": PackedInt32Array(1, 65535, 5, 1, 65534, 5, 1, 0, 5, 2, 65535, 5, 2, 65534, 5, 3, 65534, 5, 3, 65535, 5, 4, 0, 5, 4, 65535, 7, 5, 65535, 5, 4, 65534, 5, 5, 0, 5, 5, 65534, 5, 3, 1, 5, 2, 2, 5, 3, 2, 5, 3, 3, 5, 2, 3, 5, 4, 2, 5, 4, 3, 8, 2, 4, 5, 3, 4, 5, 3, 5, 5, 2, 5, 5, 2, 6, 5, 3, 6, 5, 4, 6, 5, 5, 6, 5, 5, 5, 5, 4, 5, 5, 5, 4, 5, 5, 1, 5, 5, 2, 5, 5, 3, 5, 4, 4, 5, 2, 1, 5, 4, 1, 5, 1, 4, 1048578, 1, 3, 1048576, 0, 3, 1048576, 0, 4, 1048576, 0, 5, 1048576, 1, 5, 1048576, 1, 6, 1048576, 0, 6, 1048576, 65535, 3, 1048576, 65535, 4, 1048576, 65535, 5, 1048576, 65535, 6, 1048576, 2, 0, 6, 1, 1, 5, 3, 0, 5)
+}
+
+[node name="GridMap_Wall" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+mesh_library = ExtResource("10_y1oxp")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(4, 65534, 1441808, 4, 3, 5, 4, 4, 20, 6, 65532, 1441797, 9, 65532, 1441812, 10, 65532, 655376, 12, 65534, 655368, 12, 0, 655365, 4, 5, 655383, 4, 11, 5, 6, 13, 16, 9, 13, 1048581, 8, 13, 1048581, 10, 13, 1048581, 12, 11, 1048592, 12, 9, 655368, 12, 8, 655380, 12, 5, 655383, 12, 3, 655365, 12, 1, 655365, 131076, 65534, 1441810, 131082, 65532, 655378, 131084, 11, 1048594, 131078, 13, 18, 131076, 11, 17, 131076, 9, 21, 131076, 7, 17, 131076, 5, 17, 131076, 3, 21, 131076, 1, 17, 131076, 0, 17, 131078, 65532, 1441811, 131080, 65532, 1441809, 131084, 65534, 655381, 131084, 9, 655381, 131084, 2, 655379, 131084, 0, 655377, 131084, 4, 655377, 131084, 6, 655377, 131084, 8, 655377, 4, 6, 1048591, 65537, 7, 1441802, 0, 8, 655369, 65537, 11, 10, 2, 12, 1441801, 131074, 12, 13, 131072, 8, 1441805, 131074, 6, 1441798, 131072, 10, 6, 131076, 12, 1048582, 131080, 13, 1048593, 131082, 13, 1048593)
+}
+metadata/_editor_floor_ = Vector3(0, 2, 0)
+
+[node name="FlourscentLight2" parent="." instance=ExtResource("7_ghh1m")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 9.79141, 2.14742, 0.860727)
+
+[node name="FlourscentLight3" parent="." instance=ExtResource("7_ghh1m")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 9.79141, 2.14742, 6.86073)
 
 [editable path="ElevatorInner"]
