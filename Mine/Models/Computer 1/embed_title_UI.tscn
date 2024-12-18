@@ -79,7 +79,7 @@ offset_right = 598.0
 offset_bottom = 338.0
 theme = ExtResource("4_viqiq")
 bbcode_enabled = true
-text = "[font_size=28]Thanks for the new headstrap and comptuer case[/font_size]
+text = "[font_size=28]Thanks for the new head-strap and computer case[/font_size]
 Away went above and beyond getting me a fancy case (when I said a plain one was okay) and buying my a custom strap for my Quest 2 when I broke the old one.  "
 
 [node name="Panel 2" type="Control" parent="."]
@@ -109,7 +109,7 @@ offset_bottom = 338.0
 theme = ExtResource("4_viqiq")
 bbcode_enabled = true
 text = "[font_size=28]Thanks for the CPU and solid state drive[/font_size]
-The idea of building a comptuer was my brother's idea to begin with, but he also bought the CPU, solid state drive, and one of the regular hard drives."
+The idea of building a computer was my brother's idea to begin with, but he also bought the CPU, solid state drive, and one of the regular hard drives."
 
 [node name="Panel 3" type="Control" parent="."]
 visible = false
@@ -138,7 +138,7 @@ offset_bottom = 338.0
 theme = ExtResource("4_viqiq")
 bbcode_enabled = true
 text = "[font_size=28]Thanks for the power supply[/font_size]
-I paid for half of the power supply, but Mutti paid for half of the power supply and the maximum number of RAM the CPU includes (which came in handy with the Magic Light Probes plugin)"
+I paid for half of the power supply, but Mutti paid for half of the power supply."
 
 [node name="Panel 4" type="Control" parent="."]
 visible = false
@@ -166,8 +166,8 @@ offset_right = 598.0
 offset_bottom = 338.0
 theme = ExtResource("4_viqiq")
 bbcode_enabled = true
-text = "[font_size=28]Thanks for the RAM and power supply[/font_size]
-I paid for half of the power supply, but Mutti paid for half of the power supply and the maximum number of RAM the CPU includes (which came in handy with the Magic Light Probes plugin)"
+text = "[font_size=28]Thanks for the RAM [/font_size]
+My sister covered the maximum number of RAM the CPU could tolerate (64 GB), which came in handy with the Magic Light Probes plugin.  That thing is a memory hog."
 
 [node name="Panel 5" type="Control" parent="."]
 visible = false
@@ -196,7 +196,7 @@ offset_bottom = 338.0
 theme = ExtResource("4_viqiq")
 bbcode_enabled = true
 text = "[font_size=28]Thanks for the previous build[/font_size]
-Eros made me a build previously, and I reused the big hard drive and blu-ray player (which is also a DVD/CD burner)"
+Eros made me a build previously, and I reused the big hard drive and Blu-Ray player (which is also a DVD/CD burner)"
 
 [connection signal="pressed" from="Prev Button" to="." method="_on_prev_button_pressed"]
 [connection signal="pressed" from="Next button" to="." method="_on_next_button_pressed"]
