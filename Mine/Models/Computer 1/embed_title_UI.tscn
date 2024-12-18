@@ -200,3 +200,4 @@ Eros made me a build previously, and I reused the big hard drive and blu-ray pla
 
 [connection signal="pressed" from="Prev Button" to="." method="_on_prev_button_pressed"]
 [connection signal="pressed" from="Next button" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="Panel 1/PanelButton 1" to="." method="_on_panel_button_1_pressed"]

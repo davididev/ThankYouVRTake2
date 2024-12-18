@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5ux6xn13bytm"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_6l7pm"]
+[ext_resource type="PackedScene" uid="uid://ddyo2jv7628sa" path="res://VR/Prefabs/player_boilerplate.tscn" id="2_3dhx2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cnkox"]
+size = Vector3(5, 1, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_er8h4"]
+size = Vector3(5, 1, 5)
+
+[node name="XRToolsSceneBase" type="Node3D"]
+script = ExtResource("1_6l7pm")
+
+[node name="XROrigin3D" parent="." instance=ExtResource("2_3dhx2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+mesh = SubResource("BoxMesh_cnkox")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_er8h4")

@@ -30,3 +30,13 @@ func _on_prev_button_pressed() -> void:
 
 func _on_next_button_pressed() -> void:
 	SetPanel(lastID + 1);
+
+func LoadScene(id : int):
+	var args : Array[String];
+	args.append(scenes[id]);
+	args.append("0.0, 0.0, 0.0");
+	DialogueHandler.Instance.SteamTeleport(args);
+	visible = false;
+
+func _on_panel_button_1_pressed() -> void:
+	LoadScene(0);

@@ -7,3 +7,6 @@ script = ExtResource("1_fswdv")
 command_name = "sce"
 arguments = Array[String](["Scene Directory", "Position"])
 defaultValues = Array[String](["Game1/Scene", "0,0,0"])
+StartingHealth = 100
+StartingStr = 3
+StartingMag = 1
