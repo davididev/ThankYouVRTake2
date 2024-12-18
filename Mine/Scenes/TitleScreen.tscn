@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://blha1teaj2xsq"]
+[gd_scene load_steps=22 format=4 uid="uid://blha1teaj2xsq"]
 
 [ext_resource type="Script" path="res://scenes/demo_scene_base.gd" id="1_55lbi"]
 [ext_resource type="PackedScene" uid="uid://ddyo2jv7628sa" path="res://VR/Prefabs/player_boilerplate.tscn" id="1_dtu8b"]
@@ -8,6 +8,8 @@
 [ext_resource type="Material" uid="uid://dp2nipwd54i7y" path="res://Mine/Models/Modular/Castle/M_Modular_Castle.tres" id="4_vf7r3"]
 [ext_resource type="PackedScene" uid="uid://bodyern4o2fm8" path="res://Mine/Models/Computer 1/computer terminal.glb" id="7_dbnds"]
 [ext_resource type="PackedScene" uid="uid://ds1ctf8lclbhe" path="res://Mine/Prefabs/Player/UI/overlay_ui_embed.tscn" id="8_jtcwt"]
+[ext_resource type="Script" path="res://VR/Scripts/Misc/SceneVars.gd" id="9_eg3h8"]
+[ext_resource type="Resource" path="res://DialogueSystem/output/TestIntro.res" id="10_xek6o"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_cxpu1"]
 lightmap_size_hint = Vector2i(134, 134)
@@ -210,3 +212,8 @@ shape = SubResource("BoxShape3D_sk8jd")
 
 [node name="OverlayUIEmbed" parent="computer terminal2" instance=ExtResource("8_jtcwt")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -0.556243, 0.27224)
+
+[node name="SceneVars" type="Node3D" parent="."]
+script = ExtResource("9_eg3h8")
+MusicPath = "Title.mp3"
+DialogueOnStart = ExtResource("10_xek6o")

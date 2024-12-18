@@ -1,4 +1,4 @@
-class_name DialogueHandler extends TextureRect
+class_name DialogueHandler extends Node3D
 
 
 @export var ChoiceButtons : Array[NodePath];
@@ -191,7 +191,7 @@ func StreamDialogueBox(args : Array[String]):
 	var charsPerSecond = DialogueArgsUtility.ConvertStringToFloat(args[2]);
 	var soundFXDirectory = args[3];
 	
-	var asset_name : String = str("res://DialogueSystem/audio/", soundFXDirectory, ".mp3");
+	var asset_name : String = str("Dialogue/", soundFXDirectory, ".mp3");
 	#get_node("AudioStreamPlayer3D").stream = load(asset_name);
 	SoundFXPlayer.PlaySound(asset_name, get_tree(), PosVelCalc.HeadPos, 10.0, 2.0);
 	#get_node("AudioStreamPlayer3D").play();
