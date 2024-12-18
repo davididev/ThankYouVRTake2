@@ -33,6 +33,12 @@ func DeleteNode(x : int, y : int):
 	currentFile.AddEntryToGrid(x, y, "", creatingArgs);
 	get_node(str("DialogueNode", x, ",", y)).RefreshNode(null);
 
+func SwapNode(x : int, y : int):
+	SetPanel(3);
+	selectedX = x;
+	selectedY = y;
+	get_node("Camera2D/NodeEditor/ColorRect/PanelSwapNode/Root Label").text = str("Current node: ", x, ",", y);
+
 func OnLoadButtonPressed():
 	if ResourceLoader.exists(GetFileDirectory()):
 		var res = ResourceLoader.load(GetFileDirectory()) as DialogueGrid;
@@ -110,6 +116,7 @@ func SetPanel(id : int):
 	get_node("Camera2D/NodeEditor/ColorRect/PanelSelectFile").visible = id == 0;
 	get_node("Camera2D/NodeEditor/ColorRect/PanelPickNodeType").visible = id == 1;
 	get_node("Camera2D/NodeEditor/ColorRect/PanelSetArgs").visible = id == 2;
+	get_node("Camera2D/NodeEditor/ColorRect/PanelSwapNode").visible = id == 3;
 	
 	if id == 0: #Select file- refresh dropdown
 		var box : OptionButton = get_node("Camera2D/NodeEditor/ColorRect/PanelSelectFile/FileNamesBox");
@@ -217,3 +224,21 @@ func _on_button_add_item_pressed() -> void:
 
 func _on_button_get_item_count_pressed() -> void:
 	SetNewNodeArguments("cis");
+
+
+func _on_cancel_button_pressed() -> void:
+	SetPanel(0);
+
+
+func _on_swap_node_button_pressed() -> void:
+	var newX = int(get_node("Camera2D/NodeEditor/ColorRect/PanelSwapNode/X Text").text);
+	var newY = int(get_node("Camera2D/NodeEditor/ColorRect/PanelSwapNode/Y Text").text);
+	var e1 : DialogueEntry = currentFile.GetEntry(selectedX, selectedY).duplicate();
+	var e2 : DialogueEntry = currentFile.GetEntry(newX, newY).duplicate();
+	
+	currentFile.grid[newX][newY] = e1;
+	currentFile.grid[selectedX][selectedY] = e2;
+	get_node(str("DialogueNode", newX, ",", newY)).RefreshNode(currentFile.GetEntry(newX, newY));
+	get_node(str("DialogueNode", selectedX, ",", selectedY)).RefreshNode(currentFile.GetEntry(selectedX, selectedY));
+	
+	SetPanel(0);

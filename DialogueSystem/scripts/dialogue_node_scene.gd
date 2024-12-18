@@ -14,6 +14,7 @@ const IMAGE_NO_FORK = 3
 func _ready() -> void:
 	get_node("OptionButton").visible = false;
 
+
 func RefreshNode(myself : DialogueEntry):
 	if myself == null:
 		SetImage(IMAGE_EMPTY);
@@ -119,4 +120,6 @@ func _on_option_button_item_selected(index: int) -> void:
 		get_node(root).StartEditNode(x, y);
 	if index == 1:
 		get_node(root).DeleteNode(x, y);
+	if index == 2:
+		get_node(root).SwapNode(x, y);
 	get_node("OptionButton").selected = -1;

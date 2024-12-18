@@ -80,6 +80,7 @@ offset_bottom = 54.0
 text = "File in list:"
 
 [node name="PanelPickNodeType" type="Node2D" parent="Camera2D/NodeEditor/ColorRect"]
+visible = false
 
 [node name="Button DialogueBox" type="Button" parent="Camera2D/NodeEditor/ColorRect/PanelPickNodeType"]
 offset_left = 26.0
@@ -284,6 +285,65 @@ offset_right = 777.0
 offset_bottom = 296.0
 theme = ExtResource("2_3jxqi")
 
+[node name="PanelSwapNode" type="Node2D" parent="Camera2D/NodeEditor/ColorRect"]
+
+[node name="Swap Node Button" type="Button" parent="Camera2D/NodeEditor/ColorRect/PanelSwapNode"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 984.0
+offset_top = 246.0
+offset_right = 1151.0
+offset_bottom = 297.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+text = "Swap Node"
+
+[node name="Cancel Button" type="Button" parent="Camera2D/NodeEditor/ColorRect/PanelSwapNode"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 984.0
+offset_top = 174.0
+offset_right = 1151.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+text = "Cancel"
+
+[node name="Root Label" type="Label" parent="Camera2D/NodeEditor/ColorRect/PanelSwapNode"]
+offset_right = 373.0
+offset_bottom = 40.0
+text = "Current nodeL 0, 0"
+
+[node name="Arg 1 Label" type="Label" parent="Camera2D/NodeEditor/ColorRect/PanelSwapNode"]
+offset_top = 49.0
+offset_right = 373.0
+offset_bottom = 89.0
+text = "Swap with:"
+
+[node name="X Text" type="TextEdit" parent="Camera2D/NodeEditor/ColorRect/PanelSwapNode"]
+offset_left = 160.0
+offset_top = 48.0
+offset_right = 240.0
+offset_bottom = 88.0
+theme = ExtResource("2_3jxqi")
+text = "0"
+
+[node name="Y Text" type="TextEdit" parent="Camera2D/NodeEditor/ColorRect/PanelSwapNode"]
+offset_left = 256.0
+offset_top = 48.0
+offset_right = 336.0
+offset_bottom = 88.0
+theme = ExtResource("2_3jxqi")
+text = "0"
+
 [node name="DialogueNode0,0" parent="." instance=ExtResource("1_vmf3m")]
 root = NodePath("..")
 
@@ -306,3 +366,5 @@ root = NodePath("..")
 [connection signal="pressed" from="Camera2D/NodeEditor/ColorRect/PanelPickNodeType/Button IfThen" to="." method="_on_button_if_then_pressed"]
 [connection signal="pressed" from="Camera2D/NodeEditor/ColorRect/PanelPickNodeType/Button SetVar2" to="." method="_on_button_set_var_2_pressed"]
 [connection signal="pressed" from="Camera2D/NodeEditor/ColorRect/PanelSetArgs/Add Node Button" to="." method="AddDialogueNode"]
+[connection signal="pressed" from="Camera2D/NodeEditor/ColorRect/PanelSwapNode/Swap Node Button" to="." method="_on_swap_node_button_pressed"]
+[connection signal="pressed" from="Camera2D/NodeEditor/ColorRect/PanelSwapNode/Cancel Button" to="." method="_on_cancel_button_pressed"]

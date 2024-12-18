@@ -8,7 +8,7 @@ offset_bottom = 400.0
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_right = 699.0
+offset_right = 600.0
 offset_bottom = 23.0
 text = "Select an experience"
 horizontal_alignment = 1
