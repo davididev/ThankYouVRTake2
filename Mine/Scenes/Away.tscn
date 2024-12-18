@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://b5ux6xn13bytm"]
+[gd_scene load_steps=24 format=4 uid="uid://b5ux6xn13bytm"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_6l7pm"]
 [ext_resource type="PackedScene" uid="uid://ddyo2jv7628sa" path="res://VR/Prefabs/player_boilerplate.tscn" id="2_3dhx2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://b00qkv3iyvub6" path="res://Mine/Models/Eric/M_ElevatorPanel.tres" id="5_thvrw"]
 [ext_resource type="Material" uid="uid://b4hg6sv283uoh" path="res://Mine/Models/Eric/M_ElevatorFloor.tres" id="6_2bgdg"]
 [ext_resource type="PackedScene" uid="uid://5kk1l8m6t64w" path="res://Mine/Prefabs/Light/FlourscentLight.tscn" id="7_ghh1m"]
+[ext_resource type="AudioStream" uid="uid://b3hss8hhahalc" path="res://Audio/Sound/Getoutofliftloop.mp3" id="7_m6t5q"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_v0fim"]
 _surfaces = [{
@@ -257,6 +258,14 @@ mesh = SubResource("ArrayMesh_yenn8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ElevatorInner/Ceiling/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_piji5")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="ElevatorInner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+stream = ExtResource("7_m6t5q")
+unit_size = 2.0
+max_distance = 4.0
+bus = &"Sound"
+parameters/looping = true
 
 [node name="LightmapGI" type="LightmapGI" parent="."]
 quality = 0
