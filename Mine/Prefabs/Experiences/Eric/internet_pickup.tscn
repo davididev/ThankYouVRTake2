@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=3 uid="uid://bc8iefjegyk1o"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_fdr4h"]
+[ext_resource type="PackedScene" uid="uid://dhgqg8jn3l2b1" path="res://Mine/Models/Eric/Internet/TheInternet.glb" id="2_vhk6p"]
+[ext_resource type="Material" uid="uid://cp4s66yp3t7on" path="res://Mine/Particles/M_FlameParticle.tres" id="3_430jt"]
+[ext_resource type="Script" path="res://Mine/Scripts/Experiences/EricInternet.gd" id="3_hn6a6"]
+[ext_resource type="Resource" uid="uid://duwmvkcsxxm26" path="res://DialogueSystem/output/Eric-PickupInternet.res" id="4_1l6mx"]
+[ext_resource type="Resource" path="res://DialogueSystem/output/Eric-BreakInternet.res" id="5_kjmyy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e8lvx"]
+size = Vector3(1, 0.6, 0.5)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qv5ap"]
+emission_shape_scale = Vector3(0.5, 0.1, 0.5)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 0.2, 0)
+anim_speed_min = 3.0
+anim_speed_max = 5.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_cdh77"]
+material = ExtResource("3_430jt")
+
+[node name="InternetPickup" type="RigidBody3D"]
+script = ExtResource("1_fdr4h")
+picked_up_layer = 65540
+second_hand_grab = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_e8lvx")
+
+[node name="TheInternet" parent="CollisionShape3D" instance=ExtResource("2_vhk6p")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, -0.0549048, 0)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.115429, 0)
+emitting = false
+amount = 24
+process_material = SubResource("ParticleProcessMaterial_qv5ap")
+draw_pass_1 = SubResource("QuadMesh_cdh77")
+
+[node name="Action" type="Node3D" parent="."]
+script = ExtResource("3_hn6a6")
+Dialogue1 = ExtResource("4_1l6mx")
+Dialogue2 = ExtResource("5_kjmyy")
+Particles = NodePath("../CollisionShape3D/GPUParticles3D")
+
+[connection signal="body_entered" from="." to="Action" method="_on_internet_pickup_body_entered"]
+[connection signal="grabbed" from="." to="Action" method="_on_internet_pickup_grabbed"]
