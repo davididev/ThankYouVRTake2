@@ -287,10 +287,10 @@ shape = SubResource("BoxShape3D_sk8jd")
 
 [node name="Viewport2Din3D" parent="computer terminal2" instance=ExtResource("8_cfj1n")]
 transform = Transform3D(0.95, 0, 0, 0, 0.634, 0, 0, 0, 0.634, 0, -0.520149, 0.295591)
-unshaded = true
 screen_size = Vector2(0.625, 0.625)
 scene = ExtResource("9_qqgds")
 viewport_size = Vector2(600, 400)
+unshaded = true
 scene_properties_keys = PackedStringArray("title_ui.gd", "panels", "scenes")
 panels = Array[NodePath]([NodePath("Panel 1"), NodePath("Panel 2"), NodePath("Panel 3"), NodePath("Panel 4"), NodePath("Panel 5")])
 scenes = Array[String](["Mine/Scenes/Away.tscn", "Mine/Scenes/Away.tscn", "Mine/Scenes/Away.tscn", "Mine/Scenes/Away.tscn", "Mine/Scenes/Away.tscn"])
