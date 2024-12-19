@@ -5,14 +5,18 @@ extends Node3D
 @export var Particles : NodePath;
 var pickedUp = false;
 
+var waitForBrokenDialogue = false;
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pickedUp = false;
-
+	waitForBrokenDialogue = false;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if waitForBrokenDialogue == true && DialogueHandler.IsRunning == false:
+		DialogueHandler.Instance.StartDialogue(Dialogue2);
+		waitForBrokenDialogue = true;
 
 
 func _on_internet_pickup_grabbed(pickable: Variant, by: Variant) -> void:
@@ -22,5 +26,5 @@ func _on_internet_pickup_grabbed(pickable: Variant, by: Variant) -> void:
 
 func _on_internet_pickup_body_entered(body: Node) -> void:
 	if pickedUp == true:
-		DialogueHandler.Instance.StartDialogue(Dialogue2);
 		get_node(Particles).set_emitting(true);
+		waitForBrokenDialogue = true;
