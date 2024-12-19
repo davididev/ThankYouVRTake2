@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://b5ux6xn13bytm"]
+[gd_scene load_steps=38 format=4 uid="uid://b5ux6xn13bytm"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_6l7pm"]
 [ext_resource type="PackedScene" uid="uid://ddyo2jv7628sa" path="res://VR/Prefabs/player_boilerplate.tscn" id="2_3dhx2"]
@@ -16,6 +16,7 @@
 [ext_resource type="Material" uid="uid://bt6f1yvatq0cf" path="res://Mine/Models/Modular/Castle/M_Modular_Red.tres" id="14_h7t4e"]
 [ext_resource type="PackedScene" uid="uid://vyqyryj2x1ad" path="res://Mine/Prefabs/Experiences/Eric/table.tscn" id="15_u26st"]
 [ext_resource type="PackedScene" uid="uid://bc8iefjegyk1o" path="res://Mine/Prefabs/Experiences/Eric/internet_pickup.tscn" id="16_n3xi1"]
+[ext_resource type="PackedScene" uid="uid://bawcwncdahipp" path="res://Mine/Prefabs/Experiences/Eric/computer.tscn" id="17_jgj1p"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_v0fim"]
 _surfaces = [{
@@ -454,5 +455,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1359, -1.43099, 8.69954)
 
 [node name="InternetPickup" parent="." instance=ExtResource("16_n3xi1")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10.6115, 0.0618741, 9.9619)
+
+[node name="Table2" parent="." instance=ExtResource("15_u26st")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 10.0012, -1.47152, 3.68409)
+
+[node name="Computer" parent="." instance=ExtResource("17_jgj1p")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 10.7127, -0.0603942, 4.69636)
 
 [editable path="ElevatorInner"]
