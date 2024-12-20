@@ -9,7 +9,6 @@ anchors_preset = 0
 offset_right = 400.0
 offset_bottom = 400.0
 script = ExtResource("1_7uv15")
-subtitleRef = NodePath("Subtitle")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false

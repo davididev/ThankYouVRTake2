@@ -7,3 +7,6 @@ script = ExtResource("1_0wdxb")
 command_name = "var"
 arguments = Array[String](["Variable Name", "Operator", "Value", "NextStep"])
 defaultValues = Array[String](["%var", "=", "0", "1,0"])
+StartingHealth = 100
+StartingStr = 3
+StartingMag = 1

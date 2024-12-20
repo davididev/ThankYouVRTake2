@@ -35,8 +35,24 @@ func LoadScene(id : int):
 	var args : Array[String];
 	args.append(scenes[id]);
 	args.append("0.0, 0.0, 0.0");
-	DialogueHandler.Instance.SteamTeleport(args);
+	DialogueHandler.Instance.SteamTeleport(args, true);
 	visible = false;
 
 func _on_panel_button_1_pressed() -> void:
 	LoadScene(0);
+
+
+func _on_panel_button_2_pressed() -> void:
+	LoadScene(1);
+
+
+func _on_panel_button_3_pressed() -> void:
+	LoadScene(2);
+
+
+func _on_panel_button_4_pressed() -> void:
+	LoadScene(3);
+
+
+func _on_panel_button_5_pressed() -> void:
+	LoadScene(4);

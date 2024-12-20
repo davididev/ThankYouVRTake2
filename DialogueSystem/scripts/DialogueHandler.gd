@@ -19,7 +19,7 @@ func _ready() -> void:
 	IsRunning = false;
 	Instance = self;
 	_scene_base = XRTools.find_xr_ancestor(self, "*", "XRToolsSceneBase")
-	OverlayUI.CurrentSubtitle = "";
+	EndDialogue();
 
 static func SetVariable(vname : String, vvalue : float):
 	#if variables.find_key(vname) == null:  #Hasn't added variable yet
@@ -54,6 +54,8 @@ func ObtainDialogue():
 	visible = false;
 	for c in ChoiceButtons:
 		get_node(c).visible = false;
+	if dialogueThread == null:
+		return;
 	var currentNode : DialogueEntry = dialogueThread.GetEntry(CurrentX, CurrentY);
 	if currentNode == null:
 		EndDialogue();
@@ -122,7 +124,7 @@ func StreamSendMessage(args : Array[String]):
 	NPC.npcList[actorName].SendSignal(signalName);
 	DialogueArgsUtility.SetNextNodeFromStr(nextNodeStr);
 
-func SteamTeleport(args : Array[String]):
+func SteamTeleport(args : Array[String], isExternal = false):
 	await get_tree().create_timer(0.5).timeout;
 	#LoadingUI.SceneToLoad = args[0];
 	#BoilerPlate.StartingPosition = DialogueArgsUtility.ConvertStringToVector3(args[1]);
@@ -135,7 +137,8 @@ func SteamTeleport(args : Array[String]):
 	# Teleport
 	_scene_base.load_scene(scene, spawn_point_position)
 	
-	EndDialogue();
+	if isExternal == false:
+		EndDialogue();
 	
 func StreamWait(args : Array[String]):
 	var waitTime = args[0].to_float();
@@ -264,6 +267,7 @@ func StreamChoiceBox(args : Array[String]):
 func EndDialogue():
 	dialogueThread = null;
 	IsRunning = false;
+	OverlayUI.CurrentSubtitle = "";
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

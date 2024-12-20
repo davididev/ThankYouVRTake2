@@ -16,7 +16,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if waitForBrokenDialogue == true && DialogueHandler.IsRunning == false:
 		DialogueHandler.Instance.StartDialogue(Dialogue2);
-		waitForBrokenDialogue = true;
+		waitForBrokenDialogue = false;
 
 
 func _on_internet_pickup_grabbed(pickable: Variant, by: Variant) -> void:
@@ -24,7 +24,9 @@ func _on_internet_pickup_grabbed(pickable: Variant, by: Variant) -> void:
 	DialogueHandler.Instance.StartDialogue(Dialogue1);
 
 
-func _on_internet_pickup_body_entered(body: Node) -> void:
+
+
+func _on_xr_tools_pickable_body_entered(body: Node) -> void:
 	if pickedUp == true:
-		get_node(Particles).set_emitting(true);
-		waitForBrokenDialogue = true;
+		get_node(Particles).emitting = (true);
+		waitForBrokenDialogue = true;	

@@ -81,7 +81,7 @@ scene = ExtResource("3_x6fyd")
 viewport_size = Vector2(400, 400)
 unshaded = true
 scene_properties_keys = PackedStringArray("eric_computer_terminal.gd", "Panels")
-Panels = Array[NodePath]([])
+Panels = Array[NodePath]([NodePath("Panel1"), NodePath("Panel2")])
 
 [node name="MonitorStand" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.0260229, 0)

@@ -9,6 +9,7 @@ anchors_preset = 0
 offset_right = 400.0
 offset_bottom = 400.0
 script = ExtResource("1_mnkha")
+Panels = Array[NodePath]([NodePath("Panel1"), NodePath("Panel2")])
 
 [node name="Panel1" type="ColorRect" parent="."]
 layout_mode = 0

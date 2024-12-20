@@ -25,7 +25,7 @@ offset_right = 600.0
 offset_bottom = 400.0
 script = ExtResource("1_cl5um")
 panels = Array[NodePath]([NodePath("Panel 1"), NodePath("Panel 2"), NodePath("Panel 3"), NodePath("Panel 4"), NodePath("Panel 5")])
-scenes = Array[String](["Mine/Scenes/Away.tscn", "Mine/Scenes/Away.tscn", "Mine/Scenes/Away.tscn", "Mine/Scenes/Away.tscn", "Mine/Scenes/Away.tscn"])
+scenes = Array[String](["Mine/Scenes/Away.tscn", "scenes/pickable_demo/pickable_demo.tscn", "Mine/Scenes/Away.tscn", "Mine/Scenes/Away.tscn", "Mine/Scenes/Away.tscn"])
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -201,3 +201,7 @@ Eros made me a build previously, and I reused the big hard drive and Blu-Ray pla
 [connection signal="pressed" from="Prev Button" to="." method="_on_prev_button_pressed"]
 [connection signal="pressed" from="Next button" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="Panel 1/PanelButton 1" to="." method="_on_panel_button_1_pressed"]
+[connection signal="pressed" from="Panel 2/PanelButton 2" to="." method="_on_panel_button_2_pressed"]
+[connection signal="pressed" from="Panel 3/PanelButton 3" to="." method="_on_panel_button_3_pressed"]
+[connection signal="pressed" from="Panel 4/PanelButton 4" to="." method="_on_panel_button_4_pressed"]
+[connection signal="pressed" from="Panel 5/PanelButton 5" to="." method="_on_panel_button_5_pressed"]
