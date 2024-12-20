@@ -14,9 +14,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if waitForBrokenDialogue == true && DialogueHandler.IsRunning == false:
-		DialogueHandler.Instance.StartDialogue(Dialogue2);
-		waitForBrokenDialogue = false;
+	if waitForBrokenDialogue == true:
+		if DialogueHandler.IsRunning == false:
+			DialogueHandler.Instance.StartDialogue(Dialogue2);
+			waitForBrokenDialogue = false;
 
 
 func _on_internet_pickup_grabbed(pickable: Variant, by: Variant) -> void:
