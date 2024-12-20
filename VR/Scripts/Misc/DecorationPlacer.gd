@@ -42,13 +42,13 @@ func _on_click():
 	
 	
 	#Get raycast position from editor
-	var camera_3d = EditorInterface.get_editor_viewport_3d().get_camera_3d();
-	var mousePos =  EditorInterface.get_editor_viewport_3d().get_mouse_position();
+	var camera_3d = EditorInterface.get_editor_viewport_3d(0).get_camera_3d();
+	var mousePos =  EditorInterface.get_editor_viewport_3d(0).get_mouse_position();
 	print("Click detected")
 	var from = camera_3d.project_ray_origin(mousePos)
-	var to = from + (camera_3d.project_ray_normal(mousePos) * 500000.0)
-	var space = camera_3d.get_world_3d().direct_space_state
-	#var space = EditorInterface.get_editor_viewport_3d().find_world_3d(.direct_space_state;
+	var to = from + (camera_3d.project_ray_normal(mousePos) * 500.0)
+	#var space = camera_3d.get_world_3d().direct_space_state
+	var space = EditorInterface.get_editor_viewport_3d().find_world_3d().direct_space_state;
 	var rayQuery = PhysicsRayQueryParameters3D.new()
 	rayQuery.from = from
 	rayQuery.to = to
@@ -70,8 +70,9 @@ func _on_click():
 	#instance.rotation = calculate_rotation_from_normal(result.normal)
 	#These two lines added to replace the calculate rotation code
 	#https://www.reddit.com/r/godot/comments/18blr03/rotate_3d_player_to_ground_normal/
-	var b_rotation = Quaternion(instance.transform.basis.y, result.normal)
-	instance.transform.basis = Basis(b_rotation * basis.get_rotation_quaternion())
+	#var b_rotation = Quaternion(instance.transform.basis.y, result.normal)
+	#instance.transform.basis = Basis(b_rotation * basis.get_rotation_quaternion())
+	instance.transform.basis.y = result.normal;
 	#end reddit line
 	var r = RandomNumberGenerator.new()
 	

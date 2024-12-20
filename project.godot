@@ -68,6 +68,8 @@ trigger_left={
 
 [layer_names]
 
+3d_render/layer_1="Static"
+3d_render/layer_2="Dynamic"
 3d_physics/layer_1="Static World"
 3d_physics/layer_2="Dynamic World"
 3d_physics/layer_3="Pickable Objects"

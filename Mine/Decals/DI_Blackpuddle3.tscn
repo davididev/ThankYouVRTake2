@@ -7,5 +7,6 @@
 [node name="BlackPuddle" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_p1otr")
 surface_material_override/0 = ExtResource("1_y2ley")

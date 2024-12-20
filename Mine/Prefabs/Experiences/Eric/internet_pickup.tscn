@@ -5,7 +5,7 @@
 [ext_resource type="Material" uid="uid://cp4s66yp3t7on" path="res://Mine/Particles/M_FlameParticle.tres" id="3_430jt"]
 [ext_resource type="Script" path="res://Mine/Scripts/Experiences/EricInternet.gd" id="3_hn6a6"]
 [ext_resource type="Resource" uid="uid://duwmvkcsxxm26" path="res://DialogueSystem/output/Eric-PickupInternet.res" id="4_1l6mx"]
-[ext_resource type="Resource" uid="uid://br3cjxdaj6jgd" path="res://DialogueSystem/output/Eric-BreakInternet.res" id="5_kjmyy"]
+[ext_resource type="Resource" path="res://DialogueSystem/output/Eric-BreakInternet.res" id="5_kjmyy"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.gd" id="7_88tpy"]
 [ext_resource type="Material" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tres" id="7_mctqm"]
 
