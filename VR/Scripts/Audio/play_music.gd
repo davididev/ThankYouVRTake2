@@ -26,4 +26,4 @@ func _process(delta: float) -> void:
 	if aud.playing == false:  #It ended, repeat it
 		aud.play(); 
 	
-	global_position = PosVelCalc.HeadPos;
+	global_position = PosVelCalc.HeadPos + Vector3.UP;
