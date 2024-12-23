@@ -16,7 +16,7 @@ var _scene_base : XRToolsSceneBase
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	IsRunning = false;
+	#DialogueHandler.IsRunning = false;
 	Instance = self;
 	_scene_base = XRTools.find_xr_ancestor(self, "*", "XRToolsSceneBase")
 	EndDialogue();
@@ -43,7 +43,7 @@ static func GetVariable(vname : String):
 func StartDialogue(runThis : DialogueGrid):
 	CurrentX = 0;
 	CurrentY = 0;
-	IsRunning = true;
+	DialogueHandler.IsRunning = true;
 	dialogueThread = runThis;
 	ObtainDialogue();
 
@@ -56,10 +56,14 @@ func ObtainDialogue():
 		get_node(c).visible = false;
 	if dialogueThread == null:
 		return;
+	
 	var currentNode : DialogueEntry = dialogueThread.GetEntry(CurrentX, CurrentY);
 	if currentNode == null:
 		EndDialogue();
+		return;
 	else:
+		DialogueHandler.IsRunning = true;
+		
 		var command = currentNode.cmd;
 		var args = currentNode.GetArguments();
 		if command == "str":
@@ -68,6 +72,7 @@ func ObtainDialogue():
 			StreamChoiceBox(args);
 		if command == "end":
 			EndDialogue();
+			return;
 		if command == "var":
 			StreamModifyVariables(args);
 		if command == "tel":
@@ -76,10 +81,12 @@ func ObtainDialogue():
 			StreamWait(args);
 		if command == "sce":
 			SteamTeleport(args);
+			return;
 		if command == "msg":
 			StreamSendMessage(args);
 		if command == "ifthen":
 			StreamIfThen(args);
+
 func StreamIfThen(args : Array[String]):
 	var variableName = args[0];
 	var operatorStr = args[1];
@@ -137,8 +144,7 @@ func SteamTeleport(args : Array[String], isExternal = false):
 	# Teleport
 	_scene_base.load_scene(scene, spawn_point_position)
 	
-	if isExternal == false:
-		EndDialogue();
+	EndDialogue();
 	
 func StreamWait(args : Array[String]):
 	var waitTime = args[0].to_float();
@@ -237,11 +243,12 @@ func StreamDialogueBox(args : Array[String]):
 		var subStr = text.substr(0, currentCharID);
 		OverlayUI.CurrentSubtitle = subStr;
 		await get_tree().create_timer(1.0 / charsPerSecond).timeout;
-	OverlayUI.CurrentSubtitle = "";
 	
 	#while Input.is_action_pressed("jump") == false:
 	#	await get_tree().create_timer(1.0 / 60.0).timeout;
 	
+	await get_tree().create_timer(0.5).timeout;
+	OverlayUI.CurrentSubtitle = "";
 	
 	DialogueArgsUtility.SetNextNodeFromStr(nextNode);
 
@@ -266,7 +273,7 @@ func StreamChoiceBox(args : Array[String]):
 
 func EndDialogue():
 	dialogueThread = null;
-	IsRunning = false;
+	DialogueHandler.IsRunning = false;
 	OverlayUI.CurrentSubtitle = "";
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

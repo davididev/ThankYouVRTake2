@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://b5ux6xn13bytm"]
+[gd_scene load_steps=40 format=4 uid="uid://b5ux6xn13bytm"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_6l7pm"]
 [ext_resource type="PackedScene" uid="uid://ddyo2jv7628sa" path="res://VR/Prefabs/player_boilerplate.tscn" id="2_3dhx2"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bc8iefjegyk1o" path="res://Mine/Prefabs/Experiences/Eric/internet_pickup.tscn" id="16_n3xi1"]
 [ext_resource type="PackedScene" uid="uid://bawcwncdahipp" path="res://Mine/Prefabs/Experiences/Eric/computer.tscn" id="17_jgj1p"]
 [ext_resource type="Texture2D" uid="uid://ckwmcpo6whcl1" path="res://Mine/Decals/BlackPuddle1.png" id="18_doo50"]
+[ext_resource type="Script" path="res://VR/Scripts/Misc/SceneVars.gd" id="19_8l7k8"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_v0fim"]
 _surfaces = [{
@@ -469,5 +470,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5885, -0.159461, 9.83389)
 [node name="Decal" type="Decal" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.70518, -1.18927, 0)
 texture_albedo = ExtResource("18_doo50")
+
+[node name="SceneVars" type="Node3D" parent="."]
+script = ExtResource("19_8l7k8")
+MusicPath = "Eric.mp3"
 
 [editable path="ElevatorInner"]

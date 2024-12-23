@@ -293,7 +293,7 @@ viewport_size = Vector2(600, 400)
 unshaded = true
 scene_properties_keys = PackedStringArray("title_ui.gd", "panels", "scenes")
 panels = Array[NodePath]([NodePath("Panel 1"), NodePath("Panel 2"), NodePath("Panel 3"), NodePath("Panel 4"), NodePath("Panel 5")])
-scenes = Array[String](["Mine/Scenes/Away.tscn", "scenes/pickable_demo/pickable_demo.tscn", "Mine/Scenes/Away.tscn", "Mine/Scenes/Away.tscn", "Mine/Scenes/Away.tscn"])
+scenes = Array[String](["Mine/Scenes/Away.tscn", "Mine/Scenes/Tim.tscn", "Mine/Scenes/Away.tscn", "Mine/Scenes/Away.tscn", "Mine/Scenes/Away.tscn"])
 
 [node name="SceneVars" type="Node3D" parent="."]
 script = ExtResource("9_eg3h8")
