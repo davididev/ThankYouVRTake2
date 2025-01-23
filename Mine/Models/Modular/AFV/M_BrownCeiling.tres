@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://c5sr7htb7s7u2"]
+
+[ext_resource type="Texture2D" uid="uid://bakgfajithfa5" path="res://Mine/Models/Modular/AFV/CeilingBrown.png" id="1_sj8pw"]
+[ext_resource type="Texture2D" uid="uid://bur3ep2sgtfmw" path="res://Mine/Models/Modular/AFV/CeilingNormal.png" id="2_5hl8m"]
+
+[resource]
+albedo_texture = ExtResource("1_sj8pw")
+normal_enabled = true
+normal_texture = ExtResource("2_5hl8m")
