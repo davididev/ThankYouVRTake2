@@ -40,4 +40,15 @@ editor_preview_mode = 1
 transform = Transform3D(-4.2222e-08, -0.965926, 0.258819, 0.707107, -0.183013, -0.683013, 0.707107, 0.183013, 0.683013, 0.388584, 0, -0.05)
 hand_pose = SubResource("Resource_wj1wj")
 
+[node name="GrabPointHandLeft2" parent="Climbable" instance=ExtResource("3_b0qnv")]
+transform = Transform3D(-4.2222e-08, 0.965926, -0.258819, -0.707107, -0.183013, -0.683013, -0.707107, 0.183013, 0.683013, -0.344256, 0, -0.05)
+hand = 1
+hand_pose = SubResource("Resource_7r55p")
+editor_preview_mode = 1
+
+[node name="GrabPointHandRight2" parent="Climbable" instance=ExtResource("6_kmf8e")]
+transform = Transform3D(-4.2222e-08, -0.965926, 0.258819, 0.707107, -0.183013, -0.683013, 0.707107, 0.183013, 0.683013, 0.388584, 0, -0.05)
+hand = 0
+hand_pose = SubResource("Resource_wj1wj")
+
 [node name="LadderRung" parent="." instance=ExtResource("2_eiqd6")]
