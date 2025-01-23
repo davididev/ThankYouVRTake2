@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dxuw0udk4hqlw"
-path="res://.godot/imported/CaveModularFloors.glb-7d12df1b2565a02c77a431cd05d04d28.scn"
+uid="uid://kepg3ou4jdpe"
+path="res://.godot/imported/CaveModularWalls.glb-1b0075649e10002e38683f4dcd710a28.scn"
 
 [deps]
 
-source_file="res://Mine/Models/Modular/AFV/CaveModularFloors.glb"
-dest_files=["res://.godot/imported/CaveModularFloors.glb-7d12df1b2565a02c77a431cd05d04d28.scn"]
+source_file="res://Mine/Models/Modular/AFV/CaveModularWalls.glb"
+dest_files=["res://.godot/imported/CaveModularWalls.glb-1b0075649e10002e38683f4dcd710a28.scn"]
 
 [params]
 
@@ -33,127 +33,105 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"BlackMat": {
+"WallSolid": {
 "use_external/enabled": true,
 "use_external/path": "res://Mine/Models/Modular/AFV/M_BrownSolid.tres"
 },
-"CeilingMat": {
+"WallTexture": {
 "use_external/enabled": true,
-"use_external/path": "res://Mine/Models/Modular/AFV/M_BrownCeiling.tres"
-},
-"FloorMat": {
-"use_external/enabled": true,
-"use_external/path": "res://Mine/Models/Modular/AFV/M_BrownFloor.tres"
+"use_external/path": "res://Mine/Models/Modular/AFV/M_BrownWall.tres"
 }
 },
 "meshes": {
-"CaveModularFloors_Cube": {
+"CaveModularWalls_Cube": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://Mine/Models/Modular/AFV/Source/CaveModularFloors_Cube.res"
+"save_to_file/path": "res://Mine/Models/Modular/AFV/Source/CaveModularWalls_Cube.res"
 },
-"CaveModularFloors_Cube_001": {
+"CaveModularWalls_Cube_001": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://Mine/Models/Modular/AFV/Source/CaveModularFloors_Cube_001.res"
+"save_to_file/path": "res://Mine/Models/Modular/AFV/Source/CaveModularWalls_Cube_001.res"
 },
-"CaveModularFloors_Cube_002": {
+"CaveModularWalls_Cube_002": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://Mine/Models/Modular/AFV/Source/CaveModularFloors_Cube_002.res"
+"save_to_file/path": "res://Mine/Models/Modular/AFV/Source/CaveModularWalls_Cube_002.res"
 },
-"CaveModularFloors_Cube_003": {
+"CaveModularWalls_Cube_004": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://Mine/Models/Modular/AFV/Source/CaveModularFloors_Cube_003.res"
+"save_to_file/path": "res://Mine/Models/Modular/AFV/Source/CaveModularWalls_Cube_004.res"
 },
-"CaveModularFloors_Cube_007": {
+"CaveModularWalls_Cube_005": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://Mine/Models/Modular/AFV/Source/CaveModularFloors_Cube_007.res"
+"save_to_file/path": "res://Mine/Models/Modular/AFV/Source/CaveModularWalls_Cube_005.res"
 },
-"CaveModularFloors_Cube_008": {
+"CaveModularWalls_Cube_006": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://Mine/Models/Modular/AFV/Source/CaveModularFloors_Cube_008.res"
+"save_to_file/path": "res://Mine/Models/Modular/AFV/Source/CaveModularWalls_Cube_006.res"
 },
-"CaveModularFloors_Cube_009": {
+"CaveModularWalls_Cube_007": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://Mine/Models/Modular/AFV/Source/CaveModularFloors_Cube_009.res"
+"save_to_file/path": "res://Mine/Models/Modular/AFV/Source/CaveModularWalls_Cube_007.res"
 },
-"CaveModularFloors_Cube_010": {
+"CaveModularWalls_Cube_008": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://Mine/Models/Modular/AFV/Source/CaveModularFloors_Cube_010.res"
+"save_to_file/path": "res://Mine/Models/Modular/AFV/Source/CaveModularWalls_Cube_008.res"
 },
-"CaveModularFloors_Cube_011": {
+"CaveModularWalls_Cube_009": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://Mine/Models/Modular/AFV/Source/CaveModularFloors_Cube_011.res"
+"save_to_file/path": "res://Mine/Models/Modular/AFV/Source/CaveModularWalls_Cube_009.res"
 },
-"CaveModularFloors_Cube_012": {
+"CaveModularWalls_Cylinder": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://Mine/Models/Modular/AFV/Source/CaveModularFloors_Cube_012.res"
-},
-"CaveModularFloors_Cube_013": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/path": "res://Mine/Models/Modular/AFV/Source/CaveModularFloors_Cube_013.res"
-},
-"CaveModularFloors_Cube_014": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/path": "res://Mine/Models/Modular/AFV/Source/CaveModularFloors_Cube_014.res"
+"save_to_file/path": "res://Mine/Models/Modular/AFV/Source/CaveModularWalls_Cylinder.res"
 }
 }
 }
