@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://khrjstwanv1f"]
+[gd_scene load_steps=36 format=4 uid="uid://khrjstwanv1f"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_y8sop"]
 [ext_resource type="PackedScene" uid="uid://ddyo2jv7628sa" path="res://VR/Prefabs/player_boilerplate.tscn" id="2_1l4t8"]
@@ -9,11 +9,14 @@
 [ext_resource type="Material" uid="uid://dxbwhnimgopww" path="res://Mine/Models/Modular/AFV/M_BrownSolid.tres" id="5_hut6o"]
 [ext_resource type="Material" uid="uid://c5sr7htb7s7u2" path="res://Mine/Models/Modular/AFV/M_BrownCeiling.tres" id="6_1ypbt"]
 [ext_resource type="Material" uid="uid://nd7wj1ib37qd" path="res://Mine/Models/Modular/AFV/M_BrownWall.tres" id="7_va7yq"]
+[ext_resource type="Texture2D" uid="uid://o0c6mj0pr8i8" path="res://Mine/Models/Tim/Layer1_Stars.png" id="10_auuw0"]
 [ext_resource type="Script" path="res://VR/Scripts/Misc/DecorationPlacer.gd" id="10_p7j7m"]
 [ext_resource type="Script" path="res://VR/Scripts/Misc/play_animation_loop.gd" id="11_d2i13"]
 [ext_resource type="Script" path="res://VR/Scripts/Misc/DecorationResource.gd" id="11_yrw4j"]
 [ext_resource type="PackedScene" uid="uid://bd5fwx516b156" path="res://Mine/Prefabs/Experiences/Tim/tall_stem.tscn" id="12_g8shs"]
 [ext_resource type="Resource" uid="uid://ceqs4ntsf7i5" path="res://Mine/Models/Tim/Foilage/Stem/DecorationResource_Stem1.tres" id="12_hlmo8"]
+[ext_resource type="Resource" uid="uid://b82x17edact5g" path="res://Mine/Models/Tim/Foilage/Stem/DecorationResource_FourStem1.tres" id="13_wiwnn"]
+[ext_resource type="PackedScene" uid="uid://chh77s6bhvadp" path="res://Mine/Prefabs/Experiences/Tim/four_pronged_stem.tscn" id="16_7ygto"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_pq8s2"]
 lightmap_size_hint = Vector2i(586, 586)
@@ -537,6 +540,16 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AACQQaypSkAAALBBAgCOQddUdUAAALBBAACQQddUdUAAALBBAgCOQaypSkAAALBBAgCOQQEAkEAAALBBAACQQQEAkEAAALBBBACMQQEAkEAAALBBBACMQddUdUAAALBBBACMQaypSkAAALBBAACMQaypSkAwAIBBAgCOQddUdUAAAIBBBACMQddUdUAAAIBBAgCOQaypSkAAAIBBAgCOQQEAkEAAAIBBBACMQQEAkEAAAIBBAACQQQEAkEAAAIBBAACQQddUdUAAAIBBAACQQaypSkAAAIBBAACQQQAAAD8MAIxBm5mOQQAAAD8GAIZBMzOPQQAAAD8MAIxBAACQQQAAAD8GAIZBNTONQQAAAD8GAIZBamaOQQAAAD8MAIxBBACMQQAAAD8AAIBBAgCOQQAAAD8AAIBBAACQQQAAAD8AAIBBAACMQYH/j0B+Zo5BAgCOQYH/j0DGmYZBAgCOQQEAkEBdM41BBACMQQEAkEBXM4dBAACQQQEAkEAGAIZBAACQQQEAkEAMAIxBAACQQQEAkEAAAIBBAgCOQQEAkEAAAIBBBACMQQEAkEAAAIBBBACMQQEAkEAAALBBAgCOQYH/j0C7mapBAgCOQQEAkEAAALBBBACMQQEAkEBLM6tBAACQQQEAkEAqAKpBAACQQQEAkEAAALBBAACQQYH/j0AkAKRBAgCOQQEAkEBFM6VBBACMQQEAkEBnZqZBAgCOQYH/j0A/M59BBACMQQEAkECQZqBBAACQQQEAkEAeAJ5BAACQQQEAkEAYAJhBAgCOQQEAkEA5M5lBBACMQQEAkECKZppBAgCOQYH/j0BjM5NBBACMQQEAkECEZpRBAACQQQEAkEASAJJBAACQQQAAAD8AALBBm5mOQQAAAD8qAKpBAgCOQQAAAD8AALBBAACQQQAAAD8qAKpBNTONQQAAAD8qAKpBBACMQQAAAD8AALBBamaOQQAAAD8kAKRBMzOPQQAAAD8kAKRBAACQQQAAAD8kAKRBm5mOQQAAAD8eAJ5BAACQQQAAAD8eAJ5BNTONQQAAAD8eAJ5BBACMQQAAAD8YAJhBAgCOQQAAAD8YAJhBAACQQQAAAD8YAJhBm5mOQQAAAD8SAJJBAACQQQAAAD8SAJJBNTONQQAAAD8SAJJBBACMQQAAAD8AAIBBAgCOQVZUlT8AAIBBBACMQVZUlT8AAIBBAgCOQQAAAD8AAIBBAgCOQayo6j8AAIBBBACMQayo6j8AAIBBAACQQayo6j8wAIBBAACQQVZUlT8AAIBBAACQQQAAAD8AAIBBAgCOQYH/H0AAAIBBBACMQYH/H0AAAIBBAACQQYH/H0AAAIBBAACQQQAAAD8AALBBAgCOQVZUlT8AALBBAACQQVZUlT8AALBBAgCOQQAAAD8AALBBAgCOQayo6j8AALBBAACQQayo6j8AALBBAACMQayo6j8AALBBBACMQVZUlT8AALBBBACMQQAAAD8AALBBAgCOQYH/H0AAALBBAACQQYH/H0AAALBBBACMQYH/H0AAALBBAACQQdZU5UAAALBBAgCOQWyq+kAAALBBAACQQWyq+kAAALBBAgCOQdZU5UAAALBBAgCOQQAACEEAALBBAACQQQAACEEAALBBBACMQQAACEEAALBBBACMQWyq+kAAALBBBACMQdZU5UAAALBBAACMQdZU5UAwAIBBAgCOQWyq+kAAAIBBBACMQWyq+kAAAIBBAgCOQdZU5UAAAIBBAgCOQQAACEEAAIBBBACMQQAACEEAAIBBAACQQQAACEEAAIBBAACQQWyq+kAAAIBBAACQQdZU5UAAAIBBAACQQQAAkEAMAIxBm5mOQQAAkEAGAIZBMzOPQQAAkEAMAIxBAACQQQAAkEAGAIZBNTONQQAAkEAGAIZBamaOQQAAkEAMAIxBBACMQQAAkEAAAIBBAgCOQQAAkEAAAIBBAACQQQAAkEAAAIBBAACMQcD/B0F+Zo5BAgCOQcD/B0HGmYZBAgCOQQAACEFdM41BBACMQQAACEFXM4dBAACQQQAACEEGAIZBAACQQQAACEEMAIxBAACQQQAACEEAAIBBAgCOQQAACEEAAIBBBACMQQAACEEAAIBBBACMQQAACEEAALBBAgCOQcD/B0G7mapBAgCOQQAACEEAALBBBACMQQAACEFLM6tBAACQQQAACEEqAKpBAACQQQAACEEAALBBAACQQcD/B0EkAKRBAgCOQQAACEFFM6VBBACMQQAACEFnZqZBAgCOQcD/B0E/M59BBACMQQAACEGQZqBBAACQQQAACEEeAJ5BAACQQQAACEEYAJhBAgCOQQAACEE5M5lBBACMQQAACEGKZppBAgCOQcD/B0FjM5NBBACMQQAACEGEZpRBAACQQQAACEESAJJB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/n8AgAGA/v/+fwCAAYD+//5/AIABgP7//n8AgAGA/v/+fwCAAYD+//5/AIABgP7//n8AgAGA/v/+fwCAAYD+//5/AIABgP7//n8AgAGA/v/+fwCAAYD+//5/AIABgP7//n8AgAGA/v/+fwCAAYD+//5/AIABgP7//v8AAP1//v/+/wAA/X/+//7/AAD9f/7//v8AAP1//v/+/wAA/X/+//7/AAD9f/7//v8AAP1//v/+/wAA/X/+//7/AAD9f/7/AYAAAAAAAMABgAAAAAAAwAGAAAAAAADAAYAAAAAAAMABgAAAAAAAwAGAAAAAAADAAYAAAAAAAMABgAAAAAAAwAGAAAAAAADAB4D7//r/q6gEgPz//P9fsQOA/f/8/1uoBoD8//z/Q7IEgPz//P9bsAWA/P/6//6nBID8//z/s7wFgPv/+v9wvgCA/f/8//+/B4D7//r/D7wFgPv/+v9rsQOA/P/8/yi+B4D7//r/MbAEgP7//P93sgCA/f/8//+/BID8//z/yagDgP3//P9tqAWA/P/6//6nBYD8//r//qcFgPz/+v/+pwWA/P/6//6nBYD8//r//qcFgPz/+v/+pwWA/P/6//6nBYD8//r//qcFgPz/+v/+pwWA/P/6//6nAYAAAAAAAMABgAAAAAAAwAGAAAAAAADAAYAAAAAAAMABgAAAAAAAwAGAAAAAAADAAYAAAAAAAMABgAAAAAAAwAGAAAAAAADAAYAAAAAAAMABgAAAAAAAwAGAAAAAAADAAYAAAAAAAMABgAAAAAAAwAGAAAAAAADAAYAAAAAAAMABgAAAAAAAwAGAAAAAAADA/v8AAP1//v/+/wAA/X/+//7/AAD9f/7//v8AAP1//v/+/wAA/X/+//7/AAD9f/7//v8AAP1//v/+/wAA/X/+//7/AAD9f/7//v8AAP1//v/+/wAA/X/+//7/AAD9f/7//n8AgAGA/v/+fwCAAYD+//5/AIABgP7//n8AgAGA/v/+fwCAAYD+//5/AIABgP7//n8AgAGA/v/+fwCAAYD+//5/AIABgP7//n8AgAGA/v/+fwCAAYD+//5/AIABgP7/AAABgAGA/v8AAAGAAYD+/wAAAYABgP7/AAABgAGA/v/+//9/AYD+//7//38BgP7//v//fwGA/v/+//9/AYD+/wCAAAD+/wCAAIAAAP7/AIAAgAAA/v8AgACAAAD+/wCA/3/9//1//7//f/3//X//v/9//f/9f/+//3/9//1//7//f/3//X//v/9//f/9f/+//3/9//1//7//f/3//X//vwCAAAD+/wCAAIAAAP7/AIAAgAAA/v8AgACAAAD+/wCAAAABgAGA/v8AAAGAAYD+/wAAAYABgP7/AAABgAGA/v/+//9/AYD+//7//38BgP7//v//fwGA/v/+//9/AYD+/wCAAAD+/wCAAIAAAP7/AIAAgAAA/v8AgACAAAD+/wCA/3/9//1//7//f/3//X//v/9//f/9f/+//3/9//1//7//f/3//X//v/9//f/9f/+//3/9//1//7//f/3//X//vwCAAAD+/wCAAIAAAP7/AIAAgAAA/v8AgACAAAD+/wCA")
 }]
 
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_fh414"]
+panorama = ExtResource("10_auuw0")
+
+[sub_resource type="Sky" id="Sky_7opyk"]
+sky_material = SubResource("PanoramaSkyMaterial_fh414")
+
+[sub_resource type="Environment" id="Environment_4fo6c"]
+background_mode = 2
+sky = SubResource("Sky_7opyk")
+
 [node name="XRToolsSceneBase" type="Node3D"]
 script = ExtResource("1_y8sop")
 
@@ -591,115 +604,164 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 [node name="CylindarDoorTransition" parent="." instance=ExtResource("5_4imbq")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20, 4.5, 4)
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4fo6c")
+
 [node name="DecorationPlacer" type="Node3D" parent="."]
 top_level = true
 script = ExtResource("10_p7j7m")
-MyList = Array[ExtResource("11_yrw4j")]([ExtResource("12_hlmo8")])
+MyList = Array[ExtResource("11_yrw4j")]([ExtResource("12_hlmo8"), ExtResource("13_wiwnn")])
 
 [node name="Child1" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
-transform = Transform3D(0.327448, -0.0010047, 0.882018, 0, 0.940839, 0.0010717, -0.882019, -0.000372993, 0.327448, 5.96456, -1.093, 1.73951)
+transform = Transform3D(0.898377, 0, 0, 0, 0.747974, 0.49761, 0, -0.49761, 0.747974, -5.00775, 2.21957, 17.3411)
 script = ExtResource("11_d2i13")
 Min_Speed = 0.25
 animation_path = NodePath("AnimationPlayer")
 
 [node name="Child2" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
-transform = Transform3D(0.837977, 0, 0.222216, 0, 0.866941, 0, -0.222216, 0, 0.837977, 1.58834, -1.5, 4.41114)
+transform = Transform3D(0.86652, 0, 0, 0, 0.866519, 0.000987045, 0, -0.000987045, 0.866519, -3.78962, 2.90674, 21.7517)
 script = ExtResource("11_d2i13")
 Min_Speed = 0.25
 animation_path = NodePath("AnimationPlayer")
 
-[node name="Child3" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
-transform = Transform3D(0.289798, 0, 0.48978, 0, 0.569094, 0, -0.48978, 0, 0.289798, -3.02891, -1.40476, 3.7289)
+[node name="Child3" type="Node3D" parent="DecorationPlacer" instance=ExtResource("16_7ygto")]
+transform = Transform3D(0.856623, 0, 0, 0, 0.856623, 0, 0, 0, 0.856623, -1.60359, 2.5, 24.9295)
 script = ExtResource("11_d2i13")
-Min_Speed = 0.25
+Min_Speed = 0.5
 animation_path = NodePath("AnimationPlayer")
 
 [node name="Child4" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
-transform = Transform3D(0.0711974, -9.4479e-11, 1.23791, 0, 1.23996, 9.46352e-11, -1.23791, -5.43389e-12, 0.0711974, -0.446673, -1.06242, 14.5775)
+transform = Transform3D(0.662586, 0, 0, 0, 0.66145, -0.0387741, 0, 0.0387741, 0.66145, 0.677016, 2.81656, 22.7507)
 script = ExtResource("11_d2i13")
 Min_Speed = 0.25
 animation_path = NodePath("AnimationPlayer")
 
 [node name="Child5" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
-transform = Transform3D(0.124885, -0.142704, 1.04546, 0, 1.05275, 0.1437, -1.05515, -0.0168901, 0.123738, -6.661, 2.87219, 19.4697)
+transform = Transform3D(0.916573, 0, 0, 0, 0.916573, 0, 0, 0, 0.916573, 4.35557, 2.5, 21.1916)
 script = ExtResource("11_d2i13")
 Min_Speed = 0.25
 animation_path = NodePath("AnimationPlayer")
 
 [node name="Child6" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
-transform = Transform3D(0.0785014, 0.0534675, 0.912106, 0, 0.915467, -0.0536645, -0.913672, 0.00459386, 0.0783669, 1.47151, 2.85472, 22.8946)
+transform = Transform3D(0.560362, 0, 0, 0, 0.560362, 0, 0, 0, 0.560362, 9.64446, 2.5, 20.0932)
 script = ExtResource("11_d2i13")
 Min_Speed = 0.25
 animation_path = NodePath("AnimationPlayer")
 
 [node name="Child7" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
-transform = Transform3D(0.697638, -0.0374077, 0.226813, 0, 0.724744, 0.11953, -0.229877, -0.113526, 0.688339, 13.8794, 2.59399, 15.9872)
+transform = Transform3D(0.632053, 0, 0, 0, 0.630289, 0.0471987, 0, -0.0471987, 0.630289, 13.1675, 2.78805, 17.0665)
 script = ExtResource("11_d2i13")
 Min_Speed = 0.25
 animation_path = NodePath("AnimationPlayer")
 
-[node name="Child8" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
-transform = Transform3D(0.375329, -0.268738, 0.727282, 0, 0.808014, 0.298569, -0.775344, -0.130091, 0.352063, 14.0301, 2.77799, 2.71906)
+[node name="Child8" type="Node3D" parent="DecorationPlacer" instance=ExtResource("16_7ygto")]
+transform = Transform3D(0.900168, 0, 0, 0, 0.900168, 0, 0, 0, 0.900168, 5.77378, -1.5, 11.1307)
 script = ExtResource("11_d2i13")
-Min_Speed = 0.25
+Min_Speed = 0.5
 animation_path = NodePath("AnimationPlayer")
 
 [node name="Child9" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
-transform = Transform3D(0.000940821, 0.0439032, 0.748947, 0, 0.748948, -0.0439032, -0.750233, 5.50563e-05, 0.000939209, 13.5658, 2.75481, -5.3076)
+transform = Transform3D(1.19915, 0, 0, 0, 1.19915, 0, 0, 0, 1.19915, 4.56696, -1.40487, 14.5869)
 script = ExtResource("11_d2i13")
 Min_Speed = 0.25
 animation_path = NodePath("AnimationPlayer")
 
 [node name="Child10" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
-transform = Transform3D(0.374715, -5.26653e-08, 0.809489, 0, 0.892011, 5.80342e-08, -0.809489, -2.4379e-08, 0.374715, -4.04518, -1.51917, -2.69446)
+transform = Transform3D(0.69518, 0, 0, 0, 0.695168, -0.00409493, 0, 0.00409493, 0.695168, 1.69869, -1.39973, 10.5339)
 script = ExtResource("11_d2i13")
 Min_Speed = 0.25
 animation_path = NodePath("AnimationPlayer")
 
-[node name="Child11" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
-transform = Transform3D(0.441933, 0, 0.488748, 0, 0.658922, 0, -0.488748, 0, 0.441933, -10.3313, 2.5, -3.24741)
+[node name="Child11" type="Node3D" parent="DecorationPlacer" instance=ExtResource("16_7ygto")]
+transform = Transform3D(0.958169, 0, 0, 0, 0.0295515, -0.957713, 0, 0.957713, 0.0295515, 4.95686, -1.51759, 5.95478)
 script = ExtResource("11_d2i13")
-Min_Speed = 0.25
+Min_Speed = 0.5
 animation_path = NodePath("AnimationPlayer")
 
-[node name="Child12" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
-transform = Transform3D(0.718645, 0.0215047, 0.36685, 0, 0.805767, -0.047234, -0.367479, 0.0420547, 0.717414, -13.1546, 2.71112, -5.28312)
+[node name="Child12" type="Node3D" parent="DecorationPlacer" instance=ExtResource("16_7ygto")]
+transform = Transform3D(0.926143, 0, 0, 0, 0.924556, -0.0541973, 0, 0.0541973, 0.924556, 9.00782, -1.27379, 8.62208)
 script = ExtResource("11_d2i13")
-Min_Speed = 0.25
+Min_Speed = 0.5
 animation_path = NodePath("AnimationPlayer")
 
 [node name="Child13" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
-transform = Transform3D(0.57183, 0, 0.289716, 0, 0.641034, 0, -0.289716, 0, 0.57183, -7.83183, 2.5, -7.05699)
+transform = Transform3D(1.19319, 0, 0, 0, 1.19319, 0, 0, 0, 1.19319, 8.35106, -1.5, 2.33917)
 script = ExtResource("11_d2i13")
 Min_Speed = 0.25
 animation_path = NodePath("AnimationPlayer")
 
 [node name="Child14" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
-transform = Transform3D(0.251231, -1.04844, 0.252036, 0, 0.258787, 1.07652, -1.0783, -0.244272, 0.0587211, -10.9021, 2.2678, -1.88278)
+transform = Transform3D(0.709894, 0, 0, 0, 0.701382, -0.1096, 0, 0.1096, 0.701382, -3.11168, -1.56029, 0.609649)
 script = ExtResource("11_d2i13")
 Min_Speed = 0.25
 animation_path = NodePath("AnimationPlayer")
 
-[node name="Child15" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
-transform = Transform3D(0.670025, -0.00674032, 1.03335, 0, 1.23155, 0.00803317, -1.03337, -0.00437035, 0.670011, -10.5952, 2.72239, -0.622826)
+[node name="Child15" type="Node3D" parent="DecorationPlacer" instance=ExtResource("16_7ygto")]
+transform = Transform3D(1.03491, 0, 0, 0, 1.03491, 0, 0, 0, 1.03491, -2.59784, -1.40476, 3.71291)
 script = ExtResource("11_d2i13")
-Min_Speed = 0.25
+Min_Speed = 0.5
 animation_path = NodePath("AnimationPlayer")
 
 [node name="Child16" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
-transform = Transform3D(0.17276, 0, 1.04442, 0, 1.05861, 0, -1.04442, 0, 0.17276, -13.8369, 2.5, 6.74721)
+transform = Transform3D(0.821905, 0, 0, 0, 0.821905, 0, 0, 0, 0.821905, -11.3242, 2.5, -2.98578)
 script = ExtResource("11_d2i13")
 Min_Speed = 0.25
 animation_path = NodePath("AnimationPlayer")
 
-[node name="Child17" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
-transform = Transform3D(0.363688, 0, 0.489262, 0, 0.609628, 0, -0.489262, 0, 0.363688, -11.0435, 2.5, 9.30938)
+[node name="Child17" type="Node3D" parent="DecorationPlacer" instance=ExtResource("16_7ygto")]
+transform = Transform3D(1.10165, 0, 0, 0, 1.03336, 0.381837, 0, -0.381837, 1.03336, -13.8415, 2.64443, -1.63329)
 script = ExtResource("11_d2i13")
-Min_Speed = 0.25
+Min_Speed = 0.5
 animation_path = NodePath("AnimationPlayer")
 
 [node name="Child18" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
-transform = Transform3D(0.383439, 0, 0.716995, 0, 0.813085, 0, -0.716995, 0, 0.383439, -11.2076, 2.5, 19.1253)
+transform = Transform3D(1.06076, 0, 0, 0, 1.0597, -0.0473988, 0, 0.0473988, 1.0597, -9.04442, 2.83399, -5.53478)
 script = ExtResource("11_d2i13")
 Min_Speed = 0.25
 animation_path = NodePath("AnimationPlayer")
+
+[node name="Child19" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
+transform = Transform3D(1.09506, 0, 0, 0, 1.09506, 0, 0, 0, 1.09506, -6.92222, 2.5, -6.59535)
+script = ExtResource("11_d2i13")
+Min_Speed = 0.25
+animation_path = NodePath("AnimationPlayer")
+
+[node name="Child20" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
+transform = Transform3D(0.810068, 0, 0, 0, 0.810068, 0, 0, 0, 0.810068, 2.50445, 2.5, -7.43086)
+script = ExtResource("11_d2i13")
+Min_Speed = 0.25
+animation_path = NodePath("AnimationPlayer")
+
+[node name="Child21" type="Node3D" parent="DecorationPlacer" instance=ExtResource("16_7ygto")]
+transform = Transform3D(0.82408, 0, 0, 0, 0.82408, 0, 0, 0, 0.82408, 11.859, 2.5, -6.34163)
+script = ExtResource("11_d2i13")
+Min_Speed = 0.5
+animation_path = NodePath("AnimationPlayer")
+
+[node name="Child22" type="Node3D" parent="DecorationPlacer" instance=ExtResource("16_7ygto")]
+transform = Transform3D(1.05824, 0, 0, 0, 1.05824, 0, 0, 0, 1.05824, -10.7587, 2.5, 7.44261)
+script = ExtResource("11_d2i13")
+Min_Speed = 0.5
+animation_path = NodePath("AnimationPlayer")
+
+[node name="Child23" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
+transform = Transform3D(0.62111, 0, 0, 0, 0.62111, 0, 0, 0, 0.62111, -10.2967, 2.5, 10.858)
+script = ExtResource("11_d2i13")
+Min_Speed = 0.25
+animation_path = NodePath("AnimationPlayer")
+
+[node name="Child24" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
+transform = Transform3D(0.734557, 0, 0, 0, 0.732506, 0.0548531, 0, -0.0548531, 0.732506, -4.2504, 2.90137, 21.1616)
+script = ExtResource("11_d2i13")
+Min_Speed = 0.25
+animation_path = NodePath("AnimationPlayer")
+
+[node name="Child25" type="Node3D" parent="DecorationPlacer" instance=ExtResource("16_7ygto")]
+transform = Transform3D(1.12773, 0, 0, 0, 1.12773, 0, 0, 0, 1.12773, -9.68716, 2.5, 19.0248)
+script = ExtResource("11_d2i13")
+Min_Speed = 0.5
+animation_path = NodePath("AnimationPlayer")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.5, -0.75, -0.433013, 0, -0.5, 0.866025, -0.866025, -0.433013, -0.25, 0, 7, 0)
+light_bake_mode = 1

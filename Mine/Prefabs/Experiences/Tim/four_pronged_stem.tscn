@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://chh77s6bhvadp"]
+
+[ext_resource type="PackedScene" uid="uid://c7ko16bdrekam" path="res://Mine/Models/Tim/Foilage/Stem/FourProngedStem.glb" id="1_3l1uq"]
+[ext_resource type="Script" path="res://VR/Scripts/Misc/play_animation_loop.gd" id="2_sefw6"]
+[ext_resource type="AnimationLibrary" uid="uid://baeto0dfatsxl" path="res://Mine/Models/Tim/Foilage/Stem/SwayAnimationLibrary.res" id="3_80no6"]
+
+[node name="FourProngedStem" instance=ExtResource("1_3l1uq")]
+script = ExtResource("2_sefw6")
+Min_Speed = 0.5
+animation_path = NodePath("AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+libraries = {
+"SwayAnimationLibrary": ExtResource("3_80no6")
+}

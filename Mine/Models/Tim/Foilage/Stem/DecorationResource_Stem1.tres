@@ -8,6 +8,6 @@ script = ExtResource("2_hfo2a")
 Prefab = ExtResource("1_48c8j")
 Weight = 2
 MinRotate = 0.0
-MaxRotate = 90.0
+MaxRotate = 0.0
 MinScale = 0.5
 MaxScale = 1.25

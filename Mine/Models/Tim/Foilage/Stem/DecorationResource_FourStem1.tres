@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DecorationResource" load_steps=3 format=3 uid="uid://b82x17edact5g"]
+
+[ext_resource type="PackedScene" uid="uid://chh77s6bhvadp" path="res://Mine/Prefabs/Experiences/Tim/four_pronged_stem.tscn" id="1_7kbgv"]
+[ext_resource type="Script" path="res://VR/Scripts/Misc/DecorationResource.gd" id="2_g5gvp"]
+
+[resource]
+script = ExtResource("2_g5gvp")
+Prefab = ExtResource("1_7kbgv")
+Weight = 2
+MinRotate = 0.0
+MaxRotate = 0.0
+MinScale = 0.5
+MaxScale = 1.25

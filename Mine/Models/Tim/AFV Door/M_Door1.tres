@@ -3,4 +3,4 @@
 [resource]
 albedo_color = Color(0.650128, 0.650128, 0.650128, 1)
 metallic_specular = 1.0
-roughness = 0.45
+roughness = 0.0
