@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://khrjstwanv1f"]
+[gd_scene load_steps=30 format=4 uid="uid://khrjstwanv1f"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_y8sop"]
 [ext_resource type="PackedScene" uid="uid://ddyo2jv7628sa" path="res://VR/Prefabs/player_boilerplate.tscn" id="2_1l4t8"]
@@ -9,6 +9,11 @@
 [ext_resource type="Material" uid="uid://dxbwhnimgopww" path="res://Mine/Models/Modular/AFV/M_BrownSolid.tres" id="5_hut6o"]
 [ext_resource type="Material" uid="uid://c5sr7htb7s7u2" path="res://Mine/Models/Modular/AFV/M_BrownCeiling.tres" id="6_1ypbt"]
 [ext_resource type="Material" uid="uid://nd7wj1ib37qd" path="res://Mine/Models/Modular/AFV/M_BrownWall.tres" id="7_va7yq"]
+[ext_resource type="Script" path="res://VR/Scripts/Misc/DecorationPlacer.gd" id="10_p7j7m"]
+[ext_resource type="Script" path="res://VR/Scripts/Misc/play_animation_loop.gd" id="11_d2i13"]
+[ext_resource type="Script" path="res://VR/Scripts/Misc/DecorationResource.gd" id="11_yrw4j"]
+[ext_resource type="PackedScene" uid="uid://bd5fwx516b156" path="res://Mine/Prefabs/Experiences/Tim/tall_stem.tscn" id="12_g8shs"]
+[ext_resource type="Resource" uid="uid://ceqs4ntsf7i5" path="res://Mine/Models/Tim/Foilage/Stem/DecorationResource_Stem1.tres" id="12_hlmo8"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_pq8s2"]
 lightmap_size_hint = Vector2i(586, 586)
@@ -585,3 +590,116 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="CylindarDoorTransition" parent="." instance=ExtResource("5_4imbq")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20, 4.5, 4)
+
+[node name="DecorationPlacer" type="Node3D" parent="."]
+top_level = true
+script = ExtResource("10_p7j7m")
+MyList = Array[ExtResource("11_yrw4j")]([ExtResource("12_hlmo8")])
+
+[node name="Child1" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
+transform = Transform3D(0.327448, -0.0010047, 0.882018, 0, 0.940839, 0.0010717, -0.882019, -0.000372993, 0.327448, 5.96456, -1.093, 1.73951)
+script = ExtResource("11_d2i13")
+Min_Speed = 0.25
+animation_path = NodePath("AnimationPlayer")
+
+[node name="Child2" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
+transform = Transform3D(0.837977, 0, 0.222216, 0, 0.866941, 0, -0.222216, 0, 0.837977, 1.58834, -1.5, 4.41114)
+script = ExtResource("11_d2i13")
+Min_Speed = 0.25
+animation_path = NodePath("AnimationPlayer")
+
+[node name="Child3" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
+transform = Transform3D(0.289798, 0, 0.48978, 0, 0.569094, 0, -0.48978, 0, 0.289798, -3.02891, -1.40476, 3.7289)
+script = ExtResource("11_d2i13")
+Min_Speed = 0.25
+animation_path = NodePath("AnimationPlayer")
+
+[node name="Child4" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
+transform = Transform3D(0.0711974, -9.4479e-11, 1.23791, 0, 1.23996, 9.46352e-11, -1.23791, -5.43389e-12, 0.0711974, -0.446673, -1.06242, 14.5775)
+script = ExtResource("11_d2i13")
+Min_Speed = 0.25
+animation_path = NodePath("AnimationPlayer")
+
+[node name="Child5" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
+transform = Transform3D(0.124885, -0.142704, 1.04546, 0, 1.05275, 0.1437, -1.05515, -0.0168901, 0.123738, -6.661, 2.87219, 19.4697)
+script = ExtResource("11_d2i13")
+Min_Speed = 0.25
+animation_path = NodePath("AnimationPlayer")
+
+[node name="Child6" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
+transform = Transform3D(0.0785014, 0.0534675, 0.912106, 0, 0.915467, -0.0536645, -0.913672, 0.00459386, 0.0783669, 1.47151, 2.85472, 22.8946)
+script = ExtResource("11_d2i13")
+Min_Speed = 0.25
+animation_path = NodePath("AnimationPlayer")
+
+[node name="Child7" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
+transform = Transform3D(0.697638, -0.0374077, 0.226813, 0, 0.724744, 0.11953, -0.229877, -0.113526, 0.688339, 13.8794, 2.59399, 15.9872)
+script = ExtResource("11_d2i13")
+Min_Speed = 0.25
+animation_path = NodePath("AnimationPlayer")
+
+[node name="Child8" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
+transform = Transform3D(0.375329, -0.268738, 0.727282, 0, 0.808014, 0.298569, -0.775344, -0.130091, 0.352063, 14.0301, 2.77799, 2.71906)
+script = ExtResource("11_d2i13")
+Min_Speed = 0.25
+animation_path = NodePath("AnimationPlayer")
+
+[node name="Child9" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
+transform = Transform3D(0.000940821, 0.0439032, 0.748947, 0, 0.748948, -0.0439032, -0.750233, 5.50563e-05, 0.000939209, 13.5658, 2.75481, -5.3076)
+script = ExtResource("11_d2i13")
+Min_Speed = 0.25
+animation_path = NodePath("AnimationPlayer")
+
+[node name="Child10" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
+transform = Transform3D(0.374715, -5.26653e-08, 0.809489, 0, 0.892011, 5.80342e-08, -0.809489, -2.4379e-08, 0.374715, -4.04518, -1.51917, -2.69446)
+script = ExtResource("11_d2i13")
+Min_Speed = 0.25
+animation_path = NodePath("AnimationPlayer")
+
+[node name="Child11" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
+transform = Transform3D(0.441933, 0, 0.488748, 0, 0.658922, 0, -0.488748, 0, 0.441933, -10.3313, 2.5, -3.24741)
+script = ExtResource("11_d2i13")
+Min_Speed = 0.25
+animation_path = NodePath("AnimationPlayer")
+
+[node name="Child12" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
+transform = Transform3D(0.718645, 0.0215047, 0.36685, 0, 0.805767, -0.047234, -0.367479, 0.0420547, 0.717414, -13.1546, 2.71112, -5.28312)
+script = ExtResource("11_d2i13")
+Min_Speed = 0.25
+animation_path = NodePath("AnimationPlayer")
+
+[node name="Child13" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
+transform = Transform3D(0.57183, 0, 0.289716, 0, 0.641034, 0, -0.289716, 0, 0.57183, -7.83183, 2.5, -7.05699)
+script = ExtResource("11_d2i13")
+Min_Speed = 0.25
+animation_path = NodePath("AnimationPlayer")
+
+[node name="Child14" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
+transform = Transform3D(0.251231, -1.04844, 0.252036, 0, 0.258787, 1.07652, -1.0783, -0.244272, 0.0587211, -10.9021, 2.2678, -1.88278)
+script = ExtResource("11_d2i13")
+Min_Speed = 0.25
+animation_path = NodePath("AnimationPlayer")
+
+[node name="Child15" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
+transform = Transform3D(0.670025, -0.00674032, 1.03335, 0, 1.23155, 0.00803317, -1.03337, -0.00437035, 0.670011, -10.5952, 2.72239, -0.622826)
+script = ExtResource("11_d2i13")
+Min_Speed = 0.25
+animation_path = NodePath("AnimationPlayer")
+
+[node name="Child16" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
+transform = Transform3D(0.17276, 0, 1.04442, 0, 1.05861, 0, -1.04442, 0, 0.17276, -13.8369, 2.5, 6.74721)
+script = ExtResource("11_d2i13")
+Min_Speed = 0.25
+animation_path = NodePath("AnimationPlayer")
+
+[node name="Child17" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
+transform = Transform3D(0.363688, 0, 0.489262, 0, 0.609628, 0, -0.489262, 0, 0.363688, -11.0435, 2.5, 9.30938)
+script = ExtResource("11_d2i13")
+Min_Speed = 0.25
+animation_path = NodePath("AnimationPlayer")
+
+[node name="Child18" type="Node3D" parent="DecorationPlacer" instance=ExtResource("12_g8shs")]
+transform = Transform3D(0.383439, 0, 0.716995, 0, 0.813085, 0, -0.716995, 0, 0.383439, -11.2076, 2.5, 19.1253)
+script = ExtResource("11_d2i13")
+Min_Speed = 0.25
+animation_path = NodePath("AnimationPlayer")

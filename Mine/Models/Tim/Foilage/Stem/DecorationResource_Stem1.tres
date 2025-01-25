@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DecorationResource" load_steps=3 format=3 uid="uid://ceqs4ntsf7i5"]
+
+[ext_resource type="PackedScene" uid="uid://bd5fwx516b156" path="res://Mine/Prefabs/Experiences/Tim/tall_stem.tscn" id="1_48c8j"]
+[ext_resource type="Script" path="res://VR/Scripts/Misc/DecorationResource.gd" id="2_hfo2a"]
+
+[resource]
+script = ExtResource("2_hfo2a")
+Prefab = ExtResource("1_48c8j")
+Weight = 2
+MinRotate = 0.0
+MaxRotate = 90.0
+MinScale = 0.5
+MaxScale = 1.25
