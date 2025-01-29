@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b4jy10mvuq3au"
+path="res://.godot/imported/afv_close door.mp3-3cc9d408420ec0e975ac168306b6b681.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound/afv_close door.mp3"
+dest_files=["res://.godot/imported/afv_close door.mp3-3cc9d408420ec0e975ac168306b6b681.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
