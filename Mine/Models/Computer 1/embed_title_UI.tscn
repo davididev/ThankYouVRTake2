@@ -25,7 +25,7 @@ offset_right = 600.0
 offset_bottom = 400.0
 script = ExtResource("1_cl5um")
 panels = Array[NodePath]([NodePath("Panel 1"), NodePath("Panel 2"), NodePath("Panel 3"), NodePath("Panel 4"), NodePath("Panel 5")])
-scenes = Array[String](["Mine/Scenes/Away.tscn", "scenes/pickable_demo/pickable_demo.tscn", "Mine/Scenes/Away.tscn", "Mine/Scenes/Away.tscn", "Mine/Scenes/Away.tscn"])
+scenes = Array[String](["Mine/Scenes/Away.tscn", "Mine/Scenes/Tim.tscn", "Mine/Scenes/Away.tscn", "Mine/Scenes/Away.tscn", "Mine/Scenes/Away.tscn"])
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
