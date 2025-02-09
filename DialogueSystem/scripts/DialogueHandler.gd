@@ -1,8 +1,11 @@
 class_name DialogueHandler extends Node3D
 
 
+static var lastRotation = 0.0;
 @export var ChoiceButtons : Array[NodePath];
 @export var FlashImage : NodePath;
+@export var camera_path : NodePath;
+@export var player_body_path : NodePath;
 
 static var Instance : DialogueHandler;
 var dialogueThread : DialogueGrid;
@@ -13,6 +16,7 @@ static var CurrentY : int = 0;
 static var variables : Dictionary;
 static var Selected_Choice = -1;
 var _scene_base : XRToolsSceneBase
+var hasntRotated = true;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,6 +24,7 @@ func _ready() -> void:
 	Instance = self;
 	_scene_base = XRTools.find_xr_ancestor(self, "*", "XRToolsSceneBase")
 	EndDialogue();
+	hasntRotated = true;
 
 static func SetVariable(vname : String, vvalue : float):
 	#if variables.find_key(vname) == null:  #Hasn't added variable yet
@@ -132,13 +137,13 @@ func StreamSendMessage(args : Array[String]):
 	DialogueArgsUtility.SetNextNodeFromStr(nextNodeStr);
 
 func SteamTeleport(args : Array[String], isExternal = false):
+	lastRotation = get_node(player_body_path).global_rotation_degrees.y;
 	await get_tree().create_timer(0.5).timeout;
 	#LoadingUI.SceneToLoad = args[0];
 	#BoilerPlate.StartingPosition = DialogueArgsUtility.ConvertStringToVector3(args[1]);
 	#get_tree().change_scene_to_file("res://Scenes/Global/Loading.tscn");
 	if not _scene_base:
 		return
-
 	var scene = args[0];
 	var spawn_point_position : Vector3 = DialogueArgsUtility.ConvertStringToVector3(args[1]);
 	# Teleport
@@ -278,7 +283,10 @@ func EndDialogue():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass;
+	if hasntRotated == true:
+		var rel = get_node(player_body_path).global_rotation_degrees.y - lastRotation;
+		get_node(player_body_path).rotate_player(deg_to_rad(rel));
+		hasntRotated = false;
 
 
 func _on_button_choice_1_pressed() -> void:
