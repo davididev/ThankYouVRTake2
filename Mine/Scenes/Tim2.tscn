@@ -197,6 +197,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 
 
 [node name="CylindarDoorTransition" parent="." instance=ExtResource("3_ifgut")]
 transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 5.5, 0.25, 0)
+Position_To_Go = Vector3(-17, 4.25, 4.25)
 
 [node name="LightmapGI" type="LightmapGI" parent="."]
 environment_mode = 3

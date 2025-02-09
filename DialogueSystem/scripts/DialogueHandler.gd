@@ -137,7 +137,7 @@ func StreamSendMessage(args : Array[String]):
 	DialogueArgsUtility.SetNextNodeFromStr(nextNodeStr);
 
 func SteamTeleport(args : Array[String], isExternal = false):
-	lastRotation = get_node(player_body_path).global_rotation_degrees.y;
+	lastRotation = get_node(player_body_path).rotation.y;
 	await get_tree().create_timer(0.5).timeout;
 	#LoadingUI.SceneToLoad = args[0];
 	#BoilerPlate.StartingPosition = DialogueArgsUtility.ConvertStringToVector3(args[1]);
@@ -284,8 +284,10 @@ func EndDialogue():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if hasntRotated == true:
-		var rel = get_node(player_body_path).global_rotation_degrees.y - lastRotation;
-		get_node(player_body_path).rotate_player(deg_to_rad(rel));
+		var rel = (lastRotation - get_node(player_body_path).rotation.y);
+		#var rel = lastRotation;
+		get_node(player_body_path).rotate_player(rel);
+		print("Current rot: ", get_node(player_body_path).rotation.y, "; last rotation: ", lastRotation);
 		hasntRotated = false;
 
 
