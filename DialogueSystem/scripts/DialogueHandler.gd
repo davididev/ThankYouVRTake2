@@ -17,14 +17,37 @@ static var variables : Dictionary;
 static var Selected_Choice = -1;
 var _scene_base : XRToolsSceneBase
 var hasntRotated = true;
+var flashAlpha = 0.0;
+var flashAlphaTarget = 0.0;
+var flashPerSecond = 0.5;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#DialogueHandler.IsRunning = false;
 	Instance = self;
+	flashAlpha = 1.0;
+	flashAlphaTarget = 1.0;
+	SetFlashColor(Color.BLACK);
 	_scene_base = XRTools.find_xr_ancestor(self, "*", "XRToolsSceneBase")
 	EndDialogue();
-	hasntRotated = true;
+	
+	await get_tree().create_timer(0.5).timeout;
+	flashAlphaTarget = 0.0;
+	flashPerSecond = 1.0;
+	
+
+func SetFlashColor(c : Color):
+	var mat = get_node(FlashImage).get_surface_override_material(0) as StandardMaterial3D;
+	c.a = flashAlpha;
+	mat.albedo_color = c;
+	get_node(FlashImage).set_surface_override_material(0, mat);
+	
+func StepAlpha():
+	var mat = get_node(FlashImage).get_surface_override_material(0) as StandardMaterial3D;
+	var c = mat.albedo_color;
+	c.a = flashAlpha;
+	mat.albedo_color = c;
+	get_node(FlashImage).set_surface_override_material(0, mat);
 
 static func SetVariable(vname : String, vvalue : float):
 	#if variables.find_key(vname) == null:  #Hasn't added variable yet
@@ -137,17 +160,25 @@ func StreamSendMessage(args : Array[String]):
 	DialogueArgsUtility.SetNextNodeFromStr(nextNodeStr);
 
 func SteamTeleport(args : Array[String], isExternal = false):
-	lastRotation = get_node(player_body_path).rotation.y;
+	flashAlpha = 0.0;
+	flashAlphaTarget = 1.0;
+	flashPerSecond = 1.0;
+	SetFlashColor(Color.BLACK);
+	
 	await get_tree().create_timer(0.5).timeout;
 	#LoadingUI.SceneToLoad = args[0];
 	#BoilerPlate.StartingPosition = DialogueArgsUtility.ConvertStringToVector3(args[1]);
 	#get_tree().change_scene_to_file("res://Scenes/Global/Loading.tscn");
 	if not _scene_base:
 		return
+	
+	lastRotation = get_node(camera_path).rotation.y;
 	var scene = args[0];
-	var spawn_point_position : Vector3 = DialogueArgsUtility.ConvertStringToVector3(args[1]);
+	var spawn_point_transform = Transform3D(get_node(camera_path).global_transform);
+	spawn_point_transform.origin = DialogueArgsUtility.ConvertStringToVector3(args[1]);;
 	# Teleport
-	_scene_base.load_scene(scene, spawn_point_position)
+	_scene_base.load_scene(scene, spawn_point_transform)
+	
 	
 	EndDialogue();
 	
@@ -283,12 +314,9 @@ func EndDialogue():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if hasntRotated == true:
-		var rel = (lastRotation - get_node(player_body_path).rotation.y);
-		#var rel = lastRotation;
-		get_node(player_body_path).rotate_player(rel);
-		print("Current rot: ", get_node(player_body_path).rotation.y, "; last rotation: ", lastRotation);
-		hasntRotated = false;
+	#if is_equal_approx(flashAlpha, flashAlphaTarget) == false:
+	flashAlpha = move_toward(flashAlpha, flashAlphaTarget, flashPerSecond * delta);
+	StepAlpha();
 
 
 func _on_button_choice_1_pressed() -> void:

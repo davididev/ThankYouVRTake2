@@ -10,7 +10,7 @@ static var HeadVel : Vector3;
 var _last_left_hand_position : Vector3;
 var _last_right_hand_position : Vector3;
 var _last_head_position : Vector3;
-
+#request_jump
 
 @export var LeftHandRef : NodePath;
 @export var RightHandRef : NodePath;
