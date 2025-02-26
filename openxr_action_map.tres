@@ -315,7 +315,7 @@ paths = PackedStringArray("/user/hand/left/input/palm_ext/pose", "/user/hand/rig
 
 [sub_resource type="OpenXRIPBinding" id="OpenXRIPBinding_q2vgn"]
 action = SubResource("OpenXRAction_t725j")
-paths = PackedStringArray("/user/hand/left/input/menu/click", "/user/hand/right/input/system/click")
+paths = PackedStringArray("/user/hand/left/input/menu/click", "/user/hand/right/input/system/click", "/user/hand/left/input/y/click")
 
 [sub_resource type="OpenXRIPBinding" id="OpenXRIPBinding_3x1mc"]
 action = SubResource("OpenXRAction_rju0c")

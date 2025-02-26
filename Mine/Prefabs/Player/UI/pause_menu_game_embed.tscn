@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyy042oi5vchk"]
+
+[ext_resource type="Script" path="res://VR/Scripts/Misc/pause_menu_widget.gd" id="1_fjffo"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_glvse"]
+[ext_resource type="PackedScene" uid="uid://bylotm00jgmaf" path="res://VR/Prefabs/TitlePauseMenuWidget.tscn" id="3_87p3a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wr30o"]
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+
+[node name="Pause Menu Game Embed" type="Node3D"]
+script = ExtResource("1_fjffo")
+
+[node name="Viewport2Din3D" parent="." instance=ExtResource("1_glvse")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.015)
+screen_size = Vector2(0.625, 0.625)
+scene = ExtResource("3_87p3a")
+viewport_size = Vector2(400, 400)
+material = SubResource("StandardMaterial3D_wr30o")
+scene_properties_keys = PackedStringArray()
