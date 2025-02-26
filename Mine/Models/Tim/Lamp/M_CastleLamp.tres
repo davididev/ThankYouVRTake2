@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://brhhbhravo6f1"]
+
+[ext_resource type="Texture2D" uid="uid://b3dqgvbc8wf7o" path="res://Mine/Models/Tim/Lamp/CastleLampPalette.png" id="1_pcqks"]
+
+[resource]
+albedo_texture = ExtResource("1_pcqks")
+metallic = 0.25

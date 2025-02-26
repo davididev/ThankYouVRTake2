@@ -23,7 +23,7 @@ open_pose = ExtResource("4_rjlp2")
 closed_pose = ExtResource("4_rjlp2")
 
 [node name="LadderRung" type="Node3D"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("1_p5k5w")
 
 [node name="Climbable" parent="." instance=ExtResource("2_ri21m")]
