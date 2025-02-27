@@ -365,8 +365,8 @@ func request_jump(skip_jump_velocity := false):
 		return
 
 	# Perform the jump
-	if !skip_jump_velocity:
-		velocity += ground_vector * jump_velocity * XRServer.world_scale
+	if !skip_jump_velocity:  #Added *1.5
+		velocity += ground_vector * (jump_velocity * 1.5) * XRServer.world_scale
 
 	# Report the jump
 	emit_signal("player_jumped")
