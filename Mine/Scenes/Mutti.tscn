@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://d0qei2eexndrb"]
+[gd_scene load_steps=25 format=4 uid="uid://d0qei2eexndrb"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_vw80a"]
 [ext_resource type="PackedScene" uid="uid://ddyo2jv7628sa" path="res://VR/Prefabs/player_boilerplate.tscn" id="2_333qu"]
@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://dobd01jv8qn3x" path="res://Mine/Models/Mutti/M_MuttiTerrain.tres" id="5_qwi21"]
 [ext_resource type="Material" uid="uid://cam0mse08uuch" path="res://Mine/Models/Mutti/EdgeMat.tres" id="6_8cuwp"]
 [ext_resource type="Script" path="res://VR/Scripts/Misc/SceneVars.gd" id="7_krovb"]
+[ext_resource type="Material" uid="uid://8rnof26603fk" path="res://Mine/Models/Mutti/M_SnowflakeParticle.tres" id="8_yvidt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_khmjk"]
 resource_name = "Terrain"
@@ -104,6 +105,30 @@ fog_enabled = true
 fog_light_color = Color(0.588235, 0.588235, 0.588235, 1)
 fog_density = 0.025
 
+[sub_resource type="Curve" id="Curve_mhwa3"]
+min_value = -5.0
+max_value = 5.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, -1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_lqm6l"]
+curve = SubResource("Curve_mhwa3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_diap1"]
+emission_shape_scale = Vector3(400, 1, 400)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+inherit_velocity_ratio = 1.0
+initial_velocity_min = -4.0
+initial_velocity_max = 8.0
+gravity = Vector3(0, -5, 0)
+linear_accel_min = 0.999998
+linear_accel_max = 4.0
+linear_accel_curve = SubResource("CurveTexture_lqm6l")
+
+[sub_resource type="QuadMesh" id="QuadMesh_fowrt"]
+material = ExtResource("8_yvidt")
+
 [node name="XRToolsSceneBase" type="Node3D"]
 script = ExtResource("1_vw80a")
 
@@ -170,5 +195,12 @@ MusicPath = "Mutti.mp3"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vtth8")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.82816, 0)
+amount = 600
+lifetime = 12.0
+process_material = SubResource("ParticleProcessMaterial_diap1")
+draw_pass_1 = SubResource("QuadMesh_fowrt")
 
 [editable path="MuttiTerrain"]
