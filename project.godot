@@ -36,10 +36,6 @@ folder_colors={
 "res://DialogueSystem/": "orange"
 }
 
-[filesystem]
-
-import/blender/enabled=false
-
 [gdnative]
 
 singletons=["res://addons/godot-openxr/config/godot_openxr.gdnlib"]

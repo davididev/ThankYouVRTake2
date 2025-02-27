@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dobd01jv8qn3x"]
+
+[ext_resource type="Texture2D" uid="uid://cinaaxjqm7vv1" path="res://Mine/Models/Mutti/MuttiTerrainPalette.png" id="1_nb1by"]
+
+[resource]
+albedo_texture = ExtResource("1_nb1by")
