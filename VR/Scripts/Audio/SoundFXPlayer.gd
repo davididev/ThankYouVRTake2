@@ -11,13 +11,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-static func PlaySound(file_name : String, t : SceneTree, pos : Vector3, minDistance : float = 5.0, maxDistanceMultiplier : float = 4.0):
+static func PlaySound(file_name : String, t : SceneTree, pos : Vector3, minDistance : float = 5.0, maxDistanceMultiplier : float = 4.0, pitchScale = 1.0):
 	var instance : SoundFXPlayer = ResourceLoader.load("res://VR/Scripts/Audio/sound_fx_player.tscn").instantiate(); 
 	t.root.add_child(instance);
 	instance.global_position = pos;
 	var asset_name : String = str("res://Audio/Sound/", file_name);
 	instance.get_node(instance.ref).unit_size = minDistance;
 	instance.get_node(instance.ref).max_distance = minDistance * maxDistanceMultiplier;
+	instance.get_node(instance.ref).pitch_scale = pitchScale;
 	instance.get_node(instance.ref).stream = load(asset_name);
 	instance.get_node(instance.ref).play();
 	instance.play_sound_routine();

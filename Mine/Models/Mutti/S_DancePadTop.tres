@@ -1,0 +1,67 @@
+[gd_resource type="VisualShader" load_steps=7 format=3 uid="uid://6tcsb7d1ueav"]
+
+[ext_resource type="Texture2D" uid="uid://bwa3wsqnqr3bc" path="res://Mine/Models/Mutti/DancePanelTop.png" id="1_4eskk"]
+[ext_resource type="Texture2D" uid="uid://btbeaw0gs7ld4" path="res://Mine/Models/Mutti/DancePanelGlow.png" id="2_r6ynk"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_tm2c0"]
+texture = ExtResource("1_4eskk")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_a7ymr"]
+output_port_for_preview = 0
+texture = ExtResource("2_r6ynk")
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_0gb5a"]
+parameter_name = "Glow_Color"
+default_value_enabled = true
+default_value = Color(1, 0, 0, 1)
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_13u1v"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+operator = 2
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D tex_frg_2;
+uniform vec4 Glow_Color : source_color = vec4(1.000000, 0.000000, 0.000000, 1.000000);
+uniform sampler2D tex_frg_3 : source_color;
+
+
+
+void fragment() {
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, UV);
+
+
+// ColorParameter:4
+	vec4 n_out4p0 = Glow_Color;
+
+
+// Texture2D:3
+	vec4 n_out3p0 = texture(tex_frg_3, UV);
+
+
+// VectorOp:5
+	vec4 n_out5p0 = n_out4p0 * n_out3p0;
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0.xyz);
+	EMISSION = vec3(n_out5p0.xyz);
+
+
+}
+"
+graph_offset = Vector2(-543.775, 249.004)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_tm2c0")
+nodes/fragment/2/position = Vector2(-20, 120)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_a7ymr")
+nodes/fragment/3/position = Vector2(-280, 760)
+nodes/fragment/4/node = SubResource("VisualShaderNodeColorParameter_0gb5a")
+nodes/fragment/4/position = Vector2(-280, 520)
+nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_13u1v")
+nodes/fragment/5/position = Vector2(171.685, 605.999)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0, 4, 0, 5, 0, 3, 0, 5, 1, 5, 0, 0, 5)
