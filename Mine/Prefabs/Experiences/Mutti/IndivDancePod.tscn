@@ -6,9 +6,12 @@
 [ext_resource type="Material" uid="uid://c45egk6xsfbn8" path="res://Mine/Models/Mutti/M_DancePadSides.tres" id="3_l156v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pho13"]
-size = Vector3(1, 0.5, 1)
+size = Vector3(0.75, 0.125, 0.75)
 
-[node name="IndivDancePod" type="RigidBody3D"]
+[node name="IndivDancePod" type="Area3D"]
+collision_mask = 524288
+monitorable = false
+priority = 2
 script = ExtResource("1_1fj44")
 Mesh_Rend_Path = NodePath("CollisionShape3D/DancePad/Cube")
 GlowTouch = Color(1, 0, 0, 1)

@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=7 format=3 uid="uid://6tcsb7d1ueav"]
+[gd_resource type="VisualShader" load_steps=8 format=3 uid="uid://6tcsb7d1ueav"]
 
 [ext_resource type="Texture2D" uid="uid://bwa3wsqnqr3bc" path="res://Mine/Models/Mutti/DancePanelTop.png" id="1_4eskk"]
 [ext_resource type="Texture2D" uid="uid://btbeaw0gs7ld4" path="res://Mine/Models/Mutti/DancePanelGlow.png" id="2_r6ynk"]
@@ -21,21 +21,20 @@ default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
 op_type = 2
 operator = 2
 
+[sub_resource type="VisualShaderNodeColorOp" id="VisualShaderNodeColorOp_pmcmq"]
+operator = 4
+
 [resource]
 code = "shader_type spatial;
 render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
 
-uniform sampler2D tex_frg_2;
 uniform vec4 Glow_Color : source_color = vec4(1.000000, 0.000000, 0.000000, 1.000000);
 uniform sampler2D tex_frg_3 : source_color;
+uniform sampler2D tex_frg_2;
 
 
 
 void fragment() {
-// Texture2D:2
-	vec4 n_out2p0 = texture(tex_frg_2, UV);
-
-
 // ColorParameter:4
 	vec4 n_out4p0 = Glow_Color;
 
@@ -48,20 +47,56 @@ void fragment() {
 	vec4 n_out5p0 = n_out4p0 * n_out3p0;
 
 
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, UV);
+
+
+	vec3 n_out6p0;
+// ColorOp:6
+	{
+		float base = vec3(n_out5p0.xyz).x;
+		float blend = vec3(n_out2p0.xyz).x;
+		if (base < 0.5) {
+			n_out6p0.x = 2.0 * base * blend;
+		} else {
+			n_out6p0.x = 1.0 - 2.0 * (1.0 - blend) * (1.0 - base);
+		}
+	}
+	{
+		float base = vec3(n_out5p0.xyz).y;
+		float blend = vec3(n_out2p0.xyz).y;
+		if (base < 0.5) {
+			n_out6p0.y = 2.0 * base * blend;
+		} else {
+			n_out6p0.y = 1.0 - 2.0 * (1.0 - blend) * (1.0 - base);
+		}
+	}
+	{
+		float base = vec3(n_out5p0.xyz).z;
+		float blend = vec3(n_out2p0.xyz).z;
+		if (base < 0.5) {
+			n_out6p0.z = 2.0 * base * blend;
+		} else {
+			n_out6p0.z = 1.0 - 2.0 * (1.0 - blend) * (1.0 - base);
+		}
+	}
+
+
 // Output:0
-	ALBEDO = vec3(n_out2p0.xyz);
-	EMISSION = vec3(n_out5p0.xyz);
+	ALBEDO = n_out6p0;
 
 
 }
 "
-graph_offset = Vector2(-543.775, 249.004)
+graph_offset = Vector2(-356.36, 307.356)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_tm2c0")
-nodes/fragment/2/position = Vector2(-20, 120)
+nodes/fragment/2/position = Vector2(-100, 120)
 nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_a7ymr")
 nodes/fragment/3/position = Vector2(-280, 760)
 nodes/fragment/4/node = SubResource("VisualShaderNodeColorParameter_0gb5a")
 nodes/fragment/4/position = Vector2(-280, 520)
 nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_13u1v")
-nodes/fragment/5/position = Vector2(171.685, 605.999)
-nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0, 4, 0, 5, 0, 3, 0, 5, 1, 5, 0, 0, 5)
+nodes/fragment/5/position = Vector2(80, 580)
+nodes/fragment/6/node = SubResource("VisualShaderNodeColorOp_pmcmq")
+nodes/fragment/6/position = Vector2(160, 380)
+nodes/fragment/connections = PackedInt32Array(4, 0, 5, 0, 3, 0, 5, 1, 5, 0, 6, 0, 2, 0, 6, 1, 6, 0, 0, 0)

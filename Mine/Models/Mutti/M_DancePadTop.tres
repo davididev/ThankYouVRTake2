@@ -3,6 +3,7 @@
 [ext_resource type="Shader" uid="uid://6tcsb7d1ueav" path="res://Mine/Models/Mutti/S_DancePadTop.tres" id="1_dcp36"]
 
 [resource]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_dcp36")
 shader_parameter/Glow_Color = Color(0, 0, 0, 1)

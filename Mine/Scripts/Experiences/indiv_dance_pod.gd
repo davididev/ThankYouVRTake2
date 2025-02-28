@@ -1,4 +1,4 @@
-extends RigidBody3D
+extends Area3D
 
 @export var Mesh_Rend_Path : NodePath;
 @export var GlowTouch : Color;
@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 	current_glow_color.b = move_toward(current_glow_color.b, target_glow_color.b, GLOW_LERP_PER_SECOND * delta);
 	var vs = get_node(Mesh_Rend_Path).get_surface_override_material(0) as ShaderMaterial;
 	vs.set_shader_parameter("Glow_Color", current_glow_color);
-
+	get_node(Mesh_Rend_Path).set_surface_override_material(0, vs)
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player_body"):
