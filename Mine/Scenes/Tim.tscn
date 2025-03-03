@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=4 uid="uid://khrjstwanv1f"]
 
-[ext_resource type="Script" uid="uid://b58m4rne6fhjd" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_y8sop"]
+[ext_resource type="Script" uid="uid://cyul5ticdgwbi" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_y8sop"]
 [ext_resource type="PackedScene" uid="uid://ddyo2jv7628sa" path="res://VR/Prefabs/player_boilerplate.tscn" id="2_1l4t8"]
 [ext_resource type="MeshLibrary" uid="uid://b60cwucl7wwr1" path="res://Mine/Models/Modular/AFV/BrownCaveModularLibrary.tres" id="3_rtbwm"]
 [ext_resource type="LightmapGIData" uid="uid://yjvxacxarqjp" path="res://Mine/Scenes/Tim.lmbake" id="4_1lno5"]

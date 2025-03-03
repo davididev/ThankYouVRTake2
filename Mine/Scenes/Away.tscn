@@ -1,6 +1,6 @@
 [gd_scene load_steps=40 format=4 uid="uid://b5ux6xn13bytm"]
 
-[ext_resource type="Script" uid="uid://b58m4rne6fhjd" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_6l7pm"]
+[ext_resource type="Script" uid="uid://cyul5ticdgwbi" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_6l7pm"]
 [ext_resource type="PackedScene" uid="uid://ddyo2jv7628sa" path="res://VR/Prefabs/player_boilerplate.tscn" id="2_3dhx2"]
 [ext_resource type="PackedScene" uid="uid://clni2ypnwme3i" path="res://Mine/Models/Eric/ElevatorInner.glb" id="3_34jyd"]
 [ext_resource type="Material" uid="uid://c7tf5aholv64a" path="res://Mine/Models/Eric/M_Elevator.tres" id="4_u7vrh"]

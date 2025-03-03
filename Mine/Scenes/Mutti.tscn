@@ -1,6 +1,6 @@
 [gd_scene load_steps=27 format=4 uid="uid://d0qei2eexndrb"]
 
-[ext_resource type="Script" uid="uid://b58m4rne6fhjd" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_vw80a"]
+[ext_resource type="Script" uid="uid://cyul5ticdgwbi" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_vw80a"]
 [ext_resource type="PackedScene" uid="uid://ddyo2jv7628sa" path="res://VR/Prefabs/player_boilerplate.tscn" id="2_333qu"]
 [ext_resource type="PackedScene" uid="uid://bjopbih6jvs51" path="res://Mine/Models/Mutti/MuttiTerrain.blend" id="3_b8iph"]
 [ext_resource type="Texture2D" uid="uid://cinaaxjqm7vv1" path="res://Mine/Models/Mutti/MuttiTerrainPalette.png" id="4_h0n0s"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=4 uid="uid://b7mulnva2tbtn"]
 
-[ext_resource type="Script" uid="uid://b58m4rne6fhjd" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_3t01p"]
+[ext_resource type="Script" uid="uid://cyul5ticdgwbi" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_3t01p"]
 [ext_resource type="PackedScene" uid="uid://ddyo2jv7628sa" path="res://VR/Prefabs/player_boilerplate.tscn" id="2_x7ke1"]
 [ext_resource type="PackedScene" uid="uid://d3qerd74tjput" path="res://Mine/Prefabs/Experiences/Tim/CylindarDoor.tscn" id="3_ifgut"]
 [ext_resource type="MeshLibrary" uid="uid://b60cwucl7wwr1" path="res://Mine/Models/Modular/AFV/BrownCaveModularLibrary.tres" id="4_o4oyo"]

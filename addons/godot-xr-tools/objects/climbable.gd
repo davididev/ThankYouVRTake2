@@ -39,6 +39,7 @@ func _ready() -> void:
 		if grab_point:
 			_grab_points.push_back(grab_point)
 
+
 # Called by XRToolsFunctionPickup
 func is_picked_up() -> bool:
 	return false
