@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btbeaw0gs7ld4"
-path.s3tc="res://.godot/imported/DancePanelGlow.png-b62fbd5909e12ba285b47094472c5a23.s3tc.ctex"
-path.etc2="res://.godot/imported/DancePanelGlow.png-b62fbd5909e12ba285b47094472c5a23.etc2.ctex"
+uid="uid://bwa3wsqnqr3bc"
+path.s3tc="res://.godot/imported/DancePanelTop.png-20395c500dd2f5578dde77e2c35fb620.s3tc.ctex"
+path.etc2="res://.godot/imported/DancePanelTop.png-20395c500dd2f5578dde77e2c35fb620.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Mine/Models/Mutti/DancePanelGlow.png"
-dest_files=["res://.godot/imported/DancePanelGlow.png-b62fbd5909e12ba285b47094472c5a23.s3tc.ctex", "res://.godot/imported/DancePanelGlow.png-b62fbd5909e12ba285b47094472c5a23.etc2.ctex"]
+source_file="res://Mine/Models/Mutti/DancePad/DancePanelTop.png"
+dest_files=["res://.godot/imported/DancePanelTop.png-20395c500dd2f5578dde77e2c35fb620.s3tc.ctex", "res://.godot/imported/DancePanelTop.png-20395c500dd2f5578dde77e2c35fb620.etc2.ctex"]
 
 [params]
 

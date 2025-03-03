@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://cupjj4y6xrqqn"]
 
 [ext_resource type="Script" uid="uid://ckidg4f27agbi" path="res://Mine/Scripts/Experiences/indiv_dance_pod.gd" id="1_1fj44"]
-[ext_resource type="PackedScene" uid="uid://cb7wfnnbot71f" path="res://Mine/Models/Mutti/DancePad.glb" id="1_hk888"]
-[ext_resource type="Material" uid="uid://fmceba5nhlq0" path="res://Mine/Models/Mutti/M_DancePadTop.tres" id="2_7cpju"]
-[ext_resource type="Material" uid="uid://c45egk6xsfbn8" path="res://Mine/Models/Mutti/M_DancePadSides.tres" id="3_l156v"]
+[ext_resource type="PackedScene" uid="uid://cb7wfnnbot71f" path="res://Mine/Models/Mutti/DancePad/DancePad.glb" id="1_hk888"]
+[ext_resource type="Material" uid="uid://fmceba5nhlq0" path="res://Mine/Models/Mutti/DancePad/M_DancePadTop.tres" id="2_7cpju"]
+[ext_resource type="Material" uid="uid://c45egk6xsfbn8" path="res://Mine/Models/Mutti/DancePad/M_DancePadSides.tres" id="3_l156v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pho13"]
 size = Vector3(0.75, 0.125, 0.75)

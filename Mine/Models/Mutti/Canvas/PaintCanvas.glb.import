@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cb7wfnnbot71f"
-path="res://.godot/imported/DancePad.glb-fd57353f82fd3f3837f73563b9ad8829.scn"
+uid="uid://c6yfse7gqkybk"
+path="res://.godot/imported/PaintCanvas.glb-49b0f17666544cd3a7e8d5e690edbde3.scn"
 
 [deps]
 
-source_file="res://Mine/Models/Mutti/DancePad.glb"
-dest_files=["res://.godot/imported/DancePad.glb-fd57353f82fd3f3837f73563b9ad8829.scn"]
+source_file="res://Mine/Models/Mutti/Canvas/PaintCanvas.glb"
+dest_files=["res://.godot/imported/PaintCanvas.glb-49b0f17666544cd3a7e8d5e690edbde3.scn"]
 
 [params]
 
@@ -34,13 +34,13 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"PadSide": {
+"Bottom": {
 "use_external/enabled": true,
-"use_external/path": "res://Mine/Models/Mutti/M_DancePadSides.tres"
+"use_external/path": "uid://dddw83wd6plhx"
 },
-"PadTop": {
+"Canvas": {
 "use_external/enabled": true,
-"use_external/path": "res://Mine/Models/Mutti/M_DancePadTop.tres"
+"use_external/path": "uid://duptnybg3ali4"
 }
 }
 }
