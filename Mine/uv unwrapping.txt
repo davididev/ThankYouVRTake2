@@ -1,0 +1,15 @@
+https://www.reddit.com/r/godot/comments/1gtsc6i/get_uv_coordinate_from_raycast_collision/?rdt=57433
+
+
+
+    Cast Ray
+
+    Convert global position collision point to model space position
+
+    Find triange at model space position
+
+    get the UV values for the verticies of that triangle
+
+    triangulate the UV of the model space position off those triangles
+
+https://github.com/thefryscorer/GodotPaintDemo/blob/master/world.gd
