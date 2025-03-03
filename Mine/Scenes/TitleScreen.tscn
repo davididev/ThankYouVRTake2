@@ -1,6 +1,6 @@
 [gd_scene load_steps=29 format=4 uid="uid://blha1teaj2xsq"]
 
-[ext_resource type="Script" path="res://scenes/demo_scene_base.gd" id="1_55lbi"]
+[ext_resource type="Script" uid="uid://cn2buqjld0up2" path="res://scenes/demo_scene_base.gd" id="1_55lbi"]
 [ext_resource type="PackedScene" uid="uid://ddyo2jv7628sa" path="res://VR/Prefabs/player_boilerplate.tscn" id="1_dtu8b"]
 [ext_resource type="LightmapGIData" uid="uid://bec46rmsicug7" path="res://Mine/Scenes/TitleScreen.lmbake" id="2_4cuvi"]
 [ext_resource type="MeshLibrary" uid="uid://bcpja6lljhxye" path="res://Mine/Models/Modular/Castle/Castle Modular Floor Library.tres" id="2_rdlbe"]
@@ -10,7 +10,7 @@
 [ext_resource type="Material" uid="uid://bgjqk3ccf6plx" path="res://Mine/Models/Computer 1/M_ComputerPole.tres" id="8_5lr13"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="8_cfj1n"]
 [ext_resource type="Material" uid="uid://d3xbyy6qvshfm" path="res://Mine/Models/Computer 1/M_ComputerTermianl.tres" id="9_depl1"]
-[ext_resource type="Script" path="res://VR/Scripts/Misc/SceneVars.gd" id="9_eg3h8"]
+[ext_resource type="Script" uid="uid://c3y3v7o5xyyjp" path="res://VR/Scripts/Misc/SceneVars.gd" id="9_eg3h8"]
 [ext_resource type="PackedScene" uid="uid://drg0a0pct0gxm" path="res://Mine/Models/Computer 1/embed_title_UI.tscn" id="9_qqgds"]
 [ext_resource type="Resource" uid="uid://b4oylni5bleh1" path="res://DialogueSystem/output/TestIntro.res" id="10_xek6o"]
 
@@ -237,7 +237,6 @@ size = Vector3(1, 2.03662, 0.540771)
 script = ExtResource("1_55lbi")
 
 [node name="XROrigin3D" parent="." instance=ExtResource("1_dtu8b")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.866025, -0.25, 0.433013, 0, 0.866025, 0.5, -0.5, -0.433013, 0.75, 0, 2, 0)

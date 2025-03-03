@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dsirkotgpf6nu"]
 
-[ext_resource type="Script" path="res://VR/Scripts/Audio/play_music.gd" id="1_3n6gl"]
+[ext_resource type="Script" uid="uid://b0x8xqcdfw2eh" path="res://VR/Scripts/Audio/play_music.gd" id="1_3n6gl"]
 
 [node name="PlayMusic" type="Node3D"]
 script = ExtResource("1_3n6gl")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://drg0a0pct0gxm"]
 
 [ext_resource type="Texture2D" uid="uid://c6cpidv7tqg4i" path="res://Mine/UI/AwayButton1.png" id="1_5l47d"]
-[ext_resource type="Script" path="res://Mine/Scripts/Title/title_ui.gd" id="1_cl5um"]
+[ext_resource type="Script" uid="uid://4lh0ytrg5mna" path="res://Mine/Scripts/Title/title_ui.gd" id="1_cl5um"]
 [ext_resource type="Texture2D" uid="uid://dnwql4robplgc" path="res://Mine/UI/AwayButton3.png" id="2_og6w1"]
 [ext_resource type="Texture2D" uid="uid://cdl162jswj2cb" path="res://Mine/UI/AwayButton2.png" id="3_7f1qk"]
 [ext_resource type="Theme" uid="uid://d3ctxu7oouqeg" path="res://Mine/Models/Computer 1/Theme_ThanksText.tres" id="4_viqiq"]

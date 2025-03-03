@@ -6,6 +6,7 @@ static var lastRotation = 0.0;
 @export var FlashImage : NodePath;
 @export var camera_path : NodePath;
 @export var player_body_path : NodePath;
+@export var audioStreamPath : NodePath;
 
 static var Instance : DialogueHandler;
 var dialogueThread : DialogueGrid;
@@ -247,10 +248,10 @@ func StreamDialogueBox(args : Array[String]):
 	var charsPerSecond = DialogueArgsUtility.ConvertStringToFloat(args[2]);
 	var soundFXDirectory = args[3];
 	
-	var asset_name : String = str("Dialogue/", soundFXDirectory, ".mp3");
-	#get_node("AudioStreamPlayer3D").stream = load(asset_name);
-	SoundFXPlayer.PlaySound(asset_name, get_tree(), PosVelCalc.HeadPos, 10.0, 2.0);
-	#get_node("AudioStreamPlayer3D").play();
+	var asset_name : String = str("res://Audio/Sound/Dialogue/", soundFXDirectory, ".mp3");
+	get_node(audioStreamPath).stream = load(asset_name);
+	#SoundFXPlayer.PlaySound(asset_name, get_tree(), PosVelCalc.HeadPos, 10.0, 2.0);
+	get_node(audioStreamPath).play();
 	
 	var nextNode = args[4];
 	

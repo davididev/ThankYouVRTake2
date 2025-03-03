@@ -1,6 +1,6 @@
 [gd_scene load_steps=40 format=4 uid="uid://b5ux6xn13bytm"]
 
-[ext_resource type="Script" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_6l7pm"]
+[ext_resource type="Script" uid="uid://b58m4rne6fhjd" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_6l7pm"]
 [ext_resource type="PackedScene" uid="uid://ddyo2jv7628sa" path="res://VR/Prefabs/player_boilerplate.tscn" id="2_3dhx2"]
 [ext_resource type="PackedScene" uid="uid://clni2ypnwme3i" path="res://Mine/Models/Eric/ElevatorInner.glb" id="3_34jyd"]
 [ext_resource type="Material" uid="uid://c7tf5aholv64a" path="res://Mine/Models/Eric/M_Elevator.tres" id="4_u7vrh"]
@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bc8iefjegyk1o" path="res://Mine/Prefabs/Experiences/Eric/internet_pickup.tscn" id="16_n3xi1"]
 [ext_resource type="PackedScene" uid="uid://bawcwncdahipp" path="res://Mine/Prefabs/Experiences/Eric/computer.tscn" id="17_jgj1p"]
 [ext_resource type="Texture2D" uid="uid://ckwmcpo6whcl1" path="res://Mine/Decals/BlackPuddle1.png" id="18_doo50"]
-[ext_resource type="Script" path="res://VR/Scripts/Misc/SceneVars.gd" id="19_8l7k8"]
+[ext_resource type="Script" uid="uid://c3y3v7o5xyyjp" path="res://VR/Scripts/Misc/SceneVars.gd" id="19_8l7k8"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_v0fim"]
 _surfaces = [{
@@ -355,7 +355,6 @@ _surfaces = [{
 script = ExtResource("1_6l7pm")
 
 [node name="XROrigin3D" parent="." instance=ExtResource("2_3dhx2")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="ElevatorInner" parent="." instance=ExtResource("3_34jyd")]
 transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, -1.499, 0)
@@ -412,7 +411,6 @@ quality = 0
 bounces = 0
 environment_mode = 3
 environment_custom_color = Color(0.404511, 0.404511, 0.404511, 1)
-environment_custom_energy = 1.0
 light_data = ExtResource("8_hlj2h")
 
 [node name="FlourscentLight" parent="." instance=ExtResource("7_ghh1m")]

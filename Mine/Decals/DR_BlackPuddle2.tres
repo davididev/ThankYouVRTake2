@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="DecorationResource" load_steps=3 format=3 uid="uid://n6eqg2uea316"]
 
 [ext_resource type="PackedScene" uid="uid://baglkwbf3b7n6" path="res://Mine/Decals/DI_Blackpuddle1.tscn" id="1_v2bd2"]
-[ext_resource type="Script" path="res://VR/Scripts/Misc/DecorationResource.gd" id="2_vip0k"]
+[ext_resource type="Script" uid="uid://boky2hsj8xkds" path="res://VR/Scripts/Misc/DecorationResource.gd" id="2_vip0k"]
 
 [resource]
 script = ExtResource("2_vip0k")

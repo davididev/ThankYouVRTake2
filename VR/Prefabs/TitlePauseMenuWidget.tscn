@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bylotm00jgmaf"]
 
-[ext_resource type="Script" path="res://VR/Scripts/Misc/title_pause_menu_title_widget.gd" id="1_r26pm"]
+[ext_resource type="Script" uid="uid://bi7mrqm3ai47f" path="res://VR/Scripts/Misc/title_pause_menu_title_widget.gd" id="1_r26pm"]
 [ext_resource type="Texture2D" uid="uid://cdk4wmistae02" path="res://VR/Graphics/IU/PauseMenuWidget.png" id="1_w54vg"]
 [ext_resource type="Theme" uid="uid://bh6thbwa30yyu" path="res://DialogueSystem/ui/ThemeButton_NoFork.tres" id="2_ndjbv"]
 

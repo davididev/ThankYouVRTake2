@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=4 uid="uid://khrjstwanv1f"]
 
-[ext_resource type="Script" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_y8sop"]
+[ext_resource type="Script" uid="uid://b58m4rne6fhjd" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_y8sop"]
 [ext_resource type="PackedScene" uid="uid://ddyo2jv7628sa" path="res://VR/Prefabs/player_boilerplate.tscn" id="2_1l4t8"]
 [ext_resource type="MeshLibrary" uid="uid://b60cwucl7wwr1" path="res://Mine/Models/Modular/AFV/BrownCaveModularLibrary.tres" id="3_rtbwm"]
 [ext_resource type="LightmapGIData" uid="uid://yjvxacxarqjp" path="res://Mine/Scenes/Tim.lmbake" id="4_1lno5"]
@@ -10,13 +10,13 @@
 [ext_resource type="Material" uid="uid://c5sr7htb7s7u2" path="res://Mine/Models/Modular/AFV/M_BrownCeiling.tres" id="6_1ypbt"]
 [ext_resource type="Material" uid="uid://nd7wj1ib37qd" path="res://Mine/Models/Modular/AFV/M_BrownWall.tres" id="7_va7yq"]
 [ext_resource type="Texture2D" uid="uid://o0c6mj0pr8i8" path="res://Mine/Models/Tim/Layer1_Stars.png" id="10_auuw0"]
-[ext_resource type="Script" path="res://VR/Scripts/Misc/DecorationPlacer.gd" id="10_p7j7m"]
-[ext_resource type="Script" path="res://VR/Scripts/Misc/DecorationResource.gd" id="11_yrw4j"]
+[ext_resource type="Script" uid="uid://76kutme3yb4j" path="res://VR/Scripts/Misc/DecorationPlacer.gd" id="10_p7j7m"]
+[ext_resource type="Script" uid="uid://boky2hsj8xkds" path="res://VR/Scripts/Misc/DecorationResource.gd" id="11_yrw4j"]
 [ext_resource type="PackedScene" uid="uid://bd5fwx516b156" path="res://Mine/Prefabs/Experiences/Tim/tall_stem.tscn" id="12_g8shs"]
 [ext_resource type="Resource" uid="uid://ceqs4ntsf7i5" path="res://Mine/Models/Tim/Foilage/Stem/DecorationResource_Stem1.tres" id="12_hlmo8"]
 [ext_resource type="Resource" uid="uid://b82x17edact5g" path="res://Mine/Models/Tim/Foilage/Stem/DecorationResource_FourStem1.tres" id="13_wiwnn"]
 [ext_resource type="PackedScene" uid="uid://chh77s6bhvadp" path="res://Mine/Prefabs/Experiences/Tim/four_pronged_stem.tscn" id="16_7ygto"]
-[ext_resource type="Script" path="res://VR/Scripts/Misc/SceneVars.gd" id="17_ryhta"]
+[ext_resource type="Script" uid="uid://c3y3v7o5xyyjp" path="res://VR/Scripts/Misc/SceneVars.gd" id="17_ryhta"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_4ypvo"]
 lightmap_size_hint = Vector2i(462, 462)
@@ -391,7 +391,6 @@ sky = SubResource("Sky_7opyk")
 script = ExtResource("1_y8sop")
 
 [node name="XROrigin3D" parent="." instance=ExtResource("2_1l4t8")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="GridMap_Floor" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
@@ -424,7 +423,6 @@ metadata/_editor_floor_ = Vector3(0, 3, 0)
 [node name="LightmapGI" type="LightmapGI" parent="."]
 environment_mode = 3
 environment_custom_color = Color(0.564962, 0.564962, 0.564962, 1)
-environment_custom_energy = 1.0
 light_data = ExtResource("4_1lno5")
 
 [node name="GridMap_WallF2" type="GridMap" parent="."]

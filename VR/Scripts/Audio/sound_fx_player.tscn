@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bwllf8w8s8jxh"]
 
-[ext_resource type="Script" path="res://VR/Scripts/Audio/SoundFXPlayer.gd" id="1_uks7q"]
+[ext_resource type="Script" uid="uid://d1rjp76r0tkbd" path="res://VR/Scripts/Audio/SoundFXPlayer.gd" id="1_uks7q"]
 
 [node name="SoundFXPlayer" type="Node3D"]
 script = ExtResource("1_uks7q")

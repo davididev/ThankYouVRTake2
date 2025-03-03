@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bd5fwx516b156"]
 
 [ext_resource type="PackedScene" uid="uid://bjiex4roll8rp" path="res://Mine/Models/Tim/Foilage/Stem/TallStem.glb" id="1_2f8q5"]
-[ext_resource type="Script" path="res://VR/Scripts/Misc/play_animation_loop.gd" id="2_07mdo"]
+[ext_resource type="Script" uid="uid://cjx706ewj25tn" path="res://VR/Scripts/Misc/play_animation_loop.gd" id="2_07mdo"]
 [ext_resource type="AnimationLibrary" uid="uid://baeto0dfatsxl" path="res://Mine/Models/Tim/Foilage/Stem/SwayAnimationLibrary.res" id="3_ijie0"]
 
 [node name="TallStem" instance=ExtResource("1_2f8q5")]

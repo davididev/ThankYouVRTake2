@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://djdqh2w23yib6"]
 
 [ext_resource type="FontFile" uid="uid://c3y787qm8icnd" path="res://DialogueSystem/Fonts/cour.ttf" id="1_e3g6t"]
-[ext_resource type="Script" path="res://Mine/Scripts/Experiences/eric_computer_terminal.gd" id="1_mnkha"]
+[ext_resource type="Script" uid="uid://c68wmanejxju3" path="res://Mine/Scripts/Experiences/eric_computer_terminal.gd" id="1_mnkha"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
