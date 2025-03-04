@@ -182,6 +182,7 @@ points = PackedVector3Array(1.39961, 0.0465625, 1.31373, 1.11022e-16, -0.399138,
 
 [node name="CastleModularCube" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.70509, 0, 5.57377)
+layers = 4
 mesh = SubResource("ArrayMesh_yp124")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="CastleModularCube"]
@@ -191,6 +192,7 @@ shape = SubResource("ConvexPolygonShape3D_e0udn")
 
 [node name="CastleModularCube001" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.80432, 0, 8.63703)
+layers = 4
 mesh = SubResource("ArrayMesh_qturw")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="CastleModularCube001"]
@@ -200,6 +202,7 @@ shape = SubResource("ConvexPolygonShape3D_diwjh")
 
 [node name="CastleModularCube002" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.30183, 0, 2.2925)
+layers = 4
 mesh = SubResource("ArrayMesh_a0huq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="CastleModularCube002"]
@@ -209,6 +212,7 @@ shape = SubResource("ConvexPolygonShape3D_fx3w5")
 
 [node name="CastleModularCube003" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.913272, 0, 5.2965)
+layers = 4
 mesh = SubResource("ArrayMesh_lebe4")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="CastleModularCube003"]
@@ -218,6 +222,7 @@ shape = SubResource("ConvexPolygonShape3D_53gne")
 
 [node name="CastleModularCube004" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42157, 4.76837e-07, 10.1723)
+layers = 4
 mesh = SubResource("ArrayMesh_jkxli")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="CastleModularCube004"]
@@ -227,6 +232,7 @@ shape = SubResource("ConvexPolygonShape3D_5l5wq")
 
 [node name="CastleModularCube2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.7051, 0, 5.57377)
+layers = 4
 mesh = SubResource("ArrayMesh_yp124")
 surface_material_override/0 = ExtResource("2_f430v")
 
@@ -237,6 +243,7 @@ shape = SubResource("ConvexPolygonShape3D_e0udn")
 
 [node name="CastleModularCube005" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8043, 0, 8.63703)
+layers = 4
 mesh = SubResource("ArrayMesh_qturw")
 surface_material_override/0 = ExtResource("2_f430v")
 
@@ -247,6 +254,7 @@ shape = SubResource("ConvexPolygonShape3D_diwjh")
 
 [node name="CastleModularCube006" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3018, 0, 2.2925)
+layers = 4
 mesh = SubResource("ArrayMesh_a0huq")
 surface_material_override/0 = ExtResource("2_f430v")
 
@@ -257,6 +265,7 @@ shape = SubResource("ConvexPolygonShape3D_fx3w5")
 
 [node name="CastleModularCube007" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0867, 0, 5.2965)
+layers = 4
 mesh = SubResource("ArrayMesh_lebe4")
 surface_material_override/0 = ExtResource("2_f430v")
 
@@ -267,6 +276,7 @@ shape = SubResource("ConvexPolygonShape3D_53gne")
 
 [node name="CastleModularCube008" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.57843, 4.76837e-07, 10.1723)
+layers = 4
 mesh = SubResource("ArrayMesh_jkxli")
 surface_material_override/0 = ExtResource("2_f430v")
 
