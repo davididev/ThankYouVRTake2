@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvliahm7shofi"]
+
+[ext_resource type="PackedScene" uid="uid://cyaq42hg6ip5l" path="res://Mine/Models/Mutti/Paint Bucket/PaintBucket.glb" id="1_cr2c6"]
+[ext_resource type="Script" uid="uid://6eb5r2ax1r2c" path="res://Mine/Scripts/Experiences/paint_bucket_area.gd" id="1_u2iq1"]
+[ext_resource type="Texture2D" uid="uid://bl7b4rc3ciuwj" path="res://Mine/Models/Mutti/Paint Bucket/PaintBucketOverlay.png" id="2_j5ap1"]
+[ext_resource type="Material" uid="uid://dk8c0nstpgg7w" path="res://Mine/Models/Mutti/Paint Bucket/M_PaintRed.tres" id="3_54c4x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u2iq1"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="PaintBucketArea" type="Area3D"]
+collision_mask = 524288
+script = ExtResource("1_u2iq1")
+paint_path = NodePath("CollisionShape3D/PaintBucket/Paint")
+ui_overlay_image = ExtResource("2_j5ap1")
+paint_color = Color(1, 0, 0, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_u2iq1")
+
+[node name="PaintBucket" parent="CollisionShape3D" instance=ExtResource("1_cr2c6")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="Paint" parent="CollisionShape3D/PaintBucket" index="1"]
+layers = 2
+surface_material_override/0 = ExtResource("3_54c4x")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+
+[editable path="CollisionShape3D/PaintBucket"]

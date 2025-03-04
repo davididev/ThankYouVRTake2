@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfsv6f3mas4le"]
+[gd_scene load_steps=4 format=3 uid="uid://cfsv6f3mas4le"]
 
 [ext_resource type="Script" uid="uid://coqqq0dcjrakd" path="res://Mine/Scripts/Player/overlay_ui_content.gd" id="1_7uv15"]
 [ext_resource type="Theme" uid="uid://bsrqaeol8u2e4" path="res://VR/Graphics/IU/SubtitleTheme.tres" id="2_ex1gl"]
+[ext_resource type="Texture2D" uid="uid://ddn7056nqdk1k" path="res://Mine/UI/OverlayImageNothing.png" id="3_pxxk4"]
 
 [node name="VBoxContainer" type="Control"]
 layout_mode = 3
@@ -40,3 +41,9 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("2_ex1gl")
 bbcode_enabled = true
+
+[node name="OverlayRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_pxxk4")
