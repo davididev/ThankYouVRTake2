@@ -203,7 +203,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.38018, 25.3137)
 billboard = 2
 text = "Walk into paint buckets
 Walk on the canvas."
-font_size = 48
+font_size = 120
 outline_size = 32
 
 [node name="Label3D- dance pads" type="Label3D" parent="."]
@@ -211,7 +211,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, -2.38018, 25.3137)
 billboard = 2
 text = "Jump on 
 the pads"
-font_size = 48
+font_size = 120
 outline_size = 32
 
 [node name="IndivDancePod" parent="." instance=ExtResource("9_5315a")]
