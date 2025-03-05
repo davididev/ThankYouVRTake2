@@ -11,7 +11,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-static func PlaySound(file_name : String, t : SceneTree, pos : Vector3, minDistance : float = 5.0, maxDistanceMultiplier : float = 4.0, pitchScale = 1.0):
+static func PlaySound(file_name : String, t : SceneTree, pos : Vector3, minDistance : float = 5.0, maxDistanceMultiplier : float = 4.0, pitchScale : float = 1.0):
 	var instance : SoundFXPlayer = ResourceLoader.load("res://VR/Scripts/Audio/sound_fx_player.tscn").instantiate(); 
 	t.root.add_child(instance);
 	instance.global_position = pos;

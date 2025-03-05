@@ -12,5 +12,6 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player_body"):
+		SoundFXPlayer.PlaySound("paint_bucket.mp3", get_tree(), global_position);
 		MuttiPaintCanvas.CurrentColor = paint_color;
 		OverlayUI.SetOverlayImage(ui_overlay_image as Texture2D, paint_color, 0.5);
