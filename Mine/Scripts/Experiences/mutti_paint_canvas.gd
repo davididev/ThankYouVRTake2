@@ -5,7 +5,7 @@ var player_body : Node3D = null;
 @export var path_to_renderer : NodePath;
 var currentTexture : Texture2D;
 
-func _init() -> void:
+func _ready() -> void:
 	CurrentColor = Color.BLACK;
 	currentTexture = load("res://Mine/Models/Mutti/Canvas/StartingWhiteTexture.png");
 	#var datam = currentTexture.get_data();

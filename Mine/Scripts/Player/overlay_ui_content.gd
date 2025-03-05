@@ -20,8 +20,9 @@ func _process(delta: float) -> void:
 	RefreshTime(delta);
 	if overlayTexture != null:
 		overlayAlpha.a = move_toward(overlayAlpha.a, 0.0, overlayPerSecond * delta)
+		get_node("OverlayRect").texture = overlayTexture;
 		var c = get_node("OverlayRect").modulate as Color;
-		c.a = overlayAlpha;	
+		c = overlayAlpha;
 		get_node("OverlayRect").modulate = c;
 		if is_zero_approx(overlayAlpha.a):
 			overlayTexture = null;
