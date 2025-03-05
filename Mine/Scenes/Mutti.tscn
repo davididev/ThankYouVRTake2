@@ -315,26 +315,26 @@ light_bake_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57307, -6.58874, 23.5775)
 
 [node name="PaintBucketArea" parent="." instance=ExtResource("12_rvl4t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.86312, -6.58375, 24.6704)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.86312, -6.58375, 24.6704)
 
 [node name="PaintBucketArea2" parent="." instance=ExtResource("12_rvl4t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.86312, -6.58375, 25.6704)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.86312, -6.58375, 25.6704)
 paint_color = Color(1, 0.607843, 0, 1)
 
 [node name="PaintBucketArea3" parent="." instance=ExtResource("12_rvl4t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.86312, -6.58375, 23.6704)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.86312, -6.58375, 23.6704)
 paint_color = Color(1, 1, 0, 1)
 
 [node name="PaintBucketArea4" parent="." instance=ExtResource("12_rvl4t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.86312, -6.58375, 22.6704)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.86312, -6.58375, 22.6704)
 paint_color = Color(0, 1, 0, 1)
 
 [node name="PaintBucketArea5" parent="." instance=ExtResource("12_rvl4t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.86312, -6.58375, 21.6704)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.86312, -6.58375, 21.6704)
 paint_color = Color(0, 0, 1, 1)
 
 [node name="PaintBucketArea6" parent="." instance=ExtResource("12_rvl4t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.86312, -6.58375, 20.6704)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.86312, -6.58375, 20.6704)
 paint_color = Color(1, 0, 1, 1)
 
 [node name="PaintBucketArea9" parent="." instance=ExtResource("12_rvl4t")]
@@ -362,11 +362,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13688, -6.58375, 20.6704)
 paint_color = Color(0.607843, 0, 0.607843, 1)
 
 [node name="PaintBucketArea7" parent="." instance=ExtResource("12_rvl4t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86312, -6.58375, 20.6704)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86312, -6.58375, 19.6704)
 paint_color = Color(0, 0, 0, 1)
 
 [node name="PaintBucketArea8" parent="." instance=ExtResource("12_rvl4t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.863118, -6.58375, 20.6704)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.863118, -6.58375, 19.6704)
 paint_color = Color(1, 1, 1, 1)
 
 [editable path="MuttiTerrain"]
