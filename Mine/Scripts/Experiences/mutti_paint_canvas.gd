@@ -5,7 +5,7 @@ var player_body : Node3D = null;
 @export var path_to_renderer : NodePath;
 var currentTexture : Image;
 var lastPoint : Vector3;
-const MIN_DISTANCE_CHANGE = 0.2 / 2.5;
+const MIN_DISTANCE_CHANGE = 0.2 / 2.75;
 var mesh;
 var meshtool : MeshDataTool;
 
