@@ -11,16 +11,22 @@ var meshtool : MeshDataTool;
 
 var player_hit_layer_mask : int;
 
-var brush_tex = Image.load_from_file("res://Mine/Models/Mutti/Canvas/PaintBrush.png");
+@export var brush_tex : Texture2D;
+var brush_image : Image;
 
 func _ready() -> void:
 	player_hit_layer_mask = pow(2, 2-1);  #Set the layer mask to layer 2.
+	brush_image = brush_tex.get_image();
 	lastPoint = Vector3.ZERO;
+	var mesh = ArrayMesh.new();
+	mesh = get_node(path_to_renderer).get_mesh();
+	#mesh.add_surface_from_arrays(Mesh.PRIMITIVE_POINTS, get_node(path_to_renderer).mesh)
 	
 	meshtool = MeshDataTool.new();
-	meshtool.create_from_surface(get_node(path_to_renderer).mesh, 0);
+	meshtool.create_from_surface(mesh, 0);
 	CurrentColor = Color.BLACK;
-	currentTexture = Image.load_from_file("res://Mine/Models/Mutti/Canvas/StartingWhiteTexture.png").duplicate();
+	currentTexture = Image.create_empty(1024, 1024, false, Image.FORMAT_RGB8);
+	currentTexture.fill(Color.WHITE);
 	#var datam = currentTexture.get_data();
 	player_body = null;
 
@@ -57,11 +63,11 @@ func paint_closest_point(pt : Vector3):
 	pass;
 
 func PaintCircle(ux : int, uy : int):
-	var width = brush_tex.get_width();
-	var height = brush_tex.get_height();
+	var width = brush_image.get_width();
+	var height = brush_image.get_height();
 	for bx in range(0, width):
 		for by in range(0, height):
-			var c = brush_tex.get_pixel(bx, by) * CurrentColor; 
+			var c = brush_image.get_pixel(bx, by) * CurrentColor; 
 			if(c.a > 0.75):  #Don't change transparent parts
 				var offsetX = (ux + bx) - (width / 2);
 				var offsetY = (uy + by) - (height / 2);

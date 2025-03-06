@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxsmw1888irg"]
+[gd_scene load_steps=8 format=3 uid="uid://cxsmw1888irg"]
 
 [ext_resource type="Script" uid="uid://bfladwn4h1d0x" path="res://Mine/Scripts/Experiences/mutti_paint_canvas.gd" id="1_67w1x"]
 [ext_resource type="PackedScene" uid="uid://c6yfse7gqkybk" path="res://Mine/Models/Mutti/Canvas/PaintCanvas.glb" id="1_nmuhq"]
-[ext_resource type="Material" uid="uid://duptnybg3ali4" path="res://Mine/Models/Mutti/Canvas/M_CanvasMain.tres" id="2_67w1x"]
+[ext_resource type="Texture2D" uid="uid://cfggusn3grv58" path="res://Mine/Models/Mutti/Canvas/PaintBrush.png" id="2_ec52m"]
+[ext_resource type="Material" uid="uid://duptnybg3ali4" path="res://Mine/Models/Mutti/Canvas/M_CanvasMain.tres" id="3_67w1x"]
+[ext_resource type="Material" uid="uid://dddw83wd6plhx" path="res://Mine/Models/Mutti/Canvas/M_BottomOfCanvas.tres" id="4_ec52m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mbd7c"]
 size = Vector3(2, 0.1, 3)
@@ -22,6 +24,7 @@ axis_lock_angular_z = true
 max_contacts_reported = 2
 script = ExtResource("1_67w1x")
 path_to_renderer = NodePath("CollisionShape3D/PaintCanvas/Cube")
+brush_tex = ExtResource("2_ec52m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_mbd7c")
@@ -30,7 +33,8 @@ shape = SubResource("BoxShape3D_mbd7c")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 
 [node name="Cube" parent="CollisionShape3D/PaintCanvas" index="0"]
-surface_material_override/0 = ExtResource("2_67w1x")
+surface_material_override/0 = ExtResource("3_67w1x")
+surface_material_override/1 = ExtResource("4_ec52m")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_mask = 524288

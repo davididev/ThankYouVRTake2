@@ -1,7 +1,6 @@
 [gd_resource type="VisualShader" load_steps=7 format=3 uid="uid://bpqydu47t8ae5"]
 
 [ext_resource type="Texture2D" uid="uid://bm1ukcofgynm" path="res://Mine/Models/Mutti/Canvas/CanvasMainTexture.png" id="1_bo27u"]
-[ext_resource type="Texture2D" uid="uid://b1fiebkagkcjn" path="res://Mine/Models/Mutti/Canvas/StartingWhiteTexture.png" id="2_uub8t"]
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_vaast"]
 texture = ExtResource("1_bo27u")
@@ -9,9 +8,12 @@ texture = ExtResource("1_bo27u")
 [sub_resource type="VisualShaderNodeColorOp" id="VisualShaderNodeColorOp_xra3l"]
 operator = 2
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j50gs"]
+load_path = "res://.godot/imported/StartingWhiteTexture.png-66c9450bbad9789efb1af28b8bd56d0c.s3tc.ctex"
+
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_bo27u"]
 source = 5
-texture = ExtResource("2_uub8t")
+texture = SubResource("CompressedTexture2D_j50gs")
 texture_type = 1
 
 [sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_bo27u"]
