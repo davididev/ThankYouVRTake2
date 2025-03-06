@@ -1,13 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://bc8iefjegyk1o"]
+[gd_scene load_steps=14 format=3 uid="uid://bc8iefjegyk1o"]
 
-[ext_resource type="Script" uid="uid://chu3hehfq7yf1" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_fdr4h"]
+[ext_resource type="Script" uid="uid://tg62d01i80mv" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_fdr4h"]
 [ext_resource type="PackedScene" uid="uid://dhgqg8jn3l2b1" path="res://Mine/Models/Eric/Internet/TheInternet.glb" id="2_vhk6p"]
 [ext_resource type="Material" uid="uid://cp4s66yp3t7on" path="res://Mine/Particles/M_FlameParticle.tres" id="3_430jt"]
 [ext_resource type="Script" uid="uid://dhss2kb2e80gq" path="res://Mine/Scripts/Experiences/EricInternet.gd" id="3_hn6a6"]
 [ext_resource type="Resource" uid="uid://duwmvkcsxxm26" path="res://DialogueSystem/output/Eric-PickupInternet.res" id="4_1l6mx"]
 [ext_resource type="Resource" uid="uid://br3cjxdaj6jgd" path="res://DialogueSystem/output/Eric-BreakInternet.res" id="5_kjmyy"]
-[ext_resource type="Script" uid="uid://bj6d8wgwb4m6v" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.gd" id="7_88tpy"]
-[ext_resource type="Material" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tres" id="7_mctqm"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="7_q6fsq"]
+[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="8_ll03q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ttmhu"]
 size = Vector3(0.9, 0.6, 0.5)
@@ -28,8 +28,6 @@ anim_speed_max = 3.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_3js3s"]
 material = ExtResource("3_430jt")
-
-[sub_resource type="QuadMesh" id="QuadMesh_dtqs2"]
 
 [node name="XRToolsPickable" type="RigidBody3D"]
 collision_layer = 4
@@ -59,10 +57,12 @@ Dialogue1 = ExtResource("4_1l6mx")
 Dialogue2 = ExtResource("5_kjmyy")
 Particles = NodePath("../TheInternet/GPUParticles3D")
 
-[node name="XRToolsHighlightRing" type="MeshInstance3D" parent="."]
-mesh = SubResource("QuadMesh_dtqs2")
-surface_material_override/0 = ExtResource("7_mctqm")
-script = ExtResource("7_88tpy")
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("7_q6fsq")]
+
+[node name="GrabPointHandLeft2" parent="." instance=ExtResource("7_q6fsq")]
+hand = 1
+
+[node name="HighlightRing" parent="." instance=ExtResource("8_ll03q")]
 
 [connection signal="body_entered" from="." to="Node3D" method="_on_xr_tools_pickable_body_entered"]
 [connection signal="grabbed" from="." to="Node3D" method="_on_internet_pickup_grabbed"]
