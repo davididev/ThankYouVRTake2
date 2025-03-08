@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://duptnybg3ali4"]
 
 [ext_resource type="Shader" uid="uid://bpqydu47t8ae5" path="res://Mine/Models/Mutti/Canvas/S_CanvasPaintable.tres" id="1_7354a"]
-[ext_resource type="Texture2D" uid="uid://b1fiebkagkcjn" path="res://Mine/Models/Mutti/Canvas/StartingWhiteTexture.png" id="2_g0iya"]
+[ext_resource type="Texture2D" uid="uid://cp8et76mwkfya" path="res://Mine/Models/Mutti/Canvas/StartingWhiteTexture.png" id="2_g0iya"]
 
 [resource]
 render_priority = 0

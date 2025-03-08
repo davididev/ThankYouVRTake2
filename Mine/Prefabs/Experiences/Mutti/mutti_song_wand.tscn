@@ -37,6 +37,7 @@ ParticlePath = NodePath("PickableObject/GPUParticles3D")
 
 [node name="PickableObject" parent="." instance=ExtResource("1_7qgq6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.675501, 0, 1.20193)
+gravity_scale = 0.0
 second_hand_grab = 1
 
 [node name="CollisionShape3D" parent="PickableObject" index="0"]
