@@ -19,10 +19,10 @@ func _process(delta: float) -> void:
 	rotate_multiplier = move_toward(rotate_multiplier, rotate_multipler_target, 2.0 * delta);
 
 	if is_equal_approx(rotate_multipler_target, 1.0):  #Is running, control pitch
-		var bas = get_node(RigidPath).global_basis.x;
-		#DebugContent.DebugText = str(round(bas.x), ", ", round(bas.y), ", ", round(bas.z));
-		var pitch = bas.x;
-		get_node(SoundPlayerPath).pitch_scale = (pitch * 2.0) + 2.0;  #Lowest basis goes is -1, let's make the lowest 0.0
+		var bas = get_node(RigidPath).global_basis.z;
+		DebugContent.DebugText = str(round(bas.x * 10.0), ", ", round(bas.y * 10.0), ", ", round(bas.z  * 10.0));
+		var pitch = bas.y;
+		get_node(SoundPlayerPath).pitch_scale = clamp(abs(pitch * 5.0), 1.0, 100.0);    #Set minimum pitch to 1.0
 
 
 
