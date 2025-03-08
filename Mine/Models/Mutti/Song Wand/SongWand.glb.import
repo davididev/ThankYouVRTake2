@@ -1,0 +1,63 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://bodt0ibl5dcb6"
+path="res://.godot/imported/SongWand.glb-ae3332570fc59589ed3aeb6c846bfc0f.scn"
+
+[deps]
+
+source_file="res://Mine/Models/Mutti/Song Wand/SongWand.glb"
+dest_files=["res://.godot/imported/SongWand.glb-ae3332570fc59589ed3aeb6c846bfc0f.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"materials": {
+"EmitPoint": {
+"use_external/enabled": true,
+"use_external/path": "uid://id4gv3qoqosp"
+},
+"WandHandle": {
+"use_external/enabled": true,
+"use_external/path": "uid://dq3modqa1sexv"
+},
+"WandSpin": {
+"use_external/enabled": true,
+"use_external/path": "uid://dlm17023a1sok"
+}
+},
+"nodes": {
+"PATH:Cube": {
+"mesh_instance/layers": 2
+},
+"PATH:Sphere": {
+"mesh_instance/layers": 2
+},
+"PATH:Torus": {
+"mesh_instance/layers": 2
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

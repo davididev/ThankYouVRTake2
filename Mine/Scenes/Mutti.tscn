@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://d0qei2eexndrb"]
+[gd_scene load_steps=28 format=4 uid="uid://d0qei2eexndrb"]
 
 [ext_resource type="Script" uid="uid://cyul5ticdgwbi" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_vw80a"]
 [ext_resource type="PackedScene" uid="uid://ddyo2jv7628sa" path="res://VR/Prefabs/player_boilerplate.tscn" id="2_333qu"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cupjj4y6xrqqn" path="res://Mine/Prefabs/Experiences/Mutti/IndivDancePod.tscn" id="9_5315a"]
 [ext_resource type="PackedScene" uid="uid://cxsmw1888irg" path="res://Mine/Prefabs/Experiences/Mutti/mutti_paint_canvas.tscn" id="11_sv06f"]
 [ext_resource type="PackedScene" uid="uid://bvliahm7shofi" path="res://Mine/Prefabs/Experiences/Mutti/paint_bucket_area.tscn" id="12_rvl4t"]
+[ext_resource type="PackedScene" uid="uid://4xplvp8t3ylw" path="res://Mine/Prefabs/Experiences/Mutti/mutti_song_wand.tscn" id="13_2b30v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_khmjk"]
 resource_name = "Terrain"
@@ -206,6 +207,15 @@ Walk on the canvas."
 font_size = 120
 outline_size = 32
 
+[node name="Label3D- Song Wang" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, -0.38018, -2.6863)
+billboard = 2
+text = "Pick up the wand
+Hold down trigger
+Rotate to change sound"
+font_size = 120
+outline_size = 32
+
 [node name="Label3D- dance pads" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, -2.38018, 25.3137)
 billboard = 2
@@ -368,5 +378,8 @@ paint_color = Color(0, 0, 0, 1)
 [node name="PaintBucketArea8" parent="." instance=ExtResource("12_rvl4t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.863118, -6.58375, 19.6704)
 paint_color = Color(1, 1, 1, 1)
+
+[node name="mutti_song_wand" parent="." instance=ExtResource("13_2b30v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.0812, -7.02394, -3.76571)
 
 [editable path="MuttiTerrain"]
