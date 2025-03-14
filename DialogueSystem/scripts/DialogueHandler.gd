@@ -51,12 +51,6 @@ func StepAlpha():
 	get_node(FlashImage).set_surface_override_material(0, mat);
 
 static func SetVariable(vname : String, vvalue : float):
-	#if variables.find_key(vname) == null:  #Hasn't added variable yet
-	#	print(str("Key ", vname, " does not exist yet."));
-	#	vvalue = variables.get_or_add(vname, vvalue);
-	#else:
-	#	print(str("Key ", vname, " exists.  Setting to ", vvalue))
-	#	variables[vname] = vvalue;
 	variables[vname] = vvalue;
 
 static func GetVariable(vname : String):
@@ -80,7 +74,7 @@ func StartDialogue(runThis : DialogueGrid):
 #Using CurrentX and CurrentY, get the DialogueEntry node and start up the function
 func ObtainDialogue():
 	#Reset the dialogue box before the event
-	visible = false;
+	#visible = false;
 	for c in ChoiceButtons:
 		get_node(c).visible = false;
 	if dialogueThread == null:
@@ -90,31 +84,32 @@ func ObtainDialogue():
 	if currentNode == null:
 		EndDialogue();
 		return;
-	else:
-		DialogueHandler.IsRunning = true;
+	
+	DialogueHandler.IsRunning = true;
 		
-		var command = currentNode.cmd;
-		var args = currentNode.GetArguments();
-		if command == "str":
-			StreamDialogueBox(args);
-		if command == "choice":
-			StreamChoiceBox(args);
-		if command == "end":
-			EndDialogue();
-			return;
-		if command == "var":
-			StreamModifyVariables(args);
-		if command == "tel":
-			StreamTeleportNPC(args);
-		if command == "wait":
-			StreamWait(args);
-		if command == "sce":
-			SteamTeleport(args);
-			return;
-		if command == "msg":
-			StreamSendMessage(args);
-		if command == "ifthen":
-			StreamIfThen(args);
+	var command = currentNode.cmd;
+	var args = currentNode.GetArguments();
+	if command == "str":
+		StreamDialogueBox(args);
+	if command == "choice":
+		StreamChoiceBox(args);
+	if command == "var":
+		StreamModifyVariables(args);
+		return;
+	if command == "tel":
+		StreamTeleportNPC(args);
+	if command == "wait":
+		StreamWait(args);
+	if command == "sce":
+		SteamTeleport(args);
+	if command == "msg":
+		StreamSendMessage(args);
+	if command == "ifthen":
+		StreamIfThen(args);
+	if command == "end":
+		EndDialogue();
+		return;
+	
 
 func StreamIfThen(args : Array[String]):
 	var variableName = args[0];
@@ -207,11 +202,13 @@ func StreamTeleportNPC(args : Array[String]):
 	
 
 func StreamModifyVariables(args : Array[String]):
+	
 	var varName = args[0];
 	var finalValue = GetVariable(varName);
 	
 	var operator = args[1];
 	var firstValue = DialogueArgsUtility.FilterDialogueVariables(args[2]).to_float();
+	var nextNodeStr = args[3];
 	
 	#Set var does this automatically
 	if operator == "=":  #Add var
@@ -234,7 +231,8 @@ func StreamModifyVariables(args : Array[String]):
 		finalValue /= firstValue;
 	
 	SetVariable(varName, finalValue);
-	DialogueArgsUtility.SetNextNodeFromStr(args[3]);
+	DialogueArgsUtility.SetNextNodeFromStr(nextNodeStr);
+	
 
 func StreamDialogueBox(args : Array[String]):
 	
