@@ -1,0 +1,162 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://di66bqkd7s71w"
+path="res://.godot/imported/CaveModularFloors.blend-52013334eb36331d8e7c702cd3af4ad1.scn"
+
+[deps]
+
+source_file="res://Mine/Models/Modular/AFV/CaveModularFloors.blend"
+dest_files=["res://.godot/imported/CaveModularFloors.blend-52013334eb36331d8e7c702cd3af4ad1.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"materials": {
+"CeilingMat": {
+"use_external/enabled": true,
+"use_external/path": "uid://c5sr7htb7s7u2"
+},
+"FloorMat": {
+"use_external/enabled": true,
+"use_external/path": "uid://bfi31rq0vycdq"
+}
+},
+"meshes": {
+"CaveModularFloors_Cube": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV/IndivPieces Floor/CaveModularFloors_Cube.res"
+},
+"CaveModularFloors_Cube_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV/IndivPieces Floor/CaveModularFloors_Cube_001.res"
+},
+"CaveModularFloors_Cube_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV/IndivPieces Floor/CaveModularFloors_Cube_002.res"
+},
+"CaveModularFloors_Cube_003": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV/IndivPieces Floor/CaveModularFloors_Cube_003.res"
+},
+"CaveModularFloors_Cube_007": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV/IndivPieces Floor/CaveModularFloors_Cube_007.res"
+},
+"CaveModularFloors_Cube_008": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV/IndivPieces Floor/CaveModularFloors_Cube_008.res"
+},
+"CaveModularFloors_Cube_009": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV/IndivPieces Floor/CaveModularFloors_Cube_009.res"
+},
+"CaveModularFloors_Cube_010": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV/IndivPieces Floor/CaveModularFloors_Cube_010.res"
+},
+"CaveModularFloors_Cube_011": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV/IndivPieces Floor/CaveModularFloors_Cube_011.res"
+},
+"CaveModularFloors_Cube_012": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV/IndivPieces Floor/CaveModularFloors_Cube_012.res"
+},
+"CaveModularFloors_Cube_013": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV/IndivPieces Floor/CaveModularFloors_Cube_013.res"
+},
+"CaveModularFloors_Cube_014": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV/IndivPieces Floor/CaveModularFloors_Cube_014.res"
+}
+}
+}
+blender/nodes/visible=0
+blender/nodes/active_collection_only=false
+blender/nodes/punctual_lights=true
+blender/nodes/cameras=true
+blender/nodes/custom_properties=true
+blender/nodes/modifiers=1
+blender/meshes/colors=false
+blender/meshes/uvs=true
+blender/meshes/normals=true
+blender/meshes/export_geometry_nodes_instances=false
+blender/meshes/tangents=true
+blender/meshes/skins=2
+blender/meshes/export_bones_deforming_mesh_only=false
+blender/materials/unpack_enabled=true
+blender/materials/export_materials=1
+blender/animation/limit_playback=true
+blender/animation/always_sample=true
+blender/animation/group_tracks=true
