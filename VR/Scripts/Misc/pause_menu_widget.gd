@@ -18,7 +18,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
-	currentScale = move_toward(currentScale, targetScale, 5.0 * delta);
+	currentScale = move_toward(currentScale, targetScale, 5.0 * delta / Engine.time_scale);
 	scale = Vector3.ONE * currentScale;
 	
 	var currentlyInvisible = is_equal_approx(currentScale, SCALE_CLOSED);
@@ -32,8 +32,10 @@ func _process(delta: float) -> void:
 			lastMenuPressed = true;
 			if is_equal_approx(targetScale, SCALE_OPEN):
 				targetScale = SCALE_CLOSED;
+				Engine.time_scale = 1.0;  #Return normal game scale
 			else:
 				targetScale = SCALE_OPEN;
+				Engine.time_scale = 1.0 / 360.0;  #Pause game, set 1 hour to a second
 			
 	
 	if visible == true:  #Move it over left hand and such
