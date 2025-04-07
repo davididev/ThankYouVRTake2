@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://khrjstwanv1f"]
+[gd_scene load_steps=19 format=4 uid="uid://khrjstwanv1f"]
 
 [ext_resource type="Script" uid="uid://cyul5ticdgwbi" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_y8sop"]
 [ext_resource type="PackedScene" uid="uid://ddyo2jv7628sa" path="res://VR/Prefabs/player_boilerplate.tscn" id="2_1l4t8"]
@@ -10,6 +10,7 @@
 [ext_resource type="Material" uid="uid://c5sr7htb7s7u2" path="res://Mine/Models/Modular/AFV/M_BrownCeiling.tres" id="7_a6743"]
 [ext_resource type="Material" uid="uid://dxbwhnimgopww" path="res://Mine/Models/Modular/AFV/M_BrownSolid.tres" id="8_uh2re"]
 [ext_resource type="Material" uid="uid://nd7wj1ib37qd" path="res://Mine/Models/Modular/AFV/M_BrownWall.tres" id="9_fdfv2"]
+[ext_resource type="Script" uid="uid://c3y3v7o5xyyjp" path="res://VR/Scripts/Misc/SceneVars.gd" id="11_cc4dd"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_m3cb8"]
 panorama = ExtResource("3_7n084")
@@ -202,4 +203,9 @@ SceneName = "Mine/Scenes/Tim2.tscn"
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5928, 3.47897, -2.89026)
 size = Vector3(0.941833, 0.749542, 1.81738)
-material = ExtResource("7_a6743")
+material = ExtResource("9_fdfv2")
+
+[node name="SceneVars" type="Node3D" parent="."]
+script = ExtResource("11_cc4dd")
+MusicPath = "Tim.mp3"
+metadata/_custom_type_script = "uid://c3y3v7o5xyyjp"
