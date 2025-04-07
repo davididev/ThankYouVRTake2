@@ -9,7 +9,10 @@ script = ExtResource("2_sefw6")
 Min_Speed = 0.5
 animation_path = NodePath("AnimationPlayer")
 
+[node name="Sway" parent="." index="0"]
+layers = 2
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 libraries = {
-"SwayAnimationLibrary": ExtResource("3_80no6")
+&"SwayAnimationLibrary": ExtResource("3_80no6")
 }

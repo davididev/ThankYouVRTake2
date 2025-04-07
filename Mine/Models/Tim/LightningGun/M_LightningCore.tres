@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://rornu6cq2m63"]
+
+[ext_resource type="Shader" uid="uid://dqtfhxx3miiyl" path="res://Mine/Models/Tim/LightningGun/S_LightningCore.tres" id="1_8p228"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_8p228")

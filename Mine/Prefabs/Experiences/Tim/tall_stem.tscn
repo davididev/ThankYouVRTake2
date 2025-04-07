@@ -10,9 +10,10 @@ Min_Speed = 0.25
 animation_path = NodePath("AnimationPlayer")
 
 [node name="Sway" parent="." index="0"]
+layers = 2
 "blend_shapes/Key 1" = 0.286396
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 libraries = {
-"SwayAnimationLibrary": ExtResource("3_ijie0")
+&"SwayAnimationLibrary": ExtResource("3_ijie0")
 }

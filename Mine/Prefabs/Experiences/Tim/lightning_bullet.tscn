@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://cyiipyx6tugrp"]
+
+[ext_resource type="Script" uid="uid://dvcwfxh0ksq6m" path="res://Mine/Scripts/Experiences/bullet.gd" id="1_udubc"]
+[ext_resource type="Material" uid="uid://bvwc33mcfsjb4" path="res://Mine/Particles/M_LitBurst.tres" id="2_82hfd"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_f1rf7"]
+radius = 0.25
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jbl25"]
+emission_shape = 1
+emission_sphere_radius = 0.2
+spread = 46.715
+initial_velocity_min = 0.1
+initial_velocity_max = 0.1
+gravity = Vector3(0, 0, 0)
+anim_speed_min = 1.5
+anim_speed_max = 2.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_ux1iq"]
+material = ExtResource("2_82hfd")
+size = Vector2(0.5, 0.5)
+
+[node name="LightningBullet" type="Area3D"]
+collision_layer = 32
+collision_mask = 65
+script = ExtResource("1_udubc")
+SoundOnSpawn = "scifi/laserLarge_004.ogg"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_f1rf7")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="CollisionShape3D"]
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_jbl25")
+draw_pass_1 = SubResource("QuadMesh_ux1iq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
