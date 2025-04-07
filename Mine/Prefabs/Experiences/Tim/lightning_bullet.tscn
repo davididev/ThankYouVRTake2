@@ -24,7 +24,7 @@ size = Vector2(0.5, 0.5)
 collision_layer = 32
 collision_mask = 65
 script = ExtResource("1_udubc")
-SoundOnSpawn = "scifi/laserLarge_004.ogg"
+SoundOnSpawn = "scifi/laserLarge_000.ogg"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_f1rf7")
