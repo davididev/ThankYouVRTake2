@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DecorationResource" load_steps=3 format=3 uid="uid://dkcapc1jdtmyb"]
+
+[ext_resource type="Script" uid="uid://boky2hsj8xkds" path="res://VR/Scripts/Misc/DecorationResource.gd" id="1_bxh03"]
+[ext_resource type="PackedScene" uid="uid://08ud4iq4yi6x" path="res://Mine/Prefabs/Experiences/Tim/simple_rock.tscn" id="1_fo1kg"]
+
+[resource]
+script = ExtResource("1_bxh03")
+Prefab = ExtResource("1_fo1kg")
+Weight = 2
+MinRotate = -40.0
+MaxRotate = 40.0
+MinScale = 0.5
+MaxScale = 1.2
+metadata/_custom_type_script = "uid://boky2hsj8xkds"

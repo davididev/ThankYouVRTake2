@@ -1,12 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://baglkwbf3b7n6"]
+[gd_scene load_steps=2 format=3 uid="uid://baglkwbf3b7n6"]
 
-[ext_resource type="Material" uid="uid://d1hby8u3u1jgp" path="res://Mine/Decals/M_BlackPuddle1.tres" id="1_krcn0"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_p1otr"]
+[ext_resource type="Texture2D" uid="uid://ckwmcpo6whcl1" path="res://Mine/Decals/BlackPuddle1.png" id="1_h1g47"]
 
 [node name="BlackPuddle" type="Node3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-layers = 2
-mesh = SubResource("BoxMesh_p1otr")
-surface_material_override/0 = ExtResource("1_krcn0")
+[node name="Decal" type="Decal" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+size = Vector3(2, 4, 2)
+texture_albedo = ExtResource("1_h1g47")
+cull_mask = 1048569

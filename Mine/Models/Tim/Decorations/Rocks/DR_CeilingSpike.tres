@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DecorationResource" load_steps=3 format=3 uid="uid://bab7xc865tbx7"]
+
+[ext_resource type="Script" uid="uid://boky2hsj8xkds" path="res://VR/Scripts/Misc/DecorationResource.gd" id="1_4lryr"]
+[ext_resource type="PackedScene" uid="uid://03hl036dujfj" path="res://Mine/Prefabs/Experiences/Tim/simple_ceiling_spike.tscn" id="1_y8y76"]
+
+[resource]
+script = ExtResource("1_4lryr")
+Prefab = ExtResource("1_y8y76")
+Weight = 2
+MinRotate = -30.0
+MaxRotate = 30.0
+MinScale = 0.25
+MaxScale = 1.0
+metadata/_custom_type_script = "uid://boky2hsj8xkds"
