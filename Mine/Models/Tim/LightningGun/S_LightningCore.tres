@@ -120,7 +120,6 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-345.857, 39.7719)
 modes/blend = 1
 nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_iyaui")
 nodes/fragment/3/position = Vector2(-260, 140)
