@@ -10,6 +10,7 @@ const FIRE_RATE = 0.1;
 @export var BulletPrefab : PackedScene;
 
 func _ready() -> void:
+	var instance = BulletPrefab.instantiate();  #preload for the first time
 	HoldingGun = false;
 	isFiring = false;
 	target_rotate_multiplier = 0.0;

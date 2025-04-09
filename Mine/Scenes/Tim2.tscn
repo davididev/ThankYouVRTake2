@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://b7mulnva2tbtn"]
+[gd_scene load_steps=37 format=4 uid="uid://b7mulnva2tbtn"]
 
 [ext_resource type="Script" uid="uid://cyul5ticdgwbi" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_ouxam"]
 [ext_resource type="PackedScene" uid="uid://ddyo2jv7628sa" path="res://VR/Prefabs/player_boilerplate.tscn" id="2_oy8um"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://ciyjkochxgbol" path="res://Mine/Prefabs/Experiences/Tim/simple_spike.tscn" id="20_hbh0g"]
 [ext_resource type="Script" uid="uid://c3y3v7o5xyyjp" path="res://VR/Scripts/Misc/SceneVars.gd" id="21_uoftb"]
 [ext_resource type="PackedScene" uid="uid://ctjqknlr8e2fv" path="res://Mine/Prefabs/Experiences/Tim/lightning_chain_gun.tscn" id="22_0nry8"]
+[ext_resource type="Material" uid="uid://d1hby8u3u1jgp" path="res://Mine/Decals/M_BlackPuddle1.tres" id="23_hbh0g"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_kjw1n"]
 lightmap_size_hint = Vector2i(282, 266)
@@ -291,6 +292,8 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AABgwQAAgEAAAGBBAACAwQAAgEAAAIBBAABgwQAAgEAAAIBBAACAwQAAgEAAAGBBAABgwQAAgEAAAEBBAACAwQAAgEAAAGBBAABgwQAAgEAAAGBBAACAwQAAgEAAAEBBAABgwQAAgEAAACBBAACAwQAAgEAAAEBBAABgwQAAgEAAAEBBAACAwQAAgEAAACBBAoABAACA/z8CgAEAAID/PwKAAQAAgP8/AoABAACA/z8CgAEAAID/PwKAAQAAgP8/AoABAACA/z8CgAEAAID/PwKAAQAAgP8/AoABAACA/z8CgAEAAID/PwKAAQAAgP8/")
 }]
 
+[sub_resource type="BoxMesh" id="BoxMesh_ou4b4"]
+
 [node name="XRToolsSceneBase" type="Node3D"]
 script = ExtResource("1_ouxam")
 metadata/_custom_type_script = "uid://cyul5ticdgwbi"
@@ -370,29 +373,14 @@ transform = Transform3D(-0.706603, 0, 0.251419, 0, 0.75, 0, -0.251419, 0, -0.706
 [node name="Child4" parent="DecorationPlacer_Floor" instance=ExtResource("19_0nry8")]
 transform = Transform3D(0.729532, 0, 0.240718, 0, 0.76822, 0, -0.240718, 0, 0.729532, -0.968876, -4, 14.5002)
 
-[node name="Child5" parent="DecorationPlacer_Floor" instance=ExtResource("18_uoftb")]
-transform = Transform3D(-0.0588161, 0, 0.74769, 0, 0.75, 0, -0.74769, 0, -0.0588161, 2.91139, -4, 14.9876)
-
-[node name="Child6" parent="DecorationPlacer_Floor" instance=ExtResource("18_uoftb")]
-transform = Transform3D(-0.603631, -0.000238064, 0.445117, 0, 0.75, 0.000401126, -0.445117, 0.000322843, -0.603631, -1.66725, -3.96457, 17.5252)
-
-[node name="Child7" parent="DecorationPlacer_Floor" instance=ExtResource("18_uoftb")]
-transform = Transform3D(-0.46628, 0, 0.587438, 0, 0.75, 0, -0.587438, 0, -0.46628, -4.18304, -4, 19.2371)
-
 [node name="Child8" parent="DecorationPlacer_Floor" instance=ExtResource("19_0nry8")]
 transform = Transform3D(0.894281, 0, -0.361821, 0, 0.964704, 0, 0.361821, 0, 0.894281, -8.04054, -4.01295, 17.1954)
 
 [node name="Child9" parent="DecorationPlacer_Floor" instance=ExtResource("19_0nry8")]
 transform = Transform3D(0.798912, 0, 0.106523, 0, 0.805982, 0, -0.106523, 0, 0.798912, -10.0964, -4, 12.5654)
 
-[node name="Child10" parent="DecorationPlacer_Floor" instance=ExtResource("18_uoftb")]
-transform = Transform3D(-0.141485, -0.0698993, 0.733209, 0, 0.746615, 0.0711773, -0.736534, 0.0134274, -0.140847, -12.8172, -4.18814, 18.9691)
-
 [node name="Child11" parent="DecorationPlacer_Floor" instance=ExtResource("19_0nry8")]
 transform = Transform3D(1.0251, -0.00256256, -0.0316105, 0, 1.02223, -0.0828691, 0.0317142, 0.0828295, 1.02175, 8.01634, -4.39757, 17.6987)
-
-[node name="Child12" parent="DecorationPlacer_Floor" instance=ExtResource("18_uoftb")]
-transform = Transform3D(-0.532522, -0.0889167, 0.52059, 0, 0.739294, 0.126271, -0.528129, 0.0896564, -0.524921, 5.77382, -4.28127, 20.8323)
 
 [node name="Child13" parent="DecorationPlacer_Floor" instance=ExtResource("20_hbh0g")]
 transform = Transform3D(0.601108, 0, 0.336075, 0, 0.688678, 0, -0.336075, 0, 0.601108, 5.79607, -4, 10.9521)
@@ -446,3 +434,7 @@ metadata/_custom_type_script = "uid://c3y3v7o5xyyjp"
 
 [node name="LightningChainGun" parent="." instance=ExtResource("22_0nry8")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.42029, -1.60928, 11.785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ou4b4")
+surface_material_override/0 = ExtResource("23_hbh0g")
