@@ -8,9 +8,10 @@ var isFiring = false;
 var fire_timer = 0.0;
 const FIRE_RATE = 0.1;
 @export var BulletPrefab : PackedScene;
+var instance;
 
 func _ready() -> void:
-	var instance = BulletPrefab.instantiate();  #preload for the first time
+	instance = BulletPrefab.instantiate();  #preload for the first time
 	HoldingGun = false;
 	isFiring = false;
 	target_rotate_multiplier = 0.0;
@@ -25,7 +26,6 @@ func _process(delta: float) -> void:
 		fire_timer += delta;
 		if fire_timer >= FIRE_RATE:
 			fire_timer = 0.0;
-			var instance = BulletPrefab.instantiate();
 			
 			get_parent().add_child(instance);
 			instance.global_position = get_node("PickableObject/CollisionShape3D/FirePoint").global_position;
