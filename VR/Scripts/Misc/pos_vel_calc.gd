@@ -15,14 +15,24 @@ var _last_head_position : Vector3;
 @export var LeftHandRef : NodePath;
 @export var RightHandRef : NodePath;
 @export var HeadRef : NodePath;
+@export var BodyRef : NodePath;
 
+var _controller1;
+var _controller2;
+
+var body : XRToolsPlayerBody
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	body = get_node(BodyRef) as XRToolsPlayerBody;
+	_controller1 = XRHelpers.get_xr_controller(get_node(LeftHandRef))
+	_controller1 = XRHelpers.get_xr_controller(get_node(RightHandRef))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if _controller1.is_button_pressed("trigger"):
+		if _controller2.is_button_pressed("trigger"):
+			body.calibrate_player_height()
+	
 	LeftHandPos = get_node(LeftHandRef).global_position;
 	RightHandPos  = get_node(RightHandRef).global_position;
 	HeadPos = get_node(HeadRef).global_position;
