@@ -29,8 +29,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if _controller1.is_button_pressed("trigger"):
-		if _controller2.is_button_pressed("trigger"):
+	if _controller1.get_float("trigger") > 0.9 and _controller1.get_float("grip") < 0.5:
+		if _controller2.get_float("trigger") > 0.9 and _controller2.get_float("grip") < 0.5:
 			body.calibrate_player_height()
 	
 	LeftHandPos = get_node(LeftHandRef).global_position;
