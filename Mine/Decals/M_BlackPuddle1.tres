@@ -1,12 +1,17 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://d1hby8u3u1jgp"]
 
-[ext_resource type="Shader" uid="uid://d25fbsyoxt4w6" path="res://VR/Scripts/Misc/Decalv2Shader.gdshader" id="1_cnid8"]
+[ext_resource type="Shader" uid="uid://5g73uswfp744" path="res://addons/decalco/src/DecalGLES2.gdshader" id="1_0url7"]
 [ext_resource type="Texture2D" uid="uid://ckwmcpo6whcl1" path="res://Mine/Decals/BlackPuddle1.png" id="2_vpnlt"]
 
 [resource]
 render_priority = 0
-shader = ExtResource("1_cnid8")
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/texture_albedo = ExtResource("2_vpnlt")
-shader_parameter/scale_mod = 1.0
-shader_parameter/cube_half_size = 0.5
+shader = ExtResource("1_0url7")
+shader_parameter/albedo = ExtResource("2_vpnlt")
+shader_parameter/albedo_tint = Vector4(1, 1, 1, 1)
+shader_parameter/use_normal_map = false
+shader_parameter/emission_tint = Vector4(0, 0, 0, 1)
+shader_parameter/emission_strength = 1.0
+shader_parameter/metallic_strength = 1.0
+shader_parameter/roughness_strength = 1.0
+shader_parameter/occlusion_strength = 1.0
+shader_parameter/layer_mask = 1

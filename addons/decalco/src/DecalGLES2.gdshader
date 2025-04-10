@@ -2,27 +2,31 @@ shader_type spatial;
 
 render_mode blend_mix, depth_draw_never, cull_back;
 
-uniform sampler2D albedo : hint_albedo;
-uniform vec4 albedo_tint : hint_color = vec4(1.0);
+uniform sampler2D albedo;
+uniform vec4 albedo_tint = vec4(1.0);
 
 uniform sampler2D normal_map : hint_normal;
 uniform bool use_normal_map = false;
 
-uniform sampler2D emission : hint_black;
-uniform vec4 emission_tint : hint_color = vec4(vec3(0.0), 1.0);
+uniform sampler2D emission;
+uniform vec4 emission_tint = vec4(vec3(0.0), 1.0);
 uniform float emission_strength = 1.0;
 
-uniform sampler2D metallic : hint_black;
+uniform sampler2D metallic;
 uniform float metallic_strength = 1.0;
 
-uniform sampler2D roughness : hint_white;
+uniform sampler2D roughness;
 uniform float roughness_strength = 1.0;
 
-uniform sampler2D occlusion : hint_white;
+uniform sampler2D occlusion;
 uniform float occlusion_strength = 1.0;
-
+uniform int layer_mask = 1;  // Define the layer mask as a uniform
 void fragment() {
     vec2 uv = UV;
+
+	 if ((layer_mask & 1) == 0) {
+        discard;  // Skip rendering if the layer doesn't match
+    }
 
     // Albedo
     vec4 albedo_color = texture(albedo, uv) * albedo_tint;
