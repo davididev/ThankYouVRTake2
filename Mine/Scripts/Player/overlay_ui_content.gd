@@ -7,10 +7,16 @@ var refresh_time_timer = 0.0;
 static var overlayAlpha : Color;
 static var overlayTexture : Texture2D;
 static var overlayPerSecond = 2.0;
+static var DisplayedCalibrationHeight = false;
+var calibrationHeightTimer = 0.0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	refresh_time_timer = 0.0;
+	get_node("Calibration Label").visible = !DisplayedCalibrationHeight;
+	if DisplayedCalibrationHeight == false:
+		DisplayedCalibrationHeight = true;
+		calibrationHeightTimer = 5.0;
 	pass # Replace with function body.
 
 
@@ -18,6 +24,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	get_node("Subtitle").text = CurrentSubtitle;
 	RefreshTime(delta);
+	if calibrationHeightTimer > 0.0:
+		calibrationHeightTimer -= delta;
+		if calibrationHeightTimer <= 0.0:
+			get_node("Calibration Label").visible = false;
 	if overlayTexture != null:
 		overlayAlpha.a = move_toward(overlayAlpha.a, 0.0, overlayPerSecond * delta)
 		get_node("OverlayRect").texture = overlayTexture;

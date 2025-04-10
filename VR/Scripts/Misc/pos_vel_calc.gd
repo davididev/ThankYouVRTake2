@@ -25,13 +25,14 @@ var body : XRToolsPlayerBody
 func _ready() -> void:
 	body = get_node(BodyRef) as XRToolsPlayerBody;
 	_controller1 = XRHelpers.get_xr_controller(get_node(LeftHandRef))
-	_controller1 = XRHelpers.get_xr_controller(get_node(RightHandRef))
+	_controller2 = XRHelpers.get_xr_controller(get_node(RightHandRef))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if _controller1.get_float("trigger") > 0.9 and _controller1.get_float("grip") < 0.5:
-		if _controller2.get_float("trigger") > 0.9 and _controller2.get_float("grip") < 0.5:
-			body.calibrate_player_height()
+	if _controller1.get_is_active() and _controller2.get_is_active():
+		if _controller1.get_float("trigger") > 0.9 and _controller1.get_float("grip") < 0.5:
+			if _controller2.get_float("trigger") > 0.9 and _controller2.get_float("grip") < 0.5:
+				body.calibrate_player_height()
 	
 	LeftHandPos = get_node(LeftHandRef).global_position;
 	RightHandPos  = get_node(RightHandRef).global_position;
