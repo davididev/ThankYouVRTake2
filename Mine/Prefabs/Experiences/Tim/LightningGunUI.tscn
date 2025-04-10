@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://baa5f3fxyxdal"]
+
+[ext_resource type="Script" uid="uid://djg63yurb5bkd" path="res://Mine/Prefabs/Experiences/Tim/lightning_gun_ui.gd" id="1_0gpa0"]
+[ext_resource type="Texture2D" uid="uid://c3ekiatxlggim" path="res://Mine/UI/TargetUIWindow.png" id="1_01nal"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 512.0
+offset_bottom = 256.0
+script = ExtResource("1_0gpa0")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_01nal")
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_right = 504.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 20
+text = "Shoot Em Up!"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 40.0
+offset_right = 78.0
+offset_bottom = 63.0
+theme_override_font_sizes/font_size = 24
+text = "Score: "
+
+[node name="Label_Score" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 40.0
+offset_right = 174.0
+offset_bottom = 63.0
+theme_override_font_sizes/font_size = 24
+text = "0"

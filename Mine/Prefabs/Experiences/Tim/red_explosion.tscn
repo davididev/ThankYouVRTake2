@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://cbutt64cqag8y"]
+
+[ext_resource type="Script" uid="uid://cd6unrim8gkxc" path="res://VR/Scripts/Misc/playparticlesonce.gd" id="1_le6y1"]
+[ext_resource type="Material" uid="uid://76im7r6umpha" path="res://Mine/Particles/M_ShatterParticle.tres" id="2_k28tf"]
+
+[sub_resource type="Curve" id="Curve_0vmdp"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jha4f"]
+curve = SubResource("Curve_0vmdp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kwhv2"]
+emission_shape = 1
+emission_sphere_radius = 0.1
+spread = 180.0
+initial_velocity_min = 0.5
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_jha4f")
+anim_speed_min = 4.0
+anim_speed_max = 4.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_tswg5"]
+material = ExtResource("2_k28tf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rgsed"]
+emission_shape = 1
+emission_sphere_radius = 0.1
+spread = 180.0
+initial_velocity_min = 0.5
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+color = Color(1, 0, 0, 1)
+alpha_curve = SubResource("CurveTexture_jha4f")
+anim_speed_min = 4.0
+anim_speed_max = 4.0
+
+[node name="PlayParticlesOnce" type="Node3D"]
+script = ExtResource("1_le6y1")
+metadata/_custom_type_script = "uid://cd6unrim8gkxc"
+
+[node name="White Burst" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 12
+lifetime = 4.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_kwhv2")
+draw_pass_1 = SubResource("QuadMesh_tswg5")
+
+[node name="Red Burst" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 12
+lifetime = 4.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_rgsed")
+draw_pass_1 = SubResource("QuadMesh_tswg5")

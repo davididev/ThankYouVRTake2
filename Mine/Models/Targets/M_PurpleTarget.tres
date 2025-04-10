@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://f04lx3ife7pd"]
+
+[ext_resource type="Texture2D" uid="uid://cl6qjqmbw7lag" path="res://Mine/Models/Targets/TargetPurple.png" id="1_b0vmo"]
+
+[resource]
+albedo_texture = ExtResource("1_b0vmo")

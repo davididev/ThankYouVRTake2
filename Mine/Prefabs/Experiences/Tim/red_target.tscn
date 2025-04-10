@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://4gxr45x8l7c4"]
+
+[ext_resource type="PackedScene" uid="uid://cwo6un32l4q5m" path="res://Mine/Models/Targets/TargetMain.glb" id="1_2frve"]
+[ext_resource type="Script" uid="uid://vt73yca834l2" path="res://Mine/Scripts/Experiences/tim_target.gd" id="1_7l0yf"]
+[ext_resource type="PackedScene" uid="uid://cbutt64cqag8y" path="res://Mine/Prefabs/Experiences/Tim/red_explosion.tscn" id="2_614rs"]
+[ext_resource type="Material" uid="uid://ck8hunj1wlca4" path="res://Mine/Models/Targets/M_RedTarget.tres" id="3_614rs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ursn0"]
+size = Vector3(1, 1, 0.5)
+
+[node name="Target0" type="RigidBody3D" groups=["Target"]]
+collision_layer = 64
+gravity_scale = 0.0
+freeze = true
+freeze_mode = 1
+script = ExtResource("1_7l0yf")
+points = 1
+ExplosionPrefab = ExtResource("2_614rs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ursn0")
+
+[node name="TargetMain" parent="CollisionShape3D" instance=ExtResource("1_2frve")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Cylinder" parent="CollisionShape3D/TargetMain" index="0"]
+surface_material_override/0 = ExtResource("3_614rs")
+
+[connection signal="OnBulletDamage" from="." to="." method="_on_on_bullet_damage"]
+
+[editable path="CollisionShape3D/TargetMain"]
