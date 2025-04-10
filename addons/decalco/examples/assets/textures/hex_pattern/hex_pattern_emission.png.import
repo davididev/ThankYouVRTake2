@@ -1,36 +1,36 @@
 [remap]
 
 importer="texture"
-type="StreamTexture"
-path.s3tc="res://.import/hex_pattern_emission.png-4bde02a9e37d6b9f0f0733d4127a12dc.s3tc.stex"
-path.etc="res://.import/hex_pattern_emission.png-4bde02a9e37d6b9f0f0733d4127a12dc.etc.stex"
+type="CompressedTexture2D"
+uid="uid://ct68egfr7ru1w"
+path.s3tc="res://.godot/imported/hex_pattern_emission.png-51f2f31e4030b5814bb4314c9ce3270a.s3tc.ctex"
+path.etc2="res://.godot/imported/hex_pattern_emission.png-51f2f31e4030b5814bb4314c9ce3270a.etc2.ctex"
 metadata={
-"imported_formats": [ "s3tc", "etc" ],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
-source_file="res://decalco/examples/assets/textures/hex_pattern/hex_pattern_emission.png"
-dest_files=[ "res://.import/hex_pattern_emission.png-4bde02a9e37d6b9f0f0733d4127a12dc.s3tc.stex", "res://.import/hex_pattern_emission.png-4bde02a9e37d6b9f0f0733d4127a12dc.etc.stex" ]
+source_file="res://addons/decalco/examples/assets/textures/hex_pattern/hex_pattern_emission.png"
+dest_files=["res://.godot/imported/hex_pattern_emission.png-51f2f31e4030b5814bb4314c9ce3270a.s3tc.ctex", "res://.godot/imported/hex_pattern_emission.png-51f2f31e4030b5814bb4314c9ce3270a.etc2.ctex"]
 
 [params]
 
 compress/mode=2
+compress/high_quality=false
 compress/lossy_quality=0.7
-compress/hdr_mode=0
-compress/bptc_ldr=0
+compress/hdr_compression=1
 compress/normal_map=0
-flags/repeat=true
-flags/filter=true
-flags/mipmaps=true
-flags/anisotropic=false
-flags/srgb=2
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
-process/HDR_as_SRGB=false
-process/invert_color=false
-stream=false
-size_limit=0
-detect_3d=false
-svg/scale=1.0
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1
