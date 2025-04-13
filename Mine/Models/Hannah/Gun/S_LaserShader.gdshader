@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode shadows_disabled;
+render_mode blend_add;
 
 uniform vec4 albedo_color; // Albedo color
 uniform vec4 fresnel_color; // Fresnel glow color
