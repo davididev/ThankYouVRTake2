@@ -2,12 +2,17 @@ class_name SceneVars extends Node3D
 
 @export var MusicPath : String = "Song.mp3";
 @export var DialogueOnStart : DialogueGrid;
+@export var StopMusic = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
+	
 	if MusicPath != "":
 		PlayMusic.PlaySong(MusicPath);
-		
+	
+	if StopMusic:
+		PlayMusic.PlaySong("");
 	if DialogueOnStart != null:
 		await get_tree().create_timer(0.1).timeout;
 		DialogueHandler.Instance.StartDialogue(DialogueOnStart);

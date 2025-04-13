@@ -472,6 +472,7 @@ light_data = ExtResource("8_3r7fc")
 script = ExtResource("8_h3wnt")
 MusicPath = ""
 DialogueOnStart = ExtResource("9_fclp1")
+StopMusic = true
 metadata/_custom_type_script = "uid://c3y3v7o5xyyjp"
 
 [node name="StandingPoint" type="MeshInstance3D" parent="."]
@@ -486,9 +487,9 @@ LeftGun = NodePath("../LeftGun")
 RightGun = NodePath("../RightGun")
 
 [node name="LeftGun" parent="." instance=ExtResource("12_mdooi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5503, 0.829021, -0.655977)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.392137, 1.0877, -0.523685)
 
 [node name="RightGun" parent="." instance=ExtResource("13_3r7fc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 0.829, -0.656157)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.285901, 1.08768, -0.523865)
 
 [editable path="HannahGeometry"]

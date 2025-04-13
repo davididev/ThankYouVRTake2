@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsornyvkbsltm"]
+[gd_scene load_steps=6 format=3 uid="uid://bsornyvkbsltm"]
 
 [ext_resource type="Texture2D" uid="uid://yu8hsuentq15" path="res://VR/Graphics/IU/ChoiceButtonNormal.png" id="1_gf10e"]
 [ext_resource type="Script" uid="uid://bvo6bb7w8edcv" path="res://VR/Scripts/Misc/choice_holder_ui.gd" id="1_ki3ax"]
+[ext_resource type="Texture2D" uid="uid://cdk4wmistae02" path="res://VR/Graphics/IU/PauseMenuWidget.png" id="2_cs5eb"]
 [ext_resource type="Texture2D" uid="uid://b5g7xwx6u2q2p" path="res://VR/Graphics/IU/ChoiceButtonPressed.png" id="2_ki3ax"]
 
 [sub_resource type="Theme" id="Theme_cs5eb"]
@@ -19,14 +20,32 @@ offset_right = 800.0
 offset_bottom = 400.0
 script = ExtResource("1_ki3ax")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 400.0
+texture = ExtResource("2_cs5eb")
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 16.0
+offset_bottom = 66.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "Tap a choice with your pointer finger"
+horizontal_alignment = 1
+
 [node name="Choice0" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -200.0
+offset_top = 64.0
 offset_right = 200.0
-offset_bottom = 80.0
+offset_bottom = 144.0
 grow_horizontal = 2
 texture_normal = ExtResource("1_gf10e")
 texture_pressed = ExtResource("2_ki3ax")
@@ -37,6 +56,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -8.0
+offset_right = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_cs5eb")
@@ -105,8 +126,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -200.0
-offset_top = -80.0
+offset_top = -136.0
 offset_right = 200.0
+offset_bottom = -56.0
 grow_horizontal = 2
 grow_vertical = 0
 texture_normal = ExtResource("1_gf10e")

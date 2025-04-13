@@ -12,7 +12,7 @@ func _ready() -> void:
 	Instance = self;
 
 static func PlaySong(s : String):
-	Instance.isEmpty = (s == "");
+	Instance.isEmpty = s.is_empty();
 	if Instance.isEmpty:
 		Instance.src.stop();
 	if LastSong == s:  #Don't play the same song twice
