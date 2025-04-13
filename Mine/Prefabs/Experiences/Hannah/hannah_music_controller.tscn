@@ -115,3 +115,7 @@ surface_material_override/0 = ExtResource("3_3spxi")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 2)
 unit_size = 90.0
+
+[connection signal="Song1" from="." to="." method="_on_song_1"]
+[connection signal="Song2" from="." to="." method="_on_song_2"]
+[connection signal="Song3" from="." to="." method="_on_song_3"]

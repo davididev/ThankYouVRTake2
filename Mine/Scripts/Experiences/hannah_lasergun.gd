@@ -19,20 +19,23 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	get_node(HannahLaserPath).visible = isFiring;
 	if isFiring:
+		
 		var space_state = get_world_3d().direct_space_state;
+
 		var origin = get_node(HannahLaserPath).global_position;
-		var end = origin + (get_node(HannahLaserPath).global_basis.z * -10.0);
-		var query = PhysicsRayQueryParameters3D.create(origin, end)
-		query.collision_mask = lm;
+		var end = origin + (get_node(HannahLaserPath).global_basis.z * 10.0);
+		var query = PhysicsRayQueryParameters3D.create(origin, end, lm)
+		query.collide_with_bodies = true;
 		var result = space_state.intersect_ray(query);
+		
 		if result.is_empty() == false:
 			end = result.position;
 			if result.collider.has_signal("OnBulletDamage"):
 				result.collider.emit_signal("OnBulletDamage", 1, GunType);
-		
+
 		var dist = origin.distance_to(end);
-		var temp_scale = get_node(HannahLaserPath).scale;
-		temp_scale.z = dist;
+		#var temp_scale = get_node(HannahLaserPath).scale;
+		var temp_scale = Vector3(1.0, 1.0, dist);
 		get_node(HannahLaserPath).scale = temp_scale;
 		get_node(EndingParticlePath).global_position = end;
 	

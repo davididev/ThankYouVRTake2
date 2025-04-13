@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://cjdg1xfyiregh"]
+[gd_scene load_steps=46 format=4 uid="uid://cjdg1xfyiregh"]
 
 [ext_resource type="Script" uid="uid://cyul5ticdgwbi" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_f6yen"]
 [ext_resource type="PackedScene" uid="uid://ddyo2jv7628sa" path="res://VR/Prefabs/player_boilerplate.tscn" id="2_k7oit"]
@@ -7,8 +7,9 @@
 [ext_resource type="Material" uid="uid://dmhcq7e34y7ge" path="res://Mine/Models/Hannah/M_Ceiling.tres" id="5_h3wnt"]
 [ext_resource type="Material" uid="uid://5nden1r70nsc" path="res://Mine/Models/Hannah/M_Wall.tres" id="6_lb8xm"]
 [ext_resource type="PackedScene" uid="uid://5kk1l8m6t64w" path="res://Mine/Prefabs/Light/FlourscentLight.tscn" id="7_sdjci"]
+[ext_resource type="LightmapGIData" uid="uid://bktatpgpxou6" path="res://Mine/Scenes/Hannah.lmbake" id="8_3r7fc"]
 [ext_resource type="Script" uid="uid://c3y3v7o5xyyjp" path="res://VR/Scripts/Misc/SceneVars.gd" id="8_h3wnt"]
-[ext_resource type="Resource" uid="uid://c3ev5t8a05l8c" path="res://DialogueSystem/output/Hannah-intro.res" id="9_fclp1"]
+[ext_resource type="Resource" uid="uid://2egdrfpm58to" path="res://DialogueSystem/output/Hannah-intro.res" id="9_fclp1"]
 [ext_resource type="Material" uid="uid://sd1yetr5dlyw" path="res://Mine/Models/Hannah/M_StandingPointPlane.tres" id="9_lb8xm"]
 [ext_resource type="PackedScene" uid="uid://djbtxcj38k66x" path="res://Mine/Prefabs/Experiences/Hannah/hannah_music_controller.tscn" id="11_colnd"]
 [ext_resource type="PackedScene" uid="uid://upfsppmmclfq" path="res://Mine/Prefabs/Experiences/Hannah/left_gun.tscn" id="12_mdooi"]
@@ -465,6 +466,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 4.0765, -2)
 quality = 0
 environment_mode = 3
 environment_custom_color = Color(0.2484, 0.2484, 0.2484, 1)
+light_data = ExtResource("8_3r7fc")
 
 [node name="SceneVars" type="Node3D" parent="."]
 script = ExtResource("8_h3wnt")
@@ -484,9 +486,9 @@ LeftGun = NodePath("../LeftGun")
 RightGun = NodePath("../RightGun")
 
 [node name="LeftGun" parent="." instance=ExtResource("12_mdooi")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.5503, 0.829021, -1.13482)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5503, 0.829021, -0.655977)
 
 [node name="RightGun" parent="." instance=ExtResource("13_3r7fc")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.55, 0.829, -1.135)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 0.829, -0.656157)
 
 [editable path="HannahGeometry"]

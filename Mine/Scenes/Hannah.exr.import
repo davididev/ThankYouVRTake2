@@ -1,0 +1,28 @@
+[remap]
+
+importer="2d_array_texture"
+type="CompressedTexture2DArray"
+uid="uid://ber4jcqy7wx61"
+path.bptc="res://.godot/imported/Hannah.exr-4f02c8306fb3c437f5a4355f6b8709e0.bptc.ctexarray"
+path.astc="res://.godot/imported/Hannah.exr-4f02c8306fb3c437f5a4355f6b8709e0.astc.ctexarray"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://Mine/Scenes/Hannah.exr"
+dest_files=["res://.godot/imported/Hannah.exr-4f02c8306fb3c437f5a4355f6b8709e0.bptc.ctexarray", "res://.godot/imported/Hannah.exr-4f02c8306fb3c437f5a4355f6b8709e0.astc.ctexarray"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/channel_pack=1
+mipmaps/generate=false
+mipmaps/limit=-1
+slices/horizontal=1
+slices/vertical=3

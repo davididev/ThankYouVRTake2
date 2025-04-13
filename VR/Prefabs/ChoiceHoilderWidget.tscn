@@ -8,7 +8,8 @@
 [node name="Viewport2Din3D" parent="." instance=ExtResource("1_qwh0l")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 screen_size = Vector2(0.3, 0.15)
-enabled = false
+collision_layer = 4194304
 scene = ExtResource("2_qwh0l")
 viewport_size = Vector2(800, 400)
+unshaded = true
 scene_properties_keys = PackedStringArray("choice_holder_ui.gd")

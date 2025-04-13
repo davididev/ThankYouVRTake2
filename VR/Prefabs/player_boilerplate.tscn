@@ -138,7 +138,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_dy4st")
 [node name="SpringArm3D" type="SpringArm3D" parent="XRCamera3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 collision_mask = 67
-spring_length = 0.152
+spring_length = 0.304
 
 [node name="ChoiceHoilderWidget" parent="XRCamera3D/SpringArm3D" instance=ExtResource("3_fe073")]
 visible = false

@@ -3,7 +3,7 @@ class_name PlayMusic extends Node3D
 static var LastSong = "";
 @export var AudioSource : NodePath;
 static var Instance : PlayMusic;
-
+var isEmpty = false;
 var src : AudioStreamPlayer3D;
 
 # Called when the node enters the scene tree for the first time.
@@ -12,7 +12,8 @@ func _ready() -> void:
 	Instance = self;
 
 static func PlaySong(s : String):
-	if s == "":  #Empty song
+	Instance.isEmpty = (s == "");
+	if Instance.isEmpty:
 		Instance.src.stop();
 	if LastSong == s:  #Don't play the same song twice
 		return;
@@ -26,7 +27,7 @@ static func PlaySong(s : String):
 func _process(delta: float) -> void:
 	#global_position = Avatar.PlayerPos;
 	var aud = get_node("AudioStreamPlayer3D");
-	if aud.playing == false:  #It ended, repeat it
+	if aud.playing == false && isEmpty == false:  #It ended, repeat it
 		aud.play(); 
 	
 	global_position = PosVelCalc.HeadPos + Vector3.UP;

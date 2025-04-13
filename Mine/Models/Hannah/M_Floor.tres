@@ -1,3 +1,6 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://ct7tulncy57mn"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ct7tulncy57mn"]
+
+[ext_resource type="Texture2D" uid="uid://bg6jyw32gde2w" path="res://Mine/Models/Hannah/HannahFloor.png" id="1_ftsju"]
 
 [resource]
+albedo_texture = ExtResource("1_ftsju")
