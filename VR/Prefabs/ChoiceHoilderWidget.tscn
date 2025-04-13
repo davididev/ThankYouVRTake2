@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7qbi831pcc8y"]
+
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_qwh0l"]
+[ext_resource type="PackedScene" uid="uid://bsornyvkbsltm" path="res://VR/Prefabs/ChoiceHolderUI.tscn" id="2_qwh0l"]
+
+[node name="ChoiceHoilderWidget" type="Node3D"]
+
+[node name="Viewport2Din3D" parent="." instance=ExtResource("1_qwh0l")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+screen_size = Vector2(0.3, 0.15)
+enabled = false
+scene = ExtResource("2_qwh0l")
+viewport_size = Vector2(800, 400)
+scene_properties_keys = PackedStringArray("choice_holder_ui.gd")

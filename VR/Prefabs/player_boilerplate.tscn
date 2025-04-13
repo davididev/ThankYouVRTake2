@@ -1,9 +1,10 @@
-[gd_scene load_steps=36 format=3 uid="uid://ddyo2jv7628sa"]
+[gd_scene load_steps=37 format=3 uid="uid://ddyo2jv7628sa"]
 
 [ext_resource type="PackedScene" uid="uid://ds1ctf8lclbhe" path="res://Mine/Prefabs/Player/UI/overlay_ui_embed.tscn" id="1_bs1mr"]
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="1_t1wqf"]
 [ext_resource type="Script" uid="uid://by22rwv7hpo8j" path="res://DialogueSystem/scripts/DialogueHandler.gd" id="2_i71mx"]
 [ext_resource type="Material" uid="uid://p0q2df2dmy62" path="res://addons/godot-xr-tools/hands/materials/ghost_hand.tres" id="2_jpthp"]
+[ext_resource type="PackedScene" uid="uid://c7qbi831pcc8y" path="res://VR/Prefabs/ChoiceHoilderWidget.tscn" id="3_fe073"]
 [ext_resource type="PackedScene" uid="uid://bjcxf427un2wp" path="res://addons/godot-xr-tools/player/poke/poke.tscn" id="3_pc34v"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="4_xkypn"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="5_1onsk"]
@@ -19,7 +20,7 @@
 [ext_resource type="Script" uid="uid://6akp3auc6xbs" path="res://addons/godot-xr-tools/overrides/ground_physics_settings.gd" id="14_pfde0"]
 [ext_resource type="Script" uid="uid://cmkg7ehrpvxfw" path="res://VR/Scripts/Misc/pos_vel_calc.gd" id="17_vcacu"]
 [ext_resource type="PackedScene" uid="uid://cyy042oi5vchk" path="res://Mine/Prefabs/Player/UI/pause_menu_game_embed.tscn" id="18_6eygp"]
-[ext_resource type="Script" path="res://VR/Scripts/Misc/Node3DPool.gd" id="20_vuw46"]
+[ext_resource type="Script" uid="uid://cqdvr133dn0cf" path="res://VR/Scripts/Misc/Node3DPool.gd" id="20_vuw46"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_55quc"]
 
@@ -117,6 +118,8 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, -0.229965)
 
 [node name="DialogueHandler" type="Node3D" parent="XRCamera3D"]
 script = ExtResource("2_i71mx")
+ChoiceButtonPath = NodePath("../SpringArm3D/ChoiceHoilderWidget")
+OverlayUIPath = NodePath("../OverlayUIEmbed")
 FlashImage = NodePath("../FadeScreen")
 camera_path = NodePath("..")
 player_body_path = NodePath("../../PlayerBody")
@@ -131,6 +134,14 @@ bus = &"Sound"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.303963)
 mesh = SubResource("QuadMesh_55quc")
 surface_material_override/0 = SubResource("StandardMaterial3D_dy4st")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="XRCamera3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+collision_mask = 67
+spring_length = 0.152
+
+[node name="ChoiceHoilderWidget" parent="XRCamera3D/SpringArm3D" instance=ExtResource("3_fe073")]
+visible = false
 
 [node name="LeftHand" type="XRController3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)

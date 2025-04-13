@@ -1,0 +1,131 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsornyvkbsltm"]
+
+[ext_resource type="Texture2D" uid="uid://yu8hsuentq15" path="res://VR/Graphics/IU/ChoiceButtonNormal.png" id="1_gf10e"]
+[ext_resource type="Script" uid="uid://bvo6bb7w8edcv" path="res://VR/Scripts/Misc/choice_holder_ui.gd" id="1_ki3ax"]
+[ext_resource type="Texture2D" uid="uid://b5g7xwx6u2q2p" path="res://VR/Graphics/IU/ChoiceButtonPressed.png" id="2_ki3ax"]
+
+[sub_resource type="Theme" id="Theme_cs5eb"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0.607843, 0.607843, 0.607843, 1)
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 3
+Label/font_sizes/font_size = 24
+
+[node name="ChoiceHolderUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 800.0
+offset_bottom = 400.0
+script = ExtResource("1_ki3ax")
+
+[node name="Choice0" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_right = 200.0
+offset_bottom = 80.0
+grow_horizontal = 2
+texture_normal = ExtResource("1_gf10e")
+texture_pressed = ExtResource("2_ki3ax")
+texture_hover = ExtResource("1_gf10e")
+
+[node name="Label" type="Label" parent="Choice0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_cs5eb")
+text = "blah blah blah"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Choice1" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -40.0
+offset_right = 400.0
+offset_bottom = 40.0
+grow_vertical = 2
+texture_normal = ExtResource("1_gf10e")
+texture_pressed = ExtResource("2_ki3ax")
+texture_hover = ExtResource("1_gf10e")
+
+[node name="Label" type="Label" parent="Choice1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_cs5eb")
+text = "blah blah blah"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Choice2" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("1_gf10e")
+texture_pressed = ExtResource("2_ki3ax")
+texture_hover = ExtResource("1_gf10e")
+
+[node name="Label" type="Label" parent="Choice2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_cs5eb")
+text = "blah blah blah"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Choice3" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -80.0
+offset_right = 200.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("1_gf10e")
+texture_pressed = ExtResource("2_ki3ax")
+texture_hover = ExtResource("1_gf10e")
+
+[node name="Label" type="Label" parent="Choice3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_cs5eb")
+text = "blah blah blah"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Choice0" to="." method="_on_choice_0_pressed"]
+[connection signal="pressed" from="Choice1" to="." method="_on_choice_1_pressed"]
+[connection signal="pressed" from="Choice2" to="." method="_on_choice_2_pressed"]
+[connection signal="pressed" from="Choice3" to="." method="_on_choice_3_pressed"]

@@ -1,0 +1,117 @@
+[gd_scene load_steps=5 format=3 uid="uid://djbtxcj38k66x"]
+
+[ext_resource type="Script" uid="uid://cly8tysb05muc" path="res://Mine/Scripts/Experiences/hannah_music_controller.gd" id="1_alwxu"]
+[ext_resource type="Script" uid="uid://b23h6su8rjuwc" path="res://DialogueSystem/scripts/NPC.gd" id="2_kw12n"]
+[ext_resource type="Material" uid="uid://b83vyx4116ayy" path="res://Mine/Models/Hannah/M_BlankTargetPoint.tres" id="3_3spxi"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_3r7fc"]
+
+[node name="HannahMusicController" type="Node3D"]
+script = ExtResource("1_alwxu")
+
+[node name="NPC" type="Node3D" parent="."]
+script = ExtResource("2_kw12n")
+actor_name = "Music"
+send_message_path = NodePath("..")
+usesCC = false
+metadata/_custom_type_script = "uid://b23h6su8rjuwc"
+
+[node name="TargetOrigin0" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1, 2.5, 0.103)
+gi_mode = 0
+mesh = SubResource("QuadMesh_3r7fc")
+surface_material_override/0 = ExtResource("3_3spxi")
+
+[node name="TargetOrigin1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.5, 2.5, 0.103)
+gi_mode = 0
+mesh = SubResource("QuadMesh_3r7fc")
+surface_material_override/0 = ExtResource("3_3spxi")
+
+[node name="TargetOrigin2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.5, 2.5, 0.103)
+gi_mode = 0
+mesh = SubResource("QuadMesh_3r7fc")
+surface_material_override/0 = ExtResource("3_3spxi")
+
+[node name="TargetOrigin3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1, 2.5, 0.103)
+gi_mode = 0
+mesh = SubResource("QuadMesh_3r7fc")
+surface_material_override/0 = ExtResource("3_3spxi")
+
+[node name="TargetOrigin4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1, 2, 0.103)
+gi_mode = 0
+mesh = SubResource("QuadMesh_3r7fc")
+surface_material_override/0 = ExtResource("3_3spxi")
+
+[node name="TargetOrigin5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.5, 2, 0.103)
+gi_mode = 0
+mesh = SubResource("QuadMesh_3r7fc")
+surface_material_override/0 = ExtResource("3_3spxi")
+
+[node name="TargetOrigin6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.5, 2, 0.103)
+gi_mode = 0
+mesh = SubResource("QuadMesh_3r7fc")
+surface_material_override/0 = ExtResource("3_3spxi")
+
+[node name="TargetOrigin7" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1, 2, 0.103)
+gi_mode = 0
+mesh = SubResource("QuadMesh_3r7fc")
+surface_material_override/0 = ExtResource("3_3spxi")
+
+[node name="TargetOrigin8" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1, 1.5, 0.103)
+gi_mode = 0
+mesh = SubResource("QuadMesh_3r7fc")
+surface_material_override/0 = ExtResource("3_3spxi")
+
+[node name="TargetOrigin9" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.5, 1.5, 0.103)
+gi_mode = 0
+mesh = SubResource("QuadMesh_3r7fc")
+surface_material_override/0 = ExtResource("3_3spxi")
+
+[node name="TargetOrigin10" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.5, 1.5, 0.103)
+gi_mode = 0
+mesh = SubResource("QuadMesh_3r7fc")
+surface_material_override/0 = ExtResource("3_3spxi")
+
+[node name="TargetOrigin11" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1, 1.5, 0.103)
+gi_mode = 0
+mesh = SubResource("QuadMesh_3r7fc")
+surface_material_override/0 = ExtResource("3_3spxi")
+
+[node name="TargetOrigin12" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1, 1, 0.103)
+gi_mode = 0
+mesh = SubResource("QuadMesh_3r7fc")
+surface_material_override/0 = ExtResource("3_3spxi")
+
+[node name="TargetOrigin13" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.5, 1, 0.103)
+gi_mode = 0
+mesh = SubResource("QuadMesh_3r7fc")
+surface_material_override/0 = ExtResource("3_3spxi")
+
+[node name="TargetOrigin14" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.5, 1, 0.103)
+gi_mode = 0
+mesh = SubResource("QuadMesh_3r7fc")
+surface_material_override/0 = ExtResource("3_3spxi")
+
+[node name="TargetOrigin15" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1, 1, 0.103)
+gi_mode = 0
+mesh = SubResource("QuadMesh_3r7fc")
+surface_material_override/0 = ExtResource("3_3spxi")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 2)
+unit_size = 90.0

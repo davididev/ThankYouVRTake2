@@ -2,11 +2,13 @@ class_name DialogueHandler extends Node3D
 
 
 static var lastRotation = 0.0;
-@export var ChoiceButtons : Array[NodePath];
+@export var ChoiceButtonPath : NodePath;
+@export var OverlayUIPath : NodePath;
 @export var FlashImage : NodePath;
 @export var camera_path : NodePath;
 @export var player_body_path : NodePath;
 @export var audioStreamPath : NodePath;
+
 
 static var Instance : DialogueHandler;
 var dialogueThread : DialogueGrid;
@@ -75,8 +77,7 @@ func StartDialogue(runThis : DialogueGrid):
 func ObtainDialogue():
 	#Reset the dialogue box before the event
 	#visible = false;
-	for c in ChoiceButtons:
-		get_node(c).visible = false;
+	
 	if dialogueThread == null:
 		return;
 	
@@ -294,16 +295,30 @@ func StreamChoiceBox(args : Array[String]):
 	Selected_Choice = -1;
 	var outputs = args[4].split(" ");
 	
+	get_node(OverlayUIPath).visible = false;
+	get_node(ChoiceButtonPath).visible = true;
+	
+	ChoiceHolderUI.Choices.clear();
 	for i in range(0, 4):
 		if args[i] != "":  
-			get_node(ChoiceButtons[i]).visible = true;
-			get_node(ChoiceButtons[i]).text = args[i];
-	get_node(ChoiceButtons[0]).grab_focus();
+			ChoiceHolderUI.Choices.append(args[i]);
 	
-	while Selected_Choice == -1:
+	ChoiceHolderUI.Update = true;
+	
+	#for i in range(0, 4):
+		#if args[i] != "":  
+			#pass;
+			#get_node(ChoiceButtons[i]).visible = true;
+			#get_node(ChoiceButtons[i]).text = args[i];
+	#get_node(ChoiceButtons[0]).grab_focus();
+	
+	while ChoiceHolderUI.ChoiceID == -1:
 		await get_tree().create_timer(1.0 / 60.0).timeout;
 	
-	DialogueArgsUtility.SetNextNodeFromStr(outputs[Selected_Choice]);
+	get_node(OverlayUIPath).visible = true;
+	get_node(ChoiceButtonPath).visible = false;
+	
+	DialogueArgsUtility.SetNextNodeFromStr(outputs[ChoiceHolderUI.ChoiceID]);
 	
 
 func EndDialogue():

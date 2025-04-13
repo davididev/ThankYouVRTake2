@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://cjdg1xfyiregh"]
+[gd_scene load_steps=43 format=4 uid="uid://cjdg1xfyiregh"]
 
 [ext_resource type="Script" uid="uid://cyul5ticdgwbi" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_f6yen"]
 [ext_resource type="PackedScene" uid="uid://ddyo2jv7628sa" path="res://VR/Prefabs/player_boilerplate.tscn" id="2_k7oit"]
@@ -8,7 +8,9 @@
 [ext_resource type="Material" uid="uid://5nden1r70nsc" path="res://Mine/Models/Hannah/M_Wall.tres" id="6_lb8xm"]
 [ext_resource type="PackedScene" uid="uid://5kk1l8m6t64w" path="res://Mine/Prefabs/Light/FlourscentLight.tscn" id="7_sdjci"]
 [ext_resource type="Script" uid="uid://c3y3v7o5xyyjp" path="res://VR/Scripts/Misc/SceneVars.gd" id="8_h3wnt"]
+[ext_resource type="Resource" uid="uid://c3ev5t8a05l8c" path="res://DialogueSystem/output/Hannah-intro.res" id="9_fclp1"]
 [ext_resource type="Material" uid="uid://sd1yetr5dlyw" path="res://Mine/Models/Hannah/M_StandingPointPlane.tres" id="9_lb8xm"]
+[ext_resource type="PackedScene" uid="uid://djbtxcj38k66x" path="res://Mine/Prefabs/Experiences/Hannah/hannah_music_controller.tscn" id="11_colnd"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ch2jd"]
 _surfaces = [{
@@ -465,6 +467,7 @@ environment_custom_color = Color(0.2484, 0.2484, 0.2484, 1)
 [node name="SceneVars" type="Node3D" parent="."]
 script = ExtResource("8_h3wnt")
 MusicPath = ""
+DialogueOnStart = ExtResource("9_fclp1")
 metadata/_custom_type_script = "uid://c3y3v7o5xyyjp"
 
 [node name="StandingPoint" type="MeshInstance3D" parent="."]
@@ -472,5 +475,8 @@ transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 
 gi_mode = 0
 mesh = SubResource("QuadMesh_fclp1")
 surface_material_override/0 = ExtResource("9_lb8xm")
+
+[node name="HannahMusicController" parent="." instance=ExtResource("11_colnd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
 
 [editable path="HannahGeometry"]
