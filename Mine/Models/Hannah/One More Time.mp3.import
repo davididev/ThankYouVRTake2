@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dtxaumsnhia0x"
+path="res://.godot/imported/One More Time.mp3-6e098ca778ed0054853c2e86d556cc46.mp3str"
+
+[deps]
+
+source_file="res://Mine/Models/Hannah/One More Time.mp3"
+dest_files=["res://.godot/imported/One More Time.mp3-6e098ca778ed0054853c2e86d556cc46.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
