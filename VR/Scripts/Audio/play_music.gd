@@ -12,9 +12,12 @@ func _ready() -> void:
 	Instance = self;
 
 static func PlaySong(s : String):
+	if s == "":  #Empty song
+		Instance.src.stop();
 	if LastSong == s:  #Don't play the same song twice
 		return;
 	LastSong = s;
+	
 	var asset_name : String = str("res://Audio/Music/", LastSong);
 	Instance.src.stream = load(asset_name);
 	Instance.src.play();
