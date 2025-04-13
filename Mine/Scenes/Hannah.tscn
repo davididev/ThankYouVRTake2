@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://cjdg1xfyiregh"]
+[gd_scene load_steps=45 format=4 uid="uid://cjdg1xfyiregh"]
 
 [ext_resource type="Script" uid="uid://cyul5ticdgwbi" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_f6yen"]
 [ext_resource type="PackedScene" uid="uid://ddyo2jv7628sa" path="res://VR/Prefabs/player_boilerplate.tscn" id="2_k7oit"]
@@ -11,6 +11,8 @@
 [ext_resource type="Resource" uid="uid://c3ev5t8a05l8c" path="res://DialogueSystem/output/Hannah-intro.res" id="9_fclp1"]
 [ext_resource type="Material" uid="uid://sd1yetr5dlyw" path="res://Mine/Models/Hannah/M_StandingPointPlane.tres" id="9_lb8xm"]
 [ext_resource type="PackedScene" uid="uid://djbtxcj38k66x" path="res://Mine/Prefabs/Experiences/Hannah/hannah_music_controller.tscn" id="11_colnd"]
+[ext_resource type="PackedScene" uid="uid://upfsppmmclfq" path="res://Mine/Prefabs/Experiences/Hannah/left_gun.tscn" id="12_mdooi"]
+[ext_resource type="PackedScene" uid="uid://d3c3m4g6fg75o" path="res://Mine/Prefabs/Experiences/Hannah/right_gun.tscn" id="13_3r7fc"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ch2jd"]
 _surfaces = [{
@@ -478,5 +480,13 @@ surface_material_override/0 = ExtResource("9_lb8xm")
 
 [node name="HannahMusicController" parent="." instance=ExtResource("11_colnd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+LeftGun = NodePath("../LeftGun")
+RightGun = NodePath("../RightGun")
+
+[node name="LeftGun" parent="." instance=ExtResource("12_mdooi")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.5503, 0.829021, -1.13482)
+
+[node name="RightGun" parent="." instance=ExtResource("13_3r7fc")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.55, 0.829, -1.135)
 
 [editable path="HannahGeometry"]

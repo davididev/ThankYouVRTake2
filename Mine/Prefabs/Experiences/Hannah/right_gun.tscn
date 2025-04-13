@@ -1,0 +1,71 @@
+[gd_scene load_steps=13 format=3 uid="uid://d3c3m4g6fg75o"]
+
+[ext_resource type="Script" uid="uid://coldxjouy6sq5" path="res://Mine/Scripts/Experiences/hannah_lasergun.gd" id="1_il8wd"]
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="2_nyg2c"]
+[ext_resource type="PackedScene" uid="uid://bac1xk32888ho" path="res://Mine/Models/Hannah/Gun/LaserGun.glb" id="3_27frm"]
+[ext_resource type="PackedScene" uid="uid://bv4k747pa87v5" path="res://Mine/Models/Hannah/Gun/HannahLaser.glb" id="4_gr8ei"]
+[ext_resource type="Material" uid="uid://y8tm6r5hvajp" path="res://Mine/Models/Hannah/Gun/M_RightGun.tres" id="4_nyg2c"]
+[ext_resource type="Material" uid="uid://dqmabxhvaqtgb" path="res://Mine/Models/Hannah/Gun/M_RightLaser.tres" id="6_27frm"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="6_n4tbf"]
+[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="7_ffqrs"]
+[ext_resource type="Material" uid="uid://bxxgwrbfbf6bi" path="res://Mine/Particles/M_VaporCloudParticle.tres" id="8_6w858"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wnca0"]
+size = Vector3(0.25, 0.3, 1.2)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ganty"]
+emission_shape = 1
+emission_sphere_radius = 0.1
+spread = 180.0
+initial_velocity_min = 0.8
+initial_velocity_max = 0.8
+anim_speed_min = 2.5
+anim_speed_max = 3.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_ng4v8"]
+material = ExtResource("8_6w858")
+
+[node name="RightGun" type="Node3D"]
+script = ExtResource("1_il8wd")
+GunType = 1
+HannahLaserPath = NodePath("PickableObject/CollisionShape3D/HannahLaser")
+EndingParticlePath = NodePath("PickableObject/GPUParticles3D")
+
+[node name="PickableObject" parent="." instance=ExtResource("2_nyg2c")]
+gravity_scale = 0.0
+release_mode = 1
+
+[node name="CollisionShape3D" parent="PickableObject" index="0"]
+shape = SubResource("BoxShape3D_wnca0")
+
+[node name="LaserGun" parent="PickableObject/CollisionShape3D" index="0" instance=ExtResource("3_27frm")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.0927214, -0.27828)
+
+[node name="Lightning Gun" parent="PickableObject/CollisionShape3D/LaserGun" index="0"]
+surface_material_override/0 = ExtResource("4_nyg2c")
+
+[node name="HannahLaser" parent="PickableObject/CollisionShape3D" index="1" instance=ExtResource("4_gr8ei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0121385, 0.105402, 0.628438)
+
+[node name="Cylinder" parent="PickableObject/CollisionShape3D/HannahLaser" index="0"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+surface_material_override/0 = ExtResource("6_27frm")
+
+[node name="GrabPointHand" parent="PickableObject" instance=ExtResource("6_n4tbf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0756364, -0.276125)
+
+[node name="HighlightRing" parent="PickableObject" instance=ExtResource("7_ffqrs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0756364, -0.276125)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="PickableObject"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.89306)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_ganty")
+draw_pass_1 = SubResource("QuadMesh_ng4v8")
+
+[connection signal="action_pressed" from="PickableObject" to="." method="_on_pickable_object_action_pressed"]
+[connection signal="action_released" from="PickableObject" to="." method="_on_pickable_object_action_released"]
+
+[editable path="PickableObject"]
+[editable path="PickableObject/CollisionShape3D/LaserGun"]
+[editable path="PickableObject/CollisionShape3D/HannahLaser"]
