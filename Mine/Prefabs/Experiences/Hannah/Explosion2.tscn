@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://b7nme2hl2j7sr"]
+
+[ext_resource type="Script" uid="uid://cd6unrim8gkxc" path="res://VR/Scripts/Misc/playparticlesonce.gd" id="1_dxnbv"]
+[ext_resource type="Material" uid="uid://76im7r6umpha" path="res://Mine/Particles/M_ShatterParticle.tres" id="2_iqo24"]
+
+[sub_resource type="Curve" id="Curve_b88lb"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_x4xqd"]
+curve = SubResource("Curve_b88lb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_52oeb"]
+emission_shape = 1
+emission_sphere_radius = 0.1
+spread = 180.0
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, -3, 0)
+alpha_curve = SubResource("CurveTexture_x4xqd")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_3gtff"]
+material = ExtResource("2_iqo24")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dxnbv"]
+emission_shape = 1
+emission_sphere_radius = 0.1
+spread = 180.0
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, -3, 0)
+color = Color(1, 0, 1, 1)
+alpha_curve = SubResource("CurveTexture_x4xqd")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[node name="PlayParticlesOnceV2" type="Node3D"]
+top_level = true
+script = ExtResource("1_dxnbv")
+PlaySound = "scifi/explosionCrunch_000.ogg"
+metadata/_custom_type_script = "uid://cd6unrim8gkxc"
+
+[node name="GPUParticles3DWhite" type="GPUParticles3D" parent="."]
+gi_mode = 0
+emitting = false
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_52oeb")
+draw_pass_1 = SubResource("QuadMesh_3gtff")
+
+[node name="GPUParticles3DBlue" type="GPUParticles3D" parent="."]
+gi_mode = 0
+emitting = false
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_dxnbv")
+draw_pass_1 = SubResource("QuadMesh_3gtff")
+
+[connection signal="DisablePool" from="." to="." method="_on_disable_pool"]
+[connection signal="EnablePool" from="." to="." method="_on_enable_pool"]

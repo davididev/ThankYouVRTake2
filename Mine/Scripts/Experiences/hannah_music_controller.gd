@@ -4,9 +4,15 @@ signal Song1;
 signal Song2;
 signal Song3;
 
+@export var StartingDialogue : DialogueGrid;
 @export var TargetLeftPrefab : PackedScene;
 @export var TargetRightPrefab : PackedScene;
 @export var TargetMinePrefab : PackedScene;
+@export var TargetShatterLeftPrefab : PackedScene;
+@export var TargetShatterRightPrefab : PackedScene;
+@export var TargetShatterMinePrefab : PackedScene;
+static var HitTargets = 0;
+static var TotalTargets = 0;
 @export var LeftGun : NodePath;
 @export var RightGun : NodePath;
 
@@ -20,15 +26,53 @@ var CurrentSong : BeatList;
 var songNode : AudioStreamPlayer3D;
 
 func _ready() -> void:
+	awaiting_start_song = false;
 	get_node(LeftGun).visible = false;
 	get_node(RightGun).visible = false;
 	isPlaying = false;
-	#Node3DPool.InitPoolItem(get_tree(), "Target_Left", TargetLeftPrefab, 10);
-	#Node3DPool.InitPoolItem(get_tree(), "Target_Right", TargetRightPrefab, 10);
-	#Node3DPool.InitPoolItem(get_tree(), "Target_Mine", TargetRightPrefab, 10);
+	Node3DPool.InitPoolItem(get_tree(), "Target1", TargetLeftPrefab, 10);
+	Node3DPool.InitPoolItem(get_tree(), "Target2", TargetRightPrefab, 10);
+	Node3DPool.InitPoolItem(get_tree(), "Target3", TargetMinePrefab, 10);
+	Node3DPool.InitPoolItem(get_tree(), "Explosion1", TargetShatterLeftPrefab, 12);
+	Node3DPool.InitPoolItem(get_tree(), "Explosion2", TargetShatterRightPrefab, 12);
+	Node3DPool.InitPoolItem(get_tree(), "Explosion3", TargetShatterMinePrefab, 12);
+	
 	songNode = get_node("AudioStreamPlayer3D");
+var lastKeyframeID = -1;
 
+func _process(delta: float) -> void:
+	if isPlaying == false and DialogueHandler.IsRunning == false and awaiting_start_song == false:
+		DialogueHandler.Instance.StartDialogue(StartingDialogue);
+	
+	if isPlaying == true:
+		var currentPointInSong = songNode.get_playback_position();
+		var newID = CurrentSong.GetNextKeyframeID(currentPointInSong);
+		if newID != lastKeyframeID:
+			
+			var nextBeat = CurrentSong.Beats[newID];
+			if (currentPointInSong + 0.1) >= nextBeat.BTime:
+				CreateTargets(nextBeat);
+				lastKeyframeID = newID;
+
+func CreateTargets(bs : BeatEntry):
+	for i in range(0, bs.Targets.size()):
+		var originPt = get_node(str("TargetOrigin", i));
+		if bs.Targets[i] == 1:  #Left hand
+			var inst = Node3DPool.GetInstance("Target1");
+			inst.position = originPt.global_position;
+		if bs.Targets[i] == 2:  #Right hand
+			var inst = Node3DPool.GetInstance("Target2");
+			inst.position = originPt.global_position;
+		if bs.Targets[i] == 3:  #Mine
+			var inst = Node3DPool.GetInstance("Target3");
+			inst.position = originPt.global_position;
+	
+var awaiting_start_song = false;
 func StartSong(id : int):
+	awaiting_start_song = false;
+	lastKeyframeID = -1;
+	HitTargets = 0;
+	TotalTargets = 0;
 	var songPath = "";
 	if id == 1:
 		CurrentSong = song1_res;
@@ -44,9 +88,13 @@ func StartSong(id : int):
 		songPath = "res://Audio/Music/The Hungry Cat.mp3";
 
 	songNode.stream = load(songPath);
-	songNode.play();
+	
 	get_node(LeftGun).visible = true;
 	get_node(RightGun).visible = true;
+	awaiting_start_song = true;
+	await get_tree().create_timer(1.0).timeout;
+	awaiting_start_song = false;
+	songNode.play();
 	isPlaying = true;
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://cjdg1xfyiregh"]
+[gd_scene load_steps=45 format=4 uid="uid://cjdg1xfyiregh"]
 
 [ext_resource type="Script" uid="uid://cyul5ticdgwbi" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_f6yen"]
 [ext_resource type="PackedScene" uid="uid://ddyo2jv7628sa" path="res://VR/Prefabs/player_boilerplate.tscn" id="2_k7oit"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://5kk1l8m6t64w" path="res://Mine/Prefabs/Light/FlourscentLight.tscn" id="7_sdjci"]
 [ext_resource type="LightmapGIData" uid="uid://bktatpgpxou6" path="res://Mine/Scenes/Hannah.lmbake" id="8_3r7fc"]
 [ext_resource type="Script" uid="uid://c3y3v7o5xyyjp" path="res://VR/Scripts/Misc/SceneVars.gd" id="8_h3wnt"]
-[ext_resource type="Resource" uid="uid://2egdrfpm58to" path="res://DialogueSystem/output/Hannah-intro.res" id="9_fclp1"]
 [ext_resource type="Material" uid="uid://sd1yetr5dlyw" path="res://Mine/Models/Hannah/M_StandingPointPlane.tres" id="9_lb8xm"]
 [ext_resource type="PackedScene" uid="uid://djbtxcj38k66x" path="res://Mine/Prefabs/Experiences/Hannah/hannah_music_controller.tscn" id="11_colnd"]
 [ext_resource type="PackedScene" uid="uid://upfsppmmclfq" path="res://Mine/Prefabs/Experiences/Hannah/left_gun.tscn" id="12_mdooi"]
@@ -471,7 +470,6 @@ light_data = ExtResource("8_3r7fc")
 [node name="SceneVars" type="Node3D" parent="."]
 script = ExtResource("8_h3wnt")
 MusicPath = ""
-DialogueOnStart = ExtResource("9_fclp1")
 StopMusic = true
 metadata/_custom_type_script = "uid://c3y3v7o5xyyjp"
 

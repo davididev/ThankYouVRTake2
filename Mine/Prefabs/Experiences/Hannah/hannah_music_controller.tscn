@@ -1,13 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://djbtxcj38k66x"]
+[gd_scene load_steps=12 format=3 uid="uid://djbtxcj38k66x"]
 
 [ext_resource type="Script" uid="uid://cly8tysb05muc" path="res://Mine/Scripts/Experiences/hannah_music_controller.gd" id="1_alwxu"]
+[ext_resource type="PackedScene" uid="uid://c0ss0gyp0uuh2" path="res://Mine/Prefabs/Experiences/Hannah/Target1.tscn" id="2_3spxi"]
 [ext_resource type="Script" uid="uid://b23h6su8rjuwc" path="res://DialogueSystem/scripts/NPC.gd" id="2_kw12n"]
+[ext_resource type="Resource" uid="uid://2egdrfpm58to" path="res://DialogueSystem/output/Hannah-intro.res" id="2_pefbt"]
 [ext_resource type="Material" uid="uid://b83vyx4116ayy" path="res://Mine/Models/Hannah/M_BlankTargetPoint.tres" id="3_3spxi"]
+[ext_resource type="PackedScene" uid="uid://b51k47rpvw0b8" path="res://Mine/Prefabs/Experiences/Hannah/Target2.tscn" id="3_p22ty"]
+[ext_resource type="PackedScene" uid="uid://dyt54rv7sgum4" path="res://Mine/Prefabs/Experiences/Hannah/Target3.tscn" id="4_drsca"]
+[ext_resource type="PackedScene" uid="uid://xrc727jt3gd7" path="res://Mine/Prefabs/Experiences/Hannah/Explosion1.tscn" id="5_pefbt"]
+[ext_resource type="PackedScene" uid="uid://b7nme2hl2j7sr" path="res://Mine/Prefabs/Experiences/Hannah/Explosion2.tscn" id="6_d4315"]
+[ext_resource type="PackedScene" uid="uid://85rml5m6u3e7" path="res://Mine/Prefabs/Experiences/Hannah/Explosion3.tscn" id="7_fq8r8"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_3r7fc"]
 
 [node name="HannahMusicController" type="Node3D"]
 script = ExtResource("1_alwxu")
+StartingDialogue = ExtResource("2_pefbt")
+TargetLeftPrefab = ExtResource("2_3spxi")
+TargetRightPrefab = ExtResource("3_p22ty")
+TargetMinePrefab = ExtResource("4_drsca")
+TargetShatterLeftPrefab = ExtResource("5_pefbt")
+TargetShatterRightPrefab = ExtResource("6_d4315")
+TargetShatterMinePrefab = ExtResource("7_fq8r8")
 
 [node name="NPC" type="Node3D" parent="."]
 script = ExtResource("2_kw12n")

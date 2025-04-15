@@ -15,6 +15,7 @@ static func PlaySong(s : String):
 	Instance.isEmpty = s.is_empty();
 	if Instance.isEmpty:
 		Instance.src.stop();
+		return;
 	if LastSong == s:  #Don't play the same song twice
 		return;
 	LastSong = s;

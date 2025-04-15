@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0ss0gyp0uuh2"]
+
+[ext_resource type="Script" uid="uid://bfj05raxqqdy2" path="res://Mine/Scripts/Experiences/hannah_target.gd" id="1_jl0jh"]
+[ext_resource type="PackedScene" uid="uid://cwo6un32l4q5m" path="res://Mine/Models/Targets/TargetMain.glb" id="1_onv7v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jl0jh"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="RigidBody3D" type="RigidBody3D" groups=["Target"]]
+top_level = true
+collision_layer = 64
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+gravity_scale = 0.0
+script = ExtResource("1_jl0jh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0874167)
+shape = SubResource("BoxShape3D_jl0jh")
+disabled = true
+
+[node name="TargetMain" parent="CollisionShape3D" instance=ExtResource("1_onv7v")]
+
+[node name="Cylinder" parent="CollisionShape3D/TargetMain" index="0"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[connection signal="DisablePool" from="." to="." method="_on_disable_pool"]
+[connection signal="EnablePool" from="." to="." method="_on_enable_pool"]
+[connection signal="OnBulletDamage" from="." to="." method="_on_on_bullet_damage"]
+
+[editable path="CollisionShape3D/TargetMain"]
