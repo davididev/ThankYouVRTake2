@@ -4,7 +4,6 @@ class_name HannahTarget extends RigidBody3D
 @export var ExplosionPrefabName = "Explosion1"
 const MIN_SCALE = 0.01;
 const MAX_SCALE = 1.0;
-const HITTABLE_SCALE = 0.9;
 var current_scale = MIN_SCALE;
 var target_scale = MAX_SCALE;
 var timer_shrink = 0.0;
@@ -53,7 +52,8 @@ func _on_disable_pool() -> void:  #Not sure if I need something here yet.
 
 
 func _on_on_bullet_damage(amount: int, type: int) -> void:
-	if current_scale < HITTABLE_SCALE:
+	
+	if not is_equal_approx(position.z, targetZ):  #Hasn't reached the target point
 		return;
 		
 	if type == MyType:
