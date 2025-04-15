@@ -50,7 +50,7 @@ func _process(delta: float) -> void:
 		if newID != lastKeyframeID:
 			
 			var nextBeat = CurrentSong.Beats[newID];
-			if (currentPointInSong + 0.1) >= nextBeat.BTime:
+			if (currentPointInSong - HannahTarget.SCALE_TOTAL_TIME) >= nextBeat.BTime:
 				CreateTargets(nextBeat);
 				lastKeyframeID = newID;
 

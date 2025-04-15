@@ -1,4 +1,4 @@
-class_name Target extends RigidBody3D
+class_name HannahTarget extends RigidBody3D
 
 @export var MyType = 0;
 @export var ExplosionPrefabName = "Explosion1"
@@ -9,7 +9,8 @@ var current_scale = MIN_SCALE;
 var target_scale = MAX_SCALE;
 var timer_shrink = 0.0;
 
-const SCALE_PER_SECOND = 1.0 / 0.75;  #Scale 1x per 0.45 seconds
+const SCALE_TOTAL_TIME = 0.75;
+const SCALE_PER_SECOND = 1.0 / SCALE_TOTAL_TIME;  #Scale 1x per 0.45 seconds
 
 signal OnBulletDamage(amount : int, type : int);  #Template for things that interact with bullet
 signal EnablePool();
