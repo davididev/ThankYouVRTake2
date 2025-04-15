@@ -18,6 +18,7 @@ enum TargetMode { INACTIVE, MOVE_IGNORE_Y, MOVE_FLY_Y};
 
 func SendSignal(signalName : String):
 	get_node(send_message_path).emit_signal(signalName);
+	
 
 func _ready() -> void:
 	await get_tree().create_timer(0.01).timeout;

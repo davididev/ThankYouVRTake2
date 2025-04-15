@@ -157,6 +157,7 @@ func StreamSendMessage(args : Array[String]):
 	DialogueArgsUtility.SetNextNodeFromStr(nextNodeStr);
 
 func SteamTeleport(args : Array[String], isExternal = false):
+	NPC.npcList.clear();
 	flashAlpha = 0.0;
 	flashAlphaTarget = 1.0;
 	flashPerSecond = 1.0;

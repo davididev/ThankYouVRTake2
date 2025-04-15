@@ -12,6 +12,7 @@ func _process(delta: float) -> void:
 
 
 func _on_button_return_to_title_pressed() -> void:
+	Engine.time_scale = 1.0;  #Return normal game scale
 	var args : Array[String];
 	args.append("Mine/Scenes/TitleScreen.tscn");
 	args.append("0.0,0.0,0.0");

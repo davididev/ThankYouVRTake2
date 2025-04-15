@@ -45,12 +45,16 @@ func _process(delta: float) -> void:
 		DialogueHandler.Instance.StartDialogue(StartingDialogue);
 	
 	if isPlaying == true:
+		
 		var currentPointInSong = songNode.get_playback_position();
+		var correctedPoint = currentPointInSong - HannahTarget.SCALE_TOTAL_TIME;
+		if correctedPoint < 0.0:
+			correctedPoint = 0.0;
 		var newID = CurrentSong.GetNextKeyframeID(currentPointInSong);
 		if newID != lastKeyframeID:
 			
 			var nextBeat = CurrentSong.Beats[newID];
-			if (currentPointInSong - HannahTarget.SCALE_TOTAL_TIME) >= nextBeat.BTime:
+			if (currentPointInSong) >= (nextBeat.BTime - HannahTarget.SCALE_TOTAL_TIME):
 				CreateTargets(nextBeat);
 				lastKeyframeID = newID;
 

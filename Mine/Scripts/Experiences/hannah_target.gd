@@ -8,11 +8,11 @@ var current_scale = MIN_SCALE;
 var target_scale = MAX_SCALE;
 var timer_shrink = 0.0;
 
-const SCALE_TOTAL_TIME = 0.75;
-const SCALE_PER_SECOND = 1.0 / SCALE_TOTAL_TIME;  #Scale 1x per 0.45 seconds
-const MOVE_DISTANCE = 1.25;
+const SCALE_TOTAL_TIME = 0.5;
+const SCALE_PER_SECOND = (MAX_SCALE - MIN_SCALE) / SCALE_TOTAL_TIME;  #Scale 1x per 0.45 seconds
+const MOVE_DISTANCE = 1.0;
 const MOVE_PER_SECOND = MOVE_DISTANCE / SCALE_TOTAL_TIME;
-var targetZ = 0;
+var reamining_Z = 0;
 
 signal OnBulletDamage(amount : int, type : int);  #Template for things that interact with bullet
 signal EnablePool();
@@ -27,7 +27,7 @@ func _on_enable_pool() -> void:
 	current_scale = MIN_SCALE;
 	target_scale = MAX_SCALE;
 	scale = Vector3.ONE * current_scale;
-	targetZ = position.z + MOVE_DISTANCE;
+	reamining_Z = MOVE_DISTANCE;
 	HannahMusicController.TotalTargets += 1;
 	
 func _process(delta: float) -> void:
@@ -38,7 +38,12 @@ func _process(delta: float) -> void:
 		Node3DPool.SetActive(self, false);
 
 	var tpos = position;
-	tpos.z = move_toward(tpos.z, targetZ, MOVE_PER_SECOND * delta);
+	var moveDelta = MOVE_PER_SECOND * delta;
+	if moveDelta > reamining_Z:
+		moveDelta = reamining_Z;
+		
+	reamining_Z -= moveDelta;
+	tpos.z += moveDelta;
 	position = tpos;
 
 	if is_equal_approx(current_scale, MAX_SCALE):
@@ -53,7 +58,7 @@ func _on_disable_pool() -> void:  #Not sure if I need something here yet.
 
 func _on_on_bullet_damage(amount: int, type: int) -> void:
 	
-	if not is_equal_approx(position.z, targetZ):  #Hasn't reached the target point
+	if not is_equal_approx(reamining_Z, 0.0):  #Hasn't reached the target point
 		return;
 		
 	if type == MyType:

@@ -7,8 +7,14 @@ static var CurrentLocation : Node3D;
 @export var starting_prefabs : Array[PackedScene];
 @export var starting_size : Array[int];
 
-func _enter_tree() -> void:
+func _init() -> void:
 	Pool.clear();
+	
+func _exit_tree() -> void:
+	Pool.clear();
+	
+	
+func _enter_tree() -> void:
 	CurrentLocation = self as Node3D;
 	for i in range(0, starting_keys.size()):
 		InitPoolItem(get_tree(), starting_keys[i], starting_prefabs[i], starting_size[i])
