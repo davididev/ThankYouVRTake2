@@ -139,6 +139,7 @@ collision_layer = 4194304
 scene = ExtResource("12_ingqw")
 viewport_size = Vector2(500, 200)
 unshaded = true
+scene_properties_keys = PackedStringArray("hannah_score_canvas.gd")
 
 [connection signal="Song1" from="." to="." method="_on_song_1"]
 [connection signal="Song2" from="." to="." method="_on_song_2"]

@@ -64,13 +64,18 @@ func _on_on_bullet_damage(amount: int, type: int) -> void:
 		
 	if type == MyType:
 		HannahMusicController.HitTargets += 1;
+		Explode();
+	if MyType < 2 and type != MyType:
+		Explode();
 
 	HannahScoreCanvas.Update = true;	
 	
 	if MyType == 2:
-		var nodes = get_tree().get_nodes_in_group(&"Target");
+		var nodes = get_tree().get_nodes_in_group("Target");
 		for n in nodes:
-			n.call("Explode");
+			if n.visible == true:
+				if n.has_method("Explode"):
+					n.call("Explode");
 			
 func Explode():
 	var explosion = Node3DPool.GetInstance(ExplosionPrefabName);

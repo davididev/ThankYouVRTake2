@@ -40,14 +40,23 @@ func _ready() -> void:
 	
 	songNode = get_node("AudioStreamPlayer3D");
 var lastKeyframeID = -1;
+var currentPointInSong = 0.0;
+var lastPaused = true;
 
 func _process(delta: float) -> void:
 	if isPlaying == false and DialogueHandler.IsRunning == false and awaiting_start_song == false:
 		DialogueHandler.Instance.StartDialogue(StartingDialogue);
 	
 	if isPlaying == true:
-		
-		var currentPointInSong = songNode.get_playback_position();
+		if Engine.time_scale < 0.5:
+			lastPaused = true;
+			songNode.stop();
+			return;
+		if lastPaused:
+			songNode.play(currentPointInSong);
+			lastPaused = false;
+			
+		currentPointInSong = songNode.get_playback_position();
 		var correctedPoint = currentPointInSong - HannahTarget.SCALE_TOTAL_TIME;
 		if correctedPoint < 0.0:
 			correctedPoint = 0.0;
