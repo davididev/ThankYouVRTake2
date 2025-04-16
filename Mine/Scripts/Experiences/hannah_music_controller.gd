@@ -73,15 +73,17 @@ func _process(delta: float) -> void:
 func CreateTargets(bs : BeatEntry):
 	for i in range(0, bs.Targets.size()):
 		var originPt = get_node(str("TargetOrigin", i));
+		var _prefabName = "Target1"
 		if bs.Targets[i] == 1:  #Left hand
-			var inst = Node3DPool.GetInstance("Target1");
-			inst.position = originPt.global_position;
+			_prefabName = "Target1";
 		if bs.Targets[i] == 2:  #Right hand
-			var inst = Node3DPool.GetInstance("Target2");
-			inst.position = originPt.global_position;
+			_prefabName = "Target2";
 		if bs.Targets[i] == 3:  #Mine
-			var inst = Node3DPool.GetInstance("Target3");
-			inst.position = originPt.global_position;
+			_prefabName = "Target3";
+		
+		var inst = Node3DPool.GetInstance(_prefabName);
+		inst.position = originPt.global_position;
+		inst.rotation_degrees = originPt.global_rotation_degrees;
 	
 var awaiting_start_song = false;
 func StartSong(id : int):
