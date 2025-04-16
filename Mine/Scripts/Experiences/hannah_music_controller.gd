@@ -13,10 +13,11 @@ signal Song3;
 @export var TargetShatterMinePrefab : PackedScene;
 static var HitTargets = 0;
 static var TotalTargets = 0;
+static var SongStr = 0;
 @export var LeftGun : NodePath;
 @export var RightGun : NodePath;
 
-var isPlaying = false;
+static var isPlaying = false;
 
 @onready var song1_res = preload("res://Mine/Models/Hannah/song1.res");
 @onready var song2_res = preload("res://Mine/Models/Hannah/song2.res");
@@ -80,17 +81,22 @@ func StartSong(id : int):
 	var songPath = "";
 	if id == 1:
 		CurrentSong = song1_res;
+		SongStr = "Engage the Maya"
 		#PlayMusic.PlaySong("Engage the Maya.mp3");
 		songPath = "res://Audio/Music/Engage the Maya.mp3";
 	if id == 2:
+		SongStr = "One More Time"
 		CurrentSong = song2_res;
 		#PlayMusic.PlaySong("One More Time.mp3");
 		songPath = "res://Audio/Music/One More Time.mp3";
 	if id == 3:
 		CurrentSong = song3_res;
+		SongStr = "The Hungry Cat"
 		#PlayMusic.PlaySong("The Hungry Cat.mp3");
 		songPath = "res://Audio/Music/The Hungry Cat.mp3";
 
+
+	HannahScoreCanvas.Update = true;
 	songNode.stream = load(songPath);
 	
 	get_node(LeftGun).visible = true;

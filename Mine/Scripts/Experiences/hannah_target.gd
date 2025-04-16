@@ -29,6 +29,7 @@ func _on_enable_pool() -> void:
 	scale = Vector3.ONE * current_scale;
 	reamining_Z = MOVE_DISTANCE;
 	HannahMusicController.TotalTargets += 1;
+	HannahScoreCanvas.Update = true;
 	
 func _process(delta: float) -> void:
 	if not is_equal_approx(current_scale, target_scale):
@@ -63,11 +64,15 @@ func _on_on_bullet_damage(amount: int, type: int) -> void:
 		
 	if type == MyType:
 		HannahMusicController.HitTargets += 1;
+
+	HannahScoreCanvas.Update = true;	
 	
-	var explosion = Node3DPool.GetInstance(ExplosionPrefabName);
-	explosion.position = position;
-	Node3DPool.SetActive(self, false);
 	if MyType == 2:
 		var nodes = get_tree().get_nodes_in_group(&"Target");
 		for n in nodes:
-			Node3DPool.SetActive(n, false);
+			n.call("Explode");
+			
+func Explode():
+	var explosion = Node3DPool.GetInstance(ExplosionPrefabName);
+	explosion.position = position;
+	Node3DPool.SetActive(self, false);	

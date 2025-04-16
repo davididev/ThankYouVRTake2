@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq5o8m07ndy0v"]
+
+[ext_resource type="Script" uid="uid://0oyge83maaik" path="res://Mine/Scripts/Experiences/hannah_score_canvas.gd" id="1_itrmd"]
+[ext_resource type="Texture2D" uid="uid://cdk4wmistae02" path="res://VR/Graphics/IU/PauseMenuWidget.png" id="1_k2fki"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 500.0
+offset_bottom = 200.0
+script = ExtResource("1_itrmd")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 500.0
+offset_bottom = 200.0
+texture = ExtResource("1_k2fki")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 24.0
+offset_right = 80.0
+offset_bottom = 47.0
+text = "Currently playing:"
+
+[node name="Label2" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 64.0
+offset_right = 178.0
+offset_bottom = 87.0
+text = "Accuracy:"
+
+[node name="LabelSongName" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 24.0
+offset_right = 330.0
+offset_bottom = 47.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+text = "song name"
+
+[node name="LabelAccuracy" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 64.0
+offset_right = 330.0
+offset_bottom = 87.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+text = "0%"
