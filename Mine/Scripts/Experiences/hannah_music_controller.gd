@@ -55,7 +55,9 @@ func _process(delta: float) -> void:
 		if lastPaused:
 			songNode.play(currentPointInSong);
 			lastPaused = false;
-			
+		
+		if songNode.playing == false and Engine.time_scale > 0.5:
+			isPlaying = false;
 		currentPointInSong = songNode.get_playback_position();
 		var correctedPoint = currentPointInSong - HannahTarget.SCALE_TOTAL_TIME;
 		if correctedPoint < 0.0:
@@ -108,8 +110,8 @@ func StartSong(id : int):
 	HannahScoreCanvas.Update = true;
 	songNode.stream = load(songPath);
 	
-	get_node(LeftGun).visible = true;
-	get_node(RightGun).visible = true;
+	get_node(LeftGun).call("Reset");
+	get_node(RightGun).call("Reset");
 	awaiting_start_song = true;
 	await get_tree().create_timer(1.0).timeout;
 	awaiting_start_song = false;

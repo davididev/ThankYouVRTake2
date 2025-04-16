@@ -17,6 +17,7 @@ func _ready() -> void:
 	StartingPos = global_position;
 	
 func Reset():
+	visible = true;
 	global_position = StartingPos;
 	global_rotation_degrees = Vector3(0.0, 0.0, 0.0);
 	get_node("PickableObject").linear_velocity = Vector3.ZERO;
