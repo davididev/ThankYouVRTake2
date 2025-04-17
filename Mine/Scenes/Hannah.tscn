@@ -377,6 +377,7 @@ metadata/_custom_type_script = "uid://cyul5ticdgwbi"
 [node name="XROrigin3D" parent="." instance=ExtResource("2_k7oit")]
 
 [node name="HannahGeometry" parent="." instance=ExtResource("3_k4j3j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
 
 [node name="Floor" parent="HannahGeometry" index="0"]
 mesh = SubResource("ArrayMesh_fclp1")
@@ -459,7 +460,7 @@ mesh = SubResource("ArrayMesh_ksn3r")
 shape = SubResource("ConvexPolygonShape3D_ds4nu")
 
 [node name="FlourscentLight" parent="." instance=ExtResource("7_sdjci")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 4.0765, -2)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2, 4.0765, -1)
 
 [node name="LightmapGI" type="LightmapGI" parent="."]
 quality = 0
@@ -474,20 +475,20 @@ StopMusic = true
 metadata/_custom_type_script = "uid://c3y3v7o5xyyjp"
 
 [node name="StandingPoint" type="MeshInstance3D" parent="."]
-transform = Transform3D(-2.18557e-08, 0.5, 2.18557e-08, 0, -2.18557e-08, 0.5, 0.5, 2.18557e-08, 9.55343e-16, -2, 0.1, -1)
+transform = Transform3D(-2.18557e-08, 0.5, 2.18557e-08, 0, -2.18557e-08, 0.5, 0.5, 2.18557e-08, 9.55343e-16, 0, 0.1, 0)
 gi_mode = 0
 mesh = SubResource("QuadMesh_fclp1")
 surface_material_override/0 = ExtResource("9_lb8xm")
 
 [node name="HannahMusicController" parent="." instance=ExtResource("11_colnd")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.28207, 0, -1.26495)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.28207, 0, -0.26495)
 LeftGun = NodePath("../LeftGun")
 RightGun = NodePath("../RightGun")
 
 [node name="LeftGun" parent="." instance=ExtResource("12_mdooi")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.19424, 1.0877, -1.65709)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.80576, 1.0877, -0.65709)
 
 [node name="RightGun" parent="." instance=ExtResource("13_3r7fc")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.19406, 1.08768, -0.979049)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.80594, 1.08768, 0.020951)
 
 [editable path="HannahGeometry"]

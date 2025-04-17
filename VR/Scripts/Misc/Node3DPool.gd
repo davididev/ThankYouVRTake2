@@ -50,11 +50,14 @@ static func InitPoolItem(t : SceneTree, key : String, entry : PackedScene, size 
 	Pool[key] = listTemp;
 
 static func GetInstance(key : String):
+	print("Attempting key ", key);
 	if Pool.has(key):
 		var list = Pool[key];
 		for entry in list:
 			if entry.visible == false:
 				SetActive(entry, true);
+				print("Success");
 				return entry;
-		
+
+	print("Fail");		
 	return null;

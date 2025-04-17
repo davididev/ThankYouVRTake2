@@ -46,6 +46,7 @@ var lastPaused = true;
 func _process(delta: float) -> void:
 	if isPlaying == false and DialogueHandler.IsRunning == false and awaiting_start_song == false:
 		DialogueHandler.Instance.StartDialogue(StartingDialogue);
+		return;
 	
 	if isPlaying == true:
 		if Engine.time_scale < 0.5:
@@ -58,6 +59,10 @@ func _process(delta: float) -> void:
 		
 		if songNode.playing == false and Engine.time_scale > 0.5:
 			isPlaying = false;
+			DialogueHandler.IsRunning = false;
+			awaiting_start_song = false;
+			lastPaused = false;
+			return;
 		currentPointInSong = songNode.get_playback_position();
 		var correctedPoint = currentPointInSong - HannahTarget.SCALE_TOTAL_TIME;
 		if correctedPoint < 0.0:
@@ -73,20 +78,23 @@ func _process(delta: float) -> void:
 func CreateTargets(bs : BeatEntry):
 	for i in range(0, bs.Targets.size()):
 		var originPt = get_node(str("TargetOrigin", i));
-		var _prefabName = "Target1"
+		var tkey = ""
 		if bs.Targets[i] == 1:  #Left hand
-			_prefabName = "Target1";
+			tkey = "Target1";
 		if bs.Targets[i] == 2:  #Right hand
-			_prefabName = "Target2";
+			tkey = "Target2";
 		if bs.Targets[i] == 3:  #Mine
-			_prefabName = "Target3";
+			tkey = "Target3";
 		
-		var inst = Node3DPool.GetInstance(_prefabName);
-		inst.position = originPt.global_position;
-		inst.rotation_degrees = originPt.global_rotation_degrees;
+		if !tkey.is_empty():
+			var inst = Node3DPool.GetInstance(tkey);
+			inst.position = originPt.global_position;
+			inst.rotation_degrees = originPt.global_rotation_degrees;
 	
 var awaiting_start_song = false;
 func StartSong(id : int):
+	lastPaused = false;
+	currentPointInSong = 0.0;
 	awaiting_start_song = false;
 	lastKeyframeID = -1;
 	HitTargets = 0;
