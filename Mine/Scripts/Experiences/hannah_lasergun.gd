@@ -15,9 +15,15 @@ func _ready() -> void:
 	lm = pow(2, 1-1) + pow(2, 7-1);  #Layers 1 and 7 (static and enemies)
 	isFiring = false;
 	StartingPos = global_position;
+	SetVisible(false);
+	
+func SetVisible(v : bool):
+	visible = v;
+	get_node("PickableObject/CollisionShape3D").call_deferred("set_disabled", !v);
+	
 	
 func Reset():
-	visible = true;
+	SetVisible(true);
 	global_position = StartingPos;
 	global_rotation_degrees = Vector3(0.0, -90.0, 0.0);
 	get_node("PickableObject").linear_velocity = Vector3.ZERO;

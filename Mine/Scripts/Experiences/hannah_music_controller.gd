@@ -28,8 +28,8 @@ var songNode : AudioStreamPlayer3D;
 
 func _ready() -> void:
 	awaiting_start_song = false;
-	get_node(LeftGun).visible = false;
-	get_node(RightGun).visible = false;
+	get_node(LeftGun).call("SetVisible", false);
+	get_node(RightGun).call("SetVisible", false);
 	isPlaying = false;
 	Node3DPool.InitPoolItem(get_tree(), "Target1", TargetLeftPrefab, 10);
 	Node3DPool.InitPoolItem(get_tree(), "Target2", TargetRightPrefab, 10);
@@ -49,14 +49,14 @@ func _process(delta: float) -> void:
 		return;
 	
 	if isPlaying == true:
-		if Engine.time_scale < 0.5:
-			lastPaused = true;
-			songNode.stop();
-			return;
-		if lastPaused:
-			songNode.play(currentPointInSong);
-			lastPaused = false;
-		
+		#if Engine.time_scale < 0.5:
+		#	lastPaused = true;
+		#	songNode.stop();
+		#	return;
+		#if lastPaused and Engine.time_scale > 0.5:
+		#	songNode.play(currentPointInSong);
+		#	lastPaused = false;
+		songNode.stream_paused = (Engine.time_scale < 0.5);  #Only pause it while the game is paused
 		if songNode.playing == false and Engine.time_scale > 0.5:
 			isPlaying = false;
 			DialogueHandler.IsRunning = false;
