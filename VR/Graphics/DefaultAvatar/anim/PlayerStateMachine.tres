@@ -1,0 +1,23 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=5 format=3 uid="uid://d2h1ac2p2m426"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8aen4"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jt6sw"]
+animation = &"JumpIdle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0sv6f"]
+animation = &"JumpEnd"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_plvpr"]
+animation = &"JumpStart"
+
+[resource]
+states/Idle/node = SubResource("AnimationNodeAnimation_8aen4")
+states/Idle/position = Vector2(328, 105)
+states/Jump/node = SubResource("AnimationNodeAnimation_jt6sw")
+states/Jump/position = Vector2(579, 150)
+states/JumpEnd/node = SubResource("AnimationNodeAnimation_0sv6f")
+states/JumpEnd/position = Vector2(579, 197)
+states/JumpStart/node = SubResource("AnimationNodeAnimation_plvpr")
+states/JumpStart/position = Vector2(572, 105)
