@@ -49,6 +49,10 @@ func _calculate_delta_change(delta):
 	#global_position = get_node(Camera_Path).global_position + rel_movement;
 	delta_movement = (target_pos - global_position);
 	
+	//Set position (relative between Camera point / eyepoint
+	var eyePoint = skel.to_global(eye_midPoint)
+	delta_movement = get_node(Camera_Path).global_position - eyePoint;
+	
 	#Look at point between two hands after moving
 	var handsMidPoint = get_node(Camera_Path).to_local((get_node(LeftHand_Path).global_position + get_node(RightHand_Path).global_position) / 2.0);
 	handsMidPoint.z = clamp(handsMidPoint.z, 1.0, 1000.0);
