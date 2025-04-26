@@ -44,12 +44,11 @@ func _enter_tree() -> void:
 func _calculate_delta_change(delta):  
 	#Move to the midpoint between the two eyes
 	var skel = get_node(Skeleton_Path) as Skeleton3D;
-	var target_pos = get_node(Camera_Path).global_position - skel.to_global(eye_midPoint);
 	#var rel_movement = global_eye_real_pos - skel.global_position;  #Relative from skeleton base to skeleton eyes
 	#global_position = get_node(Camera_Path).global_position + rel_movement;
-	delta_movement = (target_pos - global_position);
+	#delta_movement = (target_pos - global_position);
 	
-	//Set position (relative between Camera point / eyepoint
+	#Set position (relative between Camera point / eyepoint
 	var eyePoint = skel.to_global(eye_midPoint)
 	delta_movement = get_node(Camera_Path).global_position - eyePoint;
 	
