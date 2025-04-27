@@ -61,7 +61,7 @@ func _calculate_delta_change(delta):
 	skel_rot.y = get_node(Look_At_Path).global_rotation.y;
 	global_rotation = skel_rot;
 
-	translate(delta_movement);	
+	global_position = global_position + delta_movement;	
 	velocity_movement = delta_movement / delta;
 	
 var last_animation = "";
