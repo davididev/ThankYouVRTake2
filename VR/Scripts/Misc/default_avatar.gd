@@ -53,12 +53,12 @@ func _calculate_delta_change(delta):
 	velocity_movement = velocity_movement / delta;
 	if velocity_movement.length() > 0.5:
 		walking_time = 0.1;
-	
 	#Set position (relative between Camera point / eyepoint
 	var temp_left_eye = skel.get_bone_pose_position(skel.find_bone("DEF-eye.L"));
 	var temp_right_eye = skel.get_bone_pose_position(skel.find_bone("DEF-eye.R"));
+	
 	eye_midPoint = (temp_left_eye + temp_right_eye) / 2.0;
-	eye_midPoint.z *= 1.0
+	#eye_midPoint.z *= 0.8;
 	
 	
 	
@@ -81,7 +81,8 @@ func _calculate_delta_change(delta):
 	var newPos = pb.origin_node.global_position;
 	#newPos.y -= pb._player_height_override_current * 2.0;
 	global_position = newPos;
-	skel.position = eye_midPoint;  #Use the eye local position to set a child to position
+	get_child(0).position = eye_midPoint;  #Use the eye local position to set a child to position
+	skel.set_bone_pose_rotation(skel.find_bone("DEF-neck"), get_node(Camera_Path).get_quaternion())
 	
 var last_animation = "";
 
