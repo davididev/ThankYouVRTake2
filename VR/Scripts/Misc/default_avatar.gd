@@ -24,6 +24,8 @@ var velocity_movement : Vector3;  #Amount per second on this frame
 var layer_mask_foot = 0;
 
 func _enter_tree() -> void:
+	lastPos = get_node(Camera_Path).global_position;
+	lastPos.y = global_position.y;
 	last_animation = "";
 	var skel = get_node(Skeleton_Path) as Skeleton3D;
 	local_pos_left_hip = skel.get_bone_pose_position(skel.find_bone("DEF-thigh.L"));
@@ -35,11 +37,9 @@ func _enter_tree() -> void:
 	layer_mask_foot = pow(2, 1-1) + pow(2, 2-1);  #Set to static world and dynamic world
 	
 	#Calculate initial eye midpoint
-	var temp_left_eye = skel.get_bone_pose_position(skel.find_bone("DEF-eye.L"));
-	var temp_right_eye = skel.get_bone_pose_position(skel.find_bone("DEF-eye.R"));
-	eye_midPoint = (temp_left_eye + temp_right_eye) / 2.0;
 	#eye_midPoint *= -1.0;
-
+var lastPos : Vector3;
+var walking_time = -1.0;
 #Calculate delta movement and velocity (also move avatar)
 func _calculate_delta_change(delta):  
 	#Move to the midpoint between the two eyes
@@ -47,22 +47,35 @@ func _calculate_delta_change(delta):
 	#var rel_movement = global_eye_real_pos - skel.global_position;  #Relative from skeleton base to skeleton eyes
 	#global_position = get_node(Camera_Path).global_position + rel_movement;
 	#delta_movement = (target_pos - global_position);
+	velocity_movement = get_node(Camera_Path).global_position - lastPos;
+	velocity_movement.y = 0.0;
+	velocity_movement = velocity_movement / delta;
+	if velocity_movement.length() > 0.5:
+		walking_time = 0.1;
 	
 	#Set position (relative between Camera point / eyepoint
-	var eyePoint = skel.to_global(eye_midPoint)
-	delta_movement = get_node(Camera_Path).global_position - eyePoint;
+	var temp_left_eye = skel.get_bone_pose_position(skel.find_bone("DEF-eye.L"));
+	var temp_right_eye = skel.get_bone_pose_position(skel.find_bone("DEF-eye.R"));
+	var temp_root_position = skel.get_bone_pose_position(skel.find_bone("root"));
+	eye_midPoint = (temp_left_eye + temp_right_eye) / 2.0;
+	
+	
 	
 	#Look at point between two hands after moving
-	var handsMidPoint = get_node(Camera_Path).to_local((get_node(LeftHand_Path).global_position + get_node(RightHand_Path).global_position) / 2.0);
-	handsMidPoint.z = clamp(handsMidPoint.z, 1.0, 1000.0);
-	handsMidPoint = get_node(Camera_Path).to_global(handsMidPoint);
-	get_node(Look_At_Path).look_at(handsMidPoint, Vector3(0, 1, 0), true);
-	var skel_rot = global_rotation;
-	skel_rot.y = get_node(Look_At_Path).global_rotation.y;
-	global_rotation = skel_rot;
+	var global_midpoint = (get_node(LeftHand_Path).global_position + get_node(RightHand_Path).global_position) / 2.0;
+	var localCam = get_node(Camera_Path).to_local(global_midpoint);
+	localCam.z = clampf(localCam.z, 1.0, 100000.0);
+	var correctedCameraPoint = get_node(Camera_Path).to_global(localCam);
+	get_node(Look_At_Path).global_position = global_position;
+	get_node(Look_At_Path).look_at(correctedCameraPoint, Vector3.UP, true);
+	var skel_rot = get_node(Look_At_Path).rotation;
+	skel_rot.x = 0.0;
+	skel_rot.z = 0.0;
+	rotation = skel_rot;
 
-	global_position = global_position + delta_movement;	
-	velocity_movement = delta_movement / delta;
+	#global_position = global_position + delta_movement;	
+	var eyeRel = skel.to_global(eye_midPoint) - get_node(Camera_Path).global_position;
+	#global_position = eyeRel;
 	
 var last_animation = "";
 
@@ -74,5 +87,7 @@ func _animation(delta : float):
 		last_animation = "Idle"
 
 func _process(delta: float) -> void:
+	get_node(Left_Hand_IK_Path).start();
+	get_node(Right_Hand_IK_Path).start();
 	_calculate_delta_change(delta);
 	_animation(delta);

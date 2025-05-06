@@ -28,8 +28,9 @@ func _on_enable_pool() -> void:
 	target_scale = MAX_SCALE;
 	scale = Vector3.ONE * current_scale;
 	remaining_X = MOVE_DISTANCE;
-	HannahMusicController.TotalTargets += 1;
-	HannahScoreCanvas.Update = true;
+	if MyType < 2:  #Added this in so mines don't contribute to the accuracy
+		HannahMusicController.TotalTargets += 1;
+		HannahScoreCanvas.Update = true;
 	
 func _process(delta: float) -> void:
 	if not is_equal_approx(current_scale, target_scale):
