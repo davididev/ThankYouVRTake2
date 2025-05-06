@@ -1,5 +1,6 @@
 class_name DVD_Avatar extends Node3D
 
+@export var Player_Body_Path : NodePath;
 @export var Camera_Path : NodePath;
 @export var Animation_Tree_Path : NodePath;
 @export var LeftHand_Path : NodePath;  #These should be the targets
@@ -56,8 +57,9 @@ func _calculate_delta_change(delta):
 	#Set position (relative between Camera point / eyepoint
 	var temp_left_eye = skel.get_bone_pose_position(skel.find_bone("DEF-eye.L"));
 	var temp_right_eye = skel.get_bone_pose_position(skel.find_bone("DEF-eye.R"));
-	var temp_root_position = skel.get_bone_pose_position(skel.find_bone("root"));
 	eye_midPoint = (temp_left_eye + temp_right_eye) / 2.0;
+	eye_midPoint.z *= 1.0
+	
 	
 	
 	
@@ -74,8 +76,12 @@ func _calculate_delta_change(delta):
 	rotation = skel_rot;
 
 	#global_position = global_position + delta_movement;	
-	var eyeRel = skel.to_global(eye_midPoint) - get_node(Camera_Path).global_position;
-	#global_position = eyeRel;
+	var pb = get_node(Player_Body_Path) as XRToolsPlayerBody;
+	
+	var newPos = pb.origin_node.global_position;
+	#newPos.y -= pb._player_height_override_current * 2.0;
+	global_position = newPos;
+	skel.position = eye_midPoint;  #Use the eye local position to set a child to position
 	
 var last_animation = "";
 
