@@ -47,8 +47,8 @@ func _enter_tree() -> void:
 	BONE_RIGHT_EYE = skel.find_bone("DEF-eye.R");
 	BONE_NECK = skel.find_bone("DEF-neck");
 	 #temp var to calculate one of the feet before animation starts
-	var local_pos_left_hip = skel.get_bone_pose_position(BONE_LEFT_HIP);
-	var local_pos_left_foot = skel.get_bone_pose_position(BONE_LEFT_FOOT);
+	var local_pos_left_hip = skel.get_bone_global_pose(BONE_LEFT_HIP).origin;
+	var local_pos_left_foot = skel.get_bone_global_pose(BONE_LEFT_FOOT).origin;
 	local_leg_length = abs(local_pos_left_foot.y - local_pos_left_hip.y);
 	layer_mask_foot = pow(2, 1-1) + pow(2, 2-1);  #Set to static world and dynamic world
 	
@@ -70,8 +70,8 @@ func _calculate_delta_change(delta):
 		walking_time = 0.1;
 	#Set position (relative between Camera point / eyepoint
 	
-	var temp_left_eye = skel.get_bone_pose_position(BONE_LEFT_EYE);
-	var temp_right_eye = skel.get_bone_pose_position(BONE_RIGHT_EYE);
+	var temp_left_eye = skel.get_bone_global_pose(BONE_LEFT_EYE).origin;
+	var temp_right_eye = skel.get_bone_global_pose(BONE_RIGHT_EYE).origin;
 	
 	eye_midPoint = (temp_left_eye + temp_right_eye) / 2.0;
 	#eye_midPoint.z *= 0.8;
@@ -89,7 +89,7 @@ func _calculate_delta_change(delta):
 	var skel_rot = get_node(Look_At_Path).rotation;
 	skel_rot.x = 0.0;
 	skel_rot.z = 0.0;
-	rotation = skel_rot;
+	get_child(0).rotation = skel_rot;
 
 	#global_position = global_position + delta_movement;	
 	var pb = get_node(Player_Body_Path) as XRToolsPlayerBody;
@@ -97,7 +97,9 @@ func _calculate_delta_change(delta):
 	var newPos = get_node(Camera_Path).global_position;
 	#newPos.y -= pb._player_height_override_current * 2.0;
 	global_position = newPos;
-	get_child(0).position = -eye_midPoint;  #Use the eye local position to set a child to position
+	eye_midPoint.x *= -1.0;
+	eye_midPoint.y *= -1.0;
+	get_child(0).position = eye_midPoint;  #Use the eye local position to set a child to position
 	skel.set_bone_pose_rotation(BONE_NECK, get_node(Camera_Path).get_quaternion())
 	
 var last_animation = "";
