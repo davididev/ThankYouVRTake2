@@ -82,14 +82,14 @@ func _calculate_delta_change(delta):
 	#Look at point between two hands after moving
 	var global_midpoint = (get_node(LeftHand_Path).global_position + get_node(RightHand_Path).global_position) / 2.0;
 	var localCam = get_node(Camera_Path).to_local(global_midpoint);
-	localCam.z = clampf(localCam.z, 1.0, 100000.0);
+	localCam.z = clampf(localCam.z, 2.0, 100000.0);
 	var correctedCameraPoint = get_node(Camera_Path).to_global(localCam);
 	get_node(Look_At_Path).global_position = global_position;
 	get_node(Look_At_Path).look_at(correctedCameraPoint, Vector3.UP, true);
 	var skel_rot = get_node(Look_At_Path).global_rotation;
 	skel_rot.x = 0.0;
 	skel_rot.z = 0.0;
-	get_child(0).global_rotation = skel_rot;
+	global_rotation = skel_rot;
 
 	#global_position = global_position + delta_movement;	
 	var pb = get_node(Player_Body_Path) as XRToolsPlayerBody;
