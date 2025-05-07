@@ -101,7 +101,7 @@ func _calculate_delta_change(delta):
 	#eye_midPoint.x *= -1.0;
 	eye_midPoint.y *= -1.0;
 	get_child(0).position = eye_midPoint;  #Use the eye local position to set a child to position
-	skel.set_bone_pose_rotation(BONE_NECK, get_node(Camera_Path).get_quaternion())
+	#skel.set_bone_pose_rotation(BONE_NECK, get_node(Camera_Path).get_quaternion())
 	
 var last_animation = "";
 
@@ -136,14 +136,27 @@ func _calculate_foot_ik(delta):
 func _animation(delta : float):
 	var anim_tree = get_node(Animation_Tree_Path) as AnimationTree;
 	var state_machine = anim_tree.get("parameters/playback")
-	if last_animation != "Idle" and state_machine != null:
-		state_machine.travel("Idle");
-		last_animation = "Idle"
+	var pb = get_node(Player_Body_Path) as XRToolsPlayerBody;
+	if pb.is_on_floor():
+		if walking_time > 0.0:
+			walking_time -= delta;
+			_attempt_animation_name("Walk", state_machine);
+			var vec2 = Vector2(0.0, 1.0);
+			anim_tree.set("parameters/Walk/blend_position", vec2)
+		else:
+			_attempt_animation_name("Idle", state_machine);
+	else:
+		_attempt_animation_name("Jump", state_machine);
+func _attempt_animation_name(anim_name : String, state_machine):
+	if last_animation != anim_name and state_machine != null:
+		state_machine.travel(anim_name);
+		last_animation = anim_name
 
 func _process(delta: float) -> void:
 	get_node(Left_Hand_IK_Path).start();
 	get_node(Right_Hand_IK_Path).start();
+	_animation(delta);
 	_calculate_delta_change(delta);
 	_calculate_foot_ik(delta);
-	_animation(delta);
+	
 	
