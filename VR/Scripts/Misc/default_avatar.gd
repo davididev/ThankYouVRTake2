@@ -89,7 +89,7 @@ func _calculate_delta_change(delta):
 	var skel_rot = get_node(Look_At_Path).global_rotation;
 	skel_rot.x = 0.0;
 	skel_rot.z = 0.0;
-	global_rotation = skel_rot;
+	get_child(0).global_rotation = skel_rot;
 
 	#global_position = global_position + delta_movement;	
 	var pb = get_node(Player_Body_Path) as XRToolsPlayerBody;
