@@ -17,24 +17,39 @@ class_name DVD_Avatar extends Node3D
 var eye_midPoint
 var local_pos_left_hip : Vector3;
 var local_pos_right_hip : Vector3;
-var local_distance_from_hip_to_foot : float;
+var local_leg_length : float;  #Distance from hip to foot
 
 var delta_movement : Vector3;  #Amount we moved on this framestep
 var velocity_movement : Vector3;  #Amount per second on this frame
 
 var layer_mask_foot = 0;
 
+var BONE_LEFT_HAND : int;
+var BONE_RIGHT_HAND : int;
+var BONE_LEFT_HIP : int;
+var BONE_RIGHT_HIP : int;
+var BONE_LEFT_FOOT : int;
+var BONE_RIGHT_FOOT : int;
+var BONE_LEFT_EYE : int;
+var BONE_RIGHT_EYE : int;
+var BONE_NECK : int;
+
 func _enter_tree() -> void:
 	lastPos = get_node(Camera_Path).global_position;
 	lastPos.y = global_position.y;
 	last_animation = "";
 	var skel = get_node(Skeleton_Path) as Skeleton3D;
-	local_pos_left_hip = skel.get_bone_pose_position(skel.find_bone("DEF-thigh.L"));
-	
-	local_pos_right_hip = skel.get_bone_pose_position(skel.find_bone("DEF-thigh.R"));
-	#temp var to calculate one of the feet before animation starts
-	var local_pos_left_foot = skel.get_bone_pose_position(skel.find_bone("DEF-foot.L"));
-	local_distance_from_hip_to_foot = abs(local_pos_left_foot.y - local_pos_left_hip.y);
+	BONE_LEFT_HIP = skel.find_bone("DEF-thigh.L");
+	BONE_RIGHT_HIP = skel.find_bone("DEF-thigh.R");
+	BONE_LEFT_FOOT = skel.find_bone("DEF-foot.L");
+	BONE_RIGHT_FOOT = skel.find_bone("DEF-foot.R");
+	BONE_LEFT_EYE = skel.find_bone("DEF-eye.L");
+	BONE_RIGHT_EYE = skel.find_bone("DEF-eye.R");
+	BONE_NECK = skel.find_bone("DEF-neck");
+	 #temp var to calculate one of the feet before animation starts
+	var local_pos_left_hip = skel.get_bone_pose_position(BONE_LEFT_HIP);
+	var local_pos_left_foot = skel.get_bone_pose_position(BONE_LEFT_FOOT);
+	local_leg_length = abs(local_pos_left_foot.y - local_pos_left_hip.y);
 	layer_mask_foot = pow(2, 1-1) + pow(2, 2-1);  #Set to static world and dynamic world
 	
 	#Calculate initial eye midpoint
@@ -54,8 +69,9 @@ func _calculate_delta_change(delta):
 	if velocity_movement.length() > 0.5:
 		walking_time = 0.1;
 	#Set position (relative between Camera point / eyepoint
-	var temp_left_eye = skel.get_bone_pose_position(skel.find_bone("DEF-eye.L"));
-	var temp_right_eye = skel.get_bone_pose_position(skel.find_bone("DEF-eye.R"));
+	
+	var temp_left_eye = skel.get_bone_pose_position(BONE_LEFT_EYE);
+	var temp_right_eye = skel.get_bone_pose_position(BONE_RIGHT_EYE);
 	
 	eye_midPoint = (temp_left_eye + temp_right_eye) / 2.0;
 	#eye_midPoint.z *= 0.8;
@@ -82,7 +98,7 @@ func _calculate_delta_change(delta):
 	#newPos.y -= pb._player_height_override_current * 2.0;
 	global_position = newPos;
 	get_child(0).position = eye_midPoint;  #Use the eye local position to set a child to position
-	skel.set_bone_pose_rotation(skel.find_bone("DEF-neck"), get_node(Camera_Path).get_quaternion())
+	skel.set_bone_pose_rotation(BONE_NECK, get_node(Camera_Path).get_quaternion())
 	
 var last_animation = "";
 
