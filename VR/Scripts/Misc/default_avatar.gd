@@ -86,10 +86,10 @@ func _calculate_delta_change(delta):
 	var correctedCameraPoint = get_node(Camera_Path).to_global(localCam);
 	get_node(Look_At_Path).global_position = global_position;
 	get_node(Look_At_Path).look_at(correctedCameraPoint, Vector3.UP, true);
-	var skel_rot = get_node(Look_At_Path).rotation;
+	var skel_rot = get_node(Look_At_Path).global_rotation;
 	skel_rot.x = 0.0;
 	skel_rot.z = 0.0;
-	get_child(0).rotation = skel_rot;
+	global_rotation = skel_rot;
 
 	#global_position = global_position + delta_movement;	
 	var pb = get_node(Player_Body_Path) as XRToolsPlayerBody;
@@ -97,12 +97,41 @@ func _calculate_delta_change(delta):
 	var newPos = get_node(Camera_Path).global_position;
 	#newPos.y -= pb._player_height_override_current * 2.0;
 	global_position = newPos;
-	eye_midPoint.x *= -1.0;
+	#eye_midPoint.z *= -1.0;
+	#eye_midPoint.x *= -1.0;
 	eye_midPoint.y *= -1.0;
 	get_child(0).position = eye_midPoint;  #Use the eye local position to set a child to position
 	skel.set_bone_pose_rotation(BONE_NECK, get_node(Camera_Path).get_quaternion())
 	
 var last_animation = "";
+
+func _calculate_foot_ik(delta):
+	var skel = get_node(Skeleton_Path) as Skeleton3D;
+	var origin1 = skel.get_bone_global_pose(BONE_LEFT_HIP).origin;
+	var origin2 = skel.get_bone_global_pose(BONE_RIGHT_HIP).origin;
+	var end1 = origin1 + (Vector3.DOWN * local_leg_length);
+	var end2 = origin1 + (Vector3.DOWN * local_leg_length);
+	
+	var space_state = get_world_3d().direct_space_state;
+	var query1 = PhysicsRayQueryParameters3D.create(origin1, end1, layer_mask_foot);
+	query1.collide_with_bodies = true;
+	var result1 = space_state.intersect_ray(query1);
+	if result1.is_empty() == false:  #Left foot hit something
+		get_node(Left_Foot_Target_Path).global_position = result1.position;
+		get_node(Left_Foot_IK_Path).start();
+		get_node(Left_Foot_IK_Path).set_influence(1.0)
+	else:
+		get_node(Left_Foot_IK_Path).set_influence(0.0)
+		
+	var query2 = PhysicsRayQueryParameters3D.create(origin2, end2, layer_mask_foot);
+	query2.collide_with_bodies = true;
+	var result2 = space_state.intersect_ray(query2);
+	if result2.is_empty() == false:  #Left foot hit something
+		get_node(Right_Foot_Target_Path).global_position = result2.position;
+		get_node(Right_Foot_IK_Path).start();
+		get_node(Right_Foot_IK_Path).set_influence(1.0)
+	else:
+		get_node(Right_Foot_IK_Path).set_influence(0.0)
 
 func _animation(delta : float):
 	var anim_tree = get_node(Animation_Tree_Path) as AnimationTree;
@@ -115,4 +144,6 @@ func _process(delta: float) -> void:
 	get_node(Left_Hand_IK_Path).start();
 	get_node(Right_Hand_IK_Path).start();
 	_calculate_delta_change(delta);
+	_calculate_foot_ik(delta);
 	_animation(delta);
+	
