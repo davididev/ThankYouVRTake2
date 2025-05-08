@@ -294,6 +294,7 @@ func StreamDialogueBox(args : Array[String]):
 func StreamChoiceBox(args : Array[String]):
 	visible = true;
 	Selected_Choice = -1;
+	ChoiceHolderUI.ChoiceID = -1;
 	var outputs = args[4].split(" ");
 	
 	get_node(OverlayUIPath).visible = false;

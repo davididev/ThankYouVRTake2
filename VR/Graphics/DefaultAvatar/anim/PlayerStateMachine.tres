@@ -1,4 +1,4 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=20 format=3 uid="uid://d2h1ac2p2m426"]
+[gd_resource type="AnimationNodeStateMachine" load_steps=19 format=3 uid="uid://d2h1ac2p2m426"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8aen4"]
 animation = &"Idle"
@@ -75,9 +75,6 @@ advance_mode = 2
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jt6sw"]
-advance_mode = 2
-
 [resource]
 allow_transition_to_self = true
 states/Idle/node = SubResource("AnimationNodeAnimation_8aen4")
@@ -90,5 +87,5 @@ states/JumpStart/node = SubResource("AnimationNodeAnimation_plvpr")
 states/JumpStart/position = Vector2(572, 105)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_8aen4")
 states/Walk/position = Vector2(448, 123)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_8aen4"), "Walk", "JumpStart", SubResource("AnimationNodeStateMachineTransition_0sv6f"), "JumpStart", "Jump", SubResource("AnimationNodeStateMachineTransition_plvpr"), "Jump", "JumpEnd", SubResource("AnimationNodeStateMachineTransition_ugomh"), "JumpEnd", "Walk", SubResource("AnimationNodeStateMachineTransition_rxaf5"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_jt6sw")]
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_8aen4"), "Walk", "JumpStart", SubResource("AnimationNodeStateMachineTransition_0sv6f"), "JumpStart", "Jump", SubResource("AnimationNodeStateMachineTransition_plvpr"), "Jump", "JumpEnd", SubResource("AnimationNodeStateMachineTransition_ugomh"), "JumpEnd", "Walk", SubResource("AnimationNodeStateMachineTransition_rxaf5")]
 graph_offset = Vector2(125, 38)
