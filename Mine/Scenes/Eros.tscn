@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cyul5ticdgwbi" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_3w277"]
 [ext_resource type="PackedScene" uid="uid://ddyo2jv7628sa" path="res://VR/Prefabs/player_boilerplate.tscn" id="2_1scys"]
 [ext_resource type="Script" uid="uid://c3y3v7o5xyyjp" path="res://VR/Scripts/Misc/SceneVars.gd" id="3_1scys"]
-[ext_resource type="Resource" path="res://DialogueSystem/output/ErosIntro.res" id="4_q20cb"]
+[ext_resource type="Resource" uid="uid://c2eo3xlb3ic64" path="res://DialogueSystem/output/ErosIntro.res" id="4_q20cb"]
 [ext_resource type="PackedScene" uid="uid://sfnsks0m0cpl" path="res://Mine/Prefabs/Experiences/Eros/eros_computer.tscn" id="5_qvfgd"]
 
 [sub_resource type="Environment" id="Environment_3w277"]
@@ -30,6 +30,7 @@ environment = SubResource("Environment_3w277")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.237092, -0.82954, 0.505619, 0, 0.520458, 0.853887, -0.971487, -0.20245, 0.123397, 0, 1.12824, 0)
+layers = 3
 
 [node name="InvisibleBounds" type="StaticBody3D" parent="."]
 
