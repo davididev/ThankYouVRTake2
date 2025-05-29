@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ssrdf6p5r4j4"]
+
+[ext_resource type="Texture2D" uid="uid://b8mu2ei6f0dia" path="res://Mine/Models/Modular/Castle/GreyscalePalette.png" id="1_j1caq"]
+
+[resource]
+albedo_texture = ExtResource("1_j1caq")
+metallic_specular = 0.2

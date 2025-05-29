@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://oiu2repeo683"]
+
+[ext_resource type="Script" uid="uid://cyul5ticdgwbi" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_3w277"]
+[ext_resource type="PackedScene" uid="uid://ddyo2jv7628sa" path="res://VR/Prefabs/player_boilerplate.tscn" id="2_1scys"]
+[ext_resource type="Script" uid="uid://c3y3v7o5xyyjp" path="res://VR/Scripts/Misc/SceneVars.gd" id="3_1scys"]
+[ext_resource type="Resource" path="res://DialogueSystem/output/ErosIntro.res" id="4_q20cb"]
+[ext_resource type="PackedScene" uid="uid://sfnsks0m0cpl" path="res://Mine/Prefabs/Experiences/Eros/eros_computer.tscn" id="5_qvfgd"]
+
+[sub_resource type="Environment" id="Environment_3w277"]
+background_mode = 1
+background_color = Color(1, 1, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q20cb"]
+size = Vector3(40, 1, 40)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qvfgd"]
+size = Vector3(40, 10, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2m0il"]
+size = Vector3(1, 10, 40)
+
+[node name="XRToolsSceneBase" type="Node3D"]
+script = ExtResource("1_3w277")
+metadata/_custom_type_script = "uid://cyul5ticdgwbi"
+
+[node name="XROrigin3D" parent="." instance=ExtResource("2_1scys")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3w277")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.237092, -0.82954, 0.505619, 0, 0.520458, 0.853887, -0.971487, -0.20245, 0.123397, 0, 1.12824, 0)
+
+[node name="InvisibleBounds" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InvisibleBounds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_q20cb")
+
+[node name="Wall1" type="CollisionShape3D" parent="InvisibleBounds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -19)
+shape = SubResource("BoxShape3D_qvfgd")
+
+[node name="Wall2" type="CollisionShape3D" parent="InvisibleBounds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 19)
+shape = SubResource("BoxShape3D_qvfgd")
+
+[node name="Wall3" type="CollisionShape3D" parent="InvisibleBounds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 5, 0)
+shape = SubResource("BoxShape3D_2m0il")
+
+[node name="Wall4" type="CollisionShape3D" parent="InvisibleBounds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 5, 0)
+shape = SubResource("BoxShape3D_2m0il")
+
+[node name="SceneVars" type="Node3D" parent="."]
+script = ExtResource("3_1scys")
+MusicPath = "Eros.mp3"
+DialogueOnStart = ExtResource("4_q20cb")
+metadata/_custom_type_script = "uid://c3y3v7o5xyyjp"
+
+[node name="ErosComputer" parent="." instance=ExtResource("5_qvfgd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.98177, 0.088562, 0.021907)
