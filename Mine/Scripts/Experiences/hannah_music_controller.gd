@@ -43,12 +43,20 @@ var lastKeyframeID = -1;
 var currentPointInSong = 0.0;
 var lastPaused = true;
 
+var firstPlayingStep = true;
 func _process(delta: float) -> void:
 	if isPlaying == false and DialogueHandler.IsRunning == false and awaiting_start_song == false:
+		get_node(LeftGun).call("SetVisible", false);
+		get_node(RightGun).call("SetVisible", false);
 		DialogueHandler.Instance.StartDialogue(StartingDialogue);
+		firstPlayingStep = true;
 		return;
 	
 	if isPlaying == true:
+		if firstPlayingStep == true:
+			get_node(LeftGun).call("Reset");
+			get_node(RightGun).call("Reset");
+			firstPlayingStep = false;
 		#if Engine.time_scale < 0.5:
 		#	lastPaused = true;
 		#	songNode.stop();
