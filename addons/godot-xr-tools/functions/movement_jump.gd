@@ -38,7 +38,8 @@ func physics_movement(_delta: float, player_body: XRToolsPlayerBody, _disabled: 
 	# Request jump if the button is pressed
 	if _controller.is_button_pressed(jump_button_action):
 		player_body.request_jump()
-
+	if _controller.is_button_pressed("primary_click"):  #Added by Davidi for joystick click
+		player_body.request_jump()
 
 # This method verifies the movement provider has a valid configuration.
 func _get_configuration_warnings() -> PackedStringArray:
