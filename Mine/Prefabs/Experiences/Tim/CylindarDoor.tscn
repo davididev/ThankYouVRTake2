@@ -12,7 +12,7 @@ size = Vector3(3.5, 3.5, 2)
 
 [node name="CylindarDoorTransition" type="StaticBody3D"]
 script = ExtResource("1_xr3c4")
-Doorways = Array[NodePath]([NodePath("TypicalDoor/Doorway1"), NodePath("TypicalDoor/Doorway2")])
+Doorways = Array[NodePath]([NodePath("TypicalDoor/Doorway")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1, 0, 0.529679)
@@ -21,9 +21,6 @@ shape = SubResource("CylinderShape3D_ouf3p")
 [node name="TypicalDoor" parent="." instance=ExtResource("1_uagfd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.924288, -1.19209e-07, 0.578149)
 
-[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="TypicalDoor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.568682)
-
 [node name="Area3D" type="Area3D" parent="."]
 collision_mask = 524288
 
@@ -31,8 +28,6 @@ collision_mask = 524288
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2)
 shape = SubResource("BoxShape3D_b4b2v")
 
-[connection signal="screen_entered" from="TypicalDoor/VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
-[connection signal="screen_exited" from="TypicalDoor/VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
 

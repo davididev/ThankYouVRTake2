@@ -1,6 +1,9 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://c0hls8vrhtdn1"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c0hls8vrhtdn1"]
+
+[ext_resource type="Texture2D" uid="uid://7nde6wrus8qm" path="res://Mine/Models/Tim/AFV Door/DoorFrontPanel.png" id="1_trwj4"]
 
 [resource]
-albedo_color = Color(0.650128, 0.650128, 0.650128, 1)
-metallic_specular = 1.0
+albedo_texture = ExtResource("1_trwj4")
+metallic = 0.2
+metallic_specular = 0.25
 roughness = 0.0
