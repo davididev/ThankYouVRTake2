@@ -1,6 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://sfnsks0m0cpl"]
+[gd_scene load_steps=11 format=3 uid="uid://sfnsks0m0cpl"]
 
 [ext_resource type="PackedScene" uid="uid://c45pg4jjao1eg" path="res://Mine/Models/Eros/TitleComputer.glb" id="1_3iniw"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_6urhh"]
+[ext_resource type="Script" uid="uid://bov4cl4nijifu" path="res://Mine/Prefabs/Experiences/Eros/eros_computer.gd" id="1_pb6mc"]
+[ext_resource type="PackedScene" uid="uid://b3wu0m0352yp8" path="res://Mine/Prefabs/Experiences/Eros/eros_computer_ui.tscn" id="2_pb6mc"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hcafo"]
 points = PackedVector3Array(-0.3333, 1.80222, 0.0932964, 1.26066, 2.84422, -0.335751, -0.359014, 2.84422, 0.0379287, -0.298361, 1.82506, -0.3771, 1.26066, 2.34575, 0.162562, -0.298361, 2.80457, -0.3771, 0.388833, 1.78541, -0.398095, 1.04523, 2.8763, 0.179549, -0.38213, 2.34664, 0.170564, 0.388833, 1.78541, 0.100218, 0.388833, 2.84422, -0.398095, -0.359014, 2.71952, 0.162562, 1.26066, 2.53264, -0.0867044, 1.15325, 2.81227, 0.145646, 1.26066, 2.78182, -0.335751, 1.26066, 2.34575, 0.100218)
@@ -21,6 +24,7 @@ points = PackedVector3Array(-1.23115, 1.78541, 0.660863, 1.19822, 2.84422, 0.349
 points = PackedVector3Array(0.388529, 1.7852, 0.100218, -0.327518, -0.124071, -0.3771, -0.3333, -0.139488, 0.0830767, 0.388529, -0.208053, -0.398095, -0.327518, 1.70122, -0.3771, 0.388529, -0.208053, 0.100218, 0.388529, 1.7852, -0.398095, -0.3333, 1.71664, 0.0830767)
 
 [node name="ErosComputer" type="StaticBody3D"]
+script = ExtResource("1_pb6mc")
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="."]
 transform = Transform3D(5.96244e-09, 0, -0.5, 0, 0.5, 0, 0.5, 0, 5.96244e-09, 0, 0, 0)
@@ -45,6 +49,13 @@ shape = SubResource("ConvexPolygonShape3D_dm4h8")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(5.96244e-09, 0, -0.5, 0, 0.5, 0, 0.5, 0, 5.96244e-09, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_p8d40")
+
+[node name="Viewport2Din3D" parent="." instance=ExtResource("1_6urhh")]
+transform = Transform3D(-2.04844e-08, 1.13137, -0.707107, 4.94538e-08, 1.13137, 0.707107, 1.6, -2.04844e-08, -3.09086e-08, -0.0247257, 1.39974, -0.0137281)
+screen_size = Vector2(0.625, 0.625)
+scene = ExtResource("2_pb6mc")
+viewport_size = Vector2(500, 500)
+unshaded = true
 
 [node name="TitleComputer" parent="." instance=ExtResource("1_3iniw")]
 transform = Transform3D(5.96244e-09, 0, -0.5, 0, 0.5, 0, 0.5, 0, 5.96244e-09, 0, 0, 0)

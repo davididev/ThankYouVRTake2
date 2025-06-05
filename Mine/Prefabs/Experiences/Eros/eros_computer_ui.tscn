@@ -1,0 +1,124 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3wu0m0352yp8"]
+
+[ext_resource type="Theme" uid="uid://cyrhw0a5kjwwm" path="res://Mine/Models/Eros/Theme_MatrixLabel.tres" id="1_n32gl"]
+[ext_resource type="Script" uid="uid://bqj2b0q7aqcla" path="res://Mine/Prefabs/Experiences/Eros/eros_computer_ui.gd" id="1_yq78c"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 500.0
+offset_bottom = 500.0
+script = ExtResource("1_yq78c")
+Panels = Array[NodePath]([NodePath("Panel_SelectProgram"), NodePath("Panel_ProgramLoading"), NodePath("Panel_ProgramEnd")])
+
+[node name="Panel_SelectProgram" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Panel_SelectProgram"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 134.0
+grow_horizontal = 2
+theme = ExtResource("1_n32gl")
+text = "*****Select a program to load*****
+Tap on a button to load the experience. When you're done, unload the experience and try another."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Button_Zipline" type="Button" parent="Panel_SelectProgram"]
+layout_mode = 1
+offset_left = 152.0
+offset_top = 184.0
+offset_right = 352.0
+offset_bottom = 226.0
+theme = ExtResource("1_n32gl")
+text = "Zipline Demo"
+
+[node name="Button_Breakout" type="Button" parent="Panel_SelectProgram"]
+layout_mode = 1
+offset_left = 152.0
+offset_top = 240.0
+offset_right = 352.0
+offset_bottom = 282.0
+theme = ExtResource("1_n32gl")
+text = "Breakout Demo"
+
+[node name="Button_Boxing" type="Button" parent="Panel_SelectProgram"]
+layout_mode = 1
+offset_left = 152.0
+offset_top = 296.0
+offset_right = 352.0
+offset_bottom = 338.0
+theme = ExtResource("1_n32gl")
+text = "Punch Demo"
+
+[node name="Panel_ProgramLoading" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Panel_ProgramLoading"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 134.0
+grow_horizontal = 2
+theme = ExtResource("1_n32gl")
+text = "*****Program is loading*****
+Looking down might be terrifying."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Panel_ProgramEnd" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Panel_ProgramEnd"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 134.0
+grow_horizontal = 2
+theme = ExtResource("1_n32gl")
+text = "*****Program is running*****
+Want to reset it?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Button_Unload" type="Button" parent="Panel_ProgramEnd"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -42.0
+offset_right = 100.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_n32gl")
+text = "Unload"
+
+[connection signal="pressed" from="Panel_SelectProgram/Button_Zipline" to="." method="_on_button_zipline_pressed"]
+[connection signal="pressed" from="Panel_SelectProgram/Button_Breakout" to="." method="_on_button_breakout_pressed"]
+[connection signal="pressed" from="Panel_SelectProgram/Button_Boxing" to="." method="_on_button_boxing_pressed"]
+[connection signal="pressed" from="Panel_ProgramEnd/Button_Unload" to="." method="_on_button_unload_pressed"]
