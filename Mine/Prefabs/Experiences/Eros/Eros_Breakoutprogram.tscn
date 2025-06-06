@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ibxy2v2efvqa"]
-
-[ext_resource type="Script" uid="uid://barpiosc6os6j" path="res://Mine/Prefabs/Experiences/Eros/eros_Program.gd" id="1_ssjyb"]
-
-[node name="ErosProgram1" type="Node3D"]
-script = ExtResource("1_ssjyb")

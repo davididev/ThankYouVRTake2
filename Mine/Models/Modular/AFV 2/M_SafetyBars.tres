@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://e7y2cawrbsik"]
+
+[ext_resource type="Texture2D" uid="uid://c074oacm2u3qb" path="res://Mine/Models/Modular/AFV 2/SafetyBar.png" id="1_h2okm"]
+
+[resource]
+albedo_texture = ExtResource("1_h2okm")

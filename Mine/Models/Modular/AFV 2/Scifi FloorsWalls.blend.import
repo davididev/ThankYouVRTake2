@@ -1,0 +1,302 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://6tv2hvsutedx"
+path="res://.godot/imported/Scifi FloorsWalls.blend-f89c9b986fae5c45aab97e740a331669.scn"
+
+[deps]
+
+source_file="res://Mine/Models/Modular/AFV 2/Scifi FloorsWalls.blend"
+dest_files=["res://.godot/imported/Scifi FloorsWalls.blend-f89c9b986fae5c45aab97e740a331669.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"materials": {
+"Grate": {
+"use_external/enabled": true,
+"use_external/path": "uid://dsckjwjuyc6ar"
+},
+"MoonSurface": {
+"use_external/enabled": true,
+"use_external/path": "uid://c4nyfgp7ap0ky"
+},
+"SafetyLine": {
+"use_external/enabled": true,
+"use_external/path": "uid://e7y2cawrbsik"
+},
+"Scifi Ceiling 1": {
+"use_external/enabled": true,
+"use_external/path": "uid://buqpub6dtfcwf"
+},
+"Scifi Floor 1": {
+"use_external/enabled": true,
+"use_external/path": "uid://d2wc2yr6neax1"
+},
+"Scifi Floor 2": {
+"use_external/enabled": true,
+"use_external/path": "uid://d2wc2yr6neax1"
+},
+"SolidMat": {
+"use_external/enabled": true,
+"use_external/path": "uid://c0hj2gw1athte"
+},
+"Wall_Main": {
+"use_external/enabled": true,
+"use_external/path": "uid://4cdhfawbrwmc"
+},
+"Window": {
+"use_external/enabled": true,
+"use_external/path": "uid://c0k25wbppcp88"
+}
+},
+"meshes": {
+"Scifi FloorsWalls_Archway": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV 2/Source/Scifi FloorsWalls_Archway.res"
+},
+"Scifi FloorsWalls_Cube": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV 2/Source/Scifi FloorsWalls_Cube.res"
+},
+"Scifi FloorsWalls_Floor Normal": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV 2/Source/Scifi FloorsWalls_Floor Normal.res"
+},
+"Scifi FloorsWalls_Floor Pit": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV 2/Source/Scifi FloorsWalls_Floor Pit.res"
+},
+"Scifi FloorsWalls_Floor2_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV 2/Source/Scifi FloorsWalls_Floor2_001.res"
+},
+"Scifi FloorsWalls_FloorEdge1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV 2/Source/Scifi FloorsWalls_FloorEdge1.res"
+},
+"Scifi FloorsWalls_FloorEdgeCorner2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV 2/Source/Scifi FloorsWalls_FloorEdgeCorner2.res"
+},
+"Scifi FloorsWalls_FloorEdgeCorner3": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV 2/Source/Scifi FloorsWalls_FloorEdgeCorner3.res"
+},
+"Scifi FloorsWalls_FloorEdgeCorner_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV 2/Source/Scifi FloorsWalls_FloorEdgeCorner_001.res"
+},
+"Scifi FloorsWalls_Pillar Bottom": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV 2/Source/Scifi FloorsWalls_Pillar Bottom.res"
+},
+"Scifi FloorsWalls_Pillar Middle": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV 2/Source/Scifi FloorsWalls_Pillar Middle.res"
+},
+"Scifi FloorsWalls_Pillar Top": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV 2/Source/Scifi FloorsWalls_Pillar Top.res"
+},
+"Scifi FloorsWalls_Ramp E": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV 2/Source/Scifi FloorsWalls_Ramp E.res"
+},
+"Scifi FloorsWalls_Ramp N": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV 2/Source/Scifi FloorsWalls_Ramp N.res"
+},
+"Scifi FloorsWalls_Ramp S": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV 2/Source/Scifi FloorsWalls_Ramp S.res"
+},
+"Scifi FloorsWalls_Ramp W": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV 2/Source/Scifi FloorsWalls_Ramp W.res"
+},
+"Scifi FloorsWalls_Ramp Wall Top Edge 1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV 2/Source/Scifi FloorsWalls_Ramp Wall Top Edge 1.res"
+},
+"Scifi FloorsWalls_Ramp Wall Top Edge 1_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV 2/Source/Scifi FloorsWalls_Ramp Wall Top Edge 1_001.res"
+},
+"Scifi FloorsWalls_Stairs1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV 2/Source/Scifi FloorsWalls_Stairs1.res"
+},
+"Scifi FloorsWalls_Stairs2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV 2/Source/Scifi FloorsWalls_Stairs2.res"
+},
+"Scifi FloorsWalls_Wall": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV 2/Source/Scifi FloorsWalls_Wall.res"
+},
+"Scifi FloorsWalls_Wall Big Opening": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV 2/Source/Scifi FloorsWalls_Wall Big Opening.res"
+},
+"Scifi FloorsWalls_Wall Bump 1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV 2/Source/Scifi FloorsWalls_Wall Bump 1.res"
+},
+"Scifi FloorsWalls_Wall Bump 2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV 2/Source/Scifi FloorsWalls_Wall Bump 2.res"
+},
+"Scifi FloorsWalls_Wall Corner": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV 2/Source/Scifi FloorsWalls_Wall Corner.res"
+},
+"Scifi FloorsWalls_Wall_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Modular/AFV 2/Source/Scifi FloorsWalls_Wall_001.res"
+}
+}
+}
+blender/nodes/visible=0
+blender/nodes/active_collection_only=false
+blender/nodes/punctual_lights=true
+blender/nodes/cameras=true
+blender/nodes/custom_properties=true
+blender/nodes/modifiers=1
+blender/meshes/colors=false
+blender/meshes/uvs=true
+blender/meshes/normals=true
+blender/meshes/export_geometry_nodes_instances=false
+blender/meshes/tangents=true
+blender/meshes/skins=2
+blender/meshes/export_bones_deforming_mesh_only=false
+blender/materials/unpack_enabled=true
+blender/materials/export_materials=1
+blender/animation/limit_playback=true
+blender/animation/always_sample=true
+blender/animation/group_tracks=true

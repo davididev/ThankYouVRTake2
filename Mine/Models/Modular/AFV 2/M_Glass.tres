@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c0k25wbppcp88"]
+
+[ext_resource type="Shader" uid="uid://cu2k4q6labdf6" path="res://Mine/Models/Modular/AFV 2/S_Glass.tres" id="1_ojrq2"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ojrq2")

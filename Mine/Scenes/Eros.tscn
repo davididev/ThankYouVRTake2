@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://c3y3v7o5xyyjp" path="res://VR/Scripts/Misc/SceneVars.gd" id="3_1scys"]
 [ext_resource type="Resource" uid="uid://c2eo3xlb3ic64" path="res://DialogueSystem/output/ErosIntro.res" id="4_q20cb"]
 [ext_resource type="PackedScene" uid="uid://sfnsks0m0cpl" path="res://Mine/Prefabs/Experiences/Eros/eros_computer.tscn" id="5_qvfgd"]
-[ext_resource type="PackedScene" uid="uid://ibxy2v2efvqa" path="res://Mine/Prefabs/Experiences/Eros/Eros_Breakoutprogram.tscn" id="6_2m0il"]
+[ext_resource type="PackedScene" uid="uid://ibxy2v2efvqa" path="res://Mine/Prefabs/Experiences/Eros/Eros_Ziplineprogram.tscn" id="6_2m0il"]
 
 [sub_resource type="Environment" id="Environment_3w277"]
 background_mode = 1
@@ -67,3 +67,4 @@ Experience_Paths = Array[NodePath]([NodePath("../ErosProgram1")])
 
 [node name="ErosProgram1" parent="." instance=ExtResource("6_2m0il")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0)
+visible = false

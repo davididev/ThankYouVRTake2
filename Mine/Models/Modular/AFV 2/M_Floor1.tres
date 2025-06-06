@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d2wc2yr6neax1"]
+
+[ext_resource type="Texture2D" uid="uid://xowls4hd0rbb" path="res://Mine/Models/Modular/AFV 2/ScifiFloor.png" id="1_7dur7"]
+
+[resource]
+albedo_texture = ExtResource("1_7dur7")
