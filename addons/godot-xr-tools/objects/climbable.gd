@@ -3,6 +3,7 @@
 class_name XRToolsClimbable
 extends Node3D
 
+var isPickedUp = false;  #Added by Davidi
 
 ## XR Tools Climbable Object
 ##
@@ -77,11 +78,13 @@ func pick_up(by: Node3D) -> void:
 
 	# Save the grab
 	_grabs[by] = point
+	isPickedUp = true; #Added by Davidi
 
 
 # Called by XRToolsFunctionPickup when this is let go by a controller
 func let_go(by: Node3D, _p_linear_velocity: Vector3, _p_angular_velocity: Vector3) -> void:
 	_grabs.erase(by);
+	isPickedUp = false;  #Added by Davidi
 
 
 # Get the grab handle
