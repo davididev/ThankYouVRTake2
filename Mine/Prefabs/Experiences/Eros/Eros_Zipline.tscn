@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://b2x3le4kcy2eq"]
+
+[ext_resource type="Script" uid="uid://dx8804gw7jggg" path="res://Mine/Scripts/Experiences/eros_zipline.gd" id="1_7kiqw"]
+[ext_resource type="PackedScene" uid="uid://cjyilbm4ucc7s" path="res://addons/godot-xr-tools/objects/climbable.tscn" id="1_dfvix"]
+[ext_resource type="PackedScene" uid="uid://d832m3sevywe" path="res://Mine/Models/Eros/Zipline.glb" id="2_7kiqw"]
+[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="3_fqamv"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="4_2cv74"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pbwnl"]
+size = Vector3(0.5, 1, 0.5)
+
+[node name="ZiplineRoot" type="Node3D"]
+script = ExtResource("1_7kiqw")
+
+[node name="Climbable" parent="." instance=ExtResource("1_dfvix")]
+
+[node name="CollisionShape3D" parent="Climbable" index="0"]
+shape = SubResource("BoxShape3D_pbwnl")
+
+[node name="HighlightRing" parent="Climbable/CollisionShape3D" index="0" instance=ExtResource("3_fqamv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0.1)
+skeleton = NodePath("../../..")
+
+[node name="GrabPointHandLeft" parent="Climbable/CollisionShape3D" index="1" instance=ExtResource("4_2cv74")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0.1)
+
+[node name="GrabPointHandRight" parent="Climbable/CollisionShape3D" index="2" instance=ExtResource("4_2cv74")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0.1)
+hand = 1
+
+[node name="Zipline2" parent="." instance=ExtResource("2_7kiqw")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.25, 0)
+
+[connection signal="action_pressed" from="Climbable/CollisionShape3D/GrabPointHandLeft" to="." method="_on_Grab"]
+[connection signal="action_released" from="Climbable/CollisionShape3D/GrabPointHandLeft" to="." method="_On_Release"]
+[connection signal="action_pressed" from="Climbable/CollisionShape3D/GrabPointHandRight" to="." method="_on_Grab"]
+[connection signal="action_released" from="Climbable/CollisionShape3D/GrabPointHandRight" to="." method="_On_Release"]
+
+[editable path="Climbable"]
