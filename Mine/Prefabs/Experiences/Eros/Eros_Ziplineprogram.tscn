@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ibxy2v2efvqa"]
+[gd_scene load_steps=6 format=3 uid="uid://ibxy2v2efvqa"]
 
 [ext_resource type="Script" uid="uid://barpiosc6os6j" path="res://Mine/Prefabs/Experiences/Eros/eros_Program.gd" id="1_b24nn"]
 [ext_resource type="MeshLibrary" uid="uid://c5n678254cred" path="res://Mine/Models/Modular/AFV 2/ML_Scifi2.tres" id="2_hd07i"]
-[ext_resource type="PackedScene" uid="uid://b2x3le4kcy2eq" path="res://Mine/Prefabs/Experiences/Eros/Eros_Zipline.tscn" id="3_qgmdh"]
+[ext_resource type="Material" uid="uid://csqtd6mwbba17" path="res://Mine/Models/Eros/Elevator/M_BlueForcefield.tres" id="3_qgmdh"]
 
 [sub_resource type="Curve3D" id="Curve3D_hd07i"]
 _data = {
@@ -10,6 +10,8 @@ _data = {
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
+
+[sub_resource type="BoxMesh" id="BoxMesh_n2t8l"]
 
 [node name="ErosProgram1" type="Node3D"]
 script = ExtResource("1_b24nn")
@@ -51,6 +53,7 @@ curve = SubResource("Curve3D_hd07i")
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="ZiplineRoot" parent="." instance=ExtResource("3_qgmdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3, 8.532, -13)
-Path_Follow_3D_Ref = NodePath("../Path3D/PathFollow3D")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_n2t8l")
+surface_material_override/0 = ExtResource("3_qgmdh")
