@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://o8eb5mi0sq8d"]
+[gd_scene load_steps=8 format=3 uid="uid://o8eb5mi0sq8d"]
 
 [ext_resource type="PackedScene" uid="uid://gsrbhbronrs8" path="res://Mine/Models/Eros/Elevator/Elevator.glb" id="1_28it0"]
 [ext_resource type="Script" uid="uid://d1bxr43seumn2" path="res://Mine/Scripts/Experiences/eros_elevator.gd" id="1_f10so"]
@@ -6,46 +6,28 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_f10so"]
 size = Vector3(2, 1, 2)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_f10so"]
-points = PackedVector3Array(-0.15, 0, -1.5, 0.15, 0, -1.5, -0.15, 0, 1.5, -0.15, 0.699932, -1.5, 0.15, 0.699932, -1.5, 0.15, 0, 1.5, -0.15, 0.699932, 1.5, 0.15, 0.699932, 1.5)
+[sub_resource type="BoxShape3D" id="BoxShape3D_adhum"]
+size = Vector3(4, 0.25, 4)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_adhum"]
-points = PackedVector3Array(-0.15, 0, -1.5, 0.15, 0, -1.5, -0.15, 0, 1.5, -0.15, 0.699932, -1.5, 0.15, 0.699932, -1.5, 0.15, 0, 1.5, -0.15, 0.699932, 1.5, 0.15, 0.699932, 1.5)
+[sub_resource type="BoxShape3D" id="BoxShape3D_wxdey"]
+size = Vector3(0.676758, 1, 0.504456)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wxdey"]
-points = PackedVector3Array(1.5, 0.7, 0.15, 1.5, 0.7, -0.15, -1.5, 0.7, 0.149971, 1.5, 2.98023e-08, 0.15, 1.5, 2.98023e-08, -0.15, -1.5, 0.7, -0.15, -1.5, 2.98023e-08, 0.149971, -1.5, 2.98023e-08, -0.15)
+[sub_resource type="BoxShape3D" id="BoxShape3D_gwge1"]
+size = Vector3(3.5, 2, 0.5)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gwge1"]
-points = PackedVector3Array(1.5, 0.7, 0.15, 1.5, 0.7, -0.15, -1.5, 0.7, 0.149971, 1.5, 2.98023e-08, 0.15, 1.5, 2.98023e-08, -0.15, -1.5, 0.7, -0.15, -1.5, 2.98023e-08, 0.149971, -1.5, 2.98023e-08, -0.15)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_myobg"]
-points = PackedVector3Array(0.825397, 0.160714, 2.03175, -1.33333, -0.093198, 1.3334, -1.33333, 0.0971974, 1.3334, 0.825397, -0.093198, 1.3334, -1.33333, -0.156746, 2.03175, -1.33333, 0.160714, 2.03175, 0.825397, -0.156746, 2.03175, 0.825397, 0.160714, 1.46041, -1.33333, -0.156746, 1.46041, -1.4, 0.170518, 1.44669, 0.825397, -0.156746, 1.46041, 0.825397, 0.0971974, 1.3334)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cpt0a"]
-points = PackedVector3Array(-1.46041, 0.922619, 1.46041, -2, -0.107679, 1.36515, -2, -0.107679, 2, -1.3334, -0.156746, 1.39691, -1.3334, 0.160851, 2.03175, -2.03175, 0.795622, 2.03175, -2.03175, 0.795622, 1.39691, -1.39691, 0.795622, 2.03175, -1.30607, 0.075, 1.30607, -1.36515, -0.107679, 2, -2.03175, 0.160851, 1.3334, -1.90467, 0.922619, 1.46041, -1.46041, 0.922619, 1.90467, -1.39691, -0.156746, 1.3334, -1.87929, 0.860948, 1.87929)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vsuok"]
-points = PackedVector3Array(1.39699, -0.156746, 1.3334, 1.8502, 0.860948, 1.87929, 1.90458, 0.922619, 1.46041, 0.778431, 0.075, 1.30607, 1.97692, -0.107679, 2, 0.825633, 0.160851, 2.03175, 1.99627, -0.125, 1.35394, 1.39699, 0.795622, 2.03175, 0.880462, -0.107679, 2, 2.03175, 0.795622, 2.03175, 1.46016, 0.922619, 1.46041, 2.03175, 0.795622, 1.39691, 0.825633, -0.156746, 1.46041, 2.03175, 0.160851, 1.3334, 1.46016, 0.922619, 1.90467, 1.39699, 0.795622, 1.39691, 0.825633, 0.160851, 1.46041, 0.848742, -0.075, 1.34678)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mcyml"]
-points = PackedVector3Array(1.3334, 0.160851, -2.03175, 2.03175, 0.160851, -0.952592, 2.03175, 0.795622, -1.39693, 2, -0.107679, -1.98269, 1.30607, 0.075, -0.910359, 1.46041, 0.922619, -1.90466, 2.03175, 0.795622, -2.03175, 1.46041, -0.156746, -0.952592, 1.46041, 0.922619, -1.46042, 1.35395, -0.124994, -2, 2, -0.107679, -1.00165, 1.39691, 0.795622, -2.03175, 1.90467, 0.922619, -1.46042, 1.3334, -0.156746, -1.39693, 1.39691, 0.795622, -1.39693, 1.46041, 0.160851, -0.952592, 1.34678, -0.075, -0.973269, 1.87929, 0.860948, -1.85752)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xxsfo"]
-points = PackedVector3Array(1.33317, 0.0971974, -0.952592, -0.31746, -0.156746, -2.03175, -0.31746, 0.160714, -2.03175, 1.33317, -0.156746, -2.03175, -0.31746, -0.093198, -0.952592, 1.33317, 0.160714, -2.03175, -0.31746, 0.0971974, -0.952592, 1.33317, -0.093198, -0.952592, 1.4, 0.173567, -1.45785, 1.33317, -0.156746, -1.46042, -0.31746, 0.160714, -1.46042, -0.31746, -0.156746, -1.46042)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_o71p8"]
-points = PackedVector3Array(-1.33333, -0.156746, -2.03175, -0.31756, 0.0971974, -0.952592, -0.31756, -0.093198, -0.952592, -1.33333, 0.0971974, -0.952592, -0.31756, 0.160714, -2.03175, -0.31756, -0.156746, -2.03175, -1.33333, 0.160714, -2.03175, -1.33333, -0.093198, -0.952592, -1.4, 0.18155, -1.45626, -1.33333, -0.156746, -1.46042, -0.31756, 0.160714, -1.46042, -0.31756, -0.156746, -1.46042)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a8bnf"]
-points = PackedVector3Array(-1.35395, -0.124994, -2, -1.46041, 0.160851, -0.952592, -1.46041, 0.922619, -1.46042, -2, -0.107679, -1.98269, -2.03175, 0.795622, -2.03175, -2, -0.107679, -1.00165, -2.03175, 0.795622, -1.39693, -1.39691, 0.795622, -2.03175, -1.30607, 0.075, -0.910359, -1.46041, -0.156746, -0.952592, -2.03175, 0.160851, -0.952592, -1.3334, 0.160851, -2.03175, -1.90467, 0.922619, -1.46042, -1.46041, 0.922619, -1.90466, -1.3334, -0.156746, -1.39693, -1.39691, 0.795622, -1.39693, -1.34678, -0.075, -0.973269, -1.87929, 0.860948, -1.85752)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_c82s6"]
-points = PackedVector3Array(2.03175, 0.160714, 1.33333, -2.03175, -0.156746, -0.952381, -2.03175, 0.160714, -0.952381, 2.03175, -0.156746, -0.952381, -2.03175, -0.156746, 1.33333, -2.03175, 0.160714, 1.33333, 2.03175, 0.160714, -0.952381, 2.03175, -0.156746, 1.33333)
+[sub_resource type="BoxShape3D" id="BoxShape3D_myobg"]
+size = Vector3(0.5, 2, 3.5)
 
 [node name="MovingPlatform" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 2
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+gravity_scale = 0.0
 script = ExtResource("1_f10so")
 Wall_Meshes = Array[NodePath]([NodePath("Elevator/Wall 1"), NodePath("Elevator/Wall 2"), NodePath("Elevator/Wall 3"), NodePath("Elevator/Wall 4")])
-Wall_Colliders = Array[NodePath]([NodePath("Wall1"), NodePath("Wall2"), NodePath("Wall3"), NodePath("Wall4")])
+Wall_Colliders = Array[NodePath]([NodePath("Wall_Shape1"), NodePath("Wall_Shape2"), NodePath("Wall_Shape3"), NodePath("Wall_Shape4")])
 
 [node name="Elevator" parent="." instance=ExtResource("1_28it0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0270588, 0, 0.459327)
@@ -57,53 +39,40 @@ collision_mask = 524288
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Elevator/Area3D"]
 shape = SubResource("BoxShape3D_f10so")
 
-[node name="Wall1" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72706, 0, 0.459327)
-shape = SubResource("ConvexPolygonShape3D_f10so")
+[node name="Floor" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_adhum")
 
-[node name="Wall2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67294, 0, 0.459327)
-shape = SubResource("ConvexPolygonShape3D_adhum")
+[node name="Pillar" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7, 0.4, -1.2)
+shape = SubResource("BoxShape3D_wxdey")
 
-[node name="Wall3" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0270588, 0, -1.24067)
-shape = SubResource("ConvexPolygonShape3D_wxdey")
+[node name="Pillar2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 0.4, -1.2)
+shape = SubResource("BoxShape3D_wxdey")
 
-[node name="Wall4" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0270588, 0, 2.15933)
-shape = SubResource("ConvexPolygonShape3D_gwge1")
+[node name="Pillar3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7, 0.4, 2.1)
+shape = SubResource("BoxShape3D_wxdey")
 
-[node name="CollisionShape3D8" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0270588, 0, 0.459327)
-shape = SubResource("ConvexPolygonShape3D_myobg")
+[node name="Pillar4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 0.4, 2.1)
+shape = SubResource("BoxShape3D_wxdey")
 
-[node name="CollisionShape3D7" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0270588, 0, 0.459327)
-shape = SubResource("ConvexPolygonShape3D_cpt0a")
+[node name="Wall_Shape1" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.2)
+shape = SubResource("BoxShape3D_gwge1")
 
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0270588, 0, 0.459327)
-shape = SubResource("ConvexPolygonShape3D_vsuok")
+[node name="Wall_Shape2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.08)
+shape = SubResource("BoxShape3D_gwge1")
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0270588, 0, 0.459327)
-shape = SubResource("ConvexPolygonShape3D_mcyml")
+[node name="Wall_Shape3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, 0, 0)
+shape = SubResource("BoxShape3D_myobg")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0270588, 0, 0.459327)
-shape = SubResource("ConvexPolygonShape3D_xxsfo")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0270588, 0, 0.459327)
-shape = SubResource("ConvexPolygonShape3D_o71p8")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0270588, 0, 0.459327)
-shape = SubResource("ConvexPolygonShape3D_a8bnf")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0270588, 0, 0.459327)
-shape = SubResource("ConvexPolygonShape3D_c82s6")
+[node name="Wall_Shape4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 0, 0)
+shape = SubResource("BoxShape3D_myobg")
 
 [connection signal="body_entered" from="Elevator/Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Elevator/Area3D" to="." method="_on_area_3d_body_exited"]
