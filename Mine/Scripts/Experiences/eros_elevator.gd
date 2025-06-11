@@ -29,6 +29,7 @@ func _SetCollisionStatus(isEnabled : bool):
 	axis_lock_linear_z = !isEnabled;
 	
 var reset_timer = 0.0;
+var start_timer = 0.0;
 
 func _physics_process(delta: float) -> void:
 	var moveRel = Vector3.ZERO;
@@ -38,12 +39,15 @@ func _physics_process(delta: float) -> void:
 		if reset_timer <= 0.0:
 			target_progress = 0.0;
 	if current_progress != target_progress:
-		current_progress = move_toward(current_progress, target_progress, Move_Multiplier * delta);
-		var p = get_node(Follow_Path_Ref) as PathFollow3D;
-		p.progress_ratio = sqrt(current_progress) / sqrt(MAX_PROGRESS);
+		if start_timer > 0.0:
+			start_timer -= delta;
+		else:
+			current_progress = move_toward(current_progress, target_progress, Move_Multiplier * delta);
+			var p = get_node(Follow_Path_Ref) as PathFollow3D;
+			p.progress_ratio = sqrt(current_progress) / sqrt(MAX_PROGRESS);
 		
-		moveRel = p.global_position - global_position;
-		moved = true;
+			moveRel = p.global_position - global_position;
+			moved = true;
 		#global_position = p.global_position;
 		
 		if is_equal_approx(current_progress, target_progress):
@@ -57,6 +61,7 @@ func _physics_process(delta: float) -> void:
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player_body"):
 		target_progress = MAX_PROGRESS;
+		start_timer = 0.05;  #A short delay before you start to avoid glitches
 		_SetCollisionStatus(true);
 
 
