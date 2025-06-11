@@ -7,7 +7,7 @@ class_name PathElevator extends RigidBody3D
 
 var current_progress = 0.0;
 var target_progress = 0.0;
-
+const PLAYER_SAFE_MARGIN = 0.01;
 
 const MAX_PROGRESS = 100.0;
 
@@ -54,7 +54,8 @@ func _physics_process(delta: float) -> void:
 			_SetCollisionStatus(false);
 			reset_timer = 4.0;
 	#linear_velocity = moveRel;
-	move_and_collide(moveRel);
+	if moveRel.length() >= PLAYER_SAFE_MARGIN:
+		move_and_collide(moveRel);
 
 
 
