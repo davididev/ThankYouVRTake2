@@ -21,11 +21,15 @@ static func ConvertStringToVector3(s : String):
 	return vec;
 
 static func FilterDialogueVariables(s : String):
+	var foundValue = false;  #Adding this if we have non-existent variables
 	if s.contains("%"):
 		for vkey in DialogueHandler.variables.keys():
 			#if vkey == s:  #Only copy value if the key is equal to the variable we're putting in
 			var vvalue = DialogueHandler.variables[vkey];
 			s = s.replace(vkey, str(vvalue));
+			foundValue = true;  
+		if foundValue == false:
+			s = "0.0";
 	return s;
 
 static func ConvertStringToFloat(s : String):

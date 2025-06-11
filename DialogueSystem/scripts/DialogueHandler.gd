@@ -119,6 +119,7 @@ func StreamIfThen(args : Array[String]):
 	var nextNodeIfTrue = args[3];
 	var nextNodeIfFalse = args[4];
 	
+	
 	var valueLeft = DialogueArgsUtility.FilterDialogueVariables(variableName).to_float();
 	var valueRight = DialogueArgsUtility.FilterDialogueVariables(valueStr).to_float();
 	

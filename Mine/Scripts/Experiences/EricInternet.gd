@@ -9,6 +9,7 @@ var waitForBrokenDialogue = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	pickedUp = false;
 	waitForBrokenDialogue = false;
 
@@ -22,8 +23,9 @@ func _process(delta: float) -> void:
 
 
 func _on_internet_pickup_grabbed(pickable: Variant, by: Variant) -> void:
-	pickedUp = true;
-	DialogueHandler.Instance.StartDialogue(Dialogue1);
+	if pickedUp == false:
+		pickedUp = true;
+		DialogueHandler.Instance.StartDialogue(Dialogue1);
 
 
 
