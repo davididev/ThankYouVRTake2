@@ -1,0 +1,100 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=22 format=3 uid="uid://glnyjj34wrho"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fa206"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_whmrs"]
+animation = &"JumpIdle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1n1sc"]
+animation = &"JumpEnd"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4vt25"]
+animation = &"JumpStart"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6ocbc"]
+animation = &"Walk_F"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fbvsh"]
+animation = &"Walk_FR"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6qnbh"]
+animation = &"WalkFL"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w7vg4"]
+animation = &"Walk_L"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q754r"]
+animation = &"Walk_R"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pexh6"]
+animation = &"Walk_FR"
+play_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uf60c"]
+animation = &"Walk_F"
+play_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6luoh"]
+animation = &"WalkFL"
+play_mode = 1
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_whmrs"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_6ocbc")
+blend_point_0/pos = Vector2(0, 0.7)
+blend_point_1/node = SubResource("AnimationNodeAnimation_fbvsh")
+blend_point_1/pos = Vector2(0.1, 0.4)
+blend_point_2/node = SubResource("AnimationNodeAnimation_6qnbh")
+blend_point_2/pos = Vector2(-0.1, 0.4)
+blend_point_3/node = SubResource("AnimationNodeAnimation_w7vg4")
+blend_point_3/pos = Vector2(-0.2, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_q754r")
+blend_point_4/pos = Vector2(0.2, 0)
+blend_point_5/node = SubResource("AnimationNodeAnimation_pexh6")
+blend_point_5/pos = Vector2(0.1, -0.3)
+blend_point_6/node = SubResource("AnimationNodeAnimation_uf60c")
+blend_point_6/pos = Vector2(0, -0.4)
+blend_point_7/node = SubResource("AnimationNodeAnimation_6luoh")
+blend_point_7/pos = Vector2(-0.1, -0.3)
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1n1sc"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6ocbc"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f7cc8"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nl2xo"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6g6rn"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_en1dj"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ap2s6"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0ko1j"]
+advance_mode = 2
+
+[resource]
+allow_transition_to_self = true
+states/Idle/node = SubResource("AnimationNodeAnimation_fa206")
+states/Idle/position = Vector2(331, 107)
+states/Jump/node = SubResource("AnimationNodeAnimation_whmrs")
+states/Jump/position = Vector2(412, -48)
+states/JumpEnd/node = SubResource("AnimationNodeAnimation_1n1sc")
+states/JumpEnd/position = Vector2(545, -18)
+states/JumpStart/node = SubResource("AnimationNodeAnimation_4vt25")
+states/JumpStart/position = Vector2(403, 27)
+states/Start/position = Vector2(207, 85)
+states/Walk/node = SubResource("AnimationNodeBlendSpace2D_whmrs")
+states/Walk/position = Vector2(491, 121)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_1n1sc"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_6ocbc"), "JumpStart", "Jump", SubResource("AnimationNodeStateMachineTransition_f7cc8"), "Jump", "JumpEnd", SubResource("AnimationNodeStateMachineTransition_nl2xo"), "JumpEnd", "Walk", SubResource("AnimationNodeStateMachineTransition_6g6rn"), "JumpEnd", "Idle", SubResource("AnimationNodeStateMachineTransition_en1dj"), "Idle", "JumpStart", SubResource("AnimationNodeStateMachineTransition_ap2s6"), "Walk", "JumpStart", SubResource("AnimationNodeStateMachineTransition_0ko1j")]
+graph_offset = Vector2(-22, -1)
