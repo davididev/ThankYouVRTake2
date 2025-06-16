@@ -94,13 +94,13 @@ func _calculate_delta_change(delta):
 	#global_position = global_position + delta_movement;	
 	var pb = get_node(Player_Body_Path) as XRToolsPlayerBody;
 	
-	var newPos = get_node(Camera_Path).global_position;
+	var newPos = get_node(Player_Body_Path).global_position;
 	#newPos.y -= pb._player_height_override_current * 2.0;
 	global_position = newPos;
 	#eye_midPoint.z *= -1.0;
 	#eye_midPoint.x *= -1.0;
-	eye_midPoint.y *= -1.0;
-	get_child(0).position = eye_midPoint;  #Use the eye local position to set a child to position
+	eye_midPoint.y *= 1.0;
+	#get_child(0).position = eye_midPoint;  #Use the eye local position to set a child to position
 	#skel.set_bone_pose_rotation(BONE_NECK, get_node(Camera_Path).get_quaternion())
 	
 var last_animation = "";
