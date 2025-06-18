@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://b7mulnva2tbtn"]
+[gd_scene load_steps=42 format=4 uid="uid://b7mulnva2tbtn"]
 
 [ext_resource type="Script" uid="uid://cyul5ticdgwbi" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_ouxam"]
 [ext_resource type="PackedScene" uid="uid://ddyo2jv7628sa" path="res://VR/Prefabs/player_boilerplate.tscn" id="2_oy8um"]
@@ -22,7 +22,6 @@
 [ext_resource type="PackedScene" uid="uid://ciyjkochxgbol" path="res://Mine/Prefabs/Experiences/Tim/simple_spike.tscn" id="20_hbh0g"]
 [ext_resource type="Script" uid="uid://c3y3v7o5xyyjp" path="res://VR/Scripts/Misc/SceneVars.gd" id="21_uoftb"]
 [ext_resource type="PackedScene" uid="uid://ctjqknlr8e2fv" path="res://Mine/Prefabs/Experiences/Tim/lightning_chain_gun.tscn" id="22_0nry8"]
-[ext_resource type="Material" uid="uid://d1hby8u3u1jgp" path="res://Mine/Decals/M_BlackPuddle1.tres" id="23_hbh0g"]
 [ext_resource type="Script" uid="uid://vra8k6sh8fb4" path="res://Mine/Scripts/Experiences/tim_target_practice_area.gd" id="24_ou4b4"]
 [ext_resource type="PackedScene" uid="uid://4gxr45x8l7c4" path="res://Mine/Prefabs/Experiences/Tim/red_target.tscn" id="25_irlps"]
 [ext_resource type="PackedScene" uid="uid://bgfelu834gspg" path="res://Mine/Prefabs/Experiences/Tim/green_target.tscn" id="26_7vbfu"]
@@ -299,8 +298,6 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AABgwQAAgEAAAGBBAACAwQAAgEAAAIBBAABgwQAAgEAAAIBBAACAwQAAgEAAAGBBAABgwQAAgEAAAEBBAACAwQAAgEAAAGBBAABgwQAAgEAAAGBBAACAwQAAgEAAAEBBAABgwQAAgEAAACBBAACAwQAAgEAAAEBBAABgwQAAgEAAAEBBAACAwQAAgEAAACBBAoABAACA/z8CgAEAAID/PwKAAQAAgP8/AoABAACA/z8CgAEAAID/PwKAAQAAgP8/AoABAACA/z8CgAEAAID/PwKAAQAAgP8/AoABAACA/z8CgAEAAID/PwKAAQAAgP8/")
 }]
 
-[sub_resource type="BoxMesh" id="BoxMesh_ou4b4"]
-
 [node name="XRToolsSceneBase" type="Node3D"]
 script = ExtResource("1_ouxam")
 metadata/_custom_type_script = "uid://cyul5ticdgwbi"
@@ -441,10 +438,6 @@ metadata/_custom_type_script = "uid://c3y3v7o5xyyjp"
 
 [node name="LightningChainGun" parent="." instance=ExtResource("22_0nry8")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.42029, -2.60928, 11.785)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_ou4b4")
-surface_material_override/0 = ExtResource("23_hbh0g")
 
 [node name="TargetPracticeArea" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 15)
