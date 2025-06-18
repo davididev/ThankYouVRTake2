@@ -120,7 +120,7 @@ func _calculate_foot_ik(delta):
 	if result1.is_empty() == false:  #Left foot hit something
 		get_node(Left_Foot_Target_Path).global_position = result1.position;
 		get_node(Left_Foot_IK_Path).start();
-		get_node(Left_Foot_IK_Path).set_influence(1.0)
+		get_node(Left_Foot_IK_Path).set_influence(0.5)
 	else:
 		get_node(Left_Foot_IK_Path).set_influence(0.0)
 		
@@ -130,7 +130,7 @@ func _calculate_foot_ik(delta):
 	if result2.is_empty() == false:  #Left foot hit something
 		get_node(Right_Foot_Target_Path).global_position = result2.position;
 		get_node(Right_Foot_IK_Path).start();
-		get_node(Right_Foot_IK_Path).set_influence(1.0)
+		get_node(Right_Foot_IK_Path).set_influence(0.5)
 	else:
 		get_node(Right_Foot_IK_Path).set_influence(0.0)
 
@@ -142,8 +142,13 @@ func _animation(delta : float):
 		if walking_time > 0.0:
 			walking_time -= delta;
 			_attempt_animation_name("Walk", state_machine);
-			var vec2 = Vector2(0.0, 1.0);
+			var inputAngle = get_node(Camera_Path).global_rotation.y;
+			
+
+			var vec2 = Vector2(cos(inputAngle), sin(inputAngle));
+			#vec2.x *= -1.0;  #If left/right needs to be reversed
 			anim_tree.set("parameters/Walk/blend_position", vec2)
+			
 		else:
 			_attempt_animation_name("Idle", state_machine);
 	else:

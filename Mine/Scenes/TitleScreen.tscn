@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://blha1teaj2xsq"]
+[gd_scene load_steps=30 format=4 uid="uid://blha1teaj2xsq"]
 
 [ext_resource type="Script" uid="uid://cn2buqjld0up2" path="res://scenes/demo_scene_base.gd" id="1_55lbi"]
 [ext_resource type="PackedScene" uid="uid://ddyo2jv7628sa" path="res://VR/Prefabs/player_boilerplate.tscn" id="1_dtu8b"]
@@ -7,6 +7,7 @@
 [ext_resource type="MeshLibrary" uid="uid://dkba8n3pu3enh" path="res://Mine/Models/Modular/Castle/Castle Modular Wall Library.tres" id="3_be4am"]
 [ext_resource type="Material" uid="uid://dp2nipwd54i7y" path="res://Mine/Models/Modular/Castle/M_Modular_Castle.tres" id="4_vf7r3"]
 [ext_resource type="PackedScene" uid="uid://bodyern4o2fm8" path="res://Mine/Models/Computer 1/computer terminal.glb" id="7_dbnds"]
+[ext_resource type="PackedScene" uid="uid://delu2qjrw6teu" path="res://addons/Mirror3D/Mirror3D.tscn" id="7_ijoam"]
 [ext_resource type="Material" uid="uid://bgjqk3ccf6plx" path="res://Mine/Models/Computer 1/M_ComputerPole.tres" id="8_5lr13"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="8_cfj1n"]
 [ext_resource type="Material" uid="uid://d3xbyy6qvshfm" path="res://Mine/Models/Computer 1/M_ComputerTermianl.tres" id="9_depl1"]
@@ -268,6 +269,11 @@ metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="LightmapGI" type="LightmapGI" parent="."]
 light_data = ExtResource("2_4cuvi")
+
+[node name="Mirror3D" parent="." instance=ExtResource("7_ijoam")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35284, 1.02618, 5.87094)
+size = Vector2(1, 2)
+cull_mask = 1048571
 
 [node name="computer terminal2" parent="." instance=ExtResource("7_dbnds")]
 transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 5.64937, 1.97414, 2.0658)

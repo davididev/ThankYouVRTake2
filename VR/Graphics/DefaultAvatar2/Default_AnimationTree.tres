@@ -60,9 +60,6 @@ blend_point_7/pos = Vector2(-0.1, -0.3)
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1n1sc"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6ocbc"]
-advance_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f7cc8"]
 switch_mode = 2
 advance_mode = 2
@@ -77,10 +74,13 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_en1dj"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ap2s6"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0ko1j"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0ko1j"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6ocbc"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ap2s6"]
 advance_mode = 2
 
 [resource]
@@ -96,5 +96,5 @@ states/JumpStart/position = Vector2(403, 27)
 states/Start/position = Vector2(207, 85)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_whmrs")
 states/Walk/position = Vector2(491, 121)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_1n1sc"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_6ocbc"), "JumpStart", "Jump", SubResource("AnimationNodeStateMachineTransition_f7cc8"), "Jump", "JumpEnd", SubResource("AnimationNodeStateMachineTransition_nl2xo"), "JumpEnd", "Walk", SubResource("AnimationNodeStateMachineTransition_6g6rn"), "JumpEnd", "Idle", SubResource("AnimationNodeStateMachineTransition_en1dj"), "Idle", "JumpStart", SubResource("AnimationNodeStateMachineTransition_ap2s6"), "Walk", "JumpStart", SubResource("AnimationNodeStateMachineTransition_0ko1j")]
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_1n1sc"), "JumpStart", "Jump", SubResource("AnimationNodeStateMachineTransition_f7cc8"), "Jump", "JumpEnd", SubResource("AnimationNodeStateMachineTransition_nl2xo"), "JumpEnd", "Walk", SubResource("AnimationNodeStateMachineTransition_6g6rn"), "JumpEnd", "Idle", SubResource("AnimationNodeStateMachineTransition_en1dj"), "Walk", "JumpStart", SubResource("AnimationNodeStateMachineTransition_0ko1j"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_6ocbc"), "Idle", "JumpStart", SubResource("AnimationNodeStateMachineTransition_ap2s6")]
 graph_offset = Vector2(-22, -1)
