@@ -142,10 +142,12 @@ func _animation(delta : float):
 		if walking_time > 0.0:
 			walking_time -= delta;
 			_attempt_animation_name("Walk", state_machine);
-			var inputAngle = get_node(Camera_Path).global_rotation.y;
+			#var inputAngle = get_node(Camera_Path).global_rotation.y;
 			
+			var tvec = to_local(velocity_movement)
 
-			var vec2 = Vector2(cos(inputAngle), sin(inputAngle));
+			#var vec2 = Vector2(cos(inputAngle), sin(inputAngle));
+			var vec2 = Vector2(tvec.x, tvec.z).normalized();
 			#vec2.x *= -1.0;  #If left/right needs to be reversed
 			anim_tree.set("parameters/Walk/blend_position", vec2)
 			
