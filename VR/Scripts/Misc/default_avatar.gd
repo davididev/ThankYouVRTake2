@@ -85,7 +85,7 @@ func _calculate_delta_change(delta):
 	localCam.z = clampf(localCam.z, 2.0, 100000.0);
 	var correctedCameraPoint = get_node(Camera_Path).to_global(localCam);
 	get_node(Look_At_Path).global_position = global_position;
-	get_node(Look_At_Path).look_at(correctedCameraPoint, Vector3.UP, true);
+	get_node(Look_At_Path).look_at(correctedCameraPoint, Vector3.UP, false);
 	var skel_rot = get_node(Look_At_Path).global_rotation;
 	skel_rot.x = 0.0;
 	skel_rot.z = 0.0;
