@@ -56,6 +56,7 @@ blend_point_6/node = SubResource("AnimationNodeAnimation_svrih")
 blend_point_6/pos = Vector2(-0.3, 0)
 blend_point_7/node = SubResource("AnimationNodeAnimation_3l5ow")
 blend_point_7/pos = Vector2(-0.2, 0.2)
+blend_mode = 1
 sync = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8aen4"]
@@ -88,4 +89,4 @@ states/JumpStart/position = Vector2(572, 105)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_8aen4")
 states/Walk/position = Vector2(449, 123)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_8aen4"), "Walk", "JumpStart", SubResource("AnimationNodeStateMachineTransition_0sv6f"), "JumpStart", "Jump", SubResource("AnimationNodeStateMachineTransition_plvpr"), "Jump", "JumpEnd", SubResource("AnimationNodeStateMachineTransition_ugomh"), "JumpEnd", "Walk", SubResource("AnimationNodeStateMachineTransition_rxaf5"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_jt6sw"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_5i840")]
-graph_offset = Vector2(-51.5, -58)
+graph_offset = Vector2(-13.5, -12)
