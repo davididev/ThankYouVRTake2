@@ -47,8 +47,9 @@ func _enter_tree() -> void:
 	BONE_RIGHT_EYE = skel.find_bone("DEF-eye.R");
 	BONE_NECK = skel.find_bone("DEF-neck");
 	 #temp var to calculate one of the feet before animation starts
-	var local_pos_left_hip = skel.get_bone_global_pose(BONE_LEFT_HIP).origin;
-	var local_pos_left_foot = skel.get_bone_global_pose(BONE_LEFT_FOOT).origin;
+	
+	var local_pos_left_hip = skel.to_global(skel.get_bone_global_pose(BONE_LEFT_HIP).origin);
+	var local_pos_left_foot = skel.to_global(skel.get_bone_global_pose(BONE_LEFT_FOOT).origin);
 	local_leg_length = abs(local_pos_left_foot.y - local_pos_left_hip.y);
 	layer_mask_foot = pow(2, 1-1) + pow(2, 2-1);  #Set to static world and dynamic world
 	
@@ -98,6 +99,7 @@ func _calculate_delta_change(delta):
 	var pb = get_node(Player_Body_Path) as XRToolsPlayerBody;
 	
 	var newPos = get_node(Player_Body_Path).global_position;
+	newPos.y = get_node(Camera_Path).global_position.y - XRToolsUserSettings.player_height;
 	#newPos.y -= pb._player_height_override_current * 2.0;
 	#newPos.y += (get_node(Camera_Path).global_position.y - get_node(Player_Body_Path).global_position.y) / 2.0;
 	#eye_midPoint.z *= -1.0;
@@ -111,8 +113,8 @@ var last_animation = "";
 
 func _calculate_foot_ik(delta):
 	var skel = get_node(Skeleton_Path) as Skeleton3D;
-	var origin1 = skel.get_bone_global_pose(BONE_LEFT_HIP).origin;
-	var origin2 = skel.get_bone_global_pose(BONE_RIGHT_HIP).origin;
+	var origin1 = skel.to_global(skel.get_bone_global_pose(BONE_LEFT_HIP).origin);
+	var origin2 = skel.to_global(skel.get_bone_global_pose(BONE_RIGHT_HIP).origin);
 	var end1 = origin1 + (Vector3.DOWN * local_leg_length);
 	var end2 = origin1 + (Vector3.DOWN * local_leg_length);
 	
@@ -123,7 +125,8 @@ func _calculate_foot_ik(delta):
 	if result1.is_empty() == false:  #Left foot hit something
 		get_node(Left_Foot_Target_Path).global_position = result1.position;
 		get_node(Left_Foot_IK_Path).start();
-		get_node(Left_Foot_IK_Path).set_influence(0.5)
+		get_node(Left_Foot_IK_Path).set_influence(0.5);
+		get_node(Left_Foot_Target_Path).global_rotation = get_node(Look_At_Path).global_rotation;
 	else:
 		get_node(Left_Foot_IK_Path).set_influence(0.0)
 		
@@ -134,6 +137,7 @@ func _calculate_foot_ik(delta):
 		get_node(Right_Foot_Target_Path).global_position = result2.position;
 		get_node(Right_Foot_IK_Path).start();
 		get_node(Right_Foot_IK_Path).set_influence(0.5)
+		get_node(Right_Foot_Target_Path).global_rotation = get_node(Look_At_Path).global_rotation;
 	else:
 		get_node(Right_Foot_IK_Path).set_influence(0.0)
 
