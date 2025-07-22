@@ -32,10 +32,12 @@ func _process(delta: float) -> void:
 			lastMenuPressed = true;
 			if is_equal_approx(targetScale, SCALE_OPEN):
 				targetScale = SCALE_CLOSED;
-				Engine.time_scale = 1.0;  #Return normal game scale
+				#Engine.time_scale = 1.0;  #Return normal game scale
+				get_tree().paused = false;
 			else:
 				targetScale = SCALE_OPEN;
-				Engine.time_scale = 1.0 / 360.0;  #Pause game, set 1 hour to a second
+				#Engine.time_scale = 1.0 / 360.0;  #Pause game, set 1 hour to a second
+				get_tree().paused = true;
 			
 	
 	if visible == true:  #Move it over left hand and such

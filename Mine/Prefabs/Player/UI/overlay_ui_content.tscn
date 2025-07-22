@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cfggusn3grv58" path="res://Mine/Models/Mutti/Canvas/PaintBrush.png" id="5_tpmyl"]
 
 [node name="VBoxContainer" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 offset_right = 400.0

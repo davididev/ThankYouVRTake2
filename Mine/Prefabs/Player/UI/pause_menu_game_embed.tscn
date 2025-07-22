@@ -10,6 +10,7 @@ no_depth_test = true
 shading_mode = 0
 
 [node name="Pause Menu Game Embed" type="Node3D"]
+process_mode = 3
 script = ExtResource("1_fjffo")
 
 [node name="Viewport2Din3D" parent="." instance=ExtResource("1_glvse")]
