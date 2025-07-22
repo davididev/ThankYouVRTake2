@@ -66,8 +66,11 @@ func _calculate_delta_change(delta):
 	velocity_movement = get_node(Camera_Path).global_position - lastPos;
 	velocity_movement.y = 0.0;
 	velocity_movement = velocity_movement / delta;
-	if velocity_movement.length() > 0.5:
-		walking_time = 0.1;
+	#DebugContent.DebugText = str(velocity_movement.length());
+	if velocity_movement.length() > 1.0:
+		walking_time = 0.2;
+	
+	lastPos = get_node(Camera_Path).global_position;
 	#Set position (relative between Camera point / eyepoint
 	
 	var temp_left_eye = skel.get_bone_global_pose(BONE_LEFT_EYE).origin;
@@ -138,6 +141,7 @@ func _animation(delta : float):
 	var anim_tree = get_node(Animation_Tree_Path) as AnimationTree;
 	var state_machine = anim_tree.get("parameters/playback")
 	var pb = get_node(Player_Body_Path) as XRToolsPlayerBody;
+	#DebugContent.DebugText = str("WT: ", pb.is_on_floor());
 	if pb.is_on_floor():
 		if walking_time > 0.0:
 			walking_time -= delta;
