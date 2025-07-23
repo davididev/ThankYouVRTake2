@@ -126,7 +126,10 @@ func _calculate_foot_ik(delta):
 		get_node(Left_Foot_Target_Path).global_position = result1.position;
 		get_node(Left_Foot_IK_Path).start();
 		get_node(Left_Foot_IK_Path).set_influence(0.5);
-		get_node(Left_Foot_Target_Path).global_rotation = get_node(Look_At_Path).global_rotation;
+		var r = get_node(Look_At_Path).global_rotation_degrees;
+		r.x = 0.0;
+		r.z = 0.0;
+		get_node(Left_Foot_Target_Path).global_rotation_degrees = r;
 	else:
 		get_node(Left_Foot_IK_Path).set_influence(0.0)
 		
@@ -137,7 +140,10 @@ func _calculate_foot_ik(delta):
 		get_node(Right_Foot_Target_Path).global_position = result2.position;
 		get_node(Right_Foot_IK_Path).start();
 		get_node(Right_Foot_IK_Path).set_influence(0.5)
-		get_node(Right_Foot_Target_Path).global_rotation = get_node(Look_At_Path).global_rotation;
+		var r = get_node(Look_At_Path).global_rotation_degrees;
+		r.x = 0.0;
+		r.z = 0.0;
+		get_node(Right_Foot_Target_Path).global_rotation_degrees = r;
 	else:
 		get_node(Right_Foot_IK_Path).set_influence(0.0)
 
