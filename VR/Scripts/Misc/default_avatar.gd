@@ -149,7 +149,7 @@ func _calculate_foot_ik(delta):
 
 func _animation(delta : float):
 	var anim_tree = get_node(Animation_Tree_Path) as AnimationTree;
-	var state_machine = anim_tree.get("parameters/playback")
+	var state_machine = anim_tree["parameters/playback"]
 	var pb = get_node(Player_Body_Path) as XRToolsPlayerBody;
 	#DebugContent.DebugText = str("WT: ", pb.is_on_floor());
 	if pb.is_on_floor():
