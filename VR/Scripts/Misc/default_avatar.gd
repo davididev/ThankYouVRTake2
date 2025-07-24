@@ -116,7 +116,7 @@ func _calculate_foot_ik(delta):
 	var origin1 = skel.to_global(skel.get_bone_global_pose(BONE_LEFT_HIP).origin);
 	var origin2 = skel.to_global(skel.get_bone_global_pose(BONE_RIGHT_HIP).origin);
 	var end1 = origin1 + (Vector3.DOWN * local_leg_length);
-	var end2 = origin1 + (Vector3.DOWN * local_leg_length);
+	var end2 = origin2 + (Vector3.DOWN * local_leg_length);
 	
 	var space_state = get_world_3d().direct_space_state;
 	var query1 = PhysicsRayQueryParameters3D.create(origin1, end1, layer_mask_foot);
@@ -125,9 +125,9 @@ func _calculate_foot_ik(delta):
 	if result1.is_empty() == false:  #Left foot hit something
 		get_node(Left_Foot_Target_Path).global_position = result1.position;
 		get_node(Left_Foot_IK_Path).start();
-		get_node(Left_Foot_IK_Path).set_influence(0.5);
+		get_node(Left_Foot_IK_Path).set_influence(1.0);
 		var r = get_node(Look_At_Path).global_rotation_degrees;
-		r.x = 0.0;
+		r.x = 90.0;
 		r.z = 0.0;
 		get_node(Left_Foot_Target_Path).global_rotation_degrees = r;
 	else:
@@ -139,23 +139,28 @@ func _calculate_foot_ik(delta):
 	if result2.is_empty() == false:  #Left foot hit something
 		get_node(Right_Foot_Target_Path).global_position = result2.position;
 		get_node(Right_Foot_IK_Path).start();
-		get_node(Right_Foot_IK_Path).set_influence(0.5)
+		get_node(Right_Foot_IK_Path).set_influence(1.0)
 		var r = get_node(Look_At_Path).global_rotation_degrees;
-		r.x = 0.0;
+		r.x = 90.0;
 		r.z = 0.0;
 		get_node(Right_Foot_Target_Path).global_rotation_degrees = r;
 	else:
 		get_node(Right_Foot_IK_Path).set_influence(0.0)
 
+var walking = false;
+var grounded = true;
 func _animation(delta : float):
 	var anim_tree = get_node(Animation_Tree_Path) as AnimationTree;
-	var state_machine = anim_tree["parameters/playback"]
+	#var state_machine = anim_tree["parameters/playback"]
 	var pb = get_node(Player_Body_Path) as XRToolsPlayerBody;
 	#DebugContent.DebugText = str("WT: ", pb.is_on_floor());
+	grounded = get_node(Player_Body_Path).is_on_floor();
 	if pb.is_on_floor():
 		if walking_time > 0.0:
 			walking_time -= delta;
-			_attempt_animation_name("Walk", state_machine);
+			walking = true;
+			#_attempt_animation_name("Walk", state_machine);
+			
 			#var inputAngle = get_node(Camera_Path).global_rotation.y;
 			
 			var tvec = to_local(velocity_movement)
@@ -166,9 +171,11 @@ func _animation(delta : float):
 			anim_tree.set("parameters/Walk/blend_position", vec2)
 			
 		else:
-			_attempt_animation_name("Idle", state_machine);
-	else:
-		_attempt_animation_name("Jump", state_machine);
+			#_attempt_animation_name("Idle", state_machine);
+			walking = false;
+	#else:
+		#_attempt_animation_name("Jump", state_machine);
+	
 func _attempt_animation_name(anim_name : String, state_machine):
 	if last_animation != anim_name and state_machine != null:
 		state_machine.travel(anim_name);
