@@ -2,7 +2,6 @@ class_name DVD_Avatar extends Node3D
 
 @export var Player_Body_Path : NodePath;
 @export var Camera_Path : NodePath;
-@export var Animation_Tree_Path : NodePath;
 @export var LeftHand_Path : NodePath;  #These should be the targets
 @export var RightHand_Path : NodePath; #These should be the targets
 @export var Left_Foot_Target_Path : NodePath;
@@ -13,6 +12,9 @@ class_name DVD_Avatar extends Node3D
 @export var Left_Foot_IK_Path : NodePath;
 @export var Right_Foot_IK_Path : NodePath;
 @export var Look_At_Path : NodePath;
+@export var Foot_IK_Animator_Path : NodePath;
+
+var foot_ik : AvatarFootIKAnimator;
 
 var eye_midPoint
 var local_pos_left_hip : Vector3;
@@ -35,6 +37,7 @@ var BONE_RIGHT_EYE : int;
 var BONE_NECK : int;
 
 func _enter_tree() -> void:
+	foot_ik = get_node(Foot_IK_Animator_Path) as AvatarFootIKAnimator;
 	lastPos = get_node(Camera_Path).global_position;
 	lastPos.y = global_position.y;
 	last_animation = "";
@@ -115,8 +118,8 @@ func _calculate_foot_ik(delta):
 	var skel = get_node(Skeleton_Path) as Skeleton3D;
 	var origin1 = skel.to_global(skel.get_bone_global_pose(BONE_LEFT_HIP).origin);
 	var origin2 = skel.to_global(skel.get_bone_global_pose(BONE_RIGHT_HIP).origin);
-	var end1 = origin1 + (Vector3.DOWN * local_leg_length);
-	var end2 = origin2 + (Vector3.DOWN * local_leg_length);
+	var end1 = origin1 + (foot_ik.GetFootExtentsL() * local_leg_length);
+	var end2 = origin2 + (foot_ik.GetFootExtentsR() * local_leg_length);
 	
 	var space_state = get_world_3d().direct_space_state;
 	var query1 = PhysicsRayQueryParameters3D.create(origin1, end1, layer_mask_foot);
@@ -150,11 +153,12 @@ func _calculate_foot_ik(delta):
 var walking = false;
 var grounded = true;
 func _animation(delta : float):
-	var anim_tree = get_node(Animation_Tree_Path) as AnimationTree;
 	#var state_machine = anim_tree["parameters/playback"]
 	var pb = get_node(Player_Body_Path) as XRToolsPlayerBody;
 	#DebugContent.DebugText = str("WT: ", pb.is_on_floor());
 	grounded = get_node(Player_Body_Path).is_on_floor();
+	foot_ik.MoveTimer = walking_time;
+	foot_ik.IsGrounded = grounded;
 	if pb.is_on_floor():
 		if walking_time > 0.0:
 			walking_time -= delta;
@@ -168,7 +172,7 @@ func _animation(delta : float):
 			#var vec2 = Vector2(cos(inputAngle), sin(inputAngle));
 			var vec2 = Vector2(tvec.x, tvec.z).normalized();
 			#vec2.x *= -1.0;  #If left/right needs to be reversed
-			anim_tree.set("parameters/Walk/blend_position", vec2)
+			foot_ik.MoveTimer = vec2;
 			
 		else:
 			#_attempt_animation_name("Idle", state_machine);
