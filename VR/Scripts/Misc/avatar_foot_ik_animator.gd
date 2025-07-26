@@ -7,7 +7,7 @@ class_name AvatarFootIKAnimator extends Node3D
 #For the animation tree
 @export var MoveTimer = 0.0;  #Time elapsed since you last moved
 @export var MoveDirection : Vector2;
-@export var IsGrounded = false;
+@export var IsGrounded = true;
 
 func GetFootExtentsL():
 	return markerL.position;
