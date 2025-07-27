@@ -14,3 +14,7 @@ func GetFootExtentsL():
 
 func GetFootExtentsR():
 	return markerR.position;
+
+func _process(delta: float) -> void:
+	pass;
+	#DebugContent.DebugText = str("WK: ", MoveTimer);

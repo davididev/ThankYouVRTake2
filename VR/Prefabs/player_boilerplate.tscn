@@ -207,7 +207,7 @@ jump_button_action = "ax_button"
 [node name="ControlPadLocationLeft" parent="LeftHand" instance=ExtResource("7_fxsl8")]
 
 [node name="Left Hand Pivot" type="Marker3D" parent="LeftHand"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0292561, -0.0429326, 0.161359)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029, -0.043, 0.13)
 
 [node name="RightHand" type="XRController3D" parent="."]
 process_mode = 3
@@ -270,7 +270,7 @@ jump_button_action = "ax_button"
 [node name="ControlPadLocationRight" parent="RightHand" instance=ExtResource("10_c7u8v")]
 
 [node name="Right Hand Pivot" type="Marker3D" parent="RightHand"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0215845, -0.0429326, 0.161359)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022, -0.043, 0.13)
 
 [node name="PlayerBody" parent="." instance=ExtResource("11_tgmnu")]
 platform_on_leave = 2

@@ -73,6 +73,8 @@ func _calculate_delta_change(delta):
 	#DebugContent.DebugText = str(velocity_movement.length());
 	if velocity_movement.length() > 1.0:
 		walking_time = 0.2;
+		
+	
 	
 	lastPos = get_node(Camera_Path).global_position;
 	#Set position (relative between Camera point / eyepoint
@@ -127,11 +129,11 @@ func _calculate_foot_ik(delta):
 	var result1 = space_state.intersect_ray(query1);
 	if result1.is_empty() == false:  #Left foot hit something
 		get_node(Left_Foot_Target_Path).global_position = result1.position;
-		var r = get_node(Look_At_Path).global_rotation_degrees;
-		r.x = 90.0;
-		r.z = 0.0;
-		get_node(Left_Foot_Target_Path).global_rotation_degrees = r;
 	
+	var r = get_node(Look_At_Path).global_rotation_degrees;
+	r.x = 90.0;
+	r.z = 0.0;
+	get_node(Left_Foot_Target_Path).global_rotation_degrees = r;
 	get_node(Left_Foot_IK_Path).start();
 	get_node(Left_Foot_IK_Path).set_influence(1.0);
 		
@@ -140,12 +142,12 @@ func _calculate_foot_ik(delta):
 	var result2 = space_state.intersect_ray(query2);
 	if result2.is_empty() == false:  #Left foot hit something
 		get_node(Right_Foot_Target_Path).global_position = result2.position;
-		var r = get_node(Look_At_Path).global_rotation_degrees;
-		r.x = 90.0;
-		r.z = 0.0;
-		get_node(Right_Foot_Target_Path).global_rotation_degrees = r;
 	get_node(Right_Foot_IK_Path).start();
 	get_node(Right_Foot_IK_Path).set_influence(1.0)
+	r = get_node(Look_At_Path).global_rotation_degrees;
+	r.x = 90.0;
+	r.z = 0.0;
+	get_node(Right_Foot_Target_Path).global_rotation_degrees = r;
 
 var walking = false;
 var grounded = true;
@@ -169,7 +171,7 @@ func _animation(delta : float):
 			#var vec2 = Vector2(cos(inputAngle), sin(inputAngle));
 			var vec2 = Vector2(tvec.x, tvec.z).normalized();
 			#vec2.x *= -1.0;  #If left/right needs to be reversed
-			foot_ik.MoveTimer = vec2;
+			foot_ik.MoveDirection = vec2;
 			
 		else:
 			#_attempt_animation_name("Idle", state_machine);

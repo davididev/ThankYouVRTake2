@@ -54,9 +54,11 @@ animation = &"AvatarFoot/WalkF"
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ul2de"]
+advance_mode = 2
 advance_expression = "MoveTimer >= 0.01"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_svq2x"]
+advance_mode = 2
 advance_expression = "MoveTimer < 0.01"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2madi"]
@@ -68,6 +70,7 @@ switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qapm0"]
+advance_mode = 2
 advance_expression = "IsGrounded == true"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cgixk"]
@@ -86,9 +89,11 @@ states/AvatarFoot_JumpStart/position = Vector2(645, 125)
 states/AvatarFoot_WalkF/node = SubResource("AnimationNodeAnimation_cgixk")
 states/AvatarFoot_WalkF/position = Vector2(501, 230)
 transitions = ["Start", "AvatarFoot_Idle", SubResource("AnimationNodeStateMachineTransition_bwk5h"), "AvatarFoot_Idle", "AvatarFoot_WalkF", SubResource("AnimationNodeStateMachineTransition_ul2de"), "AvatarFoot_WalkF", "AvatarFoot_Idle", SubResource("AnimationNodeStateMachineTransition_svq2x"), "AvatarFoot_WalkF", "AvatarFoot_JumpStart", SubResource("AnimationNodeStateMachineTransition_2madi"), "AvatarFoot_JumpStart", "AvatarFoot_Jump", SubResource("AnimationNodeStateMachineTransition_4c3yx"), "AvatarFoot_Jump", "AvatarFoot_JumpEnd", SubResource("AnimationNodeStateMachineTransition_qapm0"), "AvatarFoot_JumpEnd", "AvatarFoot_WalkF", SubResource("AnimationNodeStateMachineTransition_cgixk")]
+graph_offset = Vector2(-145, 88)
 
 [node name="AvatarFootIKAnimator" type="Node3D"]
 script = ExtResource("1_lddnx")
+MoveTimer = 2.0
 
 [node name="Left Root" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
@@ -111,4 +116,5 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="AnimationPlayer"]
 root_node = NodePath("../..")
 tree_root = SubResource("AnimationNodeStateMachine_lddnx")
+advance_expression_base_node = NodePath("../..")
 anim_player = NodePath("..")
