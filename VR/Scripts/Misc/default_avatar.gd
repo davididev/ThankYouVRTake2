@@ -120,8 +120,8 @@ func _calculate_foot_ik(delta):
 	var skel = get_node(Skeleton_Path) as Skeleton3D;
 	var origin1 = skel.to_global(skel.get_bone_global_pose(BONE_LEFT_HIP).origin);
 	var origin2 = skel.to_global(skel.get_bone_global_pose(BONE_RIGHT_HIP).origin);
-	var end1 = origin1 + (foot_ik.GetFootExtentsL() * local_leg_length);
-	var end2 = origin2 + (foot_ik.GetFootExtentsR() * local_leg_length);
+	var end1 = origin1 + (foot_ik.GetFootExtentsL() * local_leg_length * -global_basis.z);
+	var end2 = origin2 + (foot_ik.GetFootExtentsR() * local_leg_length * -global_basis.z);
 	
 	var space_state = get_world_3d().direct_space_state;
 	var query1 = PhysicsRayQueryParameters3D.create(origin1, end1, layer_mask_foot);
@@ -129,6 +129,8 @@ func _calculate_foot_ik(delta):
 	var result1 = space_state.intersect_ray(query1);
 	if result1.is_empty() == false:  #Left foot hit something
 		get_node(Left_Foot_Target_Path).global_position = result1.position;
+	else:
+		get_node(Left_Foot_Target_Path).global_position = end1;
 	
 	var r = get_node(Look_At_Path).global_rotation_degrees;
 	r.x = 90.0;
@@ -142,11 +144,12 @@ func _calculate_foot_ik(delta):
 	var result2 = space_state.intersect_ray(query2);
 	if result2.is_empty() == false:  #Left foot hit something
 		get_node(Right_Foot_Target_Path).global_position = result2.position;
+	else:
+		get_node(Right_Foot_Target_Path).global_position = end2;
 	get_node(Right_Foot_IK_Path).start();
 	get_node(Right_Foot_IK_Path).set_influence(1.0)
-	r = get_node(Look_At_Path).global_rotation_degrees;
-	r.x = 90.0;
-	r.z = 0.0;
+	
+	
 	get_node(Right_Foot_Target_Path).global_rotation_degrees = r;
 
 var walking = false;
@@ -155,7 +158,7 @@ func _animation(delta : float):
 	#var state_machine = anim_tree["parameters/playback"]
 	var pb = get_node(Player_Body_Path) as XRToolsPlayerBody;
 	#DebugContent.DebugText = str("WT: ", pb.is_on_floor());
-	grounded = get_node(Player_Body_Path).is_on_floor();
+	grounded = pb.is_on_floor();
 	foot_ik.MoveTimer = walking_time;
 	foot_ik.IsGrounded = grounded;
 	if pb.is_on_floor():
