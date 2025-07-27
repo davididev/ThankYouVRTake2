@@ -127,28 +127,25 @@ func _calculate_foot_ik(delta):
 	var result1 = space_state.intersect_ray(query1);
 	if result1.is_empty() == false:  #Left foot hit something
 		get_node(Left_Foot_Target_Path).global_position = result1.position;
-		get_node(Left_Foot_IK_Path).start();
-		get_node(Left_Foot_IK_Path).set_influence(1.0);
 		var r = get_node(Look_At_Path).global_rotation_degrees;
 		r.x = 90.0;
 		r.z = 0.0;
 		get_node(Left_Foot_Target_Path).global_rotation_degrees = r;
-	else:
-		get_node(Left_Foot_IK_Path).set_influence(0.0)
+	
+	get_node(Left_Foot_IK_Path).start();
+	get_node(Left_Foot_IK_Path).set_influence(1.0);
 		
 	var query2 = PhysicsRayQueryParameters3D.create(origin2, end2, layer_mask_foot);
 	query2.collide_with_bodies = true;
 	var result2 = space_state.intersect_ray(query2);
 	if result2.is_empty() == false:  #Left foot hit something
 		get_node(Right_Foot_Target_Path).global_position = result2.position;
-		get_node(Right_Foot_IK_Path).start();
-		get_node(Right_Foot_IK_Path).set_influence(1.0)
 		var r = get_node(Look_At_Path).global_rotation_degrees;
 		r.x = 90.0;
 		r.z = 0.0;
 		get_node(Right_Foot_Target_Path).global_rotation_degrees = r;
-	else:
-		get_node(Right_Foot_IK_Path).set_influence(0.0)
+	get_node(Right_Foot_IK_Path).start();
+	get_node(Right_Foot_IK_Path).set_influence(1.0)
 
 var walking = false;
 var grounded = true;
