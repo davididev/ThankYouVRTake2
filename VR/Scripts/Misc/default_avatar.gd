@@ -72,7 +72,7 @@ func _calculate_delta_change(delta):
 	velocity_movement = velocity_movement / delta;
 	#DebugContent.DebugText = str(velocity_movement.length());
 	if velocity_movement.length() > 1.0:
-		walking_time = 0.2;
+		walking_time = 0.5;
 		
 	
 	
@@ -120,8 +120,11 @@ func _calculate_foot_ik(delta):
 	var skel = get_node(Skeleton_Path) as Skeleton3D;
 	var origin1 = skel.to_global(skel.get_bone_global_pose(BONE_LEFT_HIP).origin);
 	var origin2 = skel.to_global(skel.get_bone_global_pose(BONE_RIGHT_HIP).origin);
-	var end1 = origin1 + (foot_ik.GetFootExtentsL() * local_leg_length * -global_basis.z);
-	var end2 = origin2 + (foot_ik.GetFootExtentsR() * local_leg_length * -global_basis.z);
+	var base = get_global_transform().basis;
+	#var offsetRotated = (foot_ik.GetFootExtentsL() * local_leg_length).rotated(Vector3.UP, global_rotation.y)
+	var end1 = origin1 + (foot_ik.GetFootExtentsL() * local_leg_length).rotated(Vector3.UP, global_rotation.y);
+	var end2 = origin2 + (foot_ik.GetFootExtentsR() * local_leg_length).rotated(Vector3.UP, global_rotation.y);
+	
 	
 	var space_state = get_world_3d().direct_space_state;
 	var query1 = PhysicsRayQueryParameters3D.create(origin1, end1, layer_mask_foot);
