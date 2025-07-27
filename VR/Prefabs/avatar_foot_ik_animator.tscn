@@ -87,7 +87,7 @@ states/AvatarFoot_JumpEnd/position = Vector2(667, 330)
 states/AvatarFoot_JumpStart/node = SubResource("AnimationNodeAnimation_svq2x")
 states/AvatarFoot_JumpStart/position = Vector2(645, 125)
 states/AvatarFoot_WalkF/node = SubResource("AnimationNodeAnimation_cgixk")
-states/AvatarFoot_WalkF/position = Vector2(501, 230)
+states/AvatarFoot_WalkF/position = Vector2(501, 231)
 transitions = ["Start", "AvatarFoot_Idle", SubResource("AnimationNodeStateMachineTransition_bwk5h"), "AvatarFoot_Idle", "AvatarFoot_WalkF", SubResource("AnimationNodeStateMachineTransition_ul2de"), "AvatarFoot_WalkF", "AvatarFoot_Idle", SubResource("AnimationNodeStateMachineTransition_svq2x"), "AvatarFoot_WalkF", "AvatarFoot_JumpStart", SubResource("AnimationNodeStateMachineTransition_2madi"), "AvatarFoot_JumpStart", "AvatarFoot_Jump", SubResource("AnimationNodeStateMachineTransition_4c3yx"), "AvatarFoot_Jump", "AvatarFoot_JumpEnd", SubResource("AnimationNodeStateMachineTransition_qapm0"), "AvatarFoot_JumpEnd", "AvatarFoot_WalkF", SubResource("AnimationNodeStateMachineTransition_cgixk")]
 graph_offset = Vector2(-145, 88)
 
