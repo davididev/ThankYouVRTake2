@@ -190,7 +190,7 @@ func _attempt_animation_name(anim_name : String, state_machine):
 		state_machine.travel(anim_name);
 		last_animation = anim_name
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	get_node(Left_Hand_IK_Path).start();
 	get_node(Right_Hand_IK_Path).start();
 	_animation(delta);
