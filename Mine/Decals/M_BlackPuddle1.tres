@@ -6,7 +6,14 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_cnid8")
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/texture_albedo = ExtResource("2_vpnlt")
-shader_parameter/scale_mod = 1.0
+shader_parameter/Scale = Vector2(1, 1)
+shader_parameter/Albedo = ExtResource("2_vpnlt")
+shader_parameter/Albedo_Mix = 1.0
+shader_parameter/Emission_Energy = 1.0
+shader_parameter/Modulate = Color(1, 1, 1, 1)
+shader_parameter/Modulate_Emission = Color(1, 1, 1, 1)
 shader_parameter/cube_half_size = 0.5
+shader_parameter/enable_y_fade = false
+shader_parameter/fade_start = 0.3
+shader_parameter/fade_end = 0.7
+shader_parameter/fade_power = 2.0
