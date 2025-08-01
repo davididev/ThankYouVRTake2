@@ -54,10 +54,12 @@ animation = &"AvatarFoot/WalkF"
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ul2de"]
+switch_mode = 1
 advance_mode = 2
 advance_expression = "MoveTimer >= 0.01"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_svq2x"]
+switch_mode = 1
 advance_mode = 2
 advance_expression = "MoveTimer < 0.01"
 
