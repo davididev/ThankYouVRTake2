@@ -39,11 +39,11 @@ vec3 world_pos_from_depth(float depth, vec2 screen_uv, mat4 inverse_proj, mat4 i
 float smooth_fade(float y_pos) {
     // Normalize Y position (-0.5 to 0.5) -> (0 to 1)
     float normalized_y = clamp((y_pos + cube_half_size) / (2.0 * cube_half_size), 0.0, 1.0);
-    
+
     // Calculate fade factor
     float fade_factor = smoothstep(fade_start, fade_end, normalized_y);
     fade_factor = pow(fade_factor, fade_power);
-    
+
     return 1.0 - fade_factor;
 }
 
@@ -51,13 +51,13 @@ void fragment() {
     float depth = texture(DEPTH_TEXTURE, SCREEN_UV).x;
     vec3 world_pos = world_pos_from_depth(depth, SCREEN_UV, INV_PROJECTION_MATRIX, (INV_VIEW_MATRIX));
     vec4 test_pos = (INV_MODEL_MATRIX * vec4(world_pos, 1.0));
-    
+
     if (abs(test_pos.x) > cube_half_size || abs(test_pos.y) > cube_half_size || abs(test_pos.z) > cube_half_size) {
         discard;
     }
 
     vec2 NEW_UV = (test_pos.xz) + 0.5;
-    
+
     vec4 n_out3p0 = texture(Albedo, NEW_UV * Scale);
     vec3 emission_map = texture(Emission, NEW_UV * Scale).rgb;
     vec3 normal_map = texture(Normal, NEW_UV * Scale).rgb;
@@ -65,7 +65,7 @@ void fragment() {
 
     // Default fade factor (1.0 means no fade)
     float y_fade = 1.0;
-    
+
     // Only calculate fade if enabled
     if (enable_y_fade) {
         y_fade = smooth_fade(test_pos.y);
@@ -82,6 +82,6 @@ void fragment() {
     ROUGHNESS = rought_map;
 }
 
-// Credits: Shader based on OlisUnfinishedProjects 4.0 Decal Shader 
+// Credits: Shader based on OlisUnfinishedProjects 4.0 Decal Shader
 // https://godotshaders.com/shader/decal-shader-4-0-port/
 // https://stackoverflow.com/questions/32227283/getting-world-position-from-depth-buffer-value
