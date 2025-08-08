@@ -65,7 +65,7 @@ advance_expression = "MoveTimer < 0.01"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2madi"]
 advance_mode = 2
-advance_expression = "IsGrounded == false"
+advance_expression = "IsInAirTime > 0.1"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4c3yx"]
 switch_mode = 2
@@ -73,7 +73,7 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qapm0"]
 advance_mode = 2
-advance_expression = "IsGrounded == true"
+advance_expression = "IsInAirTime < 0.1"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cgixk"]
 switch_mode = 2

@@ -8,6 +8,7 @@ class_name AvatarFootIKAnimator extends Node3D
 @export var MoveTimer = 0.0;  #Time elapsed since you last moved
 @export var MoveDirection : Vector2;
 @export var IsGrounded = true;
+@export var IsInAirTime = 0.0;
 
 func GetFootExtentsL():
 	return markerL.position;
@@ -17,4 +18,8 @@ func GetFootExtentsR():
 
 func _process(delta: float) -> void:
 	pass;
+	if IsGrounded:
+		IsInAirTime = 0.0;
+	else:
+		IsInAirTime += delta;
 	#DebugContent.DebugText = str("WK: ", MoveTimer);
