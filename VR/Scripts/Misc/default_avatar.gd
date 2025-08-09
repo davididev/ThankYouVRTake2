@@ -136,9 +136,12 @@ func _calculate_foot_ik(delta):
 		get_node(Left_Foot_Target_Path).global_position = end1;
 	
 	var r = get_node(Look_At_Path).global_rotation_degrees;
-	r.x = 90.0;
+	#r.x = 90.0;
 	r.z = 0.0;
+	r.x = foot_ik.GetLFootRotatedX();
 	get_node(Left_Foot_Target_Path).global_rotation_degrees = r;
+	r.x = foot_ik.GetRFootRotatedX();
+	get_node(Right_Foot_Target_Path).global_rotation_degrees = r;
 	get_node(Left_Foot_IK_Path).start();
 	get_node(Left_Foot_IK_Path).set_influence(1.0);
 		
@@ -153,7 +156,7 @@ func _calculate_foot_ik(delta):
 	get_node(Right_Foot_IK_Path).set_influence(1.0)
 	
 	
-	get_node(Right_Foot_Target_Path).global_rotation_degrees = r;
+	
 
 var walking = false;
 var grounded = true;

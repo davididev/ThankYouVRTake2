@@ -15,6 +15,12 @@ func GetFootExtentsL():
 
 func GetFootExtentsR():
 	return markerR.position;
+	
+func GetLFootRotatedX():
+	return markerL.rotation_degrees.x;
+	
+func GetRFootRotatedX():
+	return markerR.rotation_degrees.x;
 
 func _process(delta: float) -> void:
 	pass;
