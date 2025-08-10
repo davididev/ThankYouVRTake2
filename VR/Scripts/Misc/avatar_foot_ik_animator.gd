@@ -28,4 +28,6 @@ func _process(delta: float) -> void:
 		IsInAirTime = 0.0;
 	else:
 		IsInAirTime += delta;
+	
+	anim["parameters/Walk/blend_position"] = MoveDirection;
 	#DebugContent.DebugText = str("WK: ", MoveTimer);

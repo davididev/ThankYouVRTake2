@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cdpvwjco4dtrh"]
+[gd_scene load_steps=24 format=3 uid="uid://cdpvwjco4dtrh"]
 
 [ext_resource type="Script" uid="uid://bx6v2up38jx4f" path="res://VR/Scripts/Misc/avatar_foot_ik_animator.gd" id="1_lddnx"]
 [ext_resource type="AnimationLibrary" uid="uid://dxpk1x5duits5" path="res://VR/Graphics/DefaultAvatar2/Anim_AvatarFoot.res" id="2_qapm0"]
@@ -29,6 +29,30 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0, -1, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Left Root/MarkerL:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Right Root/MarkerR:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cgixk"]
 _data = {
@@ -50,22 +74,40 @@ animation = &"AvatarFoot/JumpStart"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cgixk"]
 animation = &"AvatarFoot/WalkF"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2madi"]
+animation = &"AvatarFoot/WalkFR"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4c3yx"]
+animation = &"AvatarFoot/WalkFL"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vn5ft"]
+animation = &"AvatarFoot/WalkFL"
+play_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0jsmw"]
+animation = &"AvatarFoot/WalkFR"
+play_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_24t7y"]
+animation = &"AvatarFoot/WalkF"
+play_mode = 1
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_01s2y"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_cgixk")
+blend_point_0/pos = Vector2(0, 0.7)
+blend_point_1/node = SubResource("AnimationNodeAnimation_2madi")
+blend_point_1/pos = Vector2(0.1, 0.4)
+blend_point_2/node = SubResource("AnimationNodeAnimation_4c3yx")
+blend_point_2/pos = Vector2(-0.1, 0.4)
+blend_point_3/node = SubResource("AnimationNodeAnimation_vn5ft")
+blend_point_3/pos = Vector2(-0.1, -0.2)
+blend_point_4/node = SubResource("AnimationNodeAnimation_0jsmw")
+blend_point_4/pos = Vector2(0.1, -0.2)
+blend_point_5/node = SubResource("AnimationNodeAnimation_24t7y")
+blend_point_5/pos = Vector2(0, -0.4)
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bwk5h"]
 advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ul2de"]
-switch_mode = 1
-advance_mode = 2
-advance_expression = "MoveTimer >= 0.01"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_svq2x"]
-switch_mode = 1
-advance_mode = 2
-advance_expression = "MoveTimer < 0.01"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2madi"]
-advance_mode = 2
-advance_expression = "IsInAirTime > 0.1"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4c3yx"]
 switch_mode = 2
@@ -75,9 +117,24 @@ advance_mode = 2
 advance_mode = 2
 advance_expression = "IsInAirTime < 0.1"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cgixk"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uucs1"]
+switch_mode = 1
+advance_mode = 2
+advance_expression = "MoveTimer>0.1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1cvwp"]
+switch_mode = 1
+advance_mode = 2
+advance_expression = "IsInAirTime > 0.1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t20sa"]
 switch_mode = 2
 advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2pss8"]
+switch_mode = 1
+advance_mode = 2
+advance_expression = "MoveTimer<0.1"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_lddnx"]
 states/AvatarFoot_Idle/node = SubResource("AnimationNodeAnimation_qapm0")
@@ -88,10 +145,10 @@ states/AvatarFoot_JumpEnd/node = SubResource("AnimationNodeAnimation_ul2de")
 states/AvatarFoot_JumpEnd/position = Vector2(667, 330)
 states/AvatarFoot_JumpStart/node = SubResource("AnimationNodeAnimation_svq2x")
 states/AvatarFoot_JumpStart/position = Vector2(645, 125)
-states/AvatarFoot_WalkF/node = SubResource("AnimationNodeAnimation_cgixk")
-states/AvatarFoot_WalkF/position = Vector2(501, 231)
-transitions = ["Start", "AvatarFoot_Idle", SubResource("AnimationNodeStateMachineTransition_bwk5h"), "AvatarFoot_Idle", "AvatarFoot_WalkF", SubResource("AnimationNodeStateMachineTransition_ul2de"), "AvatarFoot_WalkF", "AvatarFoot_Idle", SubResource("AnimationNodeStateMachineTransition_svq2x"), "AvatarFoot_WalkF", "AvatarFoot_JumpStart", SubResource("AnimationNodeStateMachineTransition_2madi"), "AvatarFoot_JumpStart", "AvatarFoot_Jump", SubResource("AnimationNodeStateMachineTransition_4c3yx"), "AvatarFoot_Jump", "AvatarFoot_JumpEnd", SubResource("AnimationNodeStateMachineTransition_qapm0"), "AvatarFoot_JumpEnd", "AvatarFoot_WalkF", SubResource("AnimationNodeStateMachineTransition_cgixk")]
-graph_offset = Vector2(-145, 88)
+states/Walk/node = SubResource("AnimationNodeBlendSpace2D_01s2y")
+states/Walk/position = Vector2(458, 207)
+transitions = ["Start", "AvatarFoot_Idle", SubResource("AnimationNodeStateMachineTransition_bwk5h"), "AvatarFoot_JumpStart", "AvatarFoot_Jump", SubResource("AnimationNodeStateMachineTransition_4c3yx"), "AvatarFoot_Jump", "AvatarFoot_JumpEnd", SubResource("AnimationNodeStateMachineTransition_qapm0"), "AvatarFoot_Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_uucs1"), "Walk", "AvatarFoot_JumpStart", SubResource("AnimationNodeStateMachineTransition_1cvwp"), "AvatarFoot_JumpEnd", "Walk", SubResource("AnimationNodeStateMachineTransition_t20sa"), "Walk", "AvatarFoot_Idle", SubResource("AnimationNodeStateMachineTransition_2pss8")]
+graph_offset = Vector2(-85, 93)
 
 [node name="AvatarFootIKAnimator" type="Node3D"]
 script = ExtResource("1_lddnx")
@@ -101,15 +158,16 @@ MoveTimer = 2.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
 
 [node name="MarkerL" type="Marker3D" parent="Left Root"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="Right Root" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
 
 [node name="MarkerR" type="Marker3D" parent="Right Root"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
 libraries = {
 &"": SubResource("AnimationLibrary_cgixk"),
 &"AvatarFoot": ExtResource("2_qapm0")
@@ -120,3 +178,4 @@ root_node = NodePath("../..")
 tree_root = SubResource("AnimationNodeStateMachine_lddnx")
 advance_expression_base_node = NodePath("../..")
 anim_player = NodePath("..")
+parameters/Walk/blend_position = Vector2(0, 0)
