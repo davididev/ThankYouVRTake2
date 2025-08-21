@@ -1,13 +1,13 @@
 class_name PathElevator extends RigidBody3D
 
 @export var Follow_Path_Ref : NodePath;
-@export var Move_Multiplier = 5.0;
+@export var Move_Multiplier = 2.0;
 @export var Wall_Meshes : Array[NodePath];
 @export var Wall_Colliders : Array[NodePath];
 
 var current_progress = 0.0;
 var target_progress = 0.0;
-const PLAYER_SAFE_MARGIN = 0.01;
+const PLAYER_SAFE_MARGIN = 0.08;
 
 const MAX_PROGRESS = 100.0;
 
@@ -30,21 +30,22 @@ func _SetCollisionStatus(isEnabled : bool):
 	
 var reset_timer = 0.0;
 var start_timer = 0.0;
+var moveRel = Vector3.ZERO;
 
 func _physics_process(delta: float) -> void:
-	var moveRel = Vector3.ZERO;
+	moveRel = Vector3.ZERO;
 	var moved = false;
 	if reset_timer > 0.0:
 		reset_timer -= delta;
 		if reset_timer <= 0.0:
 			target_progress = 0.0;
-	if current_progress != target_progress:
+	if is_equal_approx(current_progress, target_progress) == false:
 		if start_timer > 0.0:
 			start_timer -= delta;
 		else:
 			current_progress = move_toward(current_progress, target_progress, Move_Multiplier * delta);
 			var p = get_node(Follow_Path_Ref) as PathFollow3D;
-			p.progress_ratio = sqrt(current_progress) / sqrt(MAX_PROGRESS);
+			p.progress_ratio = (current_progress) / (MAX_PROGRESS);
 		
 			moveRel = p.global_position - global_position;
 			moved = true;
@@ -54,16 +55,19 @@ func _physics_process(delta: float) -> void:
 			_SetCollisionStatus(false);
 			reset_timer = 4.0;
 	#linear_velocity = moveRel;
-	if moveRel.length() >= PLAYER_SAFE_MARGIN:
+	if moved:
 		move_and_collide(moveRel);
-
+	
+	
+	
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.is_in_group("player_body"):
-		target_progress = MAX_PROGRESS;
-		start_timer = 0.05;  #A short delay before you start to avoid glitches
-		_SetCollisionStatus(true);
+	if is_zero_approx(target_progress):
+		if body.is_in_group("player_body"):
+			target_progress = MAX_PROGRESS;
+			start_timer = 0.05;  #A short delay before you start to avoid glitches
+			_SetCollisionStatus(true);
 
 
 func _on_area_3d_body_exited(body: Node3D) -> void:

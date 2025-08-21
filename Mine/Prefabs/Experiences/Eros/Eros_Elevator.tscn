@@ -7,6 +7,7 @@
 size = Vector3(2, 1, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_adhum"]
+margin = 0.001
 size = Vector3(4, 0.25, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wxdey"]
@@ -20,14 +21,16 @@ size = Vector3(0.5, 2, 3.5)
 
 [node name="MovingPlatform" type="RigidBody3D"]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 524288
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 gravity_scale = 0.0
+continuous_cd = true
 script = ExtResource("1_f10so")
+Move_Multiplier = 15.0
 Wall_Meshes = Array[NodePath]([NodePath("Elevator/Wall 1"), NodePath("Elevator/Wall 2"), NodePath("Elevator/Wall 3"), NodePath("Elevator/Wall 4")])
-Wall_Colliders = Array[NodePath]([NodePath("RigidBody3D/Wall_Shape1"), NodePath("RigidBody3D/Wall_Shape2"), NodePath("RigidBody3D/Wall_Shape3"), NodePath("RigidBody3D/Wall_Shape4")])
+Wall_Colliders = Array[NodePath]([NodePath("Wall_Shape1"), NodePath("Wall_Shape2"), NodePath("Wall_Shape3"), NodePath("Wall_Shape4")])
 
 [node name="Elevator" parent="." instance=ExtResource("1_28it0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0270588, 0, 0.459327)
@@ -58,24 +61,19 @@ shape = SubResource("BoxShape3D_wxdey")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 0.4, 2.1)
 shape = SubResource("BoxShape3D_wxdey")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
-lock_rotation = true
-freeze = true
-freeze_mode = 1
-
-[node name="Wall_Shape1" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="Wall_Shape1" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.2)
 shape = SubResource("BoxShape3D_gwge1")
 
-[node name="Wall_Shape2" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="Wall_Shape2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.08)
 shape = SubResource("BoxShape3D_gwge1")
 
-[node name="Wall_Shape3" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="Wall_Shape3" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, 0, 0)
 shape = SubResource("BoxShape3D_myobg")
 
-[node name="Wall_Shape4" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="Wall_Shape4" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 0, 0)
 shape = SubResource("BoxShape3D_myobg")
 

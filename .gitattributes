@@ -5,3 +5,4 @@
 *.tres eol=lf
 *.import eol=lf
 *.gdshader eol=lf
+*.aar filter=lfs diff=lfs merge=lfs -text
