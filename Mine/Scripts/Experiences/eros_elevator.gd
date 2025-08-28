@@ -1,12 +1,12 @@
 class_name PathElevator extends RigidBody3D
 
 @export var Follow_Path_Ref : NodePath;
-@export var Move_Multiplier = 2.0;
+@export var Move_Speeds : Array[float];
 @export var Wall_Meshes : Array[NodePath];
 @export var Wall_Colliders : Array[NodePath];
 
-var current_progress = 0.0;
-var target_progress = 0.0;
+var current_path_id = 0;
+var target_path_id = 0;
 const PLAYER_SAFE_MARGIN = 0.08;
 
 const MAX_PROGRESS = 100.0;
@@ -38,20 +38,23 @@ func _physics_process(delta: float) -> void:
 	if reset_timer > 0.0:
 		reset_timer -= delta;
 		if reset_timer <= 0.0:
-			target_progress = 0.0;
-	if is_equal_approx(current_progress, target_progress) == false:
-		if start_timer > 0.0:
-			start_timer -= delta;
+			target_path_id = 0;
+			
+		var p = get_node(Follow_Path_Ref) as Path3D;
+		var vec = p.to_global(p.curve.get_point_in(current_path_id))
+		var target_pos = global_position.move_toward(vec, Move_Speeds[current_path_id] * delta);
+		moveRel = global_position - target_pos;
+		if moveRel.length() < PLAYER_SAFE_MARGIN:
+			moved = false;
+			if current_path_id < target_path_id:
+				current_path_id += 1;
+			if current_path_id > target_path_id:
+				target_path_id -= 1;
 		else:
-			current_progress = move_toward(current_progress, target_progress, Move_Multiplier * delta);
-			var p = get_node(Follow_Path_Ref) as PathFollow3D;
-			p.progress_ratio = (current_progress) / (MAX_PROGRESS);
-		
-			moveRel = p.global_position - global_position;
 			moved = true;
 		#global_position = p.global_position;
 		
-		if is_equal_approx(current_progress, target_progress):
+		if is_equal_approx(current_path_id, target_path_id):
 			_SetCollisionStatus(false);
 			reset_timer = 4.0;
 	#linear_velocity = moveRel;
@@ -63,9 +66,10 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if is_zero_approx(target_progress):
+	if is_zero_approx(target_path_id):
 		if body.is_in_group("player_body"):
-			target_progress = MAX_PROGRESS;
+			var p = get_node(Follow_Path_Ref) as Path3D;
+			target_path_id = p.curve.point_count;
 			start_timer = 0.05;  #A short delay before you start to avoid glitches
 			_SetCollisionStatus(true);
 
