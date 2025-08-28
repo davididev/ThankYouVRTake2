@@ -19,6 +19,7 @@ func _ready() -> void:
 	IsLoading = false;
 	InitLoad = false;
 	UnloadNow = false;
+	_SetBarrierDisabled(true);
 
 func _process(delta: float) -> void:  
 	#If Loading is set to true, move the experience up until it hits the target
