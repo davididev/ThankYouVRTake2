@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 		InitLoad = false;
 		SoundFXPlayer.PlaySound("LoadMatrix.mp3", get_tree(), global_position, 5.0, 20.0);
 	
-	if IsLoading == true and last_loading == false:
+	if IsLoading == false and last_loading == true:
 		_SetBarrierDisabled(true);
 	if UnloadNow == true:
 		UnloadNow = false;

@@ -13,13 +13,13 @@ background_mode = 1
 background_color = Color(1, 1, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q20cb"]
-size = Vector3(40, 1, 40)
+size = Vector3(200, 1, 200)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qvfgd"]
 size = Vector3(40, 10, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2m0il"]
-size = Vector3(1, 10, 40)
+size = Vector3(1, 10, 90)
 
 [node name="XRToolsSceneBase" type="Node3D"]
 script = ExtResource("1_3w277")
@@ -41,7 +41,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_q20cb")
 
 [node name="Wall1" type="CollisionShape3D" parent="InvisibleBounds"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -19)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -49)
 shape = SubResource("BoxShape3D_qvfgd")
 
 [node name="Wall2" type="CollisionShape3D" parent="InvisibleBounds"]

@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="4_2iu0y"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pnd7a"]
-size = Vector3(1, 0.4, 0.2)
+size = Vector3(1, 0.75, 0.2)
 
 [node name="Breakout Paddle" type="Node3D"]
 script = ExtResource("1_glg4e")
@@ -19,6 +19,8 @@ dialogue_on_grab = ExtResource("3_5vkmx")
 [node name="PickableObject" parent="." instance=ExtResource("1_00v6c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.041885, 0, 0.311258)
 gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 32
 release_mode = 1
 second_hand_grab = 1
 
@@ -38,7 +40,12 @@ hand = 1
 [node name="HighlightRing" parent="PickableObject" instance=ExtResource("4_2iu0y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00842071, 0, 0.32222)
 
+[node name="FirePoint" type="Node3D" parent="PickableObject"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.850007)
+
+[connection signal="OnEnableNode" from="." to="." method="_on_on_enable_node"]
 [connection signal="action_pressed" from="PickableObject" to="." method="_on_pickable_object_action_pressed"]
+[connection signal="body_entered" from="PickableObject" to="." method="_on_pickable_object_body_entered"]
 [connection signal="grabbed" from="PickableObject" to="." method="_on_pickable_object_grabbed"]
 
 [editable path="PickableObject"]

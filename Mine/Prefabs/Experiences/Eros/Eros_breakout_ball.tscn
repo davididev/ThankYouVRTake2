@@ -3,13 +3,14 @@
 [ext_resource type="Script" uid="uid://b4mu8i4mogo1o" path="res://Mine/Prefabs/Experiences/Eros/BreakoutBall.gd" id="1_1y1yn"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1y1yn"]
+radius = 1.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_1y1yn"]
 
 [node name="ErosBreakoutBall" type="RigidBody3D"]
 collision_layer = 32
-collision_mask = 67
-contact_monitor = true
+collision_mask = 65605
+gravity_scale = 4.0
 max_contacts_reported = 16
 script = ExtResource("1_1y1yn")
 
@@ -17,6 +18,7 @@ script = ExtResource("1_1y1yn")
 shape = SubResource("SphereShape3D_1y1yn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("SphereMesh_1y1yn")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

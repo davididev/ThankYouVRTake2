@@ -28,7 +28,6 @@ axis_lock_angular_z = true
 gravity_scale = 0.0
 continuous_cd = true
 script = ExtResource("1_f10so")
-Move_Multiplier = 15.0
 Wall_Meshes = Array[NodePath]([NodePath("Elevator/Wall 1"), NodePath("Elevator/Wall 2"), NodePath("Elevator/Wall 3"), NodePath("Elevator/Wall 4")])
 Wall_Colliders = Array[NodePath]([NodePath("Wall_Shape1"), NodePath("Wall_Shape2"), NodePath("Wall_Shape3"), NodePath("Wall_Shape4")])
 
