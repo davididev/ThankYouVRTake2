@@ -15,9 +15,10 @@ func _on_pickable_object_grabbed(pickable: Variant, by: Variant) -> void:
 
 
 func _on_pickable_object_action_pressed(pickable: Variant) -> void:
-	var instTemp = BallPrefab.instantiate();
-	instTemp.global_position = global_position;
-	get_parent_node_3d().add_child(instTemp);
-	_ballInstance = instTemp as BreakoutBall;
-	_ballInstance.ForwardVec = -global_basis.z;
+	if _ballInstance == null:
+		var instTemp = BallPrefab.instantiate();
+		instTemp.global_position = global_position;
+		get_parent_node_3d().add_child(instTemp);
+		_ballInstance = instTemp as BreakoutBall;
+		_ballInstance.ForwardVec = -global_basis.z;
 	
