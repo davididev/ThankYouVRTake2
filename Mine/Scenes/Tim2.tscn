@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://b7mulnva2tbtn"]
+[gd_scene load_steps=42 format=4 uid="uid://b7mulnva2tbtn"]
 
 [ext_resource type="Script" uid="uid://cyul5ticdgwbi" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_ouxam"]
 [ext_resource type="PackedScene" uid="uid://ddyo2jv7628sa" path="res://VR/Prefabs/player_boilerplate.tscn" id="2_oy8um"]
@@ -28,7 +28,6 @@
 [ext_resource type="PackedScene" uid="uid://fjtby6cbg214" path="res://Mine/Prefabs/Experiences/Tim/blue_target.tscn" id="27_8rcdx"]
 [ext_resource type="PackedScene" uid="uid://cbutt64cqag8y" path="res://Mine/Prefabs/Experiences/Tim/red_explosion.tscn" id="28_65sjj"]
 [ext_resource type="PackedScene" uid="uid://ctfdyrb8qgmec" path="res://Mine/Prefabs/Experiences/Tim/green_explosion.tscn" id="29_i8wvp"]
-[ext_resource type="Material" uid="uid://d1hby8u3u1jgp" path="res://Mine/Decals/M_BlackPuddle1.tres" id="30_65sjj"]
 [ext_resource type="PackedScene" uid="uid://tigqqxn3dd27" path="res://Mine/Prefabs/Experiences/Tim/blue_explosion.tscn" id="30_u5lq7"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_kjw1n"]
@@ -299,8 +298,6 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AABgwQAAgEAAAGBBAACAwQAAgEAAAIBBAABgwQAAgEAAAIBBAACAwQAAgEAAAGBBAABgwQAAgEAAAEBBAACAwQAAgEAAAGBBAABgwQAAgEAAAGBBAACAwQAAgEAAAEBBAABgwQAAgEAAACBBAACAwQAAgEAAAEBBAABgwQAAgEAAAEBBAACAwQAAgEAAACBBAoABAACA/z8CgAEAAID/PwKAAQAAgP8/AoABAACA/z8CgAEAAID/PwKAAQAAgP8/AoABAACA/z8CgAEAAID/PwKAAQAAgP8/AoABAACA/z8CgAEAAID/PwKAAQAAgP8/")
 }]
 
-[sub_resource type="BoxMesh" id="BoxMesh_i8wvp"]
-
 [node name="XRToolsSceneBase" type="Node3D"]
 script = ExtResource("1_ouxam")
 metadata/_custom_type_script = "uid://cyul5ticdgwbi"
@@ -479,8 +476,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
 
 [node name="Point10" type="Node3D" parent="TargetPracticeArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, 6)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
-mesh = SubResource("BoxMesh_i8wvp")
-surface_material_override/0 = ExtResource("30_65sjj")

@@ -26,4 +26,6 @@ func _process(delta: float) -> void:
 	if ErosComputer.IsLoading == true:
 		var vec = global_position;
 		vec.y = move_toward(vec.y, 0.0, LOAD_MOVE_PER_SECOND * delta)
+		if is_equal_approx(vec.y, 0.0):
+			ErosComputer.IsLoading = false;
 		global_position = vec;
