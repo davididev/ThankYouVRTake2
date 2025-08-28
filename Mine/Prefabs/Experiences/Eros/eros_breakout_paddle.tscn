@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://onl54kp1c1ym"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_00v6c"]
+[ext_resource type="Script" uid="uid://dantoyvvyyjkh" path="res://Mine/Prefabs/Experiences/Eros/eros_breakout_paddle.gd" id="1_glg4e"]
+[ext_resource type="PackedScene" uid="uid://dgcb16clm0olv" path="res://Mine/Prefabs/Experiences/Eros/Eros_breakout_ball.tscn" id="2_2iu0y"]
+[ext_resource type="PackedScene" uid="uid://cu7x6bw05xs05" path="res://Mine/Models/Eros/BreakoutPaddle.glb" id="2_gwyi2"]
+[ext_resource type="Resource" path="res://DialogueSystem/output/Eros_Paddle.res" id="3_5vkmx"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_glg4e"]
+[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="4_2iu0y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pnd7a"]
+size = Vector3(1, 0.4, 0.2)
+
+[node name="Breakout Paddle" type="Node3D"]
+script = ExtResource("1_glg4e")
+BallPrefab = ExtResource("2_2iu0y")
+dialogue_on_grab = ExtResource("3_5vkmx")
+
+[node name="PickableObject" parent="." instance=ExtResource("1_00v6c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.041885, 0, 0.311258)
+gravity_scale = 0.0
+release_mode = 1
+second_hand_grab = 1
+
+[node name="CollisionShape3D" parent="PickableObject" index="0"]
+shape = SubResource("BoxShape3D_pnd7a")
+
+[node name="BreakoutPaddle" parent="PickableObject" instance=ExtResource("2_gwyi2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.195847)
+
+[node name="GrabPointHandLeft" parent="PickableObject" instance=ExtResource("3_glg4e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00842071, 0, 0.32222)
+
+[node name="GrabPointHandRight" parent="PickableObject" instance=ExtResource("3_glg4e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00842071, 0, 0.32222)
+hand = 1
+
+[node name="HighlightRing" parent="PickableObject" instance=ExtResource("4_2iu0y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00842071, 0, 0.32222)
+
+[connection signal="action_pressed" from="PickableObject" to="." method="_on_pickable_object_action_pressed"]
+[connection signal="grabbed" from="PickableObject" to="." method="_on_pickable_object_grabbed"]
+
+[editable path="PickableObject"]

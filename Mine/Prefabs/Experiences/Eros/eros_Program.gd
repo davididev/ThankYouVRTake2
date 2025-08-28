@@ -2,6 +2,7 @@ class_name ErosProgram extends Node3D
 
 @export var NodesToReset : Array[NodePath];
 @export var GridMaps : Array[NodePath];
+@export var CollidersToReset : Array[NodePath];
 const LOAD_MOVE_PER_SECOND = 40.0
 signal OnEnableNode();
 
@@ -21,6 +22,8 @@ func SetEnable(b: bool):
 		else:
 			gm.collision_layer = disabledMask;
 
+	for i in range(0, CollidersToReset.size()):
+		get_node(CollidersToReset[i]).set_deferred("disabled", !b);
 
 func _process(delta: float) -> void:
 	if ErosComputer.IsLoading == true:

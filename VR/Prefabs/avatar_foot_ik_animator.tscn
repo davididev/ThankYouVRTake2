@@ -158,13 +158,13 @@ MoveTimer = 2.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
 
 [node name="MarkerL" type="Marker3D" parent="Left Root"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+transform = Transform3D(1, 0, 0, 0, 0.0768254, -0.997045, 0, 0.997045, 0.0768254, 0, -1, 0)
 
 [node name="Right Root" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
 
 [node name="MarkerR" type="Marker3D" parent="Right Root"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+transform = Transform3D(1, 0, 0, 0, 0.414424, -0.910084, 0, 0.910084, 0.414424, 0, -1, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
