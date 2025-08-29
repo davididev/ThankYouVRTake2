@@ -11,7 +11,7 @@ var startingPos : Vector3;
 
 func _ready() -> void:
 	_ranFirst = true;
-	startingPos = position;
+	startingPos = _root.position;
 
 func _on_pickable_object_grabbed(pickable: Variant, by: Variant) -> void:
 	if _ranFirst == true:
@@ -40,4 +40,5 @@ func _on_pickable_object_body_entered(body: Node) -> void:
 func _on_on_enable_node() -> void:
 	if _ballInstance != null:
 		_ballInstance.queue_free()
-	position = startingPos;
+	_root.position = startingPos;
+	
