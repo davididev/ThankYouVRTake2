@@ -15,7 +15,8 @@ func _physics_process(delta: float) -> void:
 	var result = space_state.intersect_ray(query);
 	if result.is_empty() == false:
 		if result.normal.y < 0.5:  #Don't get from floor
-			
+			var pitch = randf_range(0.8, 1.2);
+			SoundFXPlayer.PlaySound("digital/phaseJump1.ogg", get_tree(), global_position, 10.0, 4.0, pitch);
 			var newFwd = ForwardVec.bounce(result.normal);
 			newFwd.y = 0.0;
 			ForwardVec = newFwd;

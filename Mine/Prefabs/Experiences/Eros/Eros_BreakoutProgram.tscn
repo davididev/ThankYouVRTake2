@@ -1,16 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6r0p0260iyss"]
+[gd_scene load_steps=9 format=3 uid="uid://c6r0p0260iyss"]
 
 [ext_resource type="Script" uid="uid://barpiosc6os6j" path="res://Mine/Prefabs/Experiences/Eros/eros_Program.gd" id="1_ddkg5"]
 [ext_resource type="MeshLibrary" uid="uid://c5n678254cred" path="res://Mine/Models/Modular/AFV 2/ML_Scifi2.tres" id="2_c0460"]
 [ext_resource type="PackedScene" uid="uid://00gg4v3kves3" path="res://Mine/Models/Eros/BreakoutBarrier.glb" id="3_4jt5i"]
 [ext_resource type="PackedScene" uid="uid://onl54kp1c1ym" path="res://Mine/Prefabs/Experiences/Eros/eros_breakout_paddle.tscn" id="4_5ogwc"]
-[ext_resource type="ArrayMesh" uid="uid://bjk64qix8wusn" path="res://Mine/Models/Modular/AFV 2/Source/Scifi FloorsWalls_Cube.res" id="5_jqfho"]
+[ext_resource type="Material" uid="uid://c4itfpp45fpcw" path="res://Mine/Models/Eros/M_HologramBlue.tres" id="5_jqfho"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5ogwc"]
 size = Vector3(18, 4, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_3eokj"]
-size = Vector3(1, 4, 2)
+[sub_resource type="BoxMesh" id="BoxMesh_3eokj"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mrg7q"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
 
 [node name="ErosProgram" type="Node3D"]
 script = ExtResource("1_ddkg5")
@@ -61,12 +63,13 @@ shape = SubResource("BoxShape3D_5ogwc")
 [node name="Breakout Paddle" parent="." instance=ExtResource("4_5ogwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.407, 1.5, -2.842)
 
-[node name="ScifiFloorsWallsCube" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.707107, 0, -1.41421, 0, 1, 0, 0.707107, 0, 1.41421, 3, 0, -2.016)
-mesh = ExtResource("5_jqfho")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.12132, 0, 0.707107, 0, 6, 0, -2.12132, 0, 0.707107, 2.743, 3, -2.03)
+mesh = SubResource("BoxMesh_3eokj")
+surface_material_override/0 = ExtResource("5_jqfho")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="ScifiFloorsWallsCube"]
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+collision_layer = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ScifiFloorsWallsCube/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-shape = SubResource("BoxShape3D_3eokj")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_mrg7q")
