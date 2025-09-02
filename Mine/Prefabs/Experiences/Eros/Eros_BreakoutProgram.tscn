@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://c6r0p0260iyss"]
+[gd_scene load_steps=10 format=3 uid="uid://c6r0p0260iyss"]
 
 [ext_resource type="Script" uid="uid://barpiosc6os6j" path="res://Mine/Prefabs/Experiences/Eros/eros_Program.gd" id="1_ddkg5"]
 [ext_resource type="MeshLibrary" uid="uid://c5n678254cred" path="res://Mine/Models/Modular/AFV 2/ML_Scifi2.tres" id="2_c0460"]
 [ext_resource type="PackedScene" uid="uid://00gg4v3kves3" path="res://Mine/Models/Eros/BreakoutBarrier.glb" id="3_4jt5i"]
 [ext_resource type="PackedScene" uid="uid://onl54kp1c1ym" path="res://Mine/Prefabs/Experiences/Eros/eros_breakout_paddle.tscn" id="4_5ogwc"]
 [ext_resource type="Material" uid="uid://c4itfpp45fpcw" path="res://Mine/Models/Eros/M_HologramBlue.tres" id="5_jqfho"]
+[ext_resource type="PackedScene" uid="uid://gckxt28co4p4" path="res://Mine/Prefabs/Experiences/Eros/breakout_block.tscn" id="6_3eokj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5ogwc"]
 size = Vector3(18, 4, 1)
@@ -17,7 +18,7 @@ points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 
 [node name="ErosProgram" type="Node3D"]
 script = ExtResource("1_ddkg5")
 NodesToReset = Array[NodePath]([NodePath("Breakout Paddle")])
-GridMaps = Array[NodePath]([NodePath("Floors"), NodePath("Walls1"), NodePath("Walls2")])
+GridMaps = Array[NodePath]([NodePath("Floors"), NodePath("Walls1"), NodePath("Walls2"), NodePath("BreakoutBlock"), NodePath("BreakoutBlock2"), NodePath("BreakoutBlock3"), NodePath("BreakoutBlock12"), NodePath("BreakoutBlock13"), NodePath("BreakoutBlock14"), NodePath("BreakoutBlock15"), NodePath("BreakoutBlock16"), NodePath("BreakoutBlock17"), NodePath("BreakoutBlock9"), NodePath("BreakoutBlock10"), NodePath("BreakoutBlock11"), NodePath("BreakoutBlock4"), NodePath("BreakoutBlock5"), NodePath("BreakoutBlock6"), NodePath("BreakoutBlock7"), NodePath("BreakoutBlock8"), NodePath("")])
 CollidersToReset = Array[NodePath]([NodePath("BreakoutBarrier/StaticBody3D/CollisionShape3D")])
 metadata/_custom_type_script = "uid://barpiosc6os6j"
 
@@ -50,7 +51,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 4, 0)
 
 [node name="BreakoutBarrier" parent="." instance=ExtResource("3_4jt5i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -4.058)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -6.058)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="BreakoutBarrier"]
 collision_layer = 2
@@ -63,13 +64,83 @@ shape = SubResource("BoxShape3D_5ogwc")
 [node name="Breakout Paddle" parent="." instance=ExtResource("4_5ogwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.407, 1.5, -2.842)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.12132, 0, 0.707107, 0, 6, 0, -2.12132, 0, 0.707107, 2.743, 3, -2.03)
+[node name="Forcefield" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.12132, 0, 0.176777, 0, 6, 0, -2.12132, 0, 0.176777, 2.743, 3, -2.03)
 mesh = SubResource("BoxMesh_3eokj")
 surface_material_override/0 = ExtResource("5_jqfho")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Forcefield"]
 collision_layer = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Forcefield/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_mrg7q")
+
+[node name="Forcefield2" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.12132, 0, -0.176777, 0, 6, 0, 2.12132, 0, 0.176777, -10.257, 3, -2.03)
+mesh = SubResource("BoxMesh_3eokj")
+surface_material_override/0 = ExtResource("5_jqfho")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Forcefield2"]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Forcefield2/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_mrg7q")
+
+[node name="BreakoutBlock" parent="." instance=ExtResource("6_3eokj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -15)
+StartingHealth = 3
+
+[node name="BreakoutBlock2" parent="." instance=ExtResource("6_3eokj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -15)
+
+[node name="BreakoutBlock3" parent="." instance=ExtResource("6_3eokj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -15)
+
+[node name="BreakoutBlock12" parent="." instance=ExtResource("6_3eokj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -23)
+
+[node name="BreakoutBlock13" parent="." instance=ExtResource("6_3eokj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -23)
+
+[node name="BreakoutBlock14" parent="." instance=ExtResource("6_3eokj")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -7, 0, -27)
+StartingHealth = 3
+
+[node name="BreakoutBlock15" parent="." instance=ExtResource("6_3eokj")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -4, 0, -27)
+StartingHealth = 3
+
+[node name="BreakoutBlock16" parent="." instance=ExtResource("6_3eokj")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1, 0, -27)
+StartingHealth = 3
+
+[node name="BreakoutBlock17" parent="." instance=ExtResource("6_3eokj")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 2, 0, -27)
+StartingHealth = 3
+
+[node name="BreakoutBlock9" parent="." instance=ExtResource("6_3eokj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -15)
+
+[node name="BreakoutBlock10" parent="." instance=ExtResource("6_3eokj")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3, 0, -20)
+StartingHealth = 3
+
+[node name="BreakoutBlock11" parent="." instance=ExtResource("6_3eokj")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -5, 0, -20)
+StartingHealth = 3
+
+[node name="BreakoutBlock4" parent="." instance=ExtResource("6_3eokj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -15)
+
+[node name="BreakoutBlock5" parent="." instance=ExtResource("6_3eokj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -16)
+StartingHealth = 2
+
+[node name="BreakoutBlock6" parent="." instance=ExtResource("6_3eokj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -16)
+
+[node name="BreakoutBlock7" parent="." instance=ExtResource("6_3eokj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -16)
+
+[node name="BreakoutBlock8" parent="." instance=ExtResource("6_3eokj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -16)

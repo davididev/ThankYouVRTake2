@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://gckxt28co4p4"]
+
+[ext_resource type="PackedScene" uid="uid://5mas64wy5ukd" path="res://Mine/Models/Eros/BreakoutBlock.glb" id="1_gqb66"]
+[ext_resource type="Script" uid="uid://dg4lh7fr2bw2w" path="res://Mine/Scripts/Experiences/eros_breakout_block.gd" id="1_t3ep3"]
+[ext_resource type="Material" uid="uid://car2ebhi1jupp" path="res://Mine/Models/Eros/M_BreakoutBlock.tres" id="3_qg03b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gqb66"]
+
+[node name="BreakoutBlock" type="StaticBody3D"]
+collision_layer = 64
+script = ExtResource("1_t3ep3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_gqb66")
+
+[node name="BreakoutBlock" parent="CollisionShape3D" instance=ExtResource("1_gqb66")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="Cube" parent="CollisionShape3D/BreakoutBlock" index="0"]
+surface_material_override/0 = ExtResource("3_qg03b")
+
+[connection signal="Hit" from="." to="." method="_on_hit"]
+[connection signal="OnEnableNode" from="." to="." method="_on_on_enable_node"]
+
+[editable path="CollisionShape3D/BreakoutBlock"]

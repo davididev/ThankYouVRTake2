@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgcb16clm0olv"]
+[gd_scene load_steps=5 format=3 uid="uid://dgcb16clm0olv"]
 
 [ext_resource type="Script" uid="uid://b4mu8i4mogo1o" path="res://Mine/Prefabs/Experiences/Eros/BreakoutBall.gd" id="1_1y1yn"]
 
@@ -6,6 +6,13 @@
 radius = 1.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_1y1yn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1y1yn"]
+albedo_color = Color(0.466181, 0.466181, 0.466181, 1)
+metallic_specular = 1.0
+roughness = 0.5
+rim_enabled = true
+rim_tint = 0.0
 
 [node name="ErosBreakoutBall" type="RigidBody3D"]
 collision_layer = 32
@@ -20,5 +27,6 @@ shape = SubResource("SphereShape3D_1y1yn")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("SphereMesh_1y1yn")
+surface_material_override/0 = SubResource("StandardMaterial3D_1y1yn")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

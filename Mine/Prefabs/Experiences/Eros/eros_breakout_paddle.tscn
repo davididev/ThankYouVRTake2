@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://onl54kp1c1ym"]
+[gd_scene load_steps=10 format=3 uid="uid://onl54kp1c1ym"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_00v6c"]
 [ext_resource type="Script" uid="uid://dantoyvvyyjkh" path="res://Mine/Prefabs/Experiences/Eros/eros_breakout_paddle.gd" id="1_glg4e"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" path="res://DialogueSystem/output/Eros_Paddle.res" id="3_5vkmx"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_glg4e"]
 [ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="4_2iu0y"]
+[ext_resource type="PackedScene" uid="uid://dhlqvwiuse7rm" path="res://Mine/Prefabs/Experiences/Eros/BlockExplosion.tscn" id="4_xn3fb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pnd7a"]
 size = Vector3(1, 0.75, 0.2)
@@ -15,6 +16,7 @@ size = Vector3(1, 0.75, 0.2)
 script = ExtResource("1_glg4e")
 BallPrefab = ExtResource("2_2iu0y")
 dialogue_on_grab = ExtResource("3_5vkmx")
+BlockExplosionPrefab = ExtResource("4_xn3fb")
 
 [node name="PickableObject" parent="." instance=ExtResource("1_00v6c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.041885, 0, 0.311258)

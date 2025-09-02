@@ -2,6 +2,7 @@ class_name BreakoutPaddle extends Node3D
 
 @export var BallPrefab : PackedScene;
 @export var dialogue_on_grab : DialogueGrid;
+@export var BlockExplosionPrefab : PackedScene;
 @onready var _root := $"PickableObject"
 @onready var _spawn_point := $"PickableObject/FirePoint"
 signal OnEnableNode();
@@ -12,6 +13,7 @@ var startingPos : Vector3;
 func _ready() -> void:
 	_ranFirst = true;
 	startingPos = _root.position;
+	Node3DPool.InitPoolItem(get_tree(), "BlockExplosion", BlockExplosionPrefab, 20);
 
 func _on_pickable_object_grabbed(pickable: Variant, by: Variant) -> void:
 	if _ranFirst == true:

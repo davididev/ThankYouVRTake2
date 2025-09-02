@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhlqvwiuse7rm"]
+
+[ext_resource type="Script" uid="uid://cd6unrim8gkxc" path="res://VR/Scripts/Misc/playparticlesonce.gd" id="1_cd70p"]
+[ext_resource type="Material" uid="uid://cwormuopnpcy0" path="res://Mine/Particles/M_FireballAlphaParticle.tres" id="2_mtb6k"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_glebl"]
+emission_shape = 1
+emission_sphere_radius = 0.5
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 3.0
+gravity = Vector3(0, -2.45, 0)
+anim_speed_min = 1.0
+anim_speed_max = 5.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_glebl"]
+material = ExtResource("2_mtb6k")
+
+[node name="BlockExplosion" type="Node3D"]
+script = ExtResource("1_cd70p")
+overall_lifetime = 1.5
+PlaySound = "scifi/explosionCrunch_003.ogg"
+metadata/_custom_type_script = "uid://cd6unrim8gkxc"
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 64
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_glebl")
+draw_pass_1 = SubResource("QuadMesh_glebl")
