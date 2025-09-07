@@ -24,7 +24,7 @@ func _updateColor():
 		mat.albedo_color = Color.GREEN;
 	if currentHealth == 3:
 		mat.albedo_color = Color.BLUE;
-	if currentHealth <= 0:
+	if currentHealth == 0:
 		var exp = Node3DPool.GetInstance("BlockExplosion");
 		if exp != null:
 			exp.global_position = global_position + Vector3(0.0, 0.5, 0.0);

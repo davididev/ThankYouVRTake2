@@ -18,7 +18,7 @@ material = ExtResource("2_mtb6k")
 
 [node name="BlockExplosion" type="Node3D"]
 script = ExtResource("1_cd70p")
-overall_lifetime = 1.5
+overall_lifetime = 0.75
 PlaySound = "scifi/explosionCrunch_003.ogg"
 metadata/_custom_type_script = "uid://cd6unrim8gkxc"
 
