@@ -29,3 +29,6 @@ one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_glebl")
 draw_pass_1 = SubResource("QuadMesh_glebl")
+
+[connection signal="DisablePool" from="." to="." method="_on_disable_pool"]
+[connection signal="EnablePool" from="." to="." method="_on_enable_pool"]

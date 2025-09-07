@@ -10,8 +10,9 @@ func _physics_process(delta: float) -> void:
 		queue_free();
 
 	var space_state = get_world_3d().direct_space_state;
-	var target = global_position + (ForwardVec * 1.75);
-	var query = PhysicsRayQueryParameters3D.create(global_position, target, self.collision_mask);
+	var origin = global_position + Vector3(0.0, -0.9, 0.0);
+	var target = origin + (ForwardVec * 1.75);
+	var query = PhysicsRayQueryParameters3D.create(origin, target, self.collision_mask);
 	var result = space_state.intersect_ray(query);
 	if result.is_empty() == false:
 		if result.normal.y < 0.5:  #Don't get from floor

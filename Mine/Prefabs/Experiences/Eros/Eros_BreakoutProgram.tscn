@@ -17,8 +17,8 @@ points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 
 
 [node name="ErosProgram" type="Node3D"]
 script = ExtResource("1_ddkg5")
-NodesToReset = Array[NodePath]([NodePath("Breakout Paddle")])
-GridMaps = Array[NodePath]([NodePath("Floors"), NodePath("Walls1"), NodePath("Walls2"), NodePath("BreakoutBlock"), NodePath("BreakoutBlock2"), NodePath("BreakoutBlock3"), NodePath("BreakoutBlock12"), NodePath("BreakoutBlock13"), NodePath("BreakoutBlock14"), NodePath("BreakoutBlock15"), NodePath("BreakoutBlock16"), NodePath("BreakoutBlock17"), NodePath("BreakoutBlock9"), NodePath("BreakoutBlock10"), NodePath("BreakoutBlock11"), NodePath("BreakoutBlock4"), NodePath("BreakoutBlock5"), NodePath("BreakoutBlock6"), NodePath("BreakoutBlock7"), NodePath("BreakoutBlock8"), NodePath("")])
+NodesToReset = Array[NodePath]([NodePath("Breakout Paddle"), NodePath("BreakoutBlock"), NodePath("BreakoutBlock2"), NodePath("BreakoutBlock3"), NodePath("BreakoutBlock3"), NodePath("BreakoutBlock12"), NodePath("BreakoutBlock13"), NodePath("BreakoutBlock14"), NodePath("BreakoutBlock15"), NodePath("BreakoutBlock16"), NodePath("BreakoutBlock17"), NodePath("BreakoutBlock9"), NodePath("BreakoutBlock10"), NodePath("BreakoutBlock11"), NodePath("BreakoutBlock4"), NodePath("BreakoutBlock5"), NodePath("BreakoutBlock6"), NodePath("BreakoutBlock7"), NodePath("BreakoutBlock8")])
+GridMaps = Array[NodePath]([NodePath("Floors"), NodePath("Walls1"), NodePath("Walls2")])
 CollidersToReset = Array[NodePath]([NodePath("BreakoutBarrier/StaticBody3D/CollisionShape3D")])
 metadata/_custom_type_script = "uid://barpiosc6os6j"
 
@@ -65,23 +65,21 @@ shape = SubResource("BoxShape3D_5ogwc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.407, 1.5, -2.842)
 
 [node name="Forcefield" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.12132, 0, 0.176777, 0, 6, 0, -2.12132, 0, 0.176777, 2.743, 3, -2.03)
+transform = Transform3D(2.12132, 0, 0.176777, 0, 6, 0, -2.12132, 0, 0.176777, 3, 3, -2.03)
 mesh = SubResource("BoxMesh_3eokj")
 surface_material_override/0 = ExtResource("5_jqfho")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Forcefield"]
-collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Forcefield/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_mrg7q")
 
 [node name="Forcefield2" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.12132, 0, -0.176777, 0, 6, 0, 2.12132, 0, 0.176777, -10.257, 3, -2.03)
+transform = Transform3D(2.12132, 0, -0.176777, 0, 6, 0, 2.12132, 0, 0.176777, -11, 3, -2.03)
 mesh = SubResource("BoxMesh_3eokj")
 surface_material_override/0 = ExtResource("5_jqfho")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Forcefield2"]
-collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Forcefield2/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_mrg7q")
