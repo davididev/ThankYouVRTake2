@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://drg0a0pct0gxm"]
+[gd_scene load_steps=21 format=3 uid="uid://drg0a0pct0gxm"]
 
 [ext_resource type="Texture2D" uid="uid://c6cpidv7tqg4i" path="res://Mine/UI/AwayButton1.png" id="1_5l47d"]
 [ext_resource type="Script" uid="uid://4lh0ytrg5mna" path="res://Mine/Scripts/Title/title_ui.gd" id="1_cl5um"]
@@ -17,6 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://dhf1cmg8k268y" path="res://Mine/UI/ErosButton1.png" id="15_3q11x"]
 [ext_resource type="Texture2D" uid="uid://edwbjpdgmev4" path="res://Mine/UI/ErosButton3.png" id="16_vwamh"]
 [ext_resource type="Texture2D" uid="uid://cka8383y3uopv" path="res://Mine/UI/ErosButton2.png" id="17_4q4fs"]
+[ext_resource type="Texture2D" uid="uid://db650jy1pnadc" path="res://Mine/UI/MikeButton1.png" id="18_s6sed"]
+[ext_resource type="Texture2D" uid="uid://dr3o5ipxlcfs8" path="res://Mine/UI/MikeButton3.png" id="19_6n478"]
+[ext_resource type="Texture2D" uid="uid://byafnkvava4sb" path="res://Mine/UI/MikeButton2.png" id="20_jyuqo"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -24,8 +27,8 @@ anchors_preset = 0
 offset_right = 600.0
 offset_bottom = 400.0
 script = ExtResource("1_cl5um")
-panels = Array[NodePath]([NodePath("Panel 1"), NodePath("Panel 2"), NodePath("Panel 3"), NodePath("Panel 4"), NodePath("Panel 5")])
-scenes = Array[String](["Mine/Scenes/Away.tscn", "Mine/Scenes/Tim.tscn", "Mine/Scenes/Mutti.tscn", "Mine/Scenes/Hannah.tscn", "Mine/Scenes/Eros.tscn"])
+panels = Array[NodePath]([NodePath("Panel 1"), NodePath("Panel 2"), NodePath("Panel 3"), NodePath("Panel 4"), NodePath("Panel 5"), NodePath("Panel 6")])
+scenes = Array[String](["Mine/Scenes/Away.tscn", "Mine/Scenes/Tim.tscn", "Mine/Scenes/Mutti.tscn", "Mine/Scenes/Hannah.tscn", "Mine/Scenes/Eros.tscn", "Mine/Scenes/Mike.tscn"])
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -198,6 +201,35 @@ bbcode_enabled = true
 text = "[font_size=28]Thanks for the previous build[/font_size]
 Eros made me a build previously, and I reused the big hard drive and Blu-Ray player (which is also a DVD/CD burner)"
 
+[node name="Panel 6" type="Control" parent="."]
+visible = false
+layout_mode = 2
+anchors_preset = 0
+offset_top = 50.0
+offset_bottom = 50.0
+
+[node name="PanelButton 6" type="TextureButton" parent="Panel 6"]
+layout_mode = 0
+offset_top = 136.0
+offset_right = 320.0
+offset_bottom = 456.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("18_s6sed")
+texture_pressed = ExtResource("19_6n478")
+texture_hover = ExtResource("20_jyuqo")
+texture_focused = ExtResource("20_jyuqo")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel 6"]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 112.0
+offset_right = 598.0
+offset_bottom = 338.0
+theme = ExtResource("4_viqiq")
+bbcode_enabled = true
+text = "[font_size=28]Thanks for the VR capable laptop[/font_size]
+Mike gave me an incredibly good laptop while my desktop was down, enabling me to keep working until I can get the desktop back up and running again, and also giving me the ability to take demos with me in places without wifi."
+
 [connection signal="pressed" from="Prev Button" to="." method="_on_prev_button_pressed"]
 [connection signal="pressed" from="Next button" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="Panel 1/PanelButton 1" to="." method="_on_panel_button_1_pressed"]
@@ -205,3 +237,4 @@ Eros made me a build previously, and I reused the big hard drive and Blu-Ray pla
 [connection signal="pressed" from="Panel 3/PanelButton 3" to="." method="_on_panel_button_3_pressed"]
 [connection signal="pressed" from="Panel 4/PanelButton 4" to="." method="_on_panel_button_4_pressed"]
 [connection signal="pressed" from="Panel 5/PanelButton 5" to="." method="_on_panel_button_5_pressed"]
+[connection signal="pressed" from="Panel 6/PanelButton 6" to="." method="_on_panel_button_6_pressed"]

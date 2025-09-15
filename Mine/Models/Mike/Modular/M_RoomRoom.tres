@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cxoartwuwu4vm"]
+
+[ext_resource type="Texture2D" uid="uid://bnygfwxs6gmqh" path="res://Mine/Models/Mike/Modular/RoomDoom.png" id="1_hpk10"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("1_hpk10")
+texture_filter = 0

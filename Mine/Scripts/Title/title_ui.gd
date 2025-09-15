@@ -56,3 +56,7 @@ func _on_panel_button_4_pressed() -> void:
 
 func _on_panel_button_5_pressed() -> void:
 	LoadScene(4);
+
+
+func _on_panel_button_6_pressed() -> void:
+	LoadScene(5);

@@ -1,0 +1,162 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://kbipgsicklmt"
+path="res://.godot/imported/RoomDoomModular.glb-ea9777e5f713a9129a0f6277b089ca37.scn"
+
+[deps]
+
+source_file="res://Mine/Models/Mike/Modular/RoomDoomModular.glb"
+dest_files=["res://.godot/imported/RoomDoomModular.glb-ea9777e5f713a9129a0f6277b089ca37.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"materials": {
+"M_RoomDoom_png": {
+"use_external/enabled": true,
+"use_external/path": "uid://cxoartwuwu4vm"
+},
+"M_RoomDoom_png.004": {
+"use_external/enabled": true,
+"use_external/path": "uid://cxoartwuwu4vm"
+}
+},
+"meshes": {
+"RoomDoomModular_CUBE1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Mike/Modular/Export/RoomDoomModular_CUBE1.res"
+},
+"RoomDoomModular_CUBE1_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Mike/Modular/Export/RoomDoomModular_CUBE1_001.res"
+},
+"RoomDoomModular_CUBE3DDD": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Mike/Modular/Export/RoomDoomModular_CUBE3DDD.res"
+},
+"RoomDoomModular_CUBE3_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Mike/Modular/Export/RoomDoomModular_CUBE3_001.res"
+},
+"RoomDoomModular_CUBE3_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Mike/Modular/Export/RoomDoomModular_CUBE3_002.res"
+},
+"RoomDoomModular_CUBE3_003": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Mike/Modular/Export/RoomDoomModular_CUBE3_003.res"
+},
+"RoomDoomModular_CUBE3_004": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Mike/Modular/Export/RoomDoomModular_CUBE3_004.res"
+},
+"RoomDoomModular_CUBE3_006": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Mike/Modular/Export/RoomDoomModular_CUBE3_006.res"
+},
+"RoomDoomModular_CUBE3_008": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Mike/Modular/Export/RoomDoomModular_CUBE3_008.res"
+},
+"RoomDoomModular_CUBE3_009": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Mike/Modular/Export/RoomDoomModular_CUBE3_009.res"
+},
+"RoomDoomModular_CUBE6": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Mike/Modular/Export/RoomDoomModular_CUBE6.res"
+},
+"RoomDoomModular_CUBE6_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Mike/Modular/Export/RoomDoomModular_CUBE6_001.res"
+},
+"RoomDoomModular_CUBE6_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Mike/Modular/Export/RoomDoomModular_CUBE6_002.res"
+},
+"RoomDoomModular_Gate1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Mine/Models/Mike/Modular/Export/RoomDoomModular_Gate1.res"
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1
