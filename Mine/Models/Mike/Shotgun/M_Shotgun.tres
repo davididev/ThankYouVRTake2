@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c8wcefbq7gnsy"]
+
+[ext_resource type="Texture2D" uid="uid://k5wa64vyeshs" path="res://Mine/Models/Mike/Shotgun/ShotgunPalette.png" id="1_ug1us"]
+
+[resource]
+albedo_texture = ExtResource("1_ug1us")
+metallic_specular = 0.0
+roughness = 0.0
