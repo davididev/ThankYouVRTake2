@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsmbyia5whypq"]
+
+[ext_resource type="Script" uid="uid://cd6unrim8gkxc" path="res://VR/Scripts/Misc/playparticlesonce.gd" id="1_uu25q"]
+[ext_resource type="Material" uid="uid://bxxgwrbfbf6bi" path="res://Mine/Particles/M_VaporCloudParticle.tres" id="2_uu25q"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i67v0"]
+emission_shape = 1
+emission_sphere_radius = 0.2
+spread = 180.0
+initial_velocity_min = 0.2
+initial_velocity_max = 0.4
+gravity = Vector3(0, 0, 0)
+color = Color(0.162066, 0.162066, 0.162066, 1)
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_ykctd"]
+material = ExtResource("2_uu25q")
+size = Vector2(0.5, 0.5)
+
+[node name="Smoke_Particle" type="Node3D"]
+script = ExtResource("1_uu25q")
+overall_lifetime = 2.0
+PlaySound = ""
+metadata/_custom_type_script = "uid://cd6unrim8gkxc"
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 1.0
+visibility_aabb = AABB(-1.71781, -1.51995, -1.07509, 2.86404, 3.25985, 2.70489)
+process_material = SubResource("ParticleProcessMaterial_i67v0")
+draw_pass_1 = SubResource("QuadMesh_ykctd")
+
+[connection signal="DisablePool" from="." to="." method="_on_disable_pool"]
+[connection signal="EnablePool" from="." to="." method="_on_enable_pool"]

@@ -227,7 +227,7 @@ offset_right = 598.0
 offset_bottom = 338.0
 theme = ExtResource("4_viqiq")
 bbcode_enabled = true
-text = "[font_size=28]Thanks for the VR capable laptop[/font_size]
+text = "[font_size=28]Thanks for the VR  laptop[/font_size]
 Mike gave me an incredibly good laptop while my desktop was down, enabling me to keep working until I can get the desktop back up and running again, and also giving me the ability to take demos with me in places without wifi."
 
 [connection signal="pressed" from="Prev Button" to="." method="_on_prev_button_pressed"]

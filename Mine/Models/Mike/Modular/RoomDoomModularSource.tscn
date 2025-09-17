@@ -3,7 +3,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cduxp6mk2fqmd" path="res://Mine/Models/Mike/Modular/Export/RoomDoomModular_CUBE1.res" id="1_tettk"]
 [ext_resource type="Material" uid="uid://cxoartwuwu4vm" path="res://Mine/Models/Mike/Modular/M_RoomRoom.tres" id="2_iiqet"]
 [ext_resource type="ArrayMesh" uid="uid://bpp1tur7lewee" path="res://Mine/Models/Mike/Modular/Export/RoomDoomModular_CUBE3DDD.res" id="3_iiqet"]
-[ext_resource type="ArrayMesh" uid="uid://wav5uxkdv6gg" path="res://Mine/Models/Mike/Modular/Export/GridFloor_CUBE3DDDD.res" id="4_k668a"]
+[ext_resource type="ArrayMesh" uid="uid://cb4wk07jvd5ba" path="res://Mine/Models/Mike/Modular/Export/GridFloor_CUBE2.res" id="4_k668a"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_k668a"]
 points = PackedVector3Array(-2, 0, -2, -2, 0, 2, -2, 1, -2, 2, 0, -2, -2, 1, 2, 2, 0, 2, 2, 1, -2, 2, 1, 2)

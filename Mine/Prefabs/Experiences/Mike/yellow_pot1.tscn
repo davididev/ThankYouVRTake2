@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy866wuprqrb5"]
+
+[ext_resource type="Texture2D" uid="uid://dncop7kgaj4wj" path="res://Mine/Models/Mike/Sprites/YellowPot.png" id="1_s7wqe"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gj23o"]
+
+[node name="Yellow Pot A" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_gj23o")
+
+[node name="Sprite3D" type="Sprite3D" parent="CollisionShape3D"]
+billboard = 2
+texture = ExtResource("1_s7wqe")

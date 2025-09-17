@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpevrs3c8djv"]
+
+[ext_resource type="Texture2D" uid="uid://hjwlk5aiudlp" path="res://Mine/Models/Mike/Sprites/YellowBox.png" id="1_yghj8"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gj23o"]
+
+[node name="Yellow Box" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_gj23o")
+
+[node name="Sprite3D" type="Sprite3D" parent="CollisionShape3D"]
+billboard = 2
+texture = ExtResource("1_yghj8")

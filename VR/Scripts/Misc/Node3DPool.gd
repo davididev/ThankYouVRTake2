@@ -23,12 +23,10 @@ func _enter_tree() -> void:
 static func SetActive(node : Node3D, status : bool):
 	if status == true:
 		node.visible = true;
-		node.process_mode = ProcessMode.PROCESS_MODE_INHERIT;
 		if node.has_signal("EnablePool"):
 			node.emit_signal("EnablePool");
 	else:
 		node.visible = false;
-		node.process_mode = ProcessMode.PROCESS_MODE_PAUSABLE;
 		if node.has_signal("DisablePool"):
 			node.emit_signal("DisablePool");
 
