@@ -38,7 +38,7 @@ func _fire_from_marker(pt : Marker3D):
 			if dist > MIN_DISTANCE:
 				var min = dist - MIN_DISTANCE;
 				var max = MAX_DISTANCE - MIN_DISTANCE;
-				perc = perc / (min / max);  #Invert between min and max
+				perc = perc * (min / max);  #Invert between min and max
 			
 			if n.has_method("Damage"):
 				n.call("Damage", BASE_DAMAGE * perc)

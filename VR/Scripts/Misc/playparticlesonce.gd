@@ -19,7 +19,7 @@ func _on_enable_pool() -> void:
 	lifespan_passed = overall_lifetime;
 	for child in get_children():
 		if child is GPUParticles3D:
-			child.emitting = true;
+			child.restart();
 
 	if not PlaySound.is_empty():
 		SoundFXPlayer.PlaySound(PlaySound, get_tree(), global_position, 6.0);
